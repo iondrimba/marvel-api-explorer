@@ -11,6 +11,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var isProduction = (process.env.NODE_ENV === "production");
 var isTesting = (process.env.NODE_ENV === "testing");
+var apikey = process.env.npm_config_apikey;
 
 var config = {
     resolve: {
@@ -100,9 +101,15 @@ var config = {
                 from: 'src/images/', to: 'images'
             },
         ]),
+        new webpack.EnvironmentPlugin([
+            "NODE_ENV",
+            'API_KEY'
+        ]),
         new webpack.DefinePlugin({
+            'API_KEY': apikey,
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                'NODE_ENV': JSON.stringify('production'),
+                'API_KEY': apikey
             }
         }),
 
