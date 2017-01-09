@@ -2,8 +2,6 @@ import Howler from 'howler';
 import apiKeys from '../../../api.keys';
 import axios from 'axios';
 
-console.log('API', apiKeys);
-
 class Api {
     constructor() {
         this.baseUrl = apiKeys.baseUrl;
@@ -11,10 +9,11 @@ class Api {
         this.version = apiKeys.version;
         this.limit = 0;
         this.offset = 0;
+        this.timeout = 10000;
 
         this.request = axios.create({
             baseURL: `${this.baseUrl}${this.version}/public/`,
-            timeout: 10000,
+            timeout: this.timeout,
             responseType: 'json'
         });
 
@@ -24,11 +23,13 @@ class Api {
         return `${url}?apikey=${this.publicKey}&limit=${this.limit}&offset=${this.offset}`;
     }
     getCharacters() {
-        this.request.get(this.appendParameters(this.characterUrl))
+        return this.request.get(this.appendParameters(this.characterUrl))
             .then(function (response) {
-                console.table(response);
-                console.table(response.data);
+                return response;
+            }).catch(function (error) {
+                return error;
             });
+
     }
 }
 
