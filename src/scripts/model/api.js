@@ -3,10 +3,11 @@ import apiKeys from '../../../api.keys';
 import axios from 'axios';
 
 class Api {
-    constructor() {
+    constructor(API_KEY) {
         this.baseUrl = apiKeys.baseUrl;
-        this.publicKey = apiKeys.publicKey;
+        this.publicKey = API_KEY;
         this.version = apiKeys.version;
+        this.folder = apiKeys.folder;
         this.timeout = 10000;
         this.options = {
             limit: 15,
@@ -14,7 +15,7 @@ class Api {
         };
 
         this.request = axios.create({
-            baseURL: `${this.baseUrl}${this.version}/public/`,
+            baseURL: `${this.baseUrl}/${this.version}/${this.folder}/`,
             timeout: this.timeout,
             responseType: 'json'
         });

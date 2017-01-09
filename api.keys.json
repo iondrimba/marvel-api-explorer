@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://gateway.marvel.com",
+    "version": "v1",
+    "folder": "public"
+}
