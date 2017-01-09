@@ -12,5 +12,4 @@ before_install:
 before_script:
 - yarn install
 script:
-- yarn prod
 - yarn test
