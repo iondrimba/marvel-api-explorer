@@ -7,9 +7,11 @@ class Api {
         this.baseUrl = apiKeys.baseUrl;
         this.publicKey = apiKeys.publicKey;
         this.version = apiKeys.version;
-        this.limit = 0;
-        this.offset = 0;
         this.timeout = 10000;
+        this.options = {
+            limit: 15,
+            offset: 5
+        };
 
         this.request = axios.create({
             baseURL: `${this.baseUrl}${this.version}/public/`,
@@ -19,11 +21,18 @@ class Api {
 
         this.characterUrl = '/characters';
     }
-    appendParameters(url) {
-        return `${url}?apikey=${this.publicKey}&limit=${this.limit}&offset=${this.offset}`;
+    appendParameters(url, options) {
+        let result = `${url}?apikey=${this.publicKey}`;
+        if (!options) {
+            options = this.options;
+        }
+        for (let option in options) {
+            result += `&${option}=${options[option]}`;
+        }
+        return result;
     }
-    getCharacters() {
-        return this.request.get(this.appendParameters(this.characterUrl))
+    getCharacters(options) {
+        return this.request.get(this.appendParameters(this.characterUrl, options))
             .then(function (response) {
                 return response;
             }).catch(function (error) {

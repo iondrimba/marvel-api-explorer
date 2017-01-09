@@ -4,16 +4,23 @@ describe('API tests', () => {
 
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
-    it('should retrive character requests', (done) => {
+    it('Api.getCharacters - should retrive character requests', (done) => {
         let api = new Api();
-        api.limit = 5;
         let p = api.getCharacters().then((response) => {
             expect(response.status).toBe(200);
-            expect(response.data.data.limit).toBe(api.limit);
-            expect(response.data.data.count).toBe(api.limit);
             done();
         }).catch((error) => {
             done();
         });
+    });
+
+    it('Api.appendParameters -  should append options to request url', () => {
+        let api = new Api();
+        let options = {
+            limit: 10,
+            offset: 5
+        };
+        let result = api.appendParameters(api.characterUrl, options);
+        expect(result).toBe(`${api.characterUrl}?apikey=${api.publicKey}&limit=10&offset=5`);
     });
 });
