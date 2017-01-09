@@ -7,10 +7,12 @@ var threshold = require('karma-threshold-reporter');
 module.exports = function (config) {
     config.set({
         client: {
-            args: ['--autoWatch', config.autoWatch]
+            args: ['--autoWatch', config.autoWatch],
+            jasmine: {
+                API_KEY: process.env.npm_config_apikey,
+            }
         }
     });
-
 
     config.set({
         basePath: '',
