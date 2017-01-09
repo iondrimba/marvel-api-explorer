@@ -17,6 +17,7 @@ module.exports = function (config) {
         frameworks: ['jasmine', 'browserify'],
         files: [
             './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
+            './node_modules/promise-polyfill/promise.js',
             'spec/*.js'
         ],
         included: false,
@@ -86,6 +87,7 @@ module.exports = function (config) {
         },
         port: 9876,
         colors: true,
+        browserNoActivityTimeout: 60000,
         logLevel: config.LOG_ERROR,
         autoWatch: config.autoWatch,
         browsers: ['PhantomJS'],
