@@ -7,7 +7,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --compress --colors --inline --hot",
     "prod": "cross-env NODE_ENV=production webpack --progress -p",
-    "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 karma start --autoWatch false"
+    "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 karma start --autoWatch false",
+    "travis": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 karma start --autoWatch false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iondrimba/marvel-api-explorer.git"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -75,6 +80,7 @@
     "stylelint-config-standard": "^15.0.0",
     "stylelint-webpack-plugin": "^0.4.0",
     "sw-precache-webpack-plugin": "^0.7.0",
+    "system": "^1.2.0",
     "url-loader": "^0.5.7",
     "watchify": "^3.8.0",
     "webpack": "^1.14.0",
