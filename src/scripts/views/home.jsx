@@ -1,10 +1,15 @@
 import React from 'react';
+import Api from '../model/api';
+
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
+
+        this.api = new Api();
     }
     componentDidMount() {
+        this.api.getCharacters();
     }
     render() {
         return (

@@ -39,6 +39,11 @@ var config = {
                 loader: "babel-loader!eslint-loader"
             },
             {
+                test: /.json$/,
+                exclude: /node_modules/,
+                loader: "json-loader"
+            },
+            {
                 test: /\.html$/,
                 loader: "raw-loader"
             },

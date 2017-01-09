@@ -3,3 +3,4 @@ test/
 coverage/
 public/
 nodesource_setup.sh
+api.keys.json
