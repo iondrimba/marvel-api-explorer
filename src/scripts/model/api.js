@@ -32,8 +32,21 @@ class Api {
         }
         return result;
     }
+    formatUrlWithId(url, id) {
+        let result = `${url}/${id}`;
+        return result;
+    }
     getCharacters(options) {
         return this.request.get(this.appendParameters(this.characterUrl, options))
+            .then(function (response) {
+                return response;
+            }).catch(function (error) {
+                return error;
+            });
+
+    }
+    getCharacterById(id, options) {
+        return this.request.get(this.appendParameters(this.formatUrlWithId(this.characterUrl, id), options))
             .then(function (response) {
                 return response;
             }).catch(function (error) {
