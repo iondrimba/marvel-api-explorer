@@ -13,6 +13,8 @@ var isProduction = (process.env.NODE_ENV === "production");
 var isTesting = (process.env.NODE_ENV === "testing");
 var apikey = process.env.npm_config_apikey;
 
+console.log('webpack', apikey);
+
 var config = {
     resolve: {
         extensions: ["", ".js", ".jsx", ".json", ".mp3", ".ico"]
