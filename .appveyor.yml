@@ -13,7 +13,7 @@ install:
   - npm install promise
   - yarn install
 test_script:
-  - npm set apikey=$(API_KEY) && yarn test
+  - npm set apikey=%API_KEY% && yarn test
 build: off
 matrix:
   fast_finish: true
