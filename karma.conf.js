@@ -1,5 +1,3 @@
-// Karma configuration
-// Generated on Tue Feb 02 2016 21:20:59 GMT-0200 (Horário brasileiro de verão)
 var istanbul = require('browserify-istanbul');
 var isparta = require('isparta');
 var threshold = require('karma-threshold-reporter');
