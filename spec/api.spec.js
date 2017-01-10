@@ -28,17 +28,18 @@ describe('API tests', () => {
         api.getCharacters({ limit: 5 }).then((response) => {
             expect(response.data.code).toBe(200);
             expect(response.data.data.limit).toBe(5);
+            done();
         });
-        done();
     });
 
     it('Api.getCharacters - should retrive character by name', (done) => {
         api.getCharacters({ limit: 5, name: 'spider-man' }).then((response) => {
             expect(response.data.code).toBe(200);
             expect(response.data.results[0].name.toLowerCase()).toBe('spider-man');
+            done();
         }).catch((error) => {
+            done();
         });
-        done();
     });
 
     it('Api.appendParameters -  should append options to request url', () => {
