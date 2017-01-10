@@ -12,7 +12,6 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var isProduction = (process.env.NODE_ENV === "production");
 var isTesting = (process.env.NODE_ENV === "testing");
 var apikey = process.env.npm_config_apikey;
-
 var config = {
     resolve: {
         extensions: ["", ".js", ".jsx", ".json", ".mp3", ".ico"]

@@ -1,4 +1,5 @@
 import Api from '../src/scripts/model/api';
+import axios from 'axios';
 
 describe('API tests', () => {
 
@@ -6,41 +7,41 @@ describe('API tests', () => {
 
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
+    let api = {};
+
+    beforeEach(function () {
+        api = new Api(API_KEY);
+    });
+
+    afterEach(function () {
+        api = null;
+    });
+
     it('Api.getCharacters - should retrive character requests', (done) => {
-        let api = new Api(API_KEY);
-        let p = api.getCharacters().then((response) => {
+        api.getCharacters().then((response) => {
             expect(response.data.code).toBe(200);
-            done();
-        }).catch((error) => {
             done();
         });
     });
 
     it('Api.getCharacters - should retrive character requests with parameters', (done) => {
-        let api = new Api(API_KEY);
-        let p = api.getCharacters({ limit: 5 }).then((response) => {
+        api.getCharacters({ limit: 5 }).then((response) => {
             expect(response.data.code).toBe(200);
             expect(response.data.data.limit).toBe(5);
-            done();
-        }).catch((error) => {
-            done();
         });
+        done();
     });
 
     it('Api.getCharacters - should retrive character by name', (done) => {
-        let api = new Api(API_KEY);
-        let p = api.getCharacters({ limit: 5, name: 'spider-man' }).then((response) => {
+        api.getCharacters({ limit: 5, name: 'spider-man' }).then((response) => {
             expect(response.data.code).toBe(200);
             expect(response.data.results[0].name.toLowerCase()).toBe('spider-man');
-            expect(response.data.results.length).toBe(response.data.count);
-            done();
         }).catch((error) => {
-            done();
         });
+        done();
     });
 
     it('Api.appendParameters -  should append options to request url', () => {
-        let api = new Api(API_KEY);
         let options = {
             limit: 10,
             offset: 5
@@ -50,7 +51,6 @@ describe('API tests', () => {
     });
 
     it('Api.formatUrlWithId -  should append id to request url', () => {
-        let api = new Api(API_KEY);
         let id = 125;
         let options = {
             limit: 10,
@@ -60,17 +60,46 @@ describe('API tests', () => {
         expect(result).toBe(`${api.characterUrl}/${id}`);
     });
 
-    it('Api.getCharacterById -  should retrive character by Id', () => {
-        let api = new Api(API_KEY);
+    it('Api.getCharacterById -  should retrive character by Id', (done) => {
         let id = 1009610;
-        let p = api.getCharacterById(id, { limit: 5, name: 'spider-man' }).then((response) => {
+        api.getCharacterById(id, { limit: 5 }).then((response) => {
             expect(response.data.code).toBe(200);
             expect(response.data.results[0].name.toLowerCase()).toBe('spider-man');
-            expect(response.data.results.length).toBe(response.data.count);
-            done();
         }).catch((error) => {
             done();
         })
+    });
+
+    it('Api.getCharacterById -  should retrive code 409', (done) => {
+        let id = 1009610;
+        api.getCharacterById(id, { limit: 0 }).then((response) => {
+            expect(response.data.code).toBe(409);
+            done();
+        });
+    });
+
+    it('Api.getCharacterById -  should retrive error', (done) => {
+        let id = 1009610;
+        api.version = 'v2';
+        api.getCharacterById(id, { limit: 0 }).then((response) => {
+            expect(error.stack).toBeDefined();
+            done();
+        }).catch((error) => {
+            expect(error.stack).toBeDefined();
+            done();
+        });
+    });
+
+    it('Api.getCharacters -  should retrive error', (done) => {
+        let id = 1009610;
+        api.version = 'v2';
+        api.getCharacters({ limit: 0 }).then((response) => {
+            expect(error.stack).toBeDefined();
+            done();
+        }).catch((error) => {
+            expect(error.stack).toBeDefined();
+            done();
+        });
     });
 
 });
