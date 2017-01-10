@@ -84,7 +84,6 @@ describe('API tests', () => {
         api.version = 'v2';
         api.getCharacterById(id, { limit: 0 }).then((response) => {
             expect(error.stack).toBeDefined();
-            done();
         }).catch((error) => {
             expect(error.stack).toBeDefined();
             done();
@@ -96,7 +95,6 @@ describe('API tests', () => {
         api.version = 'v2';
         api.getCharacters({ limit: 0 }).then((response) => {
             expect(error.stack).toBeDefined();
-            done();
         }).catch((error) => {
             expect(error.stack).toBeDefined();
             done();
