@@ -38,18 +38,23 @@ class Api {
     }
     getCharacters(options) {
         return this.request.get(this.appendParameters(this.characterUrl, options))
-            .then(function (response) {
-                return response;
+            .then((resolve) => {
+                return resolve;
+            }, (reject) => {
+                return reject.response;
             }).catch(function (error) {
                 return error;
             });
 
     }
     getCharacterById(id, options) {
-        return this.request.get(this.appendParameters(this.formatUrlWithId(this.characterUrl, id), options))
-            .then(function (response) {
-                return response;
-            }).catch(function (error) {
+        var url = this.appendParameters(this.formatUrlWithId(this.characterUrl, id), options);
+        return this.request.get(url)
+            .then((resolve) => {
+                return resolve;
+            }, (reject) => {
+                return reject.response;
+            }).catch((error) => {
                 return error;
             });
 
