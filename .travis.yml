@@ -12,4 +12,4 @@ before_install:
 before_script:
 - yarn install
 script:
-- npm set apikey=API_KEY && yarn test
+- npm set apikey=$API_KEY && yarn test
