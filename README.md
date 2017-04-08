@@ -9,4 +9,8 @@ Exploring Marvel's API
 
 * npm set apikey=000000 && yarn test
 
+https://developer.marvel.com/documentation/apiresults
+
+https://developer.marvel.com/documentation/images
+
 ## [API](https://developer.marvel.com/docs)
