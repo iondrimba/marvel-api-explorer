@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom'
 function mapStateToProps(store) {
   return {
     fetching: store.fetching,
+    page: store.page,
     characters: store.characters
   };
 }

@@ -2,33 +2,23 @@ import React from 'react';
 import Api from '../model/api';
 import Loader from './loader';
 import ImageList from './imageList';
+import Styles from '../../scss/home.scss';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this);
+    this.state = {
+      path: ''
+    };
   }
   componentDidMount() {
-    console.log('mount', this);
     this.props.charactersFetch({ orderBy: 'name' });
-  }
-  componentWillUnmount() {
-    console.log('componentWillUnmount', this);
-  }
-  componentWillUpdate(nextProps, nextState) {
-    //console.log('componentWillUpdate', nextProps, nextState);
-    //return false;
-  }
-  componentWillMount() {
-    console.log('componentWillMount', this);
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate', nextProps, nextState);
-    return true;
   }
 
   render() {
     return (
-      <div>
+      <div className="home">
         <h1>Hello</h1>
         <Loader loading={this.props.fetching} />
         <ImageList images={this.props.characters} />
@@ -39,7 +29,9 @@ class Home extends React.Component {
 
 Home.propTypes = {
   characters: React.PropTypes.array,
+  location: React.PropTypes.object,
   fetching: React.PropTypes.bool,
+  page: React.PropTypes.number,
   fetchingAction: React.PropTypes.func,
   charactersFetch: React.PropTypes.func
 }

@@ -1,0 +1,15 @@
+.detail {
+  background-color: rgba(2, 2, 2, .89);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  img {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}

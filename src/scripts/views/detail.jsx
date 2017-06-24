@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from '../../scss/detail.scss';
 
 class Detail extends React.Component {
   constructor(props) {
@@ -6,7 +7,7 @@ class Detail extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="detail">
         {
           this.props.characters.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
