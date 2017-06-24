@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import Home from '../views/home';
+import Detail from '../views/detail';
 import { characters, charactersGet } from '../actions/characters';
 import fetching from '../actions/fetching';
 import * as constants from '../actions/constants';
+import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(store) {
   return {
@@ -20,6 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
-
-export default AppContainer;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Detail));

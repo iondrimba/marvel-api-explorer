@@ -8,10 +8,25 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
+    console.log('mount', this);
     this.props.charactersFetch({ orderBy: 'name' });
   }
+  componentWillUnmount() {
+    console.log('componentWillUnmount', this);
+  }
+  componentWillUpdate(nextProps, nextState) {
+    //console.log('componentWillUpdate', nextProps, nextState);
+    //return false;
+  }
+  componentWillMount() {
+    console.log('componentWillMount', this);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', nextProps, nextState);
+    return true;
+  }
+
   render() {
-    console.log(this.props.characters);
     return (
       <div>
         <h1>Hello</h1>

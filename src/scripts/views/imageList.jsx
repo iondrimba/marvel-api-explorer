@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class ImageList extends React.Component {
   constructor(props) {
@@ -9,7 +10,11 @@ class ImageList extends React.Component {
       <div>
         {
           this.props.images.map((data, index) => {
-            return <img key={index} src={`${data.thumbnail.path}/portrait_incredible.${data.thumbnail.extension}`} />
+            return <Link to={{
+              pathname: `/detail/${data.id}`
+            }} key={index}>
+              <img src={`${data.thumbnail.path}/portrait_incredible.${data.thumbnail.extension}`} />
+            </Link>
           })
         }
       </div>

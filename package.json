@@ -16,6 +16,9 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "history": "^4.6.3",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "next",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@ function characters(state = [], action) {
 
   switch (action.type) {
     case CHARACTERS_FETCHED:
-      return [...state, ...action.data.data.data.results];
+      return [...action.data.data.data.results];
   }
   return state;
 }
