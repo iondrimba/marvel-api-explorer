@@ -18,6 +18,7 @@ module.exports = function (config) {
         files: [
             './node_modules/phantomjs-polyfill-object-assign/object-assign-polyfill.js',
             './node_modules/promise-polyfill/promise.js',
+            'node_modules/jasmine-promises/dist/jasmine-promises.js',
             'src/scripts/model/api.js',
             'spec/api.spec.js'
         ],

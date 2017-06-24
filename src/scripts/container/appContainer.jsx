@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
 import Home from '../views/home';
-import createAction from '../actions/createAction';
+import { characters, charactersGet } from '../actions/characters';
+import fetching from '../actions/fetching';
 import * as constants from '../actions/constants';
-
 
 function mapStateToProps(store) {
   return {
-    muted: store.muted
+    fetching: store.fetching,
+    characters: store.characters
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    muteAction: (value) => {
-      dispatch(createAction(constants.MUTED, { value }));
+    charactersFetch: (options) => {
+      dispatch(fetching(true));
+      dispatch(charactersGet(options));
     }
   };
 }

@@ -1,5 +1,6 @@
 const defaultStore = {
-    muted: false
+  fetching: false,
+  characters: []
 };
 
 export default defaultStore;

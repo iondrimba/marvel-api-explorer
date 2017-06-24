@@ -4,3 +4,4 @@ coverage/
 public/
 nodesource_setup.sh
 secret.json
+out/chrome

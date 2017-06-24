@@ -1,13 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/root';
 import AppContainer from './container/appContainer';
 import RootReducer from './reducers/root';
 import defaultStore from './model/initialState';
 import Styles from '../scss/app.scss';
+import Api from './model/api';
 
-let store = createStore(RootReducer, defaultStore, window.devToolsExtension && window.devToolsExtension());
+const api = new Api(process.env.API_KEY);
+const store = createStore(RootReducer, defaultStore, applyMiddleware(thunk.withExtraArgument(api)));
 
 render(
   <Provider store={store} >
