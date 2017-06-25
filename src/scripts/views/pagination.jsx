@@ -4,22 +4,19 @@ import { NavLink } from 'react-router-dom'
 class Pagination extends React.Component {
   constructor(props) {
     super(props);
-    console.log('pagination', props);
   }
-  componentDidMount() {
-    console.log('mount pagination ', this.props)
-  }
+
   componentDidUpdate(prevProps, prevState) {
-    let oldLocation = prevProps.location.pathname
-    let newLocation = this.props.location.pathname
-    if (newLocation !== oldLocation) {
-      var page = Number(newLocation.replace('/', ''));
-      if (isNaN(page)) return;
+    let oldLocation = prevProps.location.pathname;
+    let newLocation = this.props.location.pathname;
+    var page = Number(newLocation.replace('/', ''));
+    if (newLocation !== oldLocation && this.props.pagination.current !== page) {
+      if (isNaN(page)) { return }
       this.props.paginationAction(page);
     }
   }
+
   render() {
-    console.log('pagination render', this.props);
     var ar = [];
     for (var index = 0; index < this.props.pagination.total; index++) {
       ar.push(index);
@@ -40,6 +37,8 @@ class Pagination extends React.Component {
   }
 }
 Pagination.propTypes = {
+  paginationAction: React.PropTypes.func,
   pagination: React.PropTypes.any,
+  location: React.PropTypes.object
 }
 export default Pagination;

@@ -13,13 +13,4 @@ function mapStateToProps(store) {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    charactersFetch: (options) => {
-      dispatch(fetching(true));
-      dispatch(charactersGet(options));
-    }
-  };
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Detail));
+export default withRouter(connect(mapStateToProps, null)(Detail));

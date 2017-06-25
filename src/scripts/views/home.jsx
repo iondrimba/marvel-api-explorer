@@ -8,19 +8,10 @@ import Styles from '../../scss/home.scss';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this);
   }
   componentDidMount() {
     this.props.paginationAction(0);
   }
-  // componentDidUpdate(prevProps, prevState) {
-  //   let oldLocation = prevProps.location.pathname
-  //   let newLocation = this.props.location.pathname
-  //   if (newLocation !== oldLocation) {
-  //     var page = Number(newLocation.replace('/', ''));
-  //     this.props.paginationAction(page);
-  //   }
-  // }
   render() {
     return (
       <div className="home">

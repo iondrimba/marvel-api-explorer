@@ -14,13 +14,14 @@ function mapStateToProps(store) {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, store) => {
   return {
     paginationAction: (page) => {
-      console.log('connect paginationAction', page);
+
       dispatch(pagination({ current: page }));
       dispatch(fetching(true));
       dispatch(charactersGet(Object.assign({}, { offset: page * 20 }, { orderBy: 'name' })));
+
     }
   };
 }

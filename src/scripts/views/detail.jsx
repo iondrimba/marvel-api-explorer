@@ -20,8 +20,10 @@ class Detail extends React.Component {
     );
   }
 }
+
 Detail.propTypes = {
   match: React.PropTypes.object,
   characters: React.PropTypes.array
 }
+
 export default Detail;
