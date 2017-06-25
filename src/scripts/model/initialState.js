@@ -1,6 +1,6 @@
 const defaultStore = {
   fetching: false,
-  page: -1,
+  pagination: { current: 0, total: 0 },
   characters: []
 };
 

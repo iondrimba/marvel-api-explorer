@@ -23,7 +23,7 @@ render(
   <Provider store={store} >
     <ConnectedRouter history={history}>
       <div>
-        <Route path="/" component={HomeContainer} />
+        <Route path="/:page?" component={HomeContainer} />
         <Route path="/detail/:id" component={DetailContainer} />
       </div>
     </ConnectedRouter>

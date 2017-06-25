@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import characters from './characters';
 import fetching from './fetching';
-import page from './page';
+import pagination from './pagination';
 import { routerReducer } from 'react-router-redux';
 
 const RootReducer = combineReducers({
   fetching: fetching,
-  page: page,
+  pagination: pagination,
   router: routerReducer,
   characters: characters
 });
