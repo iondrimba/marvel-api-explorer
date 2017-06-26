@@ -13,7 +13,6 @@ export function charactersGet(options) {
     var { limit, offset, orderBy, total } = options;
     return api.getCharacters({ limit, offset, orderBy }).then((data) => {
       dispatch(characters(data));
-      dispatch(filter(getState().filter));
       var { limit, offset, total } = data.data.data;
       var pages = Math.round(total / limit);
 

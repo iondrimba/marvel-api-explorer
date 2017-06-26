@@ -17,41 +17,32 @@ function mapStateToProps(store) {
   };
 }
 
+function getgetOffset(page) {
+  var offset = 0;
+  if (page > 0) {
+    offset = page * 20;
+  }
+  return offset;
+}
+
 const mapDispatchToProps = (dispatch, store) => {
   return {
     filterAction: (props) => {
       var { type, page } = props.match.params;
       var { total } = props.pagination;
-      console.log('filterAction', props.filter);
+
       if (props.filter.length) {
         dispatch(fetching(true));
-        var offset = 0;
-        if (page > 0) {
-          offset = page * 20;
-        }
+
         if (type === 'characters') {
-          console.log('API chars')
-          dispatch(charactersGet(Object.assign({}, { limit: 20, offset: offset, total }, { orderBy: 'name' })));
+          dispatch(charactersGet(Object.assign({}, { limit: 20, offset: getgetOffset(page), total }, { orderBy: 'name' })));
         } else {
-          dispatch(comicsGet(Object.assign({}, { limit: 20, offset: offset, total }, { orderBy: 'title' })));
+          dispatch(comicsGet(Object.assign({}, { limit: 20, offset: getgetOffset(page), total }, { orderBy: 'title' })));
         }
       }
-
-      // console.log('mapDispatchToProps', props);
-      // console.log('mapDispatchToProps', store);
-
-
     },
-    paginationAction: (props) => {
-      console.log('page', props);
-      var { type, page } = props.match.params;
-      var { total } = props.pagination;
-      var offset = 0;
-      if (page > 0) {
-        offset = page * 20;
-      }
+    paginationAction: (page) => {
       dispatch(pagination({ current: page }));
-      dispatch(fetching(true));
     }
   };
 }

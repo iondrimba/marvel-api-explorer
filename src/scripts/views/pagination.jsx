@@ -7,11 +7,9 @@ class Pagination extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    let oldLocation = prevProps.location.pathname;
-    let newLocation = this.props.location.pathname;
     var page = this.props.match.params.page;
     if (isNaN(page) === false && page && page !== prevProps.pagination.current) {
-      this.props.paginationAction(this.props);
+      this.props.paginationAction(page);
     }
   }
 

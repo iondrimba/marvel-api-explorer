@@ -13,7 +13,6 @@ export function comicsGet(options) {
     var { limit, offset, orderBy, total } = options;
     return api.getComics({ limit, offset, orderBy }).then((data) => {
       dispatch(comics(data));
-      dispatch(filter(getState().filter));
       var { limit, offset, total } = data.data.data;
       var pages = Math.round(total / limit);
 
