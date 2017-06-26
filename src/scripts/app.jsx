@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import HomeContainer from './container/homeContainer';
 import DetailContainer from './container/detailContainer';
@@ -17,14 +17,17 @@ const history = createHistory();
 const router = routerMiddleware(history);
 
 const api = new Api(process.env.API_KEY);
-const store = createStore(RootReducer, defaultStore, applyMiddleware(router, thunk.withExtraArgument(api)));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(RootReducer, defaultStore, composeEnhancers(
+  applyMiddleware(router, thunk.withExtraArgument(api))
+));
 
 render(
   <Provider store={store} >
     <ConnectedRouter history={history}>
       <div>
-        <Route path="/:page?" render={HomeContainer} />
-        <Route path="/detail/:id" component={DetailContainer} />
+        <Route path="/:type?/:page?" render={HomeContainer} />
+        <Route path="/:type?/detail/:id" component={DetailContainer} />
       </div>
     </ConnectedRouter>
   </Provider>,

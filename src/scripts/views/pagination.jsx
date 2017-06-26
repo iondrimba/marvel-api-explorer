@@ -9,10 +9,9 @@ class Pagination extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     let oldLocation = prevProps.location.pathname;
     let newLocation = this.props.location.pathname;
-    var page = Number(newLocation.replace('/', ''));
-    if (newLocation !== oldLocation && this.props.pagination.current !== page) {
-      if (isNaN(page)) { return }
-      this.props.paginationAction(page);
+    var page = this.props.match.params.page;
+    if (isNaN(page) === false && page && page !== prevProps.pagination.current) {
+      this.props.paginationAction(this.props);
     }
   }
 
@@ -26,7 +25,7 @@ class Pagination extends React.Component {
         {
           ar.map((data, index) => {
             return <NavLink strict className="link" to={{
-              pathname: `/${index}`
+              pathname: `/${this.props.filter}/${index}`
             }} key={data + index} >
               <span>{index + 1}</span>
             </NavLink>
@@ -39,6 +38,8 @@ class Pagination extends React.Component {
 Pagination.propTypes = {
   paginationAction: React.PropTypes.func,
   pagination: React.PropTypes.any,
-  location: React.PropTypes.object
+  location: React.PropTypes.object,
+  filter: React.PropTypes.any,
+  match: React.PropTypes.object,
 }
 export default Pagination;

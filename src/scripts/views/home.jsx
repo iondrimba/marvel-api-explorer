@@ -4,37 +4,46 @@ import Loader from './loader';
 import ImageList from './imageList';
 import Pagination from './pagination';
 import Styles from '../../scss/home.scss';
+import Menu from './menu';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    this.props.paginationAction(0);
+    this.props.filterAction(this.props);
   }
+  componentDidUpdate(prevProps, prevState) {
+    let oldLocation = prevProps.location.pathname;
+    let newLocation = this.props.location.pathname;
+    if (newLocation !== oldLocation && prevProps.match.params.page !== 'detail') {
+      if (isNaN(this.props.match.params.page) === false || this.props.match.params.page === undefined) {
+        this.props.filterAction(this.props);
+      }
+    }
+  }
+
   render() {
     return (
       <div className="home">
         <h1>Hello</h1>
         <span>{this.props.location.pathname}</span>
+        <Menu {...this.props} />
         <Loader loading={this.props.fetching} />
         <Pagination {...this.props} />
-        <ImageList images={this.props.characters} />
+        <ImageList {...this.props} />
       </div>
     );
   }
 }
 
 Home.propTypes = {
-  characters: React.PropTypes.array,
   location: React.PropTypes.object,
-  pagination: React.PropTypes.object,
-  paginationAction: React.PropTypes.func,
-  pageAction: React.PropTypes.func,
+  filterAction: React.PropTypes.func,
   fetching: React.PropTypes.bool,
   page: React.PropTypes.number,
-  fetchingAction: React.PropTypes.func,
-  charactersFetch: React.PropTypes.func
+  match: React.PropTypes.object,
+  filter: React.PropTypes.string,
 }
 
 export default Home;

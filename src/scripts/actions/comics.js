@@ -1,18 +1,18 @@
 import pagination from './pagination';
 import filter from './filter';
 
-export function characters(data) {
+export function comics(data) {
   return {
     type: 'FETCHED',
     data
   };
 }
 
-export function charactersGet(options) {
+export function comicsGet(options) {
   return function (dispatch, getState, api) {
     var { limit, offset, orderBy, total } = options;
-    return api.getCharacters({ limit, offset, orderBy }).then((data) => {
-      dispatch(characters(data));
+    return api.getComics({ limit, offset, orderBy }).then((data) => {
+      dispatch(comics(data));
       dispatch(filter(getState().filter));
       var { limit, offset, total } = data.data.data;
       var pages = Math.round(total / limit);
@@ -23,4 +23,3 @@ export function charactersGet(options) {
     })
   };
 }
-

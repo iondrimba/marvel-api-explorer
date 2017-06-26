@@ -9,9 +9,9 @@ class ImageList extends React.Component {
     return (
       <div>
         {
-          this.props.images.map((data, index) => {
+          this.props.characters.map((data, index) => {
             return <Link to={{
-              pathname: `/detail/${data.id}`
+              pathname: `/${this.props.filter}/detail/${data.id}`
             }} key={index}>
               <img src={`${data.thumbnail.path}/portrait_incredible.${data.thumbnail.extension}`} />
             </Link>
@@ -22,6 +22,7 @@ class ImageList extends React.Component {
   }
 }
 ImageList.propTypes = {
-  images: React.PropTypes.array,
+  characters: React.PropTypes.array,
+  filter: React.PropTypes.string,
 }
 export default ImageList;

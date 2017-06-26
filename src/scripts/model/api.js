@@ -16,6 +16,7 @@ class Api {
     });
 
     this.characterUrl = '/characters';
+    this.comicsUrl = '/comics';
   }
   appendParameters(url, options) {
     let result = `${url}?apikey=${this.publicKey}`;
@@ -33,6 +34,16 @@ class Api {
   }
   getCharacters(options) {
     return this.instance.get(this.appendParameters(this.characterUrl, options))
+      .then((resolve) => {
+        return resolve;
+      }, (reject) => {
+        return reject.response;
+      }).catch((error) => {
+        return error;
+      });
+  }
+  getComics(options) {
+    return this.instance.get(this.appendParameters(this.comicsUrl, options))
       .then((resolve) => {
         return resolve;
       }, (reject) => {

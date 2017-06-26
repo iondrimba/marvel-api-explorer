@@ -2,12 +2,14 @@ import { connect } from 'react-redux';
 import Detail from '../views/detail';
 import { characters, charactersGet } from '../actions/characters';
 import fetching from '../actions/fetching';
+import filter from '../actions/filter';
 import * as constants from '../actions/constants';
 import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(store) {
   return {
     fetching: store.fetching,
+    filter: store.filter,
     page: store.page,
     characters: store.characters
   };

@@ -1,6 +1,5 @@
 import { FETCHING, FETCHED } from '../actions/constants';
-import { LOCATION_CHANGE } from 'react-router-redux';
-function characters(state = [], action) {
+function comics(state = [], action) {
 
   switch (action.type) {
     case FETCHED:
@@ -9,4 +8,4 @@ function characters(state = [], action) {
   return state;
 }
 
-export default characters;
+export default comics;
