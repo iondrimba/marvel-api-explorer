@@ -11,7 +11,7 @@ export function characters(data) {
 export function charactersGet(options) {
   return function (dispatch, getState, api) {
     var { limit, offset, orderBy, total } = options;
-    return api.getCharacters({ limit, offset, orderBy }).then((data) => {
+    return api.getCharacters(options).then((data) => {
       dispatch(characters(data));
       var { limit, offset, total } = data.data.data;
       var pages = Math.round(total / limit);

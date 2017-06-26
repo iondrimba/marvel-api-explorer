@@ -7,7 +7,7 @@ class Api {
     this.timeout = 10000;
     this.options = {
       limit: 15,
-      offset: 5
+      offset: 0
     };
 
     this.instance = axios.create({
@@ -19,12 +19,17 @@ class Api {
     this.comicsUrl = '/comics';
   }
   appendParameters(url, options) {
-    let result = `${url}?apikey=${this.publicKey}`;
-    if (!options) {
-      options = this.options;
+    var { page, orderBy } = options;
+    if (page > 0) {
+      this.options.offset = page * this.options.limit;
+    } else {
+      this.options.offset = 0;
     }
-    for (let option in options) {
-      result += `&${option}=${options[option]}`;
+
+    let result = `${url}?apikey=${this.publicKey}`;
+    const mergedOptions = Object.assign({}, { orderBy }, this.options);
+    for (let option in mergedOptions) {
+      result += `&${option}=${mergedOptions[option]}`;
     }
     return result;
   }

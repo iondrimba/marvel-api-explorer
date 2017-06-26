@@ -17,14 +17,6 @@ function mapStateToProps(store) {
   };
 }
 
-function getgetOffset(page) {
-  var offset = 0;
-  if (page > 0) {
-    offset = page * 20;
-  }
-  return offset;
-}
-
 const mapDispatchToProps = (dispatch, store) => {
   return {
     filterAction: (props) => {
@@ -35,9 +27,9 @@ const mapDispatchToProps = (dispatch, store) => {
         dispatch(fetching(true));
 
         if (type === 'characters') {
-          dispatch(charactersGet(Object.assign({}, { limit: 20, offset: getgetOffset(page), total }, { orderBy: 'name' })));
+          dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name' })));
         } else {
-          dispatch(comicsGet(Object.assign({}, { limit: 20, offset: getgetOffset(page), total }, { orderBy: 'title' })));
+          dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title' })));
         }
       }
     },
