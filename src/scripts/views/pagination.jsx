@@ -1,27 +1,30 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { BrowserHistory } from 'react-router';
 
 class Pagination extends React.Component {
   constructor(props) {
     super(props);
   }
-
   componentDidUpdate(prevProps, prevState) {
-    var page = this.props.match.params.page;
+    var totalPages = this.props.pagination.total;
+
+    var page = this.props.match.params.page || 0;
     if (isNaN(page) === false && page && page !== prevProps.pagination.current) {
       this.props.paginationAction(page);
     }
   }
 
   render() {
-    var ar = [];
-    for (var index = 0; index < this.props.pagination.total; index++) {
-      ar.push(index);
-    }
+
     return (
       <div>
+        <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) - 1}` }} key={'prev'} >
+          <span>prev</span>
+        </NavLink>
+
         {
-          ar.map((data, index) => {
+          this.props.pagination.pages.map((data, index) => {
             return <NavLink strict className="link" to={{
               pathname: `/${this.props.filter}/${index}`
             }} key={data + index} >
@@ -29,6 +32,9 @@ class Pagination extends React.Component {
             </NavLink>
           })
         }
+        <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) + 1}` }} key={'next'} >
+          <span>next</span>
+        </NavLink>
       </div>
     );
   }

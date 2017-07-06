@@ -17,7 +17,8 @@ export function charactersGet(options) {
       var pages = Math.round(total / limit);
 
       if (getState().pagination.total !== pages) {
-        dispatch(pagination(Object.assign({}, getState().pagination, { total: pages })));
+        console.log('charactersGet pagination', getState().pagination)
+        dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
     })
   };

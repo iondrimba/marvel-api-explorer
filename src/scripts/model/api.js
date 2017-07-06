@@ -21,6 +21,7 @@ class Api {
   appendParameters(url, options) {
     var { page, orderBy } = options;
     if (page > 0) {
+      page--;
       this.options.offset = page * this.options.limit;
     } else {
       this.options.offset = 0;
