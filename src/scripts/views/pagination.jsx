@@ -24,11 +24,12 @@ class Pagination extends React.Component {
         </NavLink>
 
         {
+
           this.props.pagination.pages.map((data, index) => {
             return <NavLink strict className="link" to={{
-              pathname: `/${this.props.filter}/${index}`
+              pathname: `/${this.props.filter}/${data}`
             }} key={data + index} >
-              <span>{index + 1}</span>
+              <span>{data}</span>
             </NavLink>
           })
         }

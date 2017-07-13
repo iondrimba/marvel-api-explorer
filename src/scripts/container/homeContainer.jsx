@@ -32,9 +32,6 @@ const mapDispatchToProps = (dispatch, store) => {
           dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title' })));
         }
       }
-    },
-    paginationAction: (page) => {
-      dispatch(pagination({ current: page }));
     }
   };
 }

@@ -8,10 +8,11 @@ import fetching from '../actions/fetching';
 import filter from '../actions/filter';
 import * as constants from '../actions/constants';
 import { withRouter } from 'react-router-dom'
+import pagination from '../actions/pagination';
 
 function mountGroups(total) {
   let count = 0;
-  let groups = [[]];
+  let groups = [];
   for (var index = 0; index < (total / 5); index++) {
     groups.push([]);
     for (var j = 0; j < 5; j++) {
@@ -24,34 +25,29 @@ function mountGroups(total) {
   return groups;
 }
 
-function mountPages() {
-  let pagesCount = this.totalPages / this.maxPages;
-
-  if (pagesCount < this.maxPages) {
-    pagesCount = this.maxPages;
-  }
-
-  return pagesCount;
+function getCurrentGroup(groups, currentPage) {
+  return groups[currentPage] || [];
 }
-function getCurrentGroup(groups) {
-  return groups[0];
-}
-function groupPages() {
-  let start = 0;
-
-  return start;
+function groupPages(currentPage = 0) {
+  let start = Number(currentPage) / 5;
+  return Math.floor(start);
 }
 function getPages(pagination) {
-  return getCurrentGroup(mountGroups(pagination.total));
+  return getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current));
 }
 function mapStateToProps(store) {
   return {
-    fetching: store.fetching,
-    filter: store.filter,
-    pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination) }),
-    characters: store.characters,
-
+    pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination) })
+  };
+}
+const mapDispatchToProps = (dispatch, store) => {
+  return {
+    paginationAction: (page) => {
+      dispatch(pagination({ current: page, pages: getPages(store.pagination) }));
+    }
   };
 }
 
-export default withRouter(connect(mapStateToProps, null)(Pagination));
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Pagination));
