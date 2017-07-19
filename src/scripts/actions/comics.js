@@ -10,14 +10,14 @@ export function comics(data) {
 
 export function comicsGet(options) {
   return function (dispatch, getState, api) {
-    var { limit, offset, orderBy, total } = options;
-    return api.getComics({ limit, offset, orderBy }).then((data) => {
+    const { limit, offset, orderBy, total } = options;
+    return api.getComics(options).then((data) => {
       dispatch(comics(data));
-      var { limit, offset, total } = data.data.data;
-      var pages = Math.round(total / limit);
+      const { limit, offset, total } = data.data.data;
+      const pages = Math.round(total / limit);
 
       if (getState().pagination.total !== pages) {
-        dispatch(pagination(Object.assign({}, getState().pagination, { total: pages })));
+        dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
     })
   };

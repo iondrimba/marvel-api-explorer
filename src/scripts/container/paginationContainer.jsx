@@ -10,14 +10,27 @@ import * as constants from '../actions/constants';
 import { withRouter } from 'react-router-dom'
 import pagination from '../actions/pagination';
 
-function mountGroups(total) {
+const maxPages = 5;
+
+function mountGroups(totalItens) {
   let count = 0;
   let groups = [];
-  for (var index = 0; index < (total / 5); index++) {
-    groups.push([]);
-    for (var j = 0; j < 5; j++) {
+  const total = totalItens / maxPages;
+  let pages = 0;
 
-      groups[index].push(count);
+  for (let i = 0; i < total; i++) {
+    groups.push([]);
+
+    pages = maxPages;
+
+    if (totalItens < maxPages) {
+      pages = totalItens;
+    } else if (i === Math.floor(total)) {
+      pages = totalItens % count;
+    }
+
+    for (let j = 0; j < pages; j++) {
+      groups[i].push(count);
       count++;
     }
   }
@@ -28,12 +41,12 @@ function mountGroups(total) {
 function getCurrentGroup(groups, currentPage) {
   return groups[currentPage] || [];
 }
-function groupPages(currentPage = 0) {
-  let start = Number(currentPage) / 5;
+function groupPages(currentPage = 1) {
+  let start = Number(currentPage) / maxPages;
   return Math.floor(start);
 }
 function getPages(pagination) {
-  return getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current));
+  return getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current - 1));
 }
 function mapStateToProps(store) {
   return {

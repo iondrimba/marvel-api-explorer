@@ -7,9 +7,9 @@ class Pagination extends React.Component {
     super(props);
   }
   componentDidUpdate(prevProps, prevState) {
-    var totalPages = this.props.pagination.total;
+    const totalPages = this.props.pagination.total;
 
-    var page = this.props.match.params.page || 0;
+    const page = this.props.match.params.page || 0;
     if (isNaN(page) === false && page && page !== prevProps.pagination.current) {
       this.props.paginationAction(page);
     }
@@ -27,9 +27,9 @@ class Pagination extends React.Component {
 
           this.props.pagination.pages.map((data, index) => {
             return <NavLink strict className="link" to={{
-              pathname: `/${this.props.filter}/${data}`
-            }} key={data + index} >
-              <span>{data}</span>
+              pathname: `/${this.props.filter}/${data + 1}`
+            }} key={data + 1} >
+              <span>{data + 1}</span>
             </NavLink>
           })
         }

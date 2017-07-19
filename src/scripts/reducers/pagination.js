@@ -1,10 +1,10 @@
 import { PAGINATION } from '../actions/constants';
 import { LOCATION_CHANGE } from 'react-router-redux';
-function pagination(state = { current: 0, total: 0, pages: [] }, action) {
+function pagination(state = { current: 1, total: 0, pages: [] }, action) {
   switch (action.type) {
     case LOCATION_CHANGE:
       var f = action.payload.pathname.split('/');
-      return Object.assign({}, state, { current: f[2] || 0 });
+      return Object.assign({}, state, { current: f[2] || 1 });
     case PAGINATION:
       return Object.assign({}, state, action.pagination);
   }
