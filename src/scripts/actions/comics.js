@@ -19,6 +19,8 @@ export function comicsGet(options) {
       if (getState().pagination.total !== pages) {
         dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
-    })
+    }).catch(function (reason) {
+      console.log('comics catch', reason);
+    });
   };
 }

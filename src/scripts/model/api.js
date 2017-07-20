@@ -51,10 +51,13 @@ class Api {
   getComics(options) {
     return this.instance.get(this.appendParameters(this.comicsUrl, options))
       .then((resolve) => {
+        console.log('resolve', resolve);
         return resolve;
       }, (reject) => {
+        console.log('reject', reject);
         return reject.response;
       }).catch((error) => {
+        console.log('error', error);
         return error;
       });
   }
