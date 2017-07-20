@@ -17,14 +17,24 @@ class Pagination extends React.Component {
 
   render() {
 
+    let next = '';
+    let prev = '';
+
+    if (this.props.pagination.next) {
+      next = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) + 1}` }} key={'next'} >
+        <span>next</span>
+      </NavLink>
+    }
+    if (this.props.pagination.prev) {
+      prev = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) - 1}` }} key={'prev'} >
+        <span>prev</span>
+      </NavLink>
+    }
+
     return (
       <div>
-        <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) - 1}` }} key={'prev'} >
-          <span>prev</span>
-        </NavLink>
-
+        {prev}
         {
-
           this.props.pagination.pages.map((data, index) => {
             return <NavLink strict className="link" to={{
               pathname: `/${this.props.filter}/${data + 1}`
@@ -33,9 +43,7 @@ class Pagination extends React.Component {
             </NavLink>
           })
         }
-        <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) + 1}` }} key={'next'} >
-          <span>next</span>
-        </NavLink>
+        {next}
       </div>
     );
   }

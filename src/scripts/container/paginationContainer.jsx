@@ -15,7 +15,7 @@ const maxPages = 5;
 function mountGroups(totalItens) {
   let count = 0;
   let groups = [];
-  const total = totalItens / maxPages;
+  const total = getTotalPages(totalItens, maxPages);
   let pages = 0;
 
   for (let i = 0; i < total; i++) {
@@ -48,15 +48,24 @@ function groupPages(currentPage = 1) {
 function getPages(pagination) {
   return getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current - 1));
 }
+function getTotalPages(totalItens, maxPages) {
+  return totalItens / maxPages;
+}
+function getNext(pagination) {
+  return pagination.total > 0 && pagination.current < getTotalPages(pagination.total, maxPages);
+}
+function getPrev(pagination) {
+  return pagination.total > 0 && pagination.current > 1;
+}
 function mapStateToProps(store) {
   return {
-    pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination) })
+    pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) })
   };
 }
 const mapDispatchToProps = (dispatch, store) => {
   return {
     paginationAction: (page) => {
-      dispatch(pagination({ current: page, pages: getPages(store.pagination) }));
+      dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
     }
   };
 }
