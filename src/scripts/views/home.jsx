@@ -30,7 +30,7 @@ class Home extends React.Component {
 
 
     if (newLocation !== oldLocation && prevProps.match.params.page !== 'detail') {
-      if (isNaN(this.props.match.params.page) === false || this.props.match.params.page === undefined) {
+      if (isNaN(this.props.match.params.page) !== false || this.props.match.params.page === undefined) {
         this.props.filterAction(this.props);
       }
     }

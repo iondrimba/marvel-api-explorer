@@ -8,15 +8,14 @@ class Pagination extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const totalPages = this.props.pagination.total;
-
     const page = this.props.match.params.page || 0;
+
     if (isNaN(page) === false && page && page !== prevProps.pagination.current) {
       this.props.paginationAction(page);
     }
   }
 
   render() {
-
     let next = '';
     let prev = '';
 

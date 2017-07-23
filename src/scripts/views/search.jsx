@@ -3,12 +3,16 @@ import { NavLink } from 'react-router-dom';
 class Search extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      search: ''
+    }
   }
   componentDidMount() {
-    console.log(this.props);
     this.onTextChange = this.onTextChange.bind(this);
     this.refs.search.onsubmit = (evt) => {
       evt.preventDefault();
+      console.log(this.props);
+      this.props.filterAction(this.props);
     }
 
   }
@@ -28,6 +32,7 @@ class Search extends React.Component {
 }
 Search.propTypes = {
   search: React.PropTypes.string,
-  onSearch: React.PropTypes.func
+  onSearch: React.PropTypes.func,
+  filterAction: React.PropTypes.func,
 }
 export default Search;

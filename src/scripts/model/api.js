@@ -19,20 +19,25 @@ class Api {
     this.comicsUrl = '/comics';
   }
   appendParameters(url, options) {
-    var { page, orderBy } = options;
+    let { page, orderBy, titleStartsWith, nameStartsWith } = options;
+    let fetchUrl = `${url}?apikey=${this.publicKey}`;
+
     if (page > 0) {
       page--;
       this.options.offset = page * this.options.limit;
-    } else {
-      this.options.offset = 0;
     }
 
-    let result = `${url}?apikey=${this.publicKey}`;
-    const mergedOptions = Object.assign({}, { orderBy }, this.options);
+
+    let mergedOptions = Object.assign({}, { orderBy }, this.options);
+
+    mergedOptions = titleStartsWith ? Object.assign({}, { titleStartsWith }, mergedOptions) : mergedOptions;
+    mergedOptions = nameStartsWith ? Object.assign({}, { nameStartsWith }, mergedOptions) : mergedOptions;
+
     for (let option in mergedOptions) {
-      result += `&${option}=${mergedOptions[option]}`;
+      fetchUrl += `&${option}=${mergedOptions[option]}`;
     }
-    return result;
+
+    return fetchUrl;
   }
   formatUrlWithId(url, id) {
     const result = `${url}/${id}`;
@@ -57,24 +62,6 @@ class Api {
       }).catch((error) => {
         throw error;
       });
-  }
-  getCharacterById(id, options) {
-    const url = this.appendParameters(this.formatUrlWithId(this.characterUrl, id), options);
-    const startPromise = this.instance.get(url)
-      .then((resolve) => {
-        return resolve;
-      }, (reject) => {
-        return Promise.reject(reject.response);
-      });
-
-    const finalPromise = startPromise.catch((error) => {
-      throw error;
-    });
-
-    return finalPromise.catch((error) => {
-      throw error;
-    });
-
   }
 }
 

@@ -26,20 +26,21 @@ const mapDispatchToProps = (dispatch, store) => {
     errorClear: (props) => {
       dispatch(fetchingError(''));
     },
-    onSearch: (props) => {
-      dispatch(search(props.search));
+    onSearch: (props, text) => {
+      dispatch(search(text));
+      props.filterAction(props);
     },
     filterAction: (props) => {
-      var { type, page } = props.match.params;
-      var { total } = props.pagination;
+      const { type, page } = props.match.params;
+      const { total } = props.pagination;
 
       if (props.filter.length) {
         dispatch(fetching(true));
 
         if (type === 'characters') {
-          dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name' })));
+          dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name', nameStartsWith: props.search })));
         } else {
-          dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title' })));
+          dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title', titleStartsWith: props.search })));
         }
       }
     }
