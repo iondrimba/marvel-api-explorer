@@ -6,6 +6,7 @@ class Detail extends React.Component {
     super(props);
   }
   render() {
+    console.log(this.props)
     return (
       <div className="detail">
         {

@@ -6,7 +6,7 @@ class Loader extends React.Component {
   }
   render() {
     return (
-      this.props.loading ? <span>loading...</span> : <span></span>
+      this.props.loading ? <span className="loading">loading...</span> : <span></span>
     );
   }
 }

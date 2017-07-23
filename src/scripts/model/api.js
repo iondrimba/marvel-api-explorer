@@ -43,22 +43,19 @@ class Api {
       .then((resolve) => {
         return resolve;
       }, (reject) => {
-        return reject.response;
+        return Promise.reject(reject);
       }).catch((error) => {
-        return error;
+        throw error;
       });
   }
   getComics(options) {
     return this.instance.get(this.appendParameters(this.comicsUrl, options))
       .then((resolve) => {
-        console.log('resolve', resolve);
         return resolve;
       }, (reject) => {
-        console.log('reject', reject);
-        return reject.response;
+        return Promise.reject(reject);
       }).catch((error) => {
-        console.log('error', error);
-        return error;
+        throw error;
       });
   }
   getCharacterById(id, options) {

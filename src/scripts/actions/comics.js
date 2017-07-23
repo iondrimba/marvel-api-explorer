@@ -1,5 +1,6 @@
 import pagination from './pagination';
 import filter from './filter';
+import fetchingError from './fetchingError';
 
 export function comics(data) {
   return {
@@ -15,12 +16,13 @@ export function comicsGet(options) {
       dispatch(comics(data));
       const { limit, offset, total } = data.data.data;
       const pages = Math.round(total / limit);
-
       if (getState().pagination.total !== pages) {
         dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
+    }, (reject) => {
+      dispatch(fetchingError(reject));
     }).catch(function (reason) {
-      console.log('comics catch', reason);
+      dispatch(fetchingError(reason));
     });
   };
 }

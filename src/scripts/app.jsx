@@ -14,7 +14,7 @@ import { Route } from 'react-router';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
 const history = createHistory();
-const router = routerMiddleware(history);
+const router = routerMiddleware(history)
 
 const api = new Api(process.env.API_KEY);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
