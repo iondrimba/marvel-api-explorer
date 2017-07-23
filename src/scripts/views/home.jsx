@@ -5,6 +5,7 @@ import ImageList from './imageList';
 import PaginationContainer from '../container/paginationContainer';
 import Styles from '../../scss/home.scss';
 import Menu from './menu';
+import SearchContainer from '../container/searchContainer';
 
 class Home extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Home extends React.Component {
       <div className="home">
         <h1>Hello</h1>
         <span>{this.props.location.pathname}</span>
+        <SearchContainer  {...this.props} />
         <Menu {...this.props} />
         <Loader loading={this.props.fetching} />
         <PaginationContainer {...this.props} />

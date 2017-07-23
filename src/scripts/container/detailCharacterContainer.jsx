@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Detail from '../views/detail';
+import DetailCharacter from '../views/detailCharacter';
 import { characters, charactersGet } from '../actions/characters';
 import fetching from '../actions/fetching';
 import filter from '../actions/filter';
@@ -12,4 +12,4 @@ function mapStateToProps(store) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, null)(Detail));
+export default withRouter(connect(mapStateToProps, null)(DetailCharacter));

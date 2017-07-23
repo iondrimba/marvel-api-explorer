@@ -4,7 +4,8 @@ import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import HomeContainer from './container/homeContainer';
-import DetailContainer from './container/detailContainer';
+import DetailCharacterContainer from './container/detailCharacterContainer';
+import DetailComicContainer from './container/detailComicContainer';
 import RootReducer from './reducers/root';
 import defaultStore from './model/initialState';
 import Styles from '../scss/app.scss';
@@ -27,7 +28,8 @@ render(
     <ConnectedRouter history={history}>
       <div>
         <Route path="/:type?/:page?" render={HomeContainer} />
-        <Route path="/:type?/detail/:id" component={DetailContainer} />
+        <Route path="/characters/detail/:id" component={DetailCharacterContainer} />
+        <Route path="/comics/detail/:id" component={DetailComicContainer} />
       </div>
     </ConnectedRouter>
   </Provider>,

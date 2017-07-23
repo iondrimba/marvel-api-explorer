@@ -3,6 +3,7 @@ import Home from '../views/home';
 import { charactersGet } from '../actions/characters';
 import { comicsGet } from '../actions/comics';
 import fetching from '../actions/fetching';
+import search from '../actions/search';
 import fetchingError from '../actions/fetchingError';
 import filter from '../actions/filter';
 import pagination from '../actions/pagination';
@@ -14,6 +15,7 @@ function mapStateToProps(store) {
     error: store.error,
     fetching: store.fetching,
     filter: store.filter,
+    search: store.search,
     pagination: store.pagination,
     characters: store.characters
   };
@@ -23,6 +25,9 @@ const mapDispatchToProps = (dispatch, store) => {
   return {
     errorClear: (props) => {
       dispatch(fetchingError(''));
+    },
+    onSearch: (props) => {
+      dispatch(search(props.search));
     },
     filterAction: (props) => {
       var { type, page } = props.match.params;
