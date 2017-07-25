@@ -9,23 +9,29 @@ class Pagination extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     const totalPages = this.props.pagination.total;
     const page = this.props.match.params.page || 0;
-
     if (isNaN(page) === false && page && page !== prevProps.pagination.current) {
       this.props.paginationAction(page);
     }
   }
 
+  hasQueryString(search) {
+    if (search) {
+      return search;
+    } else {
+      return '';
+    }
+  }
   render() {
     let next = '';
     let prev = '';
 
     if (this.props.pagination.next) {
-      next = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) + 1}` }} key={'next'} >
+      next = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) + 1}`, search: `${this.hasQueryString(this.props.location.search)}` }} key={'next'} >
         <span>next</span>
       </NavLink>
     }
     if (this.props.pagination.prev) {
-      prev = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) - 1}` }} key={'prev'} >
+      prev = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) - 1}`, search: `${this.hasQueryString(this.props.location.search)}` }} key={'prev'} >
         <span>prev</span>
       </NavLink>
     }
@@ -36,7 +42,7 @@ class Pagination extends React.Component {
         {
           this.props.pagination.pages.map((data, index) => {
             return <NavLink strict className="link" to={{
-              pathname: `/${this.props.filter}/${data + 1}`
+              pathname: `/${this.props.filter}/${data + 1}`, search: `${this.hasQueryString(this.props.location.search)}`
             }} key={data + 1} >
               <span>{data + 1}</span>
             </NavLink>

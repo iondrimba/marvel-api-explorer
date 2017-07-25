@@ -5,7 +5,6 @@ function search(state = '', action) {
   switch (action.type) {
 
     case SEARCH:
-      console.log('search reducer', action);
       return action.text;
   }
   return state;
