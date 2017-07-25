@@ -15,7 +15,6 @@ function mapStateToProps(store) {
     error: store.error,
     fetching: store.fetching,
     filter: store.filter,
-    search: store.search,
     pagination: store.pagination,
     characters: store.characters
   };
@@ -25,10 +24,6 @@ const mapDispatchToProps = (dispatch, store) => {
   return {
     errorClear: (props) => {
       dispatch(fetchingError(''));
-    },
-    onSearch: (props, text) => {
-      dispatch(search(text));
-      props.filterAction(props);
     },
     filterAction: (props) => {
       const { type, page } = props.match.params;

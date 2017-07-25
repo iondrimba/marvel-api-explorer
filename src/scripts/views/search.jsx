@@ -11,19 +11,20 @@ class Search extends React.Component {
     this.onTextChange = this.onTextChange.bind(this);
     this.refs.search.onsubmit = (evt) => {
       evt.preventDefault();
-      console.log(this.props);
-      this.props.filterAction(this.props);
+      this.props.onSearch(this.state.search);
+      this.setState({ search: '' });
     }
 
   }
   onTextChange(evt) {
-    this.props.onSearch(evt.currentTarget.value);
+    const search = evt.currentTarget.value;
+    this.setState({ search: search });
   }
   render() {
     return (
       <div className="search">
         <form ref={'search'} action="">
-          <input type="text" value={this.props.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
+          <input type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
           <button type="submit">search</button>
         </form>
       </div>
@@ -31,7 +32,6 @@ class Search extends React.Component {
   }
 }
 Search.propTypes = {
-  search: React.PropTypes.string,
   onSearch: React.PropTypes.func,
   filterAction: React.PropTypes.func,
 }

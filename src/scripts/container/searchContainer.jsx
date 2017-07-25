@@ -18,6 +18,7 @@ function mapStateToProps(store) {
 const mapDispatchToProps = (dispatch, store) => {
   return {
     onSearch: (text) => {
+      console.log('search onSearch', text);
       dispatch(search(text));
     }
   };

@@ -5,7 +5,7 @@ import ImageList from './imageList';
 import PaginationContainer from '../container/paginationContainer';
 import Styles from '../../scss/home.scss';
 import Menu from './menu';
-import SearchContainer from '../container/searchContainer';
+import Search from './search';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class Home extends React.Component {
   componentWillUpdate(nextProps, nextState) {
   }
   componentDidUpdate(prevProps, prevState) {
+
     let oldLocation = prevProps.location.pathname;
     let newLocation = this.props.location.pathname;
 
@@ -28,9 +29,9 @@ class Home extends React.Component {
       this.props.history.goBack();
     }
 
-
     if (newLocation !== oldLocation && prevProps.match.params.page !== 'detail') {
-      if (isNaN(this.props.match.params.page) !== false || this.props.match.params.page === undefined) {
+      if (isNaN(this.props.match.params.page) === false || this.props.match.params.page === undefined) {
+
         this.props.filterAction(this.props);
       }
     }
@@ -41,7 +42,7 @@ class Home extends React.Component {
       <div className="home">
         <h1>Hello</h1>
         <span>{this.props.location.pathname}</span>
-        <SearchContainer  {...this.props} />
+        <Search  {...this.props} />
         <Menu {...this.props} />
         <Loader loading={this.props.fetching} />
         <PaginationContainer {...this.props} />
@@ -54,6 +55,7 @@ class Home extends React.Component {
 Home.propTypes = {
   location: React.PropTypes.object,
   filterAction: React.PropTypes.func,
+  onSearchHome: React.PropTypes.func,
   errorClear: React.PropTypes.func,
   history: React.PropTypes.object,
   error: React.PropTypes.string,
@@ -61,6 +63,7 @@ Home.propTypes = {
   page: React.PropTypes.number,
   match: React.PropTypes.object,
   filter: React.PropTypes.string,
+  search: React.PropTypes.string
 }
 
 export default Home;

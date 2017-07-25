@@ -22,11 +22,12 @@ class Api {
     let { page, orderBy, titleStartsWith, nameStartsWith } = options;
     let fetchUrl = `${url}?apikey=${this.publicKey}`;
 
+    this.options.offset = 0;
+
     if (page > 0) {
       page--;
       this.options.offset = page * this.options.limit;
     }
-
 
     let mergedOptions = Object.assign({}, { orderBy }, this.options);
 
@@ -54,6 +55,7 @@ class Api {
       });
   }
   getComics(options) {
+    console.log('api getComics', options);
     return this.instance.get(this.appendParameters(this.comicsUrl, options))
       .then((resolve) => {
         return resolve;

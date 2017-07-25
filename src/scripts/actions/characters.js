@@ -10,12 +10,12 @@ export function characters(data) {
 }
 
 export function charactersGet(options) {
+
   return function (dispatch, getState, api) {
-    const { limit, offset, orderBy, total } = options;
-    console.log('charactersGet', options);
+
     return api.getCharacters(options).then((data) => {
       dispatch(characters(data));
-      const { limit, offset, total } = data.data.data;
+      const { limit, total } = data.data.data;
       const pages = Math.round(total / limit);
 
       if (getState().pagination.total !== pages) {
