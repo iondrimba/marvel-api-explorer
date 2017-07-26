@@ -12,31 +12,22 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.filterAction(this.props);
+    //this.props.filterAction(this.props);
   }
   componentWillReceiveProps(nextProps) {
-
+    // console.log('componentWillReceiveProps', nextProps);
   }
   componentWillUpdate(nextProps, nextState) {
+    // console.log('componentWillUpdate', nextProps);
   }
   componentDidUpdate(prevProps, prevState) {
 
-    let oldLocation = prevProps.location.pathname;
-    let newLocation = this.props.location.pathname;
+    if (this.props.filter && this.props.search) {
 
-    if (this.props.error.length) {
-      this.props.errorClear(this.props);
-      this.props.history.goBack();
-    }
-
-    if (newLocation !== oldLocation && prevProps.match.params.page !== 'detail') {
-      let page = this.props.match.params.page;
-      if (page) {
-        page = page.replace(/\?search\=.+/, '');
-      }
-      if (isNaN(page) === false || page === undefined) {
-
-        this.props.filterAction(this.props);
+      if (this.props.fetching) {
+        if ((prevProps.pagination.current !== this.props.pagination.current) || this.props.pagination.total === 0) {
+          this.props.fetchAction(this.props);
+        }
       }
     }
   }
@@ -58,8 +49,8 @@ class Home extends React.Component {
 
 Home.propTypes = {
   location: React.PropTypes.object,
-  filterAction: React.PropTypes.func,
-  onSearchHome: React.PropTypes.func,
+  fetchAction: React.PropTypes.func,
+  pagination: React.PropTypes.object,
   errorClear: React.PropTypes.func,
   history: React.PropTypes.object,
   error: React.PropTypes.string,

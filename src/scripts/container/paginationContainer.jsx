@@ -65,6 +65,7 @@ function mapStateToProps(store) {
 const mapDispatchToProps = (dispatch, store) => {
   return {
     paginationAction: (page) => {
+      dispatch(fetching(true));
       dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
     }
   };

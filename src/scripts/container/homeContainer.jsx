@@ -15,6 +15,7 @@ function mapStateToProps(store) {
     error: store.error,
     fetching: store.fetching,
     filter: store.filter,
+    search: store.search,
     pagination: store.pagination,
     characters: store.characters
   };
@@ -25,29 +26,24 @@ const mapDispatchToProps = (dispatch, store) => {
     errorClear: (props) => {
       dispatch(fetchingError(''));
     },
-    filterAction: (props) => {
-      let { type, page } = props.match.params;
+    searchAction: (val) => {
+      dispatch(search(val));
+      dispatch(pagination({ current: 1, total: 0, pages: [] }));
+      dispatch(fetching(true));
+    },
+    filterAction: (val) => {
+      dispatch(filter(val));
+      dispatch(search(''));
+    },
+    fetchAction: (props) => {
+
+      const { type, page } = store.match.params;
       const { total } = props.pagination;
-      let { search } = props.location;
 
-      if (search) {
-        search = search.replace(/\?search\=/, '');
-      } else if (props.location.pathname.split('?')[1]) {
-        search = props.location.pathname.split('?')[1];
-        search = search.replace(/search\=/, '');
-      }
-      if (page) {
-        page = page.replace(/\?search\=.+/, '');
-      }
-
-      if (props.filter.length) {
-        dispatch(fetching(true));
-
-        if (type === 'characters') {
-          dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name', nameStartsWith: search })));
-        } else {
-          dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title', titleStartsWith: search })));
-        }
+      if (props.filter === 'characters') {
+        dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name', nameStartsWith: props.search })));
+      } else {
+        dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title', titleStartsWith: props.search })));
       }
     }
   };

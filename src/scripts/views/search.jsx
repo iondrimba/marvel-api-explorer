@@ -12,8 +12,8 @@ class Search extends React.Component {
     this.refs.search.onsubmit = (evt) => {
       evt.preventDefault();
       this.props.history.replace(`/${this.props.filter}/?search=${this.state.search}`)
+      this.props.searchAction(this.state.search);
       this.setState({ search: '' });
-      this.props.filterAction(this.props);
     }
 
   }
@@ -33,7 +33,7 @@ class Search extends React.Component {
   }
 }
 Search.propTypes = {
-  onSearch: React.PropTypes.func,
+  searchAction: React.PropTypes.func,
   filter: React.PropTypes.string,
   history: React.PropTypes.object,
   location: React.PropTypes.object,

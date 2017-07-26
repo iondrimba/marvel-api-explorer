@@ -5,24 +5,28 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    this.state = {
+      filter: ''
+    };
+  }
+
+  onClick(evt) {
+    const filter = evt.currentTarget.innerText.toLowerCase();
+    this.setState({ filer: filter });
+    this.props.filterAction(filter);
+
+  }
   render() {
     return (
       <ul>
-        <NavLink strict className="link" to={{
-          pathname: '/characters'
-        }} key={'characters'} >
-          <li>Characters</li>
-        </NavLink>
-        <NavLink strict className="link" to={{
-          pathname: '/comics'
-        }} key={'comic'} >
-          <li>Comics</li>
-        </NavLink>
-
+        <li><span onClick={this.onClick.bind(this)}>Characters</span><br /></li><br />
+        <li><span onClick={this.onClick.bind(this)}>Comics</span><br /></li>
       </ul>
     );
   }
 }
 Menu.propTypes = {
+  filterAction: React.PropTypes.func
 }
 export default Menu;

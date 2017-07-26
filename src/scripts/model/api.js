@@ -55,7 +55,6 @@ class Api {
       });
   }
   getComics(options) {
-    console.log('api getComics', options);
     return this.instance.get(this.appendParameters(this.comicsUrl, options))
       .then((resolve) => {
         return resolve;
