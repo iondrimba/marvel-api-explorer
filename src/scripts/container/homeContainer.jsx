@@ -16,7 +16,7 @@ function mapStateToProps(store) {
     filter: store.filter,
     search: store.search,
     pagination: store.pagination,
-    characters: store.characters
+    data: store.data
   };
 }
 

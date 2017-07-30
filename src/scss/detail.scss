@@ -8,9 +8,11 @@
   width: 100%;
 
   img {
+    background-color: #b9b9b9;
     left: 50%;
     position: absolute;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    top: 15px;
+    transform: translateX(-50%);
+    width: 94vw;
   }
 }

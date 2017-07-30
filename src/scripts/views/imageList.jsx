@@ -7,9 +7,9 @@ class ImageList extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="grid">
         {
-          this.props.characters.map((data, index) => {
+          this.props.data.map((data, index) => {
             return <Link to={{
               pathname: `/${this.props.filter}/detail/${data.id}`
             }} key={index}>
@@ -22,7 +22,7 @@ class ImageList extends React.Component {
   }
 }
 ImageList.propTypes = {
-  characters: React.PropTypes.array,
+  data: React.PropTypes.array,
   filter: React.PropTypes.string,
 }
 export default ImageList;

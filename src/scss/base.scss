@@ -1,7 +1,20 @@
-body {
-  color: #000;
+* {
+  box-sizing: border-box;
 }
 
-#marvel-app {
+body,
+html {
+  background-color: red;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.marvel-app {
+  padding: 15px 10px;
   position: relative;
 }

@@ -8,4 +8,59 @@
     margin: 5px;
     text-decoration: none;
   }
+
+  form {
+    button {
+      display: none;
+    }
+  }
+
+  .pagination {
+    background-color: #333;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    a {
+      background-color: #000;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      overflow: hidden;
+      position: relative;
+      width: 49%;
+
+      img {
+        float: left;
+        opacity: .5;
+        width: 100%;
+      }
+
+      &::before {
+        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .15) 50%, transparent 50%);
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      &:nth-child(2n + 1) {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .grid {
+    max-width: 50%;
+    transform: translateX(50%);
+  }
 }

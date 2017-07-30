@@ -9,7 +9,7 @@ class DetailComic extends React.Component {
     return (
       <div className="detail">
         {
-          this.props.comics.map((data, index) => {
+          this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div key={data.id + index}>
                 <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
@@ -27,7 +27,7 @@ class DetailComic extends React.Component {
 
 DetailComic.propTypes = {
   match: React.PropTypes.object,
-  comics: React.PropTypes.array
+  data: React.PropTypes.array
 }
 
 export default DetailComic;

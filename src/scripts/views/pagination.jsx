@@ -7,8 +7,13 @@ class Pagination extends React.Component {
     super(props);
   }
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.match.params.page !== prevProps.match.params.page) {
-      this.props.paginationAction(this.props.match.params.page);
+
+    if (!isNaN(this.props.match.params.page)) {
+      if (this.props.match.params.page !== prevProps.match.params.page) {
+        if (this.props.pagination.current !== this.props.match.params.page) {
+          this.props.paginationAction(this.props.match.params.page);
+        }
+      }
     }
   }
 
@@ -35,7 +40,7 @@ class Pagination extends React.Component {
     }
 
     return (
-      <div>
+      <div className="pagination">
         {prev}
         {
           this.props.pagination.pages.map((data, index) => {

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import characters from './characters';
+import data from './data';
 import fetching from './fetching';
 import fetchingError from './fetchingError';
 import filter from './filter';
@@ -14,7 +14,7 @@ const RootReducer = combineReducers({
   search: search,
   pagination: pagination,
   router: routerReducer,
-  characters: characters
+  data: data
 });
 
 export default RootReducer;

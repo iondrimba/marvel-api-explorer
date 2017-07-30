@@ -4,7 +4,7 @@ import DetailCharacter from '../views/detailCharacter';
 
 function mapStateToProps(store) {
   return {
-    characters: store.characters
+    data: store.data
   };
 }
 

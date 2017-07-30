@@ -34,5 +34,5 @@ render(
       </div>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('marvel-app')
+  document.getElementsByClassName('marvel-app')[0]
 );

@@ -12,7 +12,7 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
-    //this.props.filterAction(this.props);
+    this.props.fetchAction(this.props);
   }
   componentWillReceiveProps(nextProps) {
     // console.log('componentWillReceiveProps', nextProps);
@@ -23,9 +23,11 @@ class Home extends React.Component {
   componentDidUpdate(prevProps, prevState) {
 
     if (this.props.filter && this.props.search) {
-
       if (this.props.fetching) {
-        if ((prevProps.pagination.current !== this.props.pagination.current) || this.props.pagination.total === 0) {
+        if (((prevProps.pagination.current !== this.props.pagination.current) || this.props.pagination.total === 0) &&
+          this.props.match.params.page !== 'detail' &&
+          !isNaN(prevProps.pagination.current)
+        ) {
           this.props.fetchAction(this.props);
         }
       }
@@ -35,8 +37,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <h1>Hello</h1>
-        <span>{this.props.location.pathname}</span>
         <Search  {...this.props} />
         <Menu {...this.props} />
         <Loader loading={this.props.fetching} />
@@ -48,7 +48,7 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  location: React.PropTypes.object,
+  match: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
   pagination: React.PropTypes.object,
   fetching: React.PropTypes.bool,

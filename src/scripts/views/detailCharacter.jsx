@@ -10,16 +10,20 @@ class DetailCharacter extends React.Component {
     return (
       <div className="detail">
         {
-          this.props.characters.map((data, index) => {
+          this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div key={data.id + index}>
-                <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
-                <h1>Name:</h1>
-                <span>{data.name}</span>
-                <h1>Series:</h1>
-                <Infos data={data.series.items}></Infos>
-                <h1>Stories:</h1>
-                <Infos data={data.stories.items}></Infos>
+                <div className="cover">
+                  <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
+                </div>
+                <div className="infos">
+                  <h1>Name:</h1>
+                  <span>{data.name}</span>
+                  <h1>Series:</h1>
+                  <Infos data={data.series.items || []}></Infos>
+                  <h1>Stories:</h1>
+                  <Infos data={data.stories.items || []}></Infos>
+                </div>
               </div>
             }
           })
@@ -32,7 +36,7 @@ class DetailCharacter extends React.Component {
 
 DetailCharacter.propTypes = {
   match: React.PropTypes.object,
-  characters: React.PropTypes.array
+  data: React.PropTypes.array
 }
 
 export default DetailCharacter;

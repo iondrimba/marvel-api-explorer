@@ -1,10 +1,10 @@
 const defaultStore = {
   fetching: false,
   pagination: { current: 0, total: 0, pages: [], next: false, prev: false },
-  filter: '',
-  search: '',
+  filter: 'Characters',
+  search: 'spi',
   error: '',
-  characters: []
+  data: []
 };
 
 export default defaultStore;

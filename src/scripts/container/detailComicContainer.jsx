@@ -4,7 +4,7 @@ import DetailComic from '../views/detailComic';
 
 function mapStateToProps(store) {
   return {
-    comics: store.characters
+    data: store.data
   };
 }
 
