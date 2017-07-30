@@ -1,13 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { BrowserHistory } from 'react-router';
 import { connect } from 'react-redux';
-import Pagination from '../views/pagination';
-import { characters, charactersGet } from '../actions/characters';
-import fetching from '../actions/fetching';
-import filter from '../actions/filter';
-import * as constants from '../actions/constants';
 import { withRouter } from 'react-router-dom'
+import Pagination from '../views/pagination';
+import fetching from '../actions/fetching';
 import pagination from '../actions/pagination';
 
 const maxPages = 5;

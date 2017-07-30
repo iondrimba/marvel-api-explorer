@@ -1,10 +1,6 @@
 import { connect } from 'react-redux';
-import DetailCharacter from '../views/detailCharacter';
-import { characters, charactersGet } from '../actions/characters';
-import fetching from '../actions/fetching';
-import filter from '../actions/filter';
-import * as constants from '../actions/constants';
 import { withRouter } from 'react-router-dom'
+import DetailCharacter from '../views/detailCharacter';
 
 function mapStateToProps(store) {
   return {

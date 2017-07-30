@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import Home from '../views/home';
 import { charactersGet } from '../actions/characters';
 import { comicsGet } from '../actions/comics';
@@ -7,8 +8,6 @@ import search from '../actions/search';
 import fetchingError from '../actions/fetchingError';
 import filter from '../actions/filter';
 import pagination from '../actions/pagination';
-import * as constants from '../actions/constants';
-import { withRouter } from 'react-router-dom'
 
 function mapStateToProps(store) {
   return {

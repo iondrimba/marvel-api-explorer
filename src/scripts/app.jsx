@@ -3,16 +3,17 @@ import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import HomeContainer from './container/homeContainer';
-import DetailCharacterContainer from './container/detailCharacterContainer';
-import DetailComicContainer from './container/detailComicContainer';
 import RootReducer from './reducers/root';
 import defaultStore from './model/initialState';
-import Styles from '../scss/app.scss';
-import Api from './model/api';
 import createHistory from 'history/createBrowserHistory';
 import { Route } from 'react-router';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
+
+import HomeContainer from './container/homeContainer';
+import DetailCharacterContainer from './container/detailCharacterContainer';
+import DetailComicContainer from './container/detailComicContainer';
+import Styles from '../scss/app.scss';
+import Api from './model/api';
 
 const history = createHistory();
 const router = routerMiddleware(history)

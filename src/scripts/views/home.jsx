@@ -51,12 +51,7 @@ Home.propTypes = {
   location: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
   pagination: React.PropTypes.object,
-  errorClear: React.PropTypes.func,
-  history: React.PropTypes.object,
-  error: React.PropTypes.string,
   fetching: React.PropTypes.bool,
-  page: React.PropTypes.number,
-  match: React.PropTypes.object,
   filter: React.PropTypes.string,
   search: React.PropTypes.string
 }

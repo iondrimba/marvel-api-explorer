@@ -4,18 +4,16 @@ import { NavLink } from 'react-router-dom';
 class Menu extends React.Component {
   constructor(props) {
     super(props);
-  }
-  componentDidMount() {
     this.state = {
       filter: ''
     };
   }
-
+  componentDidMount() {
+  }
   onClick(evt) {
     const filter = evt.currentTarget.innerText.toLowerCase();
     this.setState({ filer: filter });
     this.props.filterAction(filter);
-
   }
   render() {
     return (
