@@ -4,7 +4,6 @@ import Loader from './loader';
 import ImageList from './imageList';
 import PaginationContainer from '../container/paginationContainer';
 import Styles from '../../scss/home.scss';
-import Menu from './menu';
 import Search from './search';
 
 class Home extends React.Component {
@@ -12,7 +11,7 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchAction(this.props);
+    //this.props.fetchAction(this.props);
   }
   componentWillReceiveProps(nextProps) {
     // console.log('componentWillReceiveProps', nextProps);
@@ -28,6 +27,7 @@ class Home extends React.Component {
           this.props.match.params.page !== 'detail' &&
           !isNaN(prevProps.pagination.current)
         ) {
+          console.log(this.props);
           this.props.fetchAction(this.props);
         }
       }
@@ -38,7 +38,6 @@ class Home extends React.Component {
     return (
       <div className="home">
         <Search  {...this.props} />
-        <Menu {...this.props} />
         <Loader loading={this.props.fetching} />
         <PaginationContainer {...this.props} />
         <ImageList {...this.props} />

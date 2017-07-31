@@ -32,12 +32,14 @@ const mapDispatchToProps = (dispatch, store) => {
     },
     filterAction: (val) => {
       dispatch(filter(val));
-      dispatch(search(''));
+      dispatch(pagination({ current: 1, total: 0, pages: [] }));
+      dispatch(fetching(true));
     },
     fetchAction: (props) => {
-
       const { type, page } = store.match.params;
       const { total } = props.pagination;
+
+      console.log(page);
 
       if (props.filter === 'characters') {
         dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name', nameStartsWith: props.search })));

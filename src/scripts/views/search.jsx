@@ -1,5 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Menu from './menu';
+import Styles from '../../scss/search.scss';
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -8,12 +10,11 @@ class Search extends React.Component {
     }
   }
   componentDidMount() {
-    this.onTextChange = this.onTextChange.bind(this);
+
     this.refs.search.onsubmit = (evt) => {
       evt.preventDefault();
       this.props.history.replace(`/${this.props.filter}/?search=${this.state.search}`)
       this.props.searchAction(this.state.search);
-      this.setState({ search: '' });
     }
 
   }
@@ -27,6 +28,7 @@ class Search extends React.Component {
         <form ref={'search'} action="">
           <input type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
           <button type="submit">search</button>
+          <Menu {...this.props} />
         </form>
       </div>
     );

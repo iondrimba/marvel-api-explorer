@@ -1,5 +1,8 @@
 .home {
-  background-color: red;
+  background: linear-gradient(to bottom, #bf0017, #f95635);
+  min-height: 100vh;
+  padding: 15px 10px;
+  padding-bottom: 30px;
 
   .link {
     color: #fff;
@@ -28,14 +31,15 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 
     a {
       background-color: #000;
       border-radius: 4px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       overflow: hidden;
       position: relative;
-      width: 49%;
+      width: 48%;
 
       img {
         float: left;
@@ -52,7 +56,7 @@
       }
 
       &:nth-child(2n + 1) {
-        margin-right: 5px;
+        margin-right: 10px;
       }
     }
   }

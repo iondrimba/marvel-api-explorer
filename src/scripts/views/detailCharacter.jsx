@@ -13,16 +13,18 @@ class DetailCharacter extends React.Component {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div key={data.id + index}>
-                <div className="cover">
-                  <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
+                <div className="detail__cover">
+                  <div className="detail__cover--reflex">
+                    <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
+                  </div>
                 </div>
-                <div className="infos">
-                  <h1>Name:</h1>
-                  <span>{data.name}</span>
-                  <h1>Series:</h1>
-                  <Infos data={data.series.items || []}></Infos>
-                  <h1>Stories:</h1>
-                  <Infos data={data.stories.items || []}></Infos>
+                <div className="detail__infos">
+                  <section className="info__name">
+                    <h2>Name:</h2>
+                    <span>{data.name}</span>
+                  </section>
+                  <Infos title="Series" type="series" data={data.series.items || []}></Infos>
+                  <Infos title="Stories" type="stories" data={data.stories.items || []}></Infos>
                 </div>
               </div>
             }

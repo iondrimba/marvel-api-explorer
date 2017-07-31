@@ -4,17 +4,28 @@
 
 body,
 html {
-  background-color: red;
+  background: linear-gradient(to bottom, #bf0017, #f95635);
+  font-size: 16px;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-h1 {
+h1,
+h2,
+ul {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
 .marvel-app {
-  padding: 15px 10px;
+  height: 100%;
   position: relative;
 }

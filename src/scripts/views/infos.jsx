@@ -7,7 +7,8 @@ class Infos extends React.Component {
   }
   render() {
     return (
-      <div className="infos">
+      <section className={`info__${this.props.type}`}>
+        <h2>{this.props.title}</h2>
         <ul>
           {
             this.props.data.map((item, index) => {
@@ -15,13 +16,14 @@ class Infos extends React.Component {
             })
           }
         </ul>
-      </div>
+      </section>
     );
   }
 }
 
 Infos.propTypes = {
-  match: React.PropTypes.object,
+  type: React.PropTypes.string,
+  title: React.PropTypes.string,
   data: React.PropTypes.array
 }
 
