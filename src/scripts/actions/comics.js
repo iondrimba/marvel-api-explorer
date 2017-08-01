@@ -1,6 +1,7 @@
 import pagination from './pagination';
 import filter from './filter';
 import fetchingError from './fetchingError';
+import fetching from './fetching';
 
 export function comics(data) {
   return {

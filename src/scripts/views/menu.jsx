@@ -12,9 +12,13 @@ class Menu extends React.Component {
   }
   onClick(evt) {
     const filter = evt.currentTarget.innerText.toLowerCase();
-    this.setState({ filer: filter });
-    this.props.history.replace(`/${filter}/?search=${this.props.search}`)
+    const search = this.props.search? `/?search=${this.props.search}`: '';
+
+    this.setState({ filer: filter });    
+
+    this.props.history.replace(`/${filter}${search}`);
     this.props.filterAction(filter);
+    //this.props.fetchAction(this.props);
     this.refs.list.classList.remove('show');
     this.refs.list.classList.add('hide');
   }

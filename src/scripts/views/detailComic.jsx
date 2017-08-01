@@ -9,7 +9,7 @@ class DetailComic extends React.Component {
     return { __html: markup };
   }
   render() {
-    console.log('comic');
+
     return (
       <div className="detail">
         {

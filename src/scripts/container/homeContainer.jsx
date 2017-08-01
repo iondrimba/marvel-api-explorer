@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch, store) => {
       dispatch(pagination({ current: 1, total: 0, pages: [] }));
       dispatch(fetching(true));
     },
-    filterAction: (val) => {
+    filterAction: (val) => {      
       dispatch(filter(val));
       dispatch(pagination({ current: 1, total: 0, pages: [] }));
       dispatch(fetching(true));
@@ -38,8 +38,7 @@ const mapDispatchToProps = (dispatch, store) => {
     fetchAction: (props) => {
       const { type, page } = store.match.params;
       const { total } = props.pagination;
-
-      console.log(page);
+      dispatch(fetching(true));
 
       if (props.filter === 'characters') {
         dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name', nameStartsWith: props.search })));

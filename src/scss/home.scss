@@ -24,7 +24,7 @@
     left: 0;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
   }
 
   .grid {
@@ -40,12 +40,25 @@
       overflow: hidden;
       position: relative;
       width: 48%;
+      transition: opacity .2s, transform .2s;
+      transform: translateY(50px);
+      opacity: 0;
 
       img {
         float: left;
-        opacity: .5;
+        opacity: 1;
         width: 100%;
       }
+
+        &.fetching {
+          opacity: 0;
+           transform: translateY(50px);
+        }
+
+        &.fetched {
+          opacity: 1;
+           transform: translateY(0);
+        }       
 
       &::before {
         background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .15) 50%, transparent 50%);
@@ -53,6 +66,7 @@
         height: 100%;
         position: absolute;
         width: 100%;
+            z-index: 1;
       }
 
       &:nth-child(2n + 1) {
@@ -68,3 +82,4 @@
     transform: translateX(50%);
   }
 }
+

@@ -1,6 +1,7 @@
 import pagination from './pagination';
 import filter from './filter';
 import fetchingError from './fetchingError';
+import fetching from './fetching';
 
 export function characters(data) {
   return {
@@ -21,6 +22,8 @@ export function charactersGet(options) {
       if (getState().pagination.total !== pages) {
         dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
+
+      dispatch(fetching(false));
     }, (reject) => {
       dispatch(fetchingError(reject));
     }).catch(function (reason) {

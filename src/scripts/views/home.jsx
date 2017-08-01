@@ -19,15 +19,18 @@ class Home extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     // console.log('componentWillUpdate', nextProps);
   }
-  componentDidUpdate(prevProps, prevState) {
-
-    if (this.props.filter && this.props.search) {
+  componentWillUnmount() {
+    // console.log('componentWillUnmount');
+  }
+  
+  componentDidUpdate(prevProps, prevState) {    
+    console.log(this.props);
+    if (this.props.filter && this.props.search) {      
       if (this.props.fetching) {
         if (((prevProps.pagination.current !== this.props.pagination.current) || this.props.pagination.total === 0) &&
           this.props.match.params.page !== 'detail' &&
           !isNaN(prevProps.pagination.current)
         ) {
-          console.log(this.props);
           this.props.fetchAction(this.props);
         }
       }
