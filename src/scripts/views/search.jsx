@@ -13,8 +13,8 @@ class Search extends React.Component {
 
     this.refs.search.onsubmit = (evt) => {
       evt.preventDefault();
-      this.props.history.replace(`/${this.props.filter}/?search=${this.state.search}`)
-      this.props.searchAction(this.state.search);
+      //this.props.history.replace(`/${this.props.filter}/?search=${this.state.search}`)
+      this.props.searchAction(this.state.search, this.props);
     }
 
   }

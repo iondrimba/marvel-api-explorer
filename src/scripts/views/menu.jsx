@@ -16,9 +16,9 @@ class Menu extends React.Component {
 
     this.setState({ filer: filter });    
 
-    this.props.history.replace(`/${filter}${search}`);
-    this.props.filterAction(filter);
-    //this.props.fetchAction(this.props);
+    //this.props.history.replace(`/${filter}${search}`);
+    //this.props.filterAction(filter);
+    this.props.fetchAction(filter, this.props);
     this.refs.list.classList.remove('show');
     this.refs.list.classList.add('hide');
   }
@@ -41,6 +41,7 @@ class Menu extends React.Component {
 Menu.propTypes = {
   filter: React.PropTypes.string,
   filterAction: React.PropTypes.func,
+  fetchAction: React.PropTypes.func,
   search: React.PropTypes.string,
   history: React.PropTypes.object
 }

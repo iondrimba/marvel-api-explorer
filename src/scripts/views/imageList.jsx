@@ -13,26 +13,27 @@ class ImageList extends React.Component {
     this.imgs = [...document.querySelectorAll('a')];
   }
   componentWillReceiveProps(nextProps) {
+    this.animateOut();
   }
   componentWillUpdate(nextProps, nextState) {
-    if (nextProps.data && this.props.data.length) {
-      if (nextProps.data[0].id === this.props.data[0].id) {
-        this.animateOut();
-      }
-    }
+    // if (nextProps.data && this.props.data.length) {
+    //   if (nextProps.data[0].id === this.props.data[0].id) {
+    //     this.animateOut();
+    //   }
+    // }
   }
   componentDidUpdate(prevProps, prevState) {
     this.imgs = [...document.querySelectorAll('a')];
-    if (prevProps.data[0] === undefined) {
-      return;
-    }
+    // if (prevProps.data[0] === undefined) {
+    //   return;
+    // }
 
     setTimeout(() => {
       this.animate();
     }, 300);
   }
   animateOut() {
-    console.log('Out');
+    // console.log('Out');
     this.imgs.map((el) => {
       el.classList.remove('fetched');
       el.classList.add('fetching');
@@ -40,7 +41,7 @@ class ImageList extends React.Component {
   }
 
   animate() {
-    console.log('In');
+    // console.log('In');
     this.imgs.map((el, index) => {
       setTimeout(() => {
         el.classList.remove('fetching');
@@ -53,7 +54,7 @@ class ImageList extends React.Component {
     // console.log('ImageList componentWillUnmount');
   }
   render() {
-    // console.log('ImageList render', this.props.fetching);
+   console.log('ImageList render');
 
     return (
       <div className="grid">
@@ -72,7 +73,6 @@ class ImageList extends React.Component {
 }
 ImageList.propTypes = {
   data: React.PropTypes.array,
-  fetching: React.PropTypes.bool,
   filter: React.PropTypes.string,
   pagination: React.PropTypes.object,
 }

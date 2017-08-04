@@ -1,7 +1,12 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import Pagination from '../views/pagination';
+import { charactersGet } from '../actions/characters';
+import { comicsGet } from '../actions/comics';
 import fetching from '../actions/fetching';
+import search from '../actions/search';
+import fetchingError from '../actions/fetchingError';
+import filter from '../actions/filter';
 import pagination from '../actions/pagination';
 
 const maxPages = 5;
@@ -53,13 +58,18 @@ function getPrev(pagination) {
 }
 function mapStateToProps(store) {
   return {
+    error: store.error,
+    fetching: store.fetching,
+    filter: store.filter,
+    search: store.search,
+    data: store.data,    
     pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) })
   };
 }
 const mapDispatchToProps = (dispatch, store) => {
   return {
     paginationAction: (page) => {
-      dispatch(fetching(true));
+      //dispatch(fetching(true));
       dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
     }
   };
@@ -67,4 +77,4 @@ const mapDispatchToProps = (dispatch, store) => {
 
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Pagination));
+export default connect(mapStateToProps, null)(Pagination);

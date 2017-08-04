@@ -6,11 +6,11 @@ class Loader extends React.Component {
   }
   render() {
     return (
-      this.props.loading ? <span className="loading">loading...</span> : <span></span>
+      this.props.fetching ? <span className="loading">loading...</span> : <span></span>
     );
   }
 }
 Loader.propTypes = {
-  loading: React.PropTypes.bool,
+  fetching: React.PropTypes.bool,
 }
 export default Loader;

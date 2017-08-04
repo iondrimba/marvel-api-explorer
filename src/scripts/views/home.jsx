@@ -2,7 +2,7 @@ import React from 'react';
 import Api from '../model/api';
 import Loader from './loader';
 import ImageList from './imageList';
-import PaginationContainer from '../container/paginationContainer';
+import Pagination from './pagination';
 import Styles from '../../scss/home.scss';
 import Search from './search';
 
@@ -24,25 +24,26 @@ class Home extends React.Component {
   }
   
   componentDidUpdate(prevProps, prevState) {    
-    console.log(this.props);
-    if (this.props.filter && this.props.search) {      
-      if (this.props.fetching) {
-        if (((prevProps.pagination.current !== this.props.pagination.current) || this.props.pagination.total === 0) &&
-          this.props.match.params.page !== 'detail' &&
-          !isNaN(prevProps.pagination.current)
-        ) {
-          this.props.fetchAction(this.props);
-        }
-      }
-    }
+    
+    // if (this.props.filter && this.props.search) {      
+    //   if (this.props.fetching) {
+    //     if (((prevProps.pagination.current !== this.props.pagination.current) || this.props.pagination.total === 0) &&
+    //       this.props.match.params.page !== 'detail' &&
+    //       !isNaN(prevProps.pagination.current)
+    //     ) {
+    //       this.props.fetchAction(this.props);
+    //     }
+    //   }
+    // }
   }
 
   render() {
+    console.log('home render', this.props);
     return (
       <div className="home">
         <Search  {...this.props} />
-        <Loader loading={this.props.fetching} />
-        <PaginationContainer {...this.props} />
+        <Loader {...this.props} />
+        <Pagination {...this.props} />
         <ImageList {...this.props} />
       </div>
     );

@@ -28,7 +28,7 @@ render(
   <Provider store={store} >
     <ConnectedRouter history={history}>
       <div>
-        <Route path="/:type?/:page?" render={HomeContainer} />
+        <Route path="/" component={HomeContainer} />
         <Route path="/characters/detail/:id" component={DetailCharacterContainer} />
         <Route path="/comics/detail/:id" component={DetailComicContainer} />
       </div>
