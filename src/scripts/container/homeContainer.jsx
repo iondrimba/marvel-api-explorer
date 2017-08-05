@@ -10,6 +10,7 @@ import filter from '../actions/filter';
 import pagination from '../actions/pagination';
 import { push } from 'react-router-redux';
 import appStore from '../model/store';
+import defaultStore from '../model/initialState';
 
 function mapStateToProps(store) {
   return {
@@ -46,7 +47,6 @@ function mountGroups(totalItens) {
       count++;
     }
   }
-
   return groups;
 }
 
@@ -58,13 +58,15 @@ function groupPages(currentPage = 1) {
   return Math.floor(start);
 }
 function getPages(pagination) {
-  return getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current - 1));
+  const pages = getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current - 1));
+  return pages <= 1 ? [] : pages;
 }
 function getTotalPages(totalItens, maxPages) {
   return totalItens / maxPages;
 }
 function getNext(pagination) {
-  return pagination.total > 0 && pagination.current < getTotalPages(pagination.total, maxPages);
+  console.log('getNext', pagination);
+  return pagination.total > 1 || ( pagination.total > 1 && pagination.current === pagination.total) ;
 }
 function getPrev(pagination) {
   return pagination.total > 0 && pagination.current > 1;
@@ -87,22 +89,19 @@ const mapDispatchToProps = (dispatch, store) => {
     searchAction: (val, props) => {
       dispatch(push(`/${props.filter}/?search=${val}`));
       dispatch(search(val));
-      console.log('searchAction', val, appStore.getState());
-      fetch(appStore.getState().filter, appStore.getState().pagination, val );
+      dispatch(pagination(defaultStore.pagination));
+      fetch(appStore.getState().filter, appStore.getState().pagination, val);
     },
     filterAction: (val, props) => {
       dispatch(push(`/${val}/?search=${appStore.getState().search}`));
       dispatch(filter(val));
-      console.log('filterAction', val, appStore.getState());
-      fetch(val, appStore.getState().pagination, appStore.getState().search );
+      fetch(val, appStore.getState().pagination, appStore.getState().search);
     },
     paginationAction: (url, props) => {
       const page = Number(url.split('/')[2].split('?')[0]);
       dispatch(push(url));
       dispatch(pagination({ current: page, pages: getPages(appStore.getState().pagination), next: getNext(appStore.getState().pagination), prev: getPrev(appStore.getState().pagination) }));
-      console.log('paginationAction', page, appStore.getState());
-      fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search );
-
+      fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
     }
   };
 }

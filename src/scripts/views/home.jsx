@@ -27,7 +27,7 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-
+  children: React.PropTypes.object
 }
 
 export default Home;

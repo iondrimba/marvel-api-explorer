@@ -21,6 +21,8 @@ class Pagination extends React.Component {
     let next = '';
     let prev = '';
 
+    console.log(this.props.pagination);
+
     if (this.props.pagination.next) {
       next = <a className="link" onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.location.search)}`} key={'next'} >
         <span>next</span>
