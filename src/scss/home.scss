@@ -7,13 +7,13 @@
   .pagination {
     background-color: #292727;
     bottom: 0;
+    box-shadow: 0 -4px 20px 0 rgba(0,0,0,.75);
+    display: flex;
+    font-family: sans-serif;
     left: 0;
     position: fixed;
     width: 100%;
     z-index: 2;
-    font-family: sans-serif;
-    box-shadow: 0px -4px 20px 0px rgba(0,0,0,0.75);
-    display: flex;
 
     &__content {
       display: flex;
@@ -23,18 +23,18 @@
   }
 
   .link {
+    align-items: center;
+    background-color: #292727;
     color: #fff;
     cursor: pointer;
-    text-decoration: none;
-    background-color: #292727;
-    width: auto;
-    display: inline-block;
-    padding: 10px 15px;
-    transition: background-color .2s;
-    position: relative;
     display: flex;
+    display: inline-block;
     justify-content: center;
-    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+    text-decoration: none;
+    transition: background-color .2s;
+    width: auto;
 
     &--active {
       background-color: #bd1023;
@@ -50,31 +50,31 @@
 
 
   .prev {
+    border-bottom: 0;
+    border-left: 2px solid #fff;
+    border-right: 0;
+    border-top: 2px solid #fff;
     display: block;
-    width: 10px;
     height: 10px;
-    transform: rotate(-45deg);
     margin: 0;
     padding: 0;
-    border-top: 2px solid #fff;
-    border-right: 0;
-    border-bottom: 0;
-    border-left: 2px solid #ffffff;
     position: absolute;
+    transform: rotate(-45deg);
+    width: 10px;
   }
 
   .next {
-     display: block;
-    width: 10px;
-    height: 10px;
-    transform: rotate(-45deg);
-    margin: 0;
-    padding: 0;
-    border-top: 0;
-    border-right: 2px  solid #fff;
     border-bottom: 2px  solid #fff;
     border-left: 0;
+    border-right: 2px  solid #fff;
+    border-top: 0;
+    display: block;
+    height: 10px;
+    margin: 0;
+    padding: 0;
     position: absolute;
+    transform: rotate(-45deg);
+    width: 10px;
   }
 
   .grid {
@@ -85,16 +85,16 @@
 
     a {
       background-color: #000;
+      border: 2px solid #1b1b1b;
       border-radius: 4px;
-      margin-bottom:2.6vw;
+      margin-bottom: 2.6vw;
+      margin-right: 2.6vw;
+      opacity: 0;
       overflow: hidden;
       position: relative;
-      width: 31.4%;
-      transition: opacity .2s, transform .3s cubic-bezier(0.19, 1, 0.22, 1);
       transform: translateY(100px) ;
-      opacity: 0;
-      margin-right: 2.6vw;
-          border: 2px solid #1b1b1b;
+      transition: opacity .2s, transform .3s cubic-bezier(.19, 1, .22, 1);
+      width: 31.4%;
 
       img {
         float: left;
@@ -102,15 +102,15 @@
         width: 100%;
       }
 
-        &.fetching {
-          opacity: 0;
-           transform: translateY(100px);
-        }
+      &.fetching {
+        opacity: 0;
+        transform: translateY(100px);
+      }
 
-        &.fetched {
-          opacity: 1;
-           transform: translateY(0);
-        }
+      &.fetched {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       &::before {
         background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .15) 50%, transparent 50%);
@@ -118,7 +118,7 @@
         height: 100%;
         position: absolute;
         width: 100%;
-            z-index: 1;
+        z-index: 1;
       }
 
       &:nth-child(3n + 0) {

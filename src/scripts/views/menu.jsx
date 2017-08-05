@@ -13,6 +13,9 @@ class Menu extends React.Component {
   displayMenu(hiding) {
     this.refs.list.classList.remove(hiding ? 'hide' : 'show');
     this.refs.list.classList.add(hiding ? 'show' : 'hide');
+
+    this.refs.menu.classList.remove('show');
+    this.refs.menu.classList.add(hiding? 'show' : '');
   }
   isHidden() {
     return this.refs.list.classList.value.includes('hide');
@@ -28,7 +31,7 @@ class Menu extends React.Component {
   }
   render() {
     return (
-      <div className="menu">
+      <div ref={'menu'} className="menu">
         <span onClick={this.onSelect.bind(this)}>{this.props.filter}</span>
         <ul ref={'list'} className="list hide">
           <li><span onClick={this.onClick.bind(this)}>Characters</span></li>

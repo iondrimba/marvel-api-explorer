@@ -2,8 +2,7 @@
   box-sizing: border-box;
 }
 
-body,
-html {
+body, html {
   background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
   font-size: 16px;
   height: 100%;
@@ -11,9 +10,7 @@ html {
   padding: 0;
 }
 
-h1,
-h2,
-ul {
+h1, h2, ul {
   font-size: inherit;
   margin: 0;
   padding: 0;

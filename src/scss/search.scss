@@ -17,6 +17,8 @@
   }
 
   .menu {
+    -webkit-tap-highlight-color: transparent;
+
     background-color: #4e4e4e;
     border-radius: 0 4px 4px 0;
     color: #fff;
@@ -25,9 +27,13 @@
     min-width: 32%;
     padding: 10px;
     position: relative;
-    -webkit-tap-highlight-color: transparent;
     text-align: center;
     text-transform: lowercase;
+
+    &.show {
+      border-radius: 0 4px 0 0;
+      box-shadow: 6px -1px 20px 4px rgba(0, 0, 0, .75);
+    }
 
     span {
       align-self: center;
@@ -39,6 +45,7 @@
 
   .list {
     background-color: #5a5858;
+    border-radius: 0 0 4px 4px;
     color: #fff;
     float: right;
     font-family: sans-serif;
@@ -64,11 +71,16 @@
       &:nth-child(even) {
         background-color: #4e4e4e;
       }
+
+      &:last-child {
+        border-radius: 0 0 4px 4px;
+      }
     }
   }
 }
 
 .show {
+  box-shadow: -1px 12px 20px 0 rgba(0, 0, 0, .75);
   display: block;
 }
 
