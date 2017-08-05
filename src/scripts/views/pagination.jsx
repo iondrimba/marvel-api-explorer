@@ -7,16 +7,20 @@ class Pagination extends React.Component {
     super(props);
   }
   componentDidUpdate(prevProps, prevState) {
- console.log('componentDidUpdate', this.props, prevProps);
-  this.props.paginationAction(this.props);
-    if (!isNaN(this.props.match.params.page)) {
+ 
+  //this.props.paginationAction(this.props);
+//   if(this.props.pagination.current !== prevProps.pagination.current) {
+// console.log('componentDidUpdate', this.props, prevProps);
+// this.props.paginationAction(this.props);
+//   }
+    // if (!isNaN(this.props.match.params.page)) {
      
-      if (this.props.match.params.page !== prevProps.match.params.page) {
-        if (this.props.pagination.current !== this.props.match.params.page) {
-          this.props.paginationAction(this.props);
-        }
-      }
-    }
+    //   if (this.props.match.params.page !== prevProps.match.params.page) {
+    //     if (this.props.pagination.current !== this.props.match.params.page) {
+    //       this.props.paginationAction(this.props);
+    //     }
+    //   }
+    // }
   }
 
   hasQueryString(search) {

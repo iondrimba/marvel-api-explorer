@@ -94,9 +94,9 @@ const mapDispatchToProps = (dispatch, store) => {
       //dispatch(fetching(true));
       console.log('paginationAction', props);
       if (props.filter === 'characters') {
-        //dispatch(charactersGet(Object.assign({}, { page: props.pagination.current, total: props.pagination.total, orderBy: 'name', nameStartsWith: props.search })));
+        dispatch(charactersGet(Object.assign({}, { page: props.pagination.current, total: props.pagination.total, orderBy: 'name', nameStartsWith: props.search })));
       } else {
-        //dispatch(comicsGet(Object.assign({}, { page: props.pagination.current, total: props.pagination.total, orderBy: 'title', titleStartsWith: props.search })));
+        dispatch(comicsGet(Object.assign({}, { page: props.pagination.current, total: props.pagination.total, orderBy: 'title', titleStartsWith: props.search })));
       }
       //dispatch(pagination({ current: 1, pages: getPages(props.pagination), next: getNext(props.pagination), prev: getPrev(props.pagination) }));
     },

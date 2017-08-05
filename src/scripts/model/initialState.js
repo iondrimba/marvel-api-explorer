@@ -4,6 +4,16 @@ const defaultStore = {
   filter: 'characters',
   search: '',
   error: '',
+  router: {
+    pathname: '/',
+    search: '',
+    hash: '',
+    location: {
+      pathname: '/',
+      search: '',
+      hash: ''
+    }
+  },
   data: []
 };
 
