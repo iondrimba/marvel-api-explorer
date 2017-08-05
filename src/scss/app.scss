@@ -1,7 +1,18 @@
 @import 'base';
 
 .loading {
-  left: 101px;
   position: absolute;
-  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 20%;
+  max-width: 100px;
+  animation:  yoyo .8s infinite;
+  transform-origin: top center;
+}
+
+@keyframes yoyo {
+	from { transform: translate(-50%,-50%); }
+	50% { transform: translate(-50%,-50%) scale(1.2); }
+	to { transform: translate(-50%,-50%); }
 }

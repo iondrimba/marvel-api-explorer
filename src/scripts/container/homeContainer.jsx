@@ -65,8 +65,7 @@ function getTotalPages(totalItens, maxPages) {
   return totalItens / maxPages;
 }
 function getNext(pagination) {
-  console.log('getNext', pagination);
-  return pagination.total > 1 || ( pagination.total > 1 && pagination.current === pagination.total) ;
+  return pagination.total > 1 && ( pagination.total > 1 && pagination.current < pagination.total) ;
 }
 function getPrev(pagination) {
   return pagination.total > 0 && pagination.current > 1;
@@ -75,6 +74,7 @@ function getPrev(pagination) {
 const mapDispatchToProps = (dispatch, store) => {
 
   const fetch = (filter, pagination, search) => {
+    dispatch(fetching(true));
     if (filter === 'characters') {
       dispatch(charactersGet(Object.assign({}, { page: pagination.current, total: pagination.total, orderBy: 'name', nameStartsWith: search })));
     } else {
@@ -86,6 +86,9 @@ const mapDispatchToProps = (dispatch, store) => {
     errorClear: (props) => {
       dispatch(fetchingError(''));
     },
+    fetchAction() {
+      fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
+    },
     searchAction: (val, props) => {
       dispatch(push(`/${props.filter}/?search=${val}`));
       dispatch(search(val));
@@ -95,13 +98,15 @@ const mapDispatchToProps = (dispatch, store) => {
     filterAction: (val, props) => {
       dispatch(push(`/${val}/?search=${appStore.getState().search}`));
       dispatch(filter(val));
+      dispatch(pagination(defaultStore.pagination));
       fetch(val, appStore.getState().pagination, appStore.getState().search);
     },
     paginationAction: (url, props) => {
       const page = Number(url.split('/')[2].split('?')[0]);
+      const store = appStore.getState();
       dispatch(push(url));
-      dispatch(pagination({ current: page, pages: getPages(appStore.getState().pagination), next: getNext(appStore.getState().pagination), prev: getPrev(appStore.getState().pagination) }));
-      fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
+      dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
+      fetch(store.filter, store.pagination, store.search);
     }
   };
 }

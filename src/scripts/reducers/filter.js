@@ -1,5 +1,4 @@
-import { FILTER, SEARCH } from '../actions/constants';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { FILTER } from '../actions/constants';
 
 function filter(state = '', action) {
   switch (action.type) {

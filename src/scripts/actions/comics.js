@@ -22,7 +22,6 @@ export function comicsGet(options) {
       if (getState().pagination.total !== pages) {
         dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
-      //dispatch(fetching(false));
     }, (reject) => {
       dispatch(fetchingError(reject));
     }).catch(function (reason) {

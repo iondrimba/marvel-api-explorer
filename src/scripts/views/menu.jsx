@@ -10,16 +10,21 @@ class Menu extends React.Component {
   }
   componentDidMount() {
   }
+  displayMenu(hiding) {
+    this.refs.list.classList.remove(hiding ? 'hide' : 'show');
+    this.refs.list.classList.add(hiding ? 'show' : 'hide');
+  }
+  isHidden() {
+    return this.refs.list.classList.value.includes('hide');
+  }
   onClick(evt) {
     const filter = evt.currentTarget.innerText.toLowerCase();
     this.setState({ filer: filter });
     this.props.filterAction(filter, this.props);
-    this.refs.list.classList.remove('show');
-    this.refs.list.classList.add('hide');
+    this.displayMenu(this.isHidden());
   }
   onSelect(evt) {
-    this.refs.list.classList.remove('hide');
-    this.refs.list.classList.add('show');
+    this.displayMenu(this.isHidden());
   }
   render() {
     return (

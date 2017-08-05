@@ -3,13 +3,16 @@ import Api from '../model/api';
 import Loader from './loader';
 import ImageList from './imageList';
 import Pagination from './pagination';
-import PaginationContainer from '../container/paginationContainer';
 import Styles from '../../scss/home.scss';
 import Search from './search';
+import { withRouter } from 'react-router-dom'
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+  }
+  componentDidMount() {
+    this.props.fetchAction(this.props);
   }
   componentDidUpdate(prevProps, prevState) {
   }
@@ -30,4 +33,4 @@ Home.propTypes = {
   children: React.PropTypes.object
 }
 
-export default Home;
+export default withRouter(Home);

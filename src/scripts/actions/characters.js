@@ -23,7 +23,6 @@ export function charactersGet(options) {
         dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
       }
 
-      //dispatch(fetching(false));
     }, (reject) => {
       dispatch(fetchingError(reject));
     }).catch(function (reason) {

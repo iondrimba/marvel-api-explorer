@@ -1,15 +1,44 @@
 .home {
-  background: linear-gradient(to bottom, #bf0017, #f95635);
+  background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
   min-height: 100vh;
   padding: 15px 10px;
   padding-bottom: 30px;
 
+  .pagination {
+    background-color: #292727;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    font-family: sans-serif;
+    box-shadow: 0px -4px 20px 0px rgba(0,0,0,0.75);
+    display: flex;
+
+    &__content {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
   .link {
     color: #fff;
     cursor: pointer;
-    display: inline-block;
-    margin: 5px;
     text-decoration: none;
+    background-color: #292727;
+    width: auto;
+    display: inline-block;
+    padding: 10px 15px;
+    transition: background-color .2s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--active {
+      background-color: #bd1023;
+    }
   }
 
   form {
@@ -18,31 +47,54 @@
     }
   }
 
-  .pagination {
-    background-color: #333;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    z-index: 2;
+
+
+  .prev {
+    display: block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-45deg);
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid #fff;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 2px solid #ffffff;
+    position: absolute;
+  }
+
+  .next {
+     display: block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-45deg);
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    border-right: 2px  solid #fff;
+    border-bottom: 2px  solid #fff;
+    border-left: 0;
+    position: absolute;
   }
 
   .grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    margin-bottom: 2.6vw;
 
     a {
       background-color: #000;
       border-radius: 4px;
-      margin-bottom: 10px;
+      margin-bottom:2.6vw;
       overflow: hidden;
       position: relative;
-      width: 48%;
-      transition: opacity .2s, transform .2s;
-      transform: translateY(50px);
+      width: 31.4%;
+      transition: opacity .2s, transform .3s cubic-bezier(0.19, 1, 0.22, 1);
+      transform: translateY(100px) ;
       opacity: 0;
+      margin-right: 2.6vw;
+          border: 2px solid #1b1b1b;
 
       img {
         float: left;
@@ -52,13 +104,13 @@
 
         &.fetching {
           opacity: 0;
-           transform: translateY(50px);
+           transform: translateY(100px);
         }
 
         &.fetched {
           opacity: 1;
            transform: translateY(0);
-        }       
+        }
 
       &::before {
         background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .15) 50%, transparent 50%);
@@ -69,8 +121,8 @@
             z-index: 1;
       }
 
-      &:nth-child(2n + 1) {
-        margin-right: 10px;
+      &:nth-child(3n + 0) {
+        margin-right: 0;
       }
     }
   }
