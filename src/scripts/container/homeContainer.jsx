@@ -8,6 +8,8 @@ import search from '../actions/search';
 import fetchingError from '../actions/fetchingError';
 import filter from '../actions/filter';
 import pagination from '../actions/pagination';
+import { push } from 'react-router-redux';
+import appStore from '../model/store';
 
 function mapStateToProps(store) {
   return {
@@ -69,47 +71,38 @@ function getPrev(pagination) {
 }
 
 const mapDispatchToProps = (dispatch, store) => {
+
+  const fetch = (filter, pagination, search) => {
+    if (filter === 'characters') {
+      dispatch(charactersGet(Object.assign({}, { page: pagination.current, total: pagination.total, orderBy: 'name', nameStartsWith: search })));
+    } else {
+      dispatch(comicsGet(Object.assign({}, { page: pagination.current, total: pagination.total, orderBy: 'title', titleStartsWith: search })));
+    }
+  };
+
   return {
     errorClear: (props) => {
       dispatch(fetchingError(''));
     },
-    searchAction: (search, props) => {
-      //dispatch(search(val));
-      //dispatch(pagination({ current: 1, total: 0, pages: [] }));
-      // dispatch(fetching(true));
-      if (props.filter === 'characters') {
-        dispatch(charactersGet(Object.assign({}, { page: 1, total: 0, orderBy: 'name', nameStartsWith: search })));
-      } else {
-        dispatch(comicsGet(Object.assign({}, { page: 1, total: 0, orderBy: 'title', titleStartsWith: search })));
-      }
-      console.log('searchAction', store, props);
+    searchAction: (val, props) => {
+      dispatch(push(`/${props.filter}/?search=${val}`));
+      dispatch(search(val));
+      console.log('searchAction', val, appStore.getState());
+      fetch(appStore.getState().filter, appStore.getState().pagination, val );
     },
-    filterAction: (val) => {
-      console.log('filterAction', store);
+    filterAction: (val, props) => {
+      dispatch(push(`/${val}/?search=${appStore.getState().search}`));
       dispatch(filter(val));
-      dispatch(pagination({ current: 1, total: 0, pages: [] }));
-      //dispatch(fetching(true));
+      console.log('filterAction', val, appStore.getState());
+      fetch(val, appStore.getState().pagination, appStore.getState().search );
     },
-    paginationAction: (props) => {
-      //dispatch(fetching(true));
-      console.log('paginationAction', props);
-      if (props.filter === 'characters') {
-        dispatch(charactersGet(Object.assign({}, { page: props.pagination.current, total: props.pagination.total, orderBy: 'name', nameStartsWith: props.search })));
-      } else {
-        dispatch(comicsGet(Object.assign({}, { page: props.pagination.current, total: props.pagination.total, orderBy: 'title', titleStartsWith: props.search })));
-      }
-      //dispatch(pagination({ current: 1, pages: getPages(props.pagination), next: getNext(props.pagination), prev: getPrev(props.pagination) }));
-    },
-    fetchAction: (f, props) => {
-      const { type, page } = store.match.params;
-      const { total } = props.pagination;
-      dispatch(filter(f));
+    paginationAction: (url, props) => {
+      const page = Number(url.split('/')[2].split('?')[0]);
+      dispatch(push(url));
+      dispatch(pagination({ current: page, pages: getPages(appStore.getState().pagination), next: getNext(appStore.getState().pagination), prev: getPrev(appStore.getState().pagination) }));
+      console.log('paginationAction', page, appStore.getState());
+      fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search );
 
-      if (f === 'characters') {
-        dispatch(charactersGet(Object.assign({}, { page, total, orderBy: 'name', nameStartsWith: props.search })));
-      } else {
-        dispatch(comicsGet(Object.assign({}, { page, total, orderBy: 'title', titleStartsWith: props.search })));
-      }
     }
   };
 }

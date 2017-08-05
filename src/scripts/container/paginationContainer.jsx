@@ -58,11 +58,6 @@ function getPrev(pagination) {
 }
 function mapStateToProps(store) {
   return {
-    error: store.error,
-    fetching: store.fetching,
-    filter: store.filter,
-    search: store.search,
-    data: store.data,    
     pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) })
   };
 }

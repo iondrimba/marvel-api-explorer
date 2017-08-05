@@ -6,23 +6,6 @@ class Pagination extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidUpdate(prevProps, prevState) {
- 
-  //this.props.paginationAction(this.props);
-//   if(this.props.pagination.current !== prevProps.pagination.current) {
-// console.log('componentDidUpdate', this.props, prevProps);
-// this.props.paginationAction(this.props);
-//   }
-    // if (!isNaN(this.props.match.params.page)) {
-     
-    //   if (this.props.match.params.page !== prevProps.match.params.page) {
-    //     if (this.props.pagination.current !== this.props.match.params.page) {
-    //       this.props.paginationAction(this.props);
-    //     }
-    //   }
-    // }
-  }
-
   hasQueryString(search) {
     if (search) {
       return search;
@@ -30,19 +13,23 @@ class Pagination extends React.Component {
       return '';
     }
   }
+  onClick(evt) {
+    evt.preventDefault();
+    this.props.paginationAction(evt.currentTarget.attributes.href.value, this.props);
+  }
   render() {
     let next = '';
     let prev = '';
 
     if (this.props.pagination.next) {
-      next = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) + 1}`, search: `${this.hasQueryString(this.props.location.search)}` }} key={'next'} >
+      next = <a className="link" onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.location.search)}`} key={'next'} >
         <span>next</span>
-      </NavLink>
+      </a>
     }
     if (this.props.pagination.prev) {
-      prev = <NavLink strict className="link" to={{ pathname: `/${this.props.filter}/${Number(this.props.pagination.current) - 1}`, search: `${this.hasQueryString(this.props.location.search)}` }} key={'prev'} >
+      prev = <a className="link" onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) - 1}${this.hasQueryString(this.props.location.search)}`} key={'prev'} >
         <span>prev</span>
-      </NavLink>
+      </a>
     }
 
     return (
@@ -50,11 +37,9 @@ class Pagination extends React.Component {
         {prev}
         {
           this.props.pagination.pages.map((data, index) => {
-            return <NavLink strict className="link" to={{
-              pathname: `/${this.props.filter}/${data + 1}`, search: `${this.hasQueryString(this.props.location.search)}`
-            }} key={data + 1} >
+            return <a className="link" onClick={this.onClick.bind(this)} href={`/${this.props.filter}/${data + 1}${this.hasQueryString(this.props.location.search)}`} key={data + 1} >
               <span>{data + 1}</span>
-            </NavLink>
+            </a>
           })
         }
         {next}
@@ -63,10 +48,9 @@ class Pagination extends React.Component {
   }
 }
 Pagination.propTypes = {
-  paginationAction: React.PropTypes.func,
-  pagination: React.PropTypes.any,
+  filter: React.PropTypes.string,
+  pagination: React.PropTypes.object,
   location: React.PropTypes.object,
-  filter: React.PropTypes.any,
-  match: React.PropTypes.object,
+  paginationAction: React.PropTypes.func
 }
 export default Pagination;

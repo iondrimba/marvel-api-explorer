@@ -13,7 +13,7 @@ class ImageList extends React.Component {
     this.imgs = [...document.querySelectorAll('a')];
   }
   componentWillReceiveProps(nextProps) {
-    this.animateOut();
+    // this.animateOut();
   }
   componentWillUpdate(nextProps, nextState) {
     // if (nextProps.data && this.props.data.length) {
@@ -54,7 +54,7 @@ class ImageList extends React.Component {
     // console.log('ImageList componentWillUnmount');
   }
   render() {
-   console.log('ImageList render');
+  //  console.log('ImageList render');
 
     return (
       <div className="grid">

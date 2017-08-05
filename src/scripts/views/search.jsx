@@ -10,13 +10,10 @@ class Search extends React.Component {
     }
   }
   componentDidMount() {
-
     this.refs.search.onsubmit = (evt) => {
       evt.preventDefault();
-      //this.props.history.replace(`/${this.props.filter}/?search=${this.state.search}`)
       this.props.searchAction(this.state.search, this.props);
     }
-
   }
   onTextChange(evt) {
     const search = evt.currentTarget.value;
@@ -35,11 +32,6 @@ class Search extends React.Component {
   }
 }
 Search.propTypes = {
-  searchAction: React.PropTypes.func,
-  filter: React.PropTypes.string,
-  history: React.PropTypes.object,
-  location: React.PropTypes.object,
-  filterAction: React.PropTypes.func,
-  paginationAction: React.PropTypes.func,
+  searchAction: React.PropTypes.func
 }
 export default Search;
