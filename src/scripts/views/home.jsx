@@ -18,12 +18,13 @@ class Home extends React.Component {
   }
 
   render() {
+    var { data, filter} = this.props;
     return (
       <div className="home">
-        <Search  {...this.props} />
-        <Loader {...this.props} />
-        <Pagination {...this.props} />
-        <ImageList {...this.props} />
+        <Search filter={this.props.filter} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
+        <Loader fetching = {this.props.fetching} />
+        <Pagination filter={this.props.filter} search={this.props.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
+        <ImageList {...{ data, filter}} />
       </div>
     );
   }
@@ -33,4 +34,4 @@ Home.propTypes = {
   fetchAction: React.PropTypes.func
 }
 
-export default withRouter(Home);
+export default Home;

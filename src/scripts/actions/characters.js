@@ -13,7 +13,6 @@ export function characters(data) {
 export function charactersGet(options) {
 
   return function (dispatch, getState, api) {
-
     return api.getCharacters(options).then((data) => {
       dispatch(characters(data));
       const { limit, total } = data.data.data;

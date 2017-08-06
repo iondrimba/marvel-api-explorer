@@ -13,6 +13,10 @@ class Pagination extends React.Component {
       return '';
     }
   }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate', prevProps, prevState, this.props);
+  }
+
   onClick(evt) {
     evt.preventDefault();
     this.props.paginationAction(evt.currentTarget.attributes.href.value, this.props);
@@ -25,12 +29,12 @@ class Pagination extends React.Component {
     let prev = '';
 
     if (this.props.pagination.next) {
-      next = <a className='link' onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.location.search)}`} key={'next'} >
+      next = <a className='link' onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.search)}`} key={'next'} >
         <span className='next'></span>
       </a>
     }
     if (this.props.pagination.prev) {
-      prev = <a className='link' onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) - 1}${this.hasQueryString(this.props.location.search)}`} key={'prev'} >
+      prev = <a className='link' onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) - 1}${this.hasQueryString(this.props.search)}`} key={'prev'} >
         <span className='prev'></span>
       </a>
     }
@@ -41,7 +45,7 @@ class Pagination extends React.Component {
      {prev}
         {
           this.props.pagination.pages.map((data, index) => {
-            return <a className={ this.getStyle(this.props, data + 1) } onClick={this.onClick.bind(this)} href={`/${this.props.filter}/${data + 1}${this.hasQueryString(this.props.location.search)}`} key={data + 1} >
+            return <a className={ this.getStyle(this.props, data + 1) } onClick={this.onClick.bind(this)} href={`/${this.props.filter}/${data + 1}${this.hasQueryString(this.props.search)}`} key={data + 1} >
               <span>{data + 1}</span>
             </a>
           })
@@ -55,7 +59,7 @@ class Pagination extends React.Component {
 Pagination.propTypes = {
   filter: React.PropTypes.string,
   pagination: React.PropTypes.object,
-  location: React.PropTypes.object,
+  search: React.PropTypes.string,
   paginationAction: React.PropTypes.func
 }
 export default Pagination;

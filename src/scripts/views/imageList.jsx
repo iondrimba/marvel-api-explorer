@@ -38,7 +38,6 @@ class ImageList extends React.Component {
 }
 ImageList.propTypes = {
   data: React.PropTypes.array,
-  filter: React.PropTypes.string,
-  pagination: React.PropTypes.object,
+  filter: React.PropTypes.string
 }
 export default ImageList;

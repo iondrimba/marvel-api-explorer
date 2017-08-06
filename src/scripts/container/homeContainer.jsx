@@ -65,7 +65,7 @@ function getTotalPages(totalItens, maxPages) {
   return totalItens / maxPages;
 }
 function getNext(pagination) {
-  return pagination.total > 1 && ( pagination.total > 1 && pagination.current < pagination.total) ;
+  return pagination.total > 1 && (pagination.total > 1 && pagination.current < pagination.total);
 }
 function getPrev(pagination) {
   return pagination.total > 0 && pagination.current > 1;
@@ -102,13 +102,13 @@ const mapDispatchToProps = (dispatch, store) => {
       fetch(val, appStore.getState().pagination, appStore.getState().search);
     },
     paginationAction: (url, props) => {
+      dispatch(push(url));
       const page = Number(url.split('/')[2].split('?')[0]);
       const store = appStore.getState();
-      dispatch(push(url));
       dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
       fetch(store.filter, store.pagination, store.search);
     }
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
