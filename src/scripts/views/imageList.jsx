@@ -28,7 +28,7 @@ class ImageList extends React.Component {
             return <Link to={{
               pathname: `/${this.props.filter}/detail/${data.id}`
             }} key={index}>
-              <img src={`${data.thumbnail.path}/portrait_incredible.${data.thumbnail.extension}`} />
+              <img src={data.file} />
             </Link>
           })
         }
