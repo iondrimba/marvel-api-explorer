@@ -1,4 +1,4 @@
-# marvel-api-explorer
+# WIP marvel-api-explorer
 Exploring Marvel's API
 
 [![Build Status](https://travis-ci.org/iondrimba/marvel-api-explorer.svg?branch=master)](https://travis-ci.org/iondrimba/marvel-api-explorer)
