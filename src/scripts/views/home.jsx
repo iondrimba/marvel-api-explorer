@@ -15,6 +15,7 @@ class Home extends React.Component {
    // this.props.fetchAction(this.props);
   }
   componentDidUpdate(prevProps, prevState) {
+    // console.log('home update');
   }
 
   render() {
@@ -23,7 +24,7 @@ class Home extends React.Component {
       <div className="home">
         <Search filter={this.props.filter} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
         <Loader fetching = {this.props.fetching} />
-        <Pagination filter={this.props.filter} search={this.props.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
+        <Pagination filter={this.props.filter} search={this.props.location.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
         <ImageList {...{ data, filter}} />
       </div>
     );
@@ -31,7 +32,15 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  fetchAction: React.PropTypes.func
+  fetchAction: React.PropTypes.func,
+  searchAction: React.PropTypes.func,
+  paginationAction: React.PropTypes.func,
+  filterAction: React.PropTypes.func,
+  pagination: React.PropTypes.object,
+  filter: React.PropTypes.string,
+  location: React.PropTypes.object,
+  fetching: React.PropTypes.bool,
+  data: React.PropTypes.array,
 }
 
 export default Home;

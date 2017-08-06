@@ -14,7 +14,6 @@ class Pagination extends React.Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate', prevProps, prevState, this.props);
   }
 
   onClick(evt) {

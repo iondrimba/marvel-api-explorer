@@ -99,8 +99,33 @@
 
       img {
         float: left;
-        opacity: 1;
+        opacity: 0;
         width: 100%;
+
+        &.animate {
+          opacity: 1;
+        }
+      }
+
+
+      .mask {
+        background-color: #bd1023;
+        display: block;
+        height: 100%;
+        position: absolute;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform .3s cubic-bezier(.19, 1, .22, 1);
+        width: 100%;
+
+        &.animate {
+          transform: scaleY(1);
+        }
+
+        &.animate-out {
+          transform: scaleY(0);
+          transform-origin: bottom;
+        }
       }
 
       &.fetching {

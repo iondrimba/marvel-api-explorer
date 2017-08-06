@@ -9,14 +9,31 @@ class ImageList extends React.Component {
 
   }
   componentDidUpdate(prevProps, prevState) {
-    this.animate([...document.querySelectorAll('a')]);
+    console.clear();
+    this.animate([...document.querySelectorAll('.grid a')]);
   }
   animate(imgs) {
     imgs.map((el, index) => {
-      setTimeout(() => {
-        el.classList.remove('fetching');
-        el.classList.add('fetched');
-      }, index * 50);
+      setTimeout((elm) => {
+        requestAnimationFrame(() => {
+          elm.classList.remove('fetching');
+          elm.classList.add('fetched');
+        });
+
+        var image = new Image();
+        image.onload = function () {
+          elm.querySelector('.mask').classList.add('animate');
+          elm.querySelector('img').attributes.src.value = '';
+          elm.querySelector('img').attributes.src.value = image.src;
+          setTimeout((elm1) => {
+            requestAnimationFrame(() => {
+              elm1.querySelector('img').classList.add('animate');
+              elm1.querySelector('.mask').classList.add('animate-out');
+            });
+          }, 300, elm);
+        };
+        image.src = elm.querySelector('img').attributes['data-src'].value;
+      }, index * 50, el);
     });
   }
 
@@ -28,7 +45,8 @@ class ImageList extends React.Component {
             return <Link to={{
               pathname: `/${this.props.filter}/detail/${data.id}`
             }} key={index}>
-              <img src={data.thumb} />
+              <div className="mask"></div>
+              <img data-src={data.thumb} src="/images/lazy.png"/>
             </Link>
           })
         }
