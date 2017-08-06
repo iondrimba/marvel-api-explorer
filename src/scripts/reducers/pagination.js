@@ -7,7 +7,7 @@ function pagination(state = { current: 1, total: 0, pages: [], next: false, prev
       if(isNaN(page)) {
         return state;
       }
-      return Object.assign({}, state, { current: action.payload.pathname.split('/')[2] || 0 });
+      return Object.assign({}, state, { current: Number(page) });
 
     case PAGINATION:
       return Object.assign({}, state, action.pagination);

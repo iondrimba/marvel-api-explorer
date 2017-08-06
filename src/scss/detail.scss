@@ -1,7 +1,7 @@
 @import 'slides';
 
 .detail {
-  background-color: rgba(2, 2, 2, .89);
+  background-color: #4e4e4e;
   color: #fff;
   height: 100vh;
   left: 0;
@@ -24,16 +24,14 @@
 
   &__cover {
     display: block;
-    position: relative;
-    top: 15px;
-    width: 100%;
+    position: fixed;
+    width: 100vw;
 
     &--reflex {
-      border-radius: 4px;
       margin: 0 auto;
       overflow: hidden;
       position: relative;
-      width: 93%;
+      width: inherit;
 
       &::before {
         background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .15) 50%, transparent 50%);
@@ -51,9 +49,9 @@
     background-color: #4e4e4e;
     font-size: 16px;
     line-height: 1.3;
-    margin-top: 30px;
-    min-height: 50vh;
-    width: 100%;
+    position: absolute;
+    transform: translateY(110vh);
+    width: 100vw;
 
     h2 {
       padding-bottom: 10px;
@@ -63,6 +61,7 @@
   .info {
     &__name {
       background-color: #333;
+      box-shadow: -2px 18px 20px 20px #060606;
       padding: 15px;
     }
 

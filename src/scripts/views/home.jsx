@@ -12,7 +12,7 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchAction(this.props);
+   // this.props.fetchAction(this.props);
   }
   componentDidUpdate(prevProps, prevState) {
   }

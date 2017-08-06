@@ -7,7 +7,13 @@ class DetailCharacter extends React.Component {
     super(props);
   }
   componentDidMount() {
+
+    this.refs.cover.querySelector('img').onload = () => {
+      const coverHeight = this.refs.cover.getBoundingClientRect().height;
+      this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
+    };
     this.animateIn([...document.querySelectorAll('.slides div')]);
+
   }
   animateIn(slides) {
     slides.map((el, index) => {
@@ -42,14 +48,14 @@ class DetailCharacter extends React.Component {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
-                <div className="detail__cover">
+                <div ref={'cover'} className="detail__cover">
                   <div className="detail__cover--reflex">
                     <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
                   </div>
                 </div>
-                <div className="detail__infos">
+                <div ref={'infos'} className="detail__infos">
                   <section className="info__name">
-                    <h2>Name:</h2>
+                    <h2>Name</h2>
                     <span>{data.name}</span>
                   </section>
                   <Infos title="Series" type="series" data={data.series.items || []}></Infos>
