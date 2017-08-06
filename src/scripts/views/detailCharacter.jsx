@@ -6,13 +6,42 @@ class DetailCharacter extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    this.animateIn([...document.querySelectorAll('.slides div')]);
+  }
+  animateIn(slides) {
+    slides.map((el, index) => {
+      setTimeout(() => {
+        el.classList.remove('active');
+        el.classList.add('active');
+      });
+    });
+
+    setTimeout(() => {
+      slides.reverse().map((el, index) => {
+        setTimeout(() => {
+          el.classList.remove('active');
+          el.classList.add('out');
+        });
+      });
+    }, 600);
+
+    setTimeout(() => {
+      this.refs.content.classList.add('active');
+    }, 900);
+  }
   render() {
     return (
       <div className="detail">
+        <div className="slides">
+          <div className="first"></div>
+          <div className="second"></div>
+          <div className="third"></div>
+        </div>
         {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
-              return <div key={data.id + index}>
+              return <div ref={'content'} className="detail__content" key={data.id + index}>
                 <div className="detail__cover">
                   <div className="detail__cover--reflex">
                     <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} />
