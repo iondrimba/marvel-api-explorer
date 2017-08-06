@@ -6,14 +6,13 @@ class ImageList extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.imgs = [...document.querySelectorAll('a')];
+
   }
   componentDidUpdate(prevProps, prevState) {
-    this.imgs = [...document.querySelectorAll('a')];
-    this.animate();
+    this.animate([...document.querySelectorAll('a')]);
   }
-  animate() {
-    this.imgs.map((el, index) => {
+  animate(imgs) {
+    imgs.map((el, index) => {
       setTimeout(() => {
         el.classList.remove('fetching');
         el.classList.add('fetched');

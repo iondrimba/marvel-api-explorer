@@ -18,7 +18,7 @@ class Pagination extends React.Component {
     this.props.paginationAction(evt.currentTarget.attributes.href.value, this.props);
   }
   getStyle(props, page) {
-    return props.pagination.current === page? 'link link--active': 'link';
+    return Number(props.pagination.current) === page? 'link link--active': 'link';
   }
   render() {
     let next = '';
