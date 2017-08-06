@@ -25,8 +25,8 @@
     align-items: center;
     color: #fff;
     cursor: pointer;
-    display: inline-block;
     display: flex;
+    display: inline-block;
     justify-content: center;
     padding: 10px 15px;
     position: relative;
@@ -86,7 +86,7 @@
     margin-top: 56px;
 
     a {
-      background-color: #000;
+      background-image: url('/images/missing.jpg');
       border-radius: 4px;
       margin-bottom: 2.6vw;
       margin-right: 2.6vw;
