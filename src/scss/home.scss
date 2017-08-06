@@ -9,7 +9,6 @@
     bottom: 0;
     box-shadow: 0 -4px 20px 0 rgba(0,0,0,.75);
     display: flex;
-    font-family: sans-serif;
     left: 0;
     position: fixed;
     width: 100%;
@@ -27,17 +26,20 @@
     background-color: #292727;
     color: #fff;
     cursor: pointer;
-    display: flex;
     display: inline-block;
+    display: flex;
     justify-content: center;
     padding: 10px 15px;
     position: relative;
     text-decoration: none;
     transition: background-color .2s;
     width: auto;
+    z-index: 1;
 
     &--active {
       background-color: #bd1023;
+      box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .75);
+      z-index: 2;
     }
   }
 
