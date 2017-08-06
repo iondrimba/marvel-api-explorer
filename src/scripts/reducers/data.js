@@ -7,9 +7,19 @@ function data(state = [], action) {
     case FETCHING:
       return [];
     case FETCHED:
-      var filtered = [...action.data.data.data.results].map((item)=>{
-        var url = `${item.thumbnail.path}/portrait_incredible.${item.thumbnail.extension}`;
-        item.file = item.thumbnail.path.includes('image_not_available') ? '/images/missing.jpg' : url;
+
+      var filtered = [...action.data.data.data.results].map((item) => {
+        var thumb = '/images/missing.jpg',
+          full = '/images/missing-full.jpg';
+
+        if (!item.thumbnail.path.includes('image_not_available')) {
+          thumb = `${item.thumbnail.path}/portrait_incredible.${item.thumbnail.extension}`;
+          full = `${item.thumbnail.path}.${item.thumbnail.extension}`;
+        }
+
+        item.thumb = thumb;
+        item.full = full;
+
         return item;
       });
       return filtered;

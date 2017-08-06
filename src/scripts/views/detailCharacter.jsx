@@ -46,12 +46,11 @@ class DetailCharacter extends React.Component {
         </div>
         {
           this.props.data.map((data, index) => {
-            console.log(data);
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
                 <div ref={'cover'} className="detail__cover">
                   <div className="detail__cover--reflex">
-                    <img src={data.file} />
+                    <img src={data.full} />
                   </div>
                 </div>
                 <div ref={'infos'} className="detail__infos">
