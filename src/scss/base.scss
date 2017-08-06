@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+input {
+  font-family: inherit;
+}
+
 body, html {
   background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
   font-family: 'font';

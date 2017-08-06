@@ -18,26 +18,26 @@ class Pagination extends React.Component {
     this.props.paginationAction(evt.currentTarget.attributes.href.value, this.props);
   }
   getStyle(props, page) {
-    return props.pagination.current === page? "link link--active": "link";
+    return props.pagination.current === page? 'link link--active': 'link';
   }
   render() {
     let next = '';
     let prev = '';
 
     if (this.props.pagination.next) {
-      next = <a className="link" onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.location.search)}`} key={'next'} >
-        <span className="next"></span>
+      next = <a className='link' onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.location.search)}`} key={'next'} >
+        <span className='next'></span>
       </a>
     }
     if (this.props.pagination.prev) {
-      prev = <a className="link" onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) - 1}${this.hasQueryString(this.props.location.search)}`} key={'prev'} >
-        <span className="prev"></span>
+      prev = <a className='link' onClick={this.onClick.bind(this)} href={ `/${this.props.filter}/${Number(this.props.pagination.current) - 1}${this.hasQueryString(this.props.location.search)}`} key={'prev'} >
+        <span className='prev'></span>
       </a>
     }
 
     return (
-      <div className="pagination">
-        <div className="pagination__content">
+      <div className='pagination'>
+        <div className='pagination__content'>
      {prev}
         {
           this.props.pagination.pages.map((data, index) => {

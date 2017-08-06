@@ -15,7 +15,7 @@ class Menu extends React.Component {
     this.refs.list.classList.add(hiding ? 'show' : 'hide');
 
     this.refs.menu.classList.remove('show');
-    this.refs.menu.classList.add(hiding? 'show' : '');
+    hiding ? this.refs.menu.classList.add('show') : null;
   }
   isHidden() {
     return this.refs.list.classList.value.includes('hide');

@@ -30,7 +30,7 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  children: React.PropTypes.object
+  fetchAction: React.PropTypes.func
 }
 
 export default withRouter(Home);
