@@ -90,7 +90,8 @@ const mapDispatchToProps = (dispatch, store) => {
       fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
     },
     searchAction: (val, props) => {
-      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}?search=${val}`));
+      const queryString = val.length? `?search=${val}`:'';
+      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${queryString}`));
       dispatch(search(val));
       dispatch(pagination(defaultStore.pagination));
       fetch(appStore.getState().filter, appStore.getState().pagination, val);
@@ -106,9 +107,8 @@ const mapDispatchToProps = (dispatch, store) => {
       const page = Number(url.split('/')[2].split('?')[0]);
       const store = appStore.getState();
       dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
-      fetch(store.filter, store.pagination, store.search);
     }
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

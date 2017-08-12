@@ -15,7 +15,11 @@ class Home extends React.Component {
    // this.props.fetchAction(this.props);
   }
   componentDidUpdate(prevProps, prevState) {
-    // console.log('home update');
+    console.log('home update', prevProps.search, this.props.search);
+    console.log('home update', prevProps.match.params.page, this.props.match.params.page);
+    if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
+      this.props.fetchAction(this.props);
+    }
   }
 
   render() {

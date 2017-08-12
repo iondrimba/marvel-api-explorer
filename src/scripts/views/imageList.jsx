@@ -9,7 +9,6 @@ class ImageList extends React.Component {
 
   }
   componentDidUpdate(prevProps, prevState) {
-    console.clear();
     this.animate([...document.querySelectorAll('.grid a')]);
   }
   animate(imgs) {

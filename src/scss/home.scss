@@ -7,7 +7,7 @@
   .pagination {
     background-color: #191717;
     bottom: 0;
-    box-shadow: 0 -4px 20px 0 rgba(0,0,0,.75);
+    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, .75);
     display: flex;
     left: 0;
     position: fixed;
@@ -26,7 +26,6 @@
     color: #fff;
     cursor: pointer;
     display: flex;
-    display: inline-block;
     justify-content: center;
     padding: 10px 15px;
     position: relative;
@@ -47,8 +46,6 @@
       display: none;
     }
   }
-
-
 
   .prev {
     border-bottom: 0;
@@ -87,6 +84,7 @@
 
     a {
       background-image: url('/images/missing.jpg');
+      background-size: cover;
       border-radius: 4px;
       margin-bottom: 2.6vw;
       margin-right: 2.6vw;

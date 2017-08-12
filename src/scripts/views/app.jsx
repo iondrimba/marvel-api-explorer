@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Route path='/' component={HomeContainer} />
+        <Route path='/:type?/:page?' component={HomeContainer} />
         <Route path="/characters/detail/:id" component={DetailCharacterContainer} />
         <Route path="/comics/detail/:id" component={DetailComicContainer} />
       </div>

@@ -114,6 +114,8 @@ var config = {
 };
 
 
+
+
 if (isProduction) {
   config.plugins.push(new ExtractTextPlugin('./css/[name].[hash].css'));
   config.plugins.push(new webpack.optimize.DedupePlugin());
@@ -126,18 +128,18 @@ if (isProduction) {
     minRatio: 0.8
   }));
   config.plugins.push(new SWPrecacheWebpackPlugin({
-    cacheId: 'calc',
-    filename: 'calc-service-worker.js',
+    cacheId: 'api-[hash]',
+    filename: 'api-service-worker-[hash].js',
     maximumFileSizeToCacheInBytes: 4194304,
     staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff}',
       'public/fonts/*.{woff2,woff}'],
     stripPrefix: 'public',
     runtimeCaching: [{
-      urlPattern: /^https:\/\/calculator\.iondrimbafilho\.me\/.+/,
+      urlPattern: /^https\:\/\/gateway\.marvel\.com\/v1\/public.+/,
       handler: 'cacheFirst'
     }],
-  }
-  ));
+  }));
+
 } else {
   config.plugins.push(new StyleLintPlugin({
     configFile: '.stylelintrc',

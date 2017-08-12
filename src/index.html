@@ -52,7 +52,7 @@
     (function () {
       if ('serviceWorker' in navigator) {
         window.onload = function () {
-          //navigator.serviceWorker.register('calc-service-worker.js');
+          navigator.serviceWorker.register('api-service-worker-[hash].js');
         }
 
       }
