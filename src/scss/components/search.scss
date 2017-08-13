@@ -17,6 +17,22 @@
     width: 100%;
   }
 
+  .close-icon {
+    background-color: #333;
+    cursor: pointer;
+    left: 100vw;
+    padding: 13px;
+    position: absolute;
+    top: 0;
+    transform: translateX(100vw);
+    transition: transform .3s cubic-bezier(.165, .84, .44, 1);
+    width: 48px;
+
+    &.show {
+      transform: translateX(-43vw);
+    }
+  }
+
   input {
     border: 0;
     padding: 15px;

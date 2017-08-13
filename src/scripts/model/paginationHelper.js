@@ -46,8 +46,6 @@ class PaginationHelper {
     return totalItens / maxPages;
   }
   getNext(pagination) {
-
-    console.log('getNext', pagination);
     return (
       pagination.total > 1 &&
       (pagination.total > 1 && pagination.current < pagination.total)

@@ -25,6 +25,7 @@ class Menu extends React.Component {
     this.setState({ filer: filter });
     this.props.filterAction(filter, this.props);
     this.displayMenu(this.isHidden());
+    this.props.onClick();
   }
   onSelect(evt) {
     this.displayMenu(this.isHidden());

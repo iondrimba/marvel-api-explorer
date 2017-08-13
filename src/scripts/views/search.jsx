@@ -20,13 +20,20 @@ class Search extends React.Component {
     const search = evt.currentTarget.value;
     this.setState({ search: search });
   }
+  onClick() {
+    this.props.onSearch();
+  }
+  onSearchClear() {
+    this.setState({ search: '' });
+  }
   render() {
     return (
       <div ref={'search'} className={this.props.display ? 'search display' : 'search' }>
         <form ref={'form'} action="">
           <input type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
           <button type="submit">search</button>
-          <Menu {...this.props} />
+          <img onClick={this.onSearchClear.bind(this)} className={this.state.search ? 'close-icon show' : 'close-icon'} src="/images/close.svg" />
+          <Menu {...this.props} onClick={this.onClick.bind(this)}/>
         </form>
       </div>
     );
