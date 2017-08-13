@@ -5,7 +5,7 @@
   transform: translateY(0);
   transition: transform .3s cubic-bezier(.165, .84, .44, 1);
   width: 100vw;
-  z-index: 2;
+  z-index: 7;
 
   &.display {
     transform: translateY(100%);

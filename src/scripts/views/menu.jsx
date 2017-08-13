@@ -44,6 +44,7 @@ class Menu extends React.Component {
 }
 Menu.propTypes = {
   filter: React.PropTypes.string,
+  onClick: React.PropTypes.func,
   filterAction: React.PropTypes.func
 }
 export default Menu;

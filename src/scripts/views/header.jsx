@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from './search';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
@@ -9,18 +10,18 @@ class Header extends React.Component {
     }
   }
   onSearchClick() {
-    this.setState({displaySearch: !this.state.displaySearch});
+    this.setState({ displaySearch: !this.state.displaySearch });
   }
   onSearch() {
-    this.setState({displaySearch: false});
+    this.setState({ displaySearch: false });
   }
   render() {
     return (
       <section>
         <header className="header">
-          <button className="header__dots">
+          <Link className="header__dots" to={{ pathname: '/about' }} >
             <img src="/images/dots.svg" />
-          </button>
+          </Link>
           <h1><img className="logo" src="/images/marvel.svg" /><span>API Explorer</span></h1>
           <button className="header__search" onClick={this.onSearchClick.bind(this)}>
             <img className={!this.state.displaySearch ? 'search-icon' : 'search-icon hide'} src="/images/search.svg" />
