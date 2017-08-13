@@ -1,5 +1,4 @@
 import React from 'react';
-import Styles from '../../scss/detail.scss';
 import Infos from './infos'
 
 class DetailCharacter extends React.Component {
@@ -7,13 +6,11 @@ class DetailCharacter extends React.Component {
     super(props);
   }
   componentDidMount() {
-
     this.refs.cover.querySelector('img').onload = () => {
       const coverHeight = this.refs.cover.getBoundingClientRect().height;
       this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
     };
     this.animateIn([...document.querySelectorAll('.slides div')]);
-
   }
   animateIn(slides) {
     slides.map((el, index) => {

@@ -1,0 +1,24 @@
+
+.menu {
+  background-color: #4e4e4e;
+  border-radius: 0 4px 4px 0;
+  color: #fff;
+  display: flex;
+  min-width: 32%;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  text-transform: lowercase;
+
+  &.show {
+    border-radius: 0 4px 0 0;
+    box-shadow: 6px -1px 20px 4px rgba(0, 0, 0, .75);
+  }
+
+  span {
+    align-self: center;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+  }
+}

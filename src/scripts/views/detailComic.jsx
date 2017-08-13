@@ -1,5 +1,4 @@
 import React from 'react';
-import Styles from '../../scss/detail.scss';
 
 class DetailComic extends React.Component {
   constructor(props) {
@@ -58,7 +57,7 @@ class DetailComic extends React.Component {
                 </div>
                 <div ref={'infos'} className="detail__infos">
                   <section className="info__name">
-                    <h2 >{data.title}</h2>
+                    <h2>{data.title}</h2>
                     {this.getDescription(data.description)}
                   </section>
                 </div>

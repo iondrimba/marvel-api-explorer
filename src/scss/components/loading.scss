@@ -1,0 +1,24 @@
+.loading {
+  animation: yoyo .8s infinite;
+  left: 50%;
+  max-width: 100px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  transform-origin: top center;
+  width: 20%;
+}
+
+@keyframes yoyo {
+  from {
+    transform: translate(-50%,-50%);
+  }
+
+  50% {
+    transform: translate(-50%,-50%) scale(1.2);
+  }
+
+  to {
+    transform: translate(-50%,-50%);
+  }
+}

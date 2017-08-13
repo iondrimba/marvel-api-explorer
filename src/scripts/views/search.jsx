@@ -1,6 +1,5 @@
 import React from 'react';
 import Menu from './menu';
-import Styles from '../../scss/search.scss';
 
 class Search extends React.Component {
   constructor(props) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Styles from '../../scss/detail.scss';
 
 class Infos extends React.Component {
   constructor(props) {

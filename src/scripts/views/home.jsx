@@ -3,7 +3,6 @@ import Api from '../model/api';
 import Loader from './loader';
 import ImageList from './imageList';
 import Pagination from './pagination';
-import Styles from '../../scss/home.scss';
 import Search from './search';
 import { withRouter } from 'react-router-dom'
 
@@ -11,12 +10,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-   // this.props.fetchAction(this.props);
-  }
+
   componentDidUpdate(prevProps, prevState) {
-    console.log('home update', prevProps.search, this.props.search);
-    console.log('home update', prevProps.match.params.page, this.props.match.params.page);
     if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
       this.props.fetchAction(this.props);
     }
@@ -36,6 +31,8 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
+  search: React.PropTypes.string,
+  match: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
   searchAction: React.PropTypes.func,
   paginationAction: React.PropTypes.func,

@@ -1,0 +1,30 @@
+.search {
+  margin-bottom: 15px;
+  position: fixed;
+  width: calc(100% - 22px);
+  z-index: 5;
+
+  &::before {
+    background: linear-gradient(to bottom, #1f1f1f 0%, rgb(0, 0, 0) 33%, transparent 100%);
+    content: '';
+    display: block;
+    height: 120px;
+    left: -10px;
+    position: absolute;
+    top: -20px;
+    width: 100vw;
+    z-index: -1;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+  }
+
+  input {
+    border: 0;
+    border-radius: 4px 0 0 4px;
+    padding: 15px;
+    width: 100%;
+  }
+}

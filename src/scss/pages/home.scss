@@ -1,0 +1,12 @@
+.home {
+  background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
+  min-height: 100vh;
+  padding: 15px 10px;
+  padding-bottom: 30px;
+
+  form {
+    button {
+      display: none;
+    }
+  }
+}
