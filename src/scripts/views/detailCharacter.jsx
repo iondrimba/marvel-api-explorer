@@ -1,5 +1,6 @@
 import React from 'react';
 import Infos from './infos'
+import Transition from './transition';
 
 class DetailCharacter extends React.Component {
   constructor(props) {
@@ -36,11 +37,7 @@ class DetailCharacter extends React.Component {
   render() {
     return (
       <div className="detail">
-        <div className="slides">
-          <div className="first"></div>
-          <div className="second"></div>
-          <div className="third"></div>
-        </div>
+        <Transition/>
         {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {

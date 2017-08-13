@@ -31,7 +31,6 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  search: React.PropTypes.string,
   match: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
   searchAction: React.PropTypes.func,
