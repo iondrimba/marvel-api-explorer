@@ -12,7 +12,8 @@ class Search extends React.Component {
     this.refs.form.onsubmit = (evt) => {
       evt.preventDefault();
       this.props.searchAction(this.state.search, this.props);
-      this.refs.search.classList.add('searched');
+      this.refs.search.classList.add('hide');
+      this.props.onSearch();
     }
   }
   onTextChange(evt) {
@@ -21,7 +22,7 @@ class Search extends React.Component {
   }
   render() {
     return (
-      <div ref={'search'} className="search">
+      <div ref={'search'} className={this.props.display ? 'search display' : 'search' }>
         <form ref={'form'} action="">
           <input type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
           <button type="submit">search</button>

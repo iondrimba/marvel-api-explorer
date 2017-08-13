@@ -1,21 +1,34 @@
 import React from 'react';
+import Search from './search';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      displaySearch: false
+    }
   }
-
+  onSearchClick() {
+    this.setState({displaySearch: !this.state.displaySearch});
+  }
+  onSearch() {
+    this.setState({displaySearch: false});
+  }
   render() {
     return (
-      <header className="header">
-        <button className="header__dots">
-          <img src="/images/dots.svg" />
-        </button>
-        <h1><img className="logo" src="/images/marvel.svg" /><span>API Explorer</span></h1>
-        <button className="header__search">
-          <img src="/images/search.svg" />
-        </button>
-      </header>
+      <section>
+        <header className="header">
+          <button className="header__dots">
+            <img src="/images/dots.svg" />
+          </button>
+          <h1><img className="logo" src="/images/marvel.svg" /><span>API Explorer</span></h1>
+          <button className="header__search" onClick={this.onSearchClick.bind(this)}>
+            <img className={!this.state.displaySearch ? 'search-icon' : 'search-icon hide'} src="/images/search.svg" />
+            <img className={this.state.displaySearch ? 'close-icon' : 'close-icon hide'} src="/images/close.svg" />
+          </button>
+        </header>
+        <Search onSearch={this.onSearch.bind(this)} display={this.state.displaySearch} filter={this.props.filter} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
+      </section>
     );
   }
 }

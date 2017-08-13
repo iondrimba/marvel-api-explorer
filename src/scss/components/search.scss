@@ -1,13 +1,14 @@
 .search {
-  left: 50%;
-  margin-bottom: 15px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -100%);
-  width: 80%;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .75);
+  position: fixed;
+  top: 0;
+  transform: translateY(0);
+  transition: transform .3s cubic-bezier(.165, .84, .44, 1);
+  width: 100vw;
+  z-index: 2;
 
-  &.searched {
-    transform: translateY(-48.5vh);
+  &.display {
+    transform: translateY(100%);
     transition: transform .3s cubic-bezier(.165, .84, .44, 1);
   }
 
@@ -18,7 +19,6 @@
 
   input {
     border: 0;
-    border-radius: 4px 0 0 4px;
     padding: 15px;
     width: 100%;
   }

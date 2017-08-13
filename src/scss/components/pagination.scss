@@ -1,5 +1,5 @@
 .pagination {
-  background-color: #191717;
+  background-color: #bd1023;
   bottom: 0;
   box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, .75);
   display: flex;
@@ -30,7 +30,7 @@
   z-index: 1;
 
   &--active {
-    background-color: #bd1023;
+    background-color: #191919;
     box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .75);
     z-index: 2;
   }

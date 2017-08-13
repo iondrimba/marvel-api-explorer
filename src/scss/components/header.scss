@@ -32,10 +32,27 @@
     border: 0;
     margin: 0;
     padding: 0;
+    position: relative;
     width: 50px;
 
-    img {
-      width: 50%;
+    .close-icon {
+      left: 20px;
+    }
+
+    .search-icon, .close-icon {
+      cursor: pointer;
+      height: 40px;
+      left: 50%;
+      opacity: 1;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity .2s ;
+      width: 30px;
+
+      &.hide {
+        opacity: 0;
+      }
     }
   }
 
