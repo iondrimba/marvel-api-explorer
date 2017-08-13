@@ -1,26 +1,14 @@
 .search {
+  left: 50%;
   margin-bottom: 15px;
-  position: fixed;
+  position: absolute;
   top: 50%;
-  transform: translateY(-100%);
-  width: calc(100% - 22px);
-  z-index: 5;
+  transform: translate(-50%, -100%);
+  width: 80%;
 
   &.searched {
     transform: translateY(-48.5vh);
     transition: transform .3s cubic-bezier(.165, .84, .44, 1);
-  }
-
-  &.searched::before {
-    background: linear-gradient(to bottom, #1f1f1f 0%, rgb(0, 0, 0) 33%, transparent 100%);
-    content: '';
-    display: block;
-    height: 120px;
-    left: -10px;
-    position: absolute;
-    top: -20px;
-    width: 100vw;
-    z-index: -1;
   }
 
   form {

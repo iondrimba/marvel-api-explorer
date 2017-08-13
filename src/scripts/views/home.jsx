@@ -4,6 +4,7 @@ import Loader from './loader';
 import ImageList from './imageList';
 import Pagination from './pagination';
 import Search from './search';
+import Header from './header';
 import { withRouter } from 'react-router-dom'
 
 class Home extends React.Component {
@@ -21,6 +22,7 @@ class Home extends React.Component {
     var { data, filter} = this.props;
     return (
       <div className="home">
+        <Header/>
         <Search filter={this.props.filter} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
         <Loader fetching = {this.props.fetching} />
         <Pagination filter={this.props.filter} search={this.props.location.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
