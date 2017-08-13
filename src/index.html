@@ -46,7 +46,23 @@
   <meta itemprop="name" content="Calculator">
   <meta itemprop="description" content="React+Redux Calculator">
   <meta itemprop="image" content="https://dl.dropboxusercontent.com/u/4633623/calcgoogleplus.png">
-  <title>Calculator</title>
+  <title>Marvel API Demo</title>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
+      color: #fff;
+      font-family: 'font', sans-serif;
+      font-size: 16px;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .loader {
+      text-align: center;
+    }
+  </style>
 
   <script>
     (function () {
@@ -54,7 +70,6 @@
         window.onload = function () {
           navigator.serviceWorker.register('api-service-worker-[hash].js');
         }
-
       }
     })();
   </script>

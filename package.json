@@ -19,7 +19,8 @@
     "history": "^4.6.3",
     "react-router": "^4.1.1",
     "react-router-redux": "next",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
@@ -76,7 +77,9 @@
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
+    "react-router-dom": "^4.1.2",
     "redux": "^3.6.0",
+    "reselect": "^3.0.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
     "stringify": "^5.0.0",

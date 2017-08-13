@@ -11,64 +11,21 @@ import pagination from '../actions/pagination';
 import { push } from 'react-router-redux';
 import appStore from '../model/store';
 import defaultStore from '../model/initialState';
+import { createSelector } from 'reselect';
+import PaginationHelper from '../model/paginationHelper';
+
+const pg = new PaginationHelper();
 
 function mapStateToProps(store) {
-  return {
-    error: store.error,
-    fetching: store.fetching,
-    filter: store.filter,
-    search: store.search,
-    pagination: Object.assign({}, store.pagination, { pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }),
-    data: store.data
-  };
-}
-
-const maxPages = 5;
-
-function mountGroups(totalItens) {
-  let count = 0;
-  let groups = [];
-  const total = getTotalPages(totalItens, maxPages);
-  let pages = 0;
-
-  for (let i = 0; i < total; i++) {
-    groups.push([]);
-
-    pages = maxPages;
-
-    if (totalItens < maxPages) {
-      pages = totalItens;
-    } else if (i === Math.floor(total)) {
-      pages = totalItens % count;
-    }
-
-    for (let j = 0; j < pages; j++) {
-      groups[i].push(count);
-      count++;
-    }
-  }
-  return groups;
-}
-
-function getCurrentGroup(groups, currentPage) {
-  return groups[currentPage] || [];
-}
-function groupPages(currentPage = 1) {
-  let start = Number(currentPage) / maxPages;
-  return Math.floor(start);
-}
-function getPages(pagination) {
-  const pages = getCurrentGroup(mountGroups(pagination.total), groupPages(pagination.current - 1));
-  return pages <= 1 ? [] : pages;
-}
-function getTotalPages(totalItens, maxPages) {
-  return totalItens / maxPages;
-}
-function getNext(pagination) {
-  return pagination.total > 1 && (pagination.total > 1 && pagination.current < pagination.total);
-}
-function getPrev(pagination) {
-  return pagination.total > 0 && pagination.current > 1;
+  return { error: store.error, fetching: store.fetching, filter: store.filter, search: store.search, pagination: Object.assign(
+      {},
+      store.pagination,
+      {
+        pages: pg.getPages(store.pagination),
+        next: pg.getNext(store.pagination),
+        prev: pg.getPrev(store.pagination)
+      }
+    ), data: store.data };
 }
 
 const mapDispatchToProps = (dispatch, store) => {
@@ -106,7 +63,12 @@ const mapDispatchToProps = (dispatch, store) => {
       dispatch(push(url));
       const page = Number(url.split('/')[2].split('?')[0]);
       const store = appStore.getState();
-      dispatch(pagination({ current: page, pages: getPages(store.pagination), next: getNext(store.pagination), prev: getPrev(store.pagination) }));
+      dispatch(pagination({
+          current: page,
+          pages: pg.getPages(store.pagination),
+          next: pg.getNext(store.pagination),
+          prev: pg.getPrev(store.pagination)
+        }));
     }
   };
 }
