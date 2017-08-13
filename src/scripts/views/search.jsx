@@ -9,9 +9,10 @@ class Search extends React.Component {
     }
   }
   componentDidMount() {
-    this.refs.search.onsubmit = (evt) => {
+    this.refs.form.onsubmit = (evt) => {
       evt.preventDefault();
       this.props.searchAction(this.state.search, this.props);
+      this.refs.search.classList.add('searched');
     }
   }
   onTextChange(evt) {
@@ -20,8 +21,8 @@ class Search extends React.Component {
   }
   render() {
     return (
-      <div className="search">
-        <form ref={'search'} action="">
+      <div ref={'search'} className="search">
+        <form ref={'form'} action="">
           <input type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
           <button type="submit">search</button>
           <Menu {...this.props} />
