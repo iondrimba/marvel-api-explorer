@@ -14,6 +14,7 @@ class Search extends React.Component {
       this.props.searchAction(this.state.search, this.props);
       this.refs.search.classList.add('hide');
       this.props.onSearch();
+      this.refs.search.blur();
     }
   }
   onTextChange(evt) {
@@ -40,6 +41,8 @@ class Search extends React.Component {
   }
 }
 Search.propTypes = {
-  searchAction: React.PropTypes.func
+  searchAction: React.PropTypes.func,
+  onSearch: React.PropTypes.func,
+  display: React.PropTypes.bool
 }
 export default Search;

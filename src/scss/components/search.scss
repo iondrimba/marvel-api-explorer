@@ -20,16 +20,16 @@
   .close-icon {
     background-color: #333;
     cursor: pointer;
-    left: 100vw;
     padding: 13px;
     position: absolute;
+    right: 0;
     top: 0;
-    transform: translateX(100vw);
+    transform: translateX(0);
     transition: transform .3s cubic-bezier(.165, .84, .44, 1);
     width: 48px;
 
     &.show {
-      transform: translateX(-43vw);
+      transform: translateX(-100px);
     }
   }
 

@@ -63,13 +63,14 @@ body {
   text-align: center;
 }
 
+
 </style>
 
   <script>
     (function () {
       if ('serviceWorker' in navigator) {
         window.onload = function () {
-          navigator.serviceWorker.register('api-service-worker-[hash].js');
+          navigator.serviceWorker.register('api-service-worker.js');
         }
       }
     })();
