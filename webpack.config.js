@@ -97,7 +97,7 @@ var config = {
         from: 'src/favicon.ico', to: 'favicon.ico'
       },
       {
-        from: 'src/images/', to: 'images'
+        from: 'src/images', to: 'images'
       },
     ]),
     new webpack.EnvironmentPlugin([
@@ -128,8 +128,8 @@ if (isProduction) {
     minRatio: 0.8
   }));
   config.plugins.push(new SWPrecacheWebpackPlugin({
-    cacheId: 'api-[hash]',
-    filename: 'api-service-worker-[hash].js',
+    cacheId: `api-${new Date().toUTCString().split(' ').join('-').split(',').join('').split(':').join('')}`,
+    filename: 'api-service-worker.js',
     maximumFileSizeToCacheInBytes: 4194304,
     staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff}',
       'public/fonts/*.{woff2,woff}'],

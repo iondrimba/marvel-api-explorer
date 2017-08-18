@@ -14,7 +14,8 @@ class Search extends React.Component {
       this.props.searchAction(this.state.search, this.props);
       this.refs.search.classList.add('hide');
       this.props.onSearch();
-      this.refs.search.blur();
+      this.refs.form.blur();
+      this.refs.searchInput.blur();
     }
   }
   onTextChange(evt) {
@@ -29,12 +30,12 @@ class Search extends React.Component {
   }
   render() {
     return (
-      <div ref={'search'} className={this.props.display ? 'search display' : 'search' }>
+      <div ref={'search'} className={this.props.display ? 'search display' : 'search'}>
         <form ref={'form'} action="">
-          <input type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
+          <input ref={'searchInput'} type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
           <button type="submit">search</button>
           <img onClick={this.onSearchClear.bind(this)} className={this.state.search ? 'close-icon show' : 'close-icon'} src="/images/close.svg" />
-          <Menu {...this.props} onClick={this.onClick.bind(this)}/>
+          <Menu {...this.props} onClick={this.onClick.bind(this)} />
         </form>
       </div>
     );
