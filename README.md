@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# marvel-api-explorer
-=======
 # WIP marvel-api-explorer
->>>>>>> 4ea649663408ad40c3d8e87d354d581eff01ab9c
 ![Calculator](https://raw.githubusercontent.com/iondrimba/images/master/cover.jpg)
 
 [![Build Status](https://travis-ci.org/iondrimba/marvel-api-explorer.svg?branch=master)](https://travis-ci.org/iondrimba/marvel-api-explorer)
