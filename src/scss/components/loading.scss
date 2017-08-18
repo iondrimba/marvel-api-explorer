@@ -4,21 +4,21 @@
   max-width: 100px;
   position: absolute;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%) translate3d(0, 0, 0);
   transform-origin: top center;
   width: 20%;
 }
 
 @keyframes yoyo {
   from {
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%)  translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translate(-50%,-50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2)  translate3d(0, 0, 0);
   }
 
   to {
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%)  translate3d(0, 0, 0);
   }
 }

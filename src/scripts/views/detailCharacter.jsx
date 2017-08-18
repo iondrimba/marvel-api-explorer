@@ -10,8 +10,12 @@ class DetailCharacter extends React.Component {
     this.refs.cover.querySelector('img').onload = () => {
       const coverHeight = this.refs.cover.getBoundingClientRect().height;
       this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
+      document.querySelector('html').classList.add('disable-scroll');
     };
     this.animateIn([...document.querySelectorAll('.slides div')]);
+  }
+  componentWillUnmount() {
+    document.querySelector('html').classList.remove('disable-scroll');
   }
   animateIn(slides) {
     slides.map((el, index) => {
@@ -32,7 +36,7 @@ class DetailCharacter extends React.Component {
 
     setTimeout(() => {
       this.refs.content.classList.add('active');
-    }, 900);
+    }, 600);
   }
   render() {
     return (

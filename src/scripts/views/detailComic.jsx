@@ -9,8 +9,12 @@ class DetailComic extends React.Component {
     this.refs.cover.querySelector('img').onload = () => {
       const coverHeight = this.refs.cover.getBoundingClientRect().height;
       this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
+      document.querySelector('html').classList.add('disable-scroll');
     };
     this.animateIn([...document.querySelectorAll('.slides div')]);
+  }
+  componentWillUnmount() {
+    document.querySelector('html').classList.remove('disable-scroll');
   }
   createMarkup(markup) {
     return { __html: markup }
@@ -34,7 +38,7 @@ class DetailComic extends React.Component {
 
     setTimeout(() => {
       this.refs.content.classList.add('active');
-    }, 900);
+    }, 1200);
   }
   getDescription(description) {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : ''

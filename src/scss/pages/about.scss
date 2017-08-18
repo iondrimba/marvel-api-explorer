@@ -2,27 +2,27 @@
   background-color: #fff;
   color: #000;
   height: 100vh;
+  padding: 0 30px;
   position: absolute;
   top: 0;
-  transform: translateY(100%);
-  transition: transform .25s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translate3d(0, 0, 0) translateY(100%);
+  transition: transform .25s cubic-bezier(.075, .82, .165, 1);
   width: 100vw;
-  padding: 0 30px;
   z-index: 12;
 
   .close {
+    display: block;
     margin: 20px 0;
     position: relative;
-    display: block;
   }
 
   &.animate {
-    transform: translateY(0);
+    transform: translateY(0) translate3d(0, 0, 0);
   }
 
   a {
     color: #000;
-    font-weight:bold;
+    font-weight: bold;
   }
 
   .github {

@@ -1,22 +1,22 @@
 .detail {
   background-color: #4e4e4e;
   color: #fff;
-  height: 100vh;
+  height: 100%;
   left: 0;
   overflow: scroll;
   overflow-x: hidden;
-  position: fixed;
+  position: absolute;
   top: 50px;
   width: 100%;
   z-index: 6;
 
   &__content {
+    opacity: 0;
     position: absolute;
-    transform: translateY(200%);
-    transition: transform .4s  cubic-bezier(.19, 1, .22, 1);
+    will-change: opacity;
 
     &.active {
-      transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -47,8 +47,9 @@
     background-color: #4e4e4e;
     font-size: 16px;
     line-height: 1.3;
+    padding-bottom: 50px;
     position: absolute;
-    transform: translateY(110vh);
+    transform: translateY(110vh) translate3d(0, 0, 0);
     width: 100vw;
 
     h2 {
@@ -114,4 +115,9 @@
     position: relative;
     width: 100%;
   }
+}
+
+
+.disable-scroll {
+  overflow: hidden;
 }
