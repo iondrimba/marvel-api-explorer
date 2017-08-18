@@ -1,5 +1,5 @@
 # WIP marvel-api-explorer
-Exploring Marvel's API
+![Calculator](https://raw.githubusercontent.com/iondrimba/images/master/cover.jpg)
 
 [![Build Status](https://travis-ci.org/iondrimba/marvel-api-explorer.svg?branch=master)](https://travis-ci.org/iondrimba/marvel-api-explorer)
 [![Build status](https://ci.appveyor.com/api/projects/status/8hnh3ocsbitbq4oc?svg=true)](https://ci.appveyor.com/project/iondrimba/marvel-api-explorer)
