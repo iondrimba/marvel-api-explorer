@@ -38,6 +38,7 @@ Header.propTypes = {
   match: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
   searchAction: React.PropTypes.func,
+  searchClear: React.PropTypes.func,
   paginationAction: React.PropTypes.func,
   filterAction: React.PropTypes.func,
   pagination: React.PropTypes.object,
