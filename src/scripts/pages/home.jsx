@@ -1,7 +1,7 @@
 import React from 'react';
 import Api from '../model/api';
 import Loader from '../components/loader';
-import ImageList from '../components/imageList';
+import Grid from '../components/grid';
 import Pagination from '../components/pagination';
 import Error from '../components/error';
 import Header from '../components/header';
@@ -29,7 +29,7 @@ class Home extends React.Component {
         <Error {...this.props} retry={this.props.fetchAction} />
         <Loader fetching = {this.props.fetching} />
         <Pagination filter={this.props.filter} search={this.props.location.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
-        <ImageList {...{ data, filter}} />
+        <Grid {...{ data, filter}} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-class ImageList extends React.Component {
+class Grid extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -53,8 +53,8 @@ class ImageList extends React.Component {
     );
   }
 }
-ImageList.propTypes = {
+Grid.propTypes = {
   data: React.PropTypes.array,
   filter: React.PropTypes.string
 }
-export default ImageList;
+export default Grid;
