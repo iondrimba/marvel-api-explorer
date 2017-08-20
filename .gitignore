@@ -1,7 +1,6 @@
 node_modules/
 test/
 coverage/
-public/
 nodesource_setup.sh
 secret.json
 out/chrome
