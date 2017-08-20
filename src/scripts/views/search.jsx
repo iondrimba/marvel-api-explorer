@@ -47,6 +47,7 @@ class Search extends React.Component {
 }
 Search.propTypes = {
   searchAction: React.PropTypes.func,
+  searchClear: React.PropTypes.func,
   onSearch: React.PropTypes.func,
   display: React.PropTypes.bool
 }
