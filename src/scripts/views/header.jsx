@@ -28,7 +28,7 @@ class Header extends React.Component {
             <img className={this.state.displaySearch ? 'close-icon' : 'close-icon hide'} src="/images/close.svg" />
           </button>
         </header>
-        <Search onSearch={this.onSearch.bind(this)} display={this.state.displaySearch} filter={this.props.filter} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
+        <Search onSearch={this.onSearch.bind(this)} display={this.state.displaySearch} filter={this.props.filter} searchClear={this.props.searchClear} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
       </section>
     );
   }

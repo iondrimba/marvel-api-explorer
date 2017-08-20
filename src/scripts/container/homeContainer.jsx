@@ -53,6 +53,9 @@ const mapDispatchToProps = (dispatch, store) => {
       dispatch(pagination(defaultStore.pagination));
       fetch(appStore.getState().filter, appStore.getState().pagination, val);
     },
+    searchClear: (val) => {
+      dispatch(search(val));
+    },
     filterAction: (val, props) => {
       dispatch(push(`/${val}/${defaultStore.pagination.current}?search=${appStore.getState().search}`));
       dispatch(filter(val));

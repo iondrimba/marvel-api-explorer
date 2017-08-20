@@ -28,6 +28,7 @@ class Search extends React.Component {
   }
   onSearchClear() {
     this.setState({ search: '' });
+    this.props.searchClear('');
   }
   render() {
     return (
