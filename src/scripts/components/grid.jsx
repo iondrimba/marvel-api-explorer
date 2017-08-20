@@ -45,7 +45,7 @@ class Grid extends React.Component {
               pathname: `/${this.props.filter}/detail/${data.id}`
             }} key={index}>
               <div className="thumb__mask"></div>
-              <img className="thumb__file" data-src={data.thumb} src="/images/lazy.png"/>
+              <img className="thumb__file" data-src={data.thumb} src="/images/missing.jpg"/>
             </Link>
           })
         }

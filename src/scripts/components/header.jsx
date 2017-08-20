@@ -20,12 +20,13 @@ class Header extends React.Component {
       <section>
         <header className="header">
           <Link className="header__dots" to={{ pathname: '/about' }} >
-            <img src="/images/dots.svg" />
+            <span >about</span>
+            <img src="/images/dots.svg" alt="About icon" />
           </Link>
-          <h1><img className="logo" src="/images/marvel.svg" /><span>API Explorer</span></h1>
+          <h1><img className="logo" src="/images/marvel.svg" alt="Marvel logo" /><span>API Explorer</span></h1>
           <button className="header__search" onClick={this.onSearchClick.bind(this)}>
-            <img className={!this.state.displaySearch ? 'search-icon' : 'search-icon hide'} src="/images/search.svg" />
-            <img className={this.state.displaySearch ? 'close-icon' : 'close-icon hide'} src="/images/close.svg" />
+            <img className={!this.state.displaySearch ? 'search-icon' : 'search-icon hide'} src="/images/search.svg" alt="Search icon" />
+            <img className={this.state.displaySearch ? 'close-icon' : 'close-icon hide'} src="/images/close.svg" alt="Close icon" />
           </button>
         </header>
         <Search onSearch={this.onSearch.bind(this)} display={this.state.displaySearch} filter={this.props.filter} searchClear={this.props.searchClear} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />

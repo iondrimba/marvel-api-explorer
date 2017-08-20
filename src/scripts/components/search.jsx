@@ -35,9 +35,9 @@ class Search extends React.Component {
       <div ref={'search'} className={this.props.display ? 'search display' : 'search'}>
         <form ref={'form'} action="">
           <div className="search-wrapper">
-            <input ref={'searchInput'} type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
-            <button type="submit">search</button>
-            <img onClick={this.onSearchClear.bind(this)} className={this.state.search ? 'close-icon show' : 'close-icon'} src="/images/close.svg" />
+            <input ref={'searchInput'} type="text" value={this.state.search} name="search" placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
+            <button type="submit" name="button-search">search</button>
+            <img onClick={this.onSearchClear.bind(this)} className={this.state.search ? 'close-icon show' : 'close-icon'} src="/images/close.svg" alt="Clear search icon"/>
           </div>
           <Menu ref={'menu'} {...this.props} onClick={this.onClick.bind(this)} />
         </form>
