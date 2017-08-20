@@ -1,6 +1,8 @@
+@import '../base/color';
+
 .about {
-  background-color: #fff;
-  color: #000;
+  background-color: color(invert);
+  color: color(darkest);
   height: 100vh;
   padding: 0 30px;
   position: fixed;
@@ -21,7 +23,7 @@
   }
 
   a {
-    color: #000;
+    color: color(darkest);
     font-weight: bold;
   }
 

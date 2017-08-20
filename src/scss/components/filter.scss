@@ -1,7 +1,9 @@
+@import '../base/color';
+
 .list {
-  background-color: #5a5858;
+  background-color: color(filter);
   border-radius: 0 0 4px 4px;
-  color: #fff;
+  color: color(invert);
   float: right;
   left: 0;
   position: absolute;
@@ -9,7 +11,7 @@
   top: 45px;
   width: 100%;
 
-  li {
+  &__item {
     cursor: pointer;
     padding: 5px 10px;
 
@@ -19,11 +21,11 @@
     }
 
     &:nth-child(odd) {
-      background-color: #444343;
+      background-color: color(filter-primary);
     }
 
     &:nth-child(even) {
-      background-color: #4e4e4e;
+      background-color: color(filter-secondary);
     }
 
     &:last-child {
@@ -32,7 +34,7 @@
   }
 
   &.show {
-    box-shadow: -1px 12px 20px 0 rgba(0, 0, 0, .75);
+    box-shadow: -1px 12px 20px 0 color(shadow);
     display: block;
   }
 

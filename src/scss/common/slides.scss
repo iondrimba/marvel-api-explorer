@@ -1,3 +1,6 @@
+@import '../base/color';
+
+
 .slides {
   display: block;
   height: 100vh;
@@ -6,7 +9,7 @@
   z-index: 9;
 
   .first {
-    background-color: red;
+    background-color: color(primary-lighter);
     display: block;
     height: 200vh;
     position: absolute;
@@ -25,7 +28,7 @@
   }
 
   .second {
-    background-color: #c70000;
+    background-color: color(primary);
     display: block;
     height: 200vh;
     position: absolute;

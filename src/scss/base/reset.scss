@@ -1,3 +1,5 @@
+@import '../base/color';
+
 @font-face {
   font-family: 'font';
   font-style: normal;
@@ -20,7 +22,7 @@ html {
 }
 
 body, html {
-  background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
+  background: linear-gradient(to bottom, color(gradient-primary), color(gradient-secondary));
   font-family: 'font';
   font-size: 16px;
   height: 100%;

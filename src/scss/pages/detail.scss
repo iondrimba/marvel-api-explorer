@@ -1,6 +1,8 @@
+@import '../base/color';
+
 .detail {
-  background-color: #4e4e4e;
-  color: #fff;
+  background-color: color(info);
+  color: color(invert);
   height: 100vh;
   left: 0;
   overflow: scroll;
@@ -44,7 +46,7 @@
   }
 
   &__infos {
-    background-color: #4e4e4e;
+    background-color: color(info);
     font-size: 16px;
     line-height: 1.3;
     position: absolute;
@@ -58,8 +60,8 @@
 
   .info {
     &__name {
-      background-color: #333;
-      box-shadow: -2px 18px 20px 20px #060606;
+      background-color: color(secondary);
+      box-shadow: -2px 18px 20px 20px color(shadow);
       padding: 15px;
 
       &--comic {
@@ -68,8 +70,8 @@
     }
 
     &__series {
-      background-color: #edeeef;
-      color: #333;
+      background-color: color(series);
+      color: color(secondary);
       padding: 15px 0;
 
       h2 {
@@ -80,17 +82,17 @@
         padding: 5px 15px;
 
         &:nth-child(even) {
-          background-color: #edeeef;
+          background-color: color(series);
         }
 
         &:nth-child(odd) {
-          background-color: #dcdcdc;
+          background-color: color(series-secondary);
         }
       }
     }
 
     &__stories {
-      background-color: #4e4e4e;
+      background-color: color(info);
       padding: 15px 0;
 
       h2 {
@@ -101,18 +103,18 @@
         padding: 5px 15px;
 
         &:nth-child(even) {
-          background-color: #676767;
+          background-color: color(stories);
         }
 
         &:nth-child(odd) {
-          background-color: #565656;
+          background-color: color(stories-secondary);
         }
       }
     }
   }
 
   img {
-    background-color: #b9b9b9;
+    background-color: color(secondary);
     display: block;
     margin: 0 auto;
     position: relative;

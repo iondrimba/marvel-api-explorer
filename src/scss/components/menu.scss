@@ -1,8 +1,10 @@
 
+@import '../base/color';
+
 .menu {
-  background-color: #4e4e4e;
+  background-color: color(menu);
   border-radius: 0 4px 4px 0;
-  color: #fff;
+  color: color(invert);
   display: flex;
   padding: 10px;
   position: relative;
@@ -12,7 +14,7 @@
 
   &.show {
     border-radius: 0 4px 0 0;
-    box-shadow: 6px -1px 20px 4px rgba(0, 0, 0, .75);
+    box-shadow: 6px -1px 20px 4px color(shadow);
   }
 
   span {

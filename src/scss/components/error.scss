@@ -1,5 +1,7 @@
+@import '../base/color';
+
 .error {
-  background-color: #bd1023;
+  background-color: color(error);
   display: block;
   left: 50%;
   padding: 20px;

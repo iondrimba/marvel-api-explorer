@@ -1,0 +1,32 @@
+$primary: #bd1023;
+$scondary: #4e4e4e;
+$colors: (
+  primary: $primary,
+  primary-lighter: #f00,
+  error: $primary,
+  invert: #fff,
+  secondary: #333,
+  darkest: #000,
+  secondary-lighter: $scondary,
+  gradient-primary: #1f1f1f,
+  gradient-secondary: #3a3a3a,
+  filter: #5a5858,
+  filter-primary: #444343,
+  filter-secondary: $scondary,
+  mask: $primary,
+  header: $primary,
+  menu: $scondary,
+  pagination: $primary,
+  pagination-selected: #191919,
+  shadow: rgba(0, 0, 0, .75),
+  info: $scondary,
+  series: #edeeef,
+  series-secondary: #dcdcdc,
+  stories: #676767,
+  stories-secondary: #565656,
+);
+
+
+@function color($name) {
+  @return map-get($colors, $name);
+}

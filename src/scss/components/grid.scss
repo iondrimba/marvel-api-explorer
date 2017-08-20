@@ -1,3 +1,5 @@
+@import '../base/color';
+
 .grid {
   display: flex;
   flex-direction: row;
@@ -31,7 +33,7 @@
 
 
     .mask {
-      background-color: #bd1023;
+      background-color: color(mask);
       display: block;
       height: 100%;
       position: absolute;

@@ -1,5 +1,7 @@
+@import '../base/color';
+
 .search {
-  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .75);
+  box-shadow: 0 2px 20px 0 color(shadow);
   position: fixed;
   top: 0;
   transform: translateY(0) translate3d(0, 0, 0);
@@ -23,7 +25,7 @@
   }
 
   .close-icon {
-    background-color: #333;
+    background-color: color(secondary);
     cursor: pointer;
     padding: 13px;
     position: absolute;

@@ -1,5 +1,7 @@
+@import '../base/color';
+
 .home {
-  background: linear-gradient(to bottom, #1f1f1f, #3a3a3a);
+  background: linear-gradient(to bottom, color(gradient-primary), color(gradient-secondary));
   min-height: 100vh;
   padding-bottom: 30px;
 

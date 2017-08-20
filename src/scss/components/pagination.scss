@@ -1,7 +1,9 @@
+@import '../base/color';
+
 .pagination {
-  background-color: #bd1023;
+  background-color: color(pagination);
   bottom: 0;
-  box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, .75);
+  box-shadow: 0 -4px 20px 0 color(shadow);
   display: flex;
   left: 0;
   position: fixed;
@@ -18,7 +20,7 @@
 
 .link {
   align-items: center;
-  color: #fff;
+  color: color(invert);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -30,17 +32,17 @@
   z-index: 1;
 
   &--active {
-    background-color: #191919;
-    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, .75);
+    background-color: color(pagination-selected);
+    box-shadow: 0 1px 15px 0 color(shadow);
     z-index: 2;
   }
 }
 
 .prev {
   border-bottom: 0;
-  border-left: 2px solid #fff;
+  border-left: 2px solid color(invert);
   border-right: 0;
-  border-top: 2px solid #fff;
+  border-top: 2px solid color(invert);
   display: block;
   height: 10px;
   margin: 0;
@@ -51,9 +53,9 @@
 }
 
 .next {
-  border-bottom: 2px  solid #fff;
+  border-bottom: 2px  solid color(invert);
   border-left: 0;
-  border-right: 2px  solid #fff;
+  border-right: 2px  solid color(invert);
   border-top: 0;
   display: block;
   height: 10px;
