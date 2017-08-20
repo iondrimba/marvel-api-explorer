@@ -1,11 +1,12 @@
 @import '../base/color';
+@import '../base/easing';
 
 .search {
   box-shadow: 0 2px 20px 0 color(shadow);
   position: fixed;
   top: 0;
   transform: translateY(0) translate3d(0, 0, 0);
-  transition: transform .3s cubic-bezier(.165, .84, .44, 1);
+  transition: transform .3s easing(easeOutExpo);
   width: 100%;
   z-index: 7;
 
@@ -16,7 +17,7 @@
 
   &.display {
     transform: translateY(100%) translate3d(0, 0, 0);
-    transition: transform .3s cubic-bezier(.165, .84, .44, 1);
+    transition: transform .3s easing(easeOutExpo);
   }
 
   form {
@@ -32,7 +33,7 @@
     right: 0;
     top: 0;
     transform: translateX(48px) translate3d(0, 0, 0);
-    transition: transform .3s cubic-bezier(.165, .84, .44, 1);
+    transition: transform .3s easing(easeOutExpo);
     width: 48px;
 
     &.show {

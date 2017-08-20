@@ -1,4 +1,5 @@
 @import '../base/color';
+@import '../base/easing';
 
 
 .slides {
@@ -14,7 +15,7 @@
     height: 200vh;
     position: absolute;
     transform: translateX(10%) translateY(40%) rotate(45deg) translate3d(0, 0, 0);
-    transition: transform 1s cubic-bezier(.19, 1, .22, 1);
+    transition: transform 1s easing(easeOutExpo);
     width: 200vh;
 
     &.active {
@@ -23,7 +24,7 @@
 
     &.out {
       transform: translateX(-90%) translateY(-100%) rotate(45deg) translate3d(0, 0, 0);
-      transition: transform 1s .4s cubic-bezier(.19, 1, .22, 1);
+      transition: transform 1s .4s easing(easeOutExpo);
     }
   }
 
@@ -33,7 +34,7 @@
     height: 200vh;
     position: absolute;
     transform: translateX(10%) translateY(40%) rotate(45deg) translate3d(0, 0, 0);
-    transition: transform 1s .3s cubic-bezier(.19, 1, .22, 1);
+    transition: transform 1s .3s easing(easeOutExpo);
     width: 200vh;
 
     &.active {
@@ -42,7 +43,7 @@
 
     &.out {
       transform: translateX(-90%) translateY(-100%) rotate(45deg) translate3d(0, 0, 0);
-      transition: transform 1s .4s cubic-bezier(.19, 1, .22, 1);
+      transition: transform 1s .4s easing(easeOutExpo);
     }
   }
 }

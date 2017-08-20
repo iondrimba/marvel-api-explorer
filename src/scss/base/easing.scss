@@ -1,0 +1,10 @@
+$easings: (
+  easeOutExpo: cubic-bezier(.19, 1, .22, 1),
+  easeOutQuart: cubic-bezier(.165, .84, .44, 1),
+  easeOutCirc: cubic-bezier(.075, .82, .165, 1)
+);
+
+
+@function easing($name) {
+  @return map-get($easings, $name);
+}
