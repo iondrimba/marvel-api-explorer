@@ -7,6 +7,11 @@
   width: 100vw;
   z-index: 7;
 
+  .search-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
   &.display {
     transform: translateY(100%) translate3d(0, 0, 0);
     transition: transform .3s cubic-bezier(.165, .84, .44, 1);
@@ -24,12 +29,12 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: translateX(0) translate3d(0, 0, 0);
+    transform: translateX(48px) translate3d(0, 0, 0);
     transition: transform .3s cubic-bezier(.165, .84, .44, 1);
     width: 48px;
 
     &.show {
-      transform: translateX(-121px) translate3d(0, 0, 0);
+      transform: translateX(0) translate3d(0, 0, 0);
     }
   }
 

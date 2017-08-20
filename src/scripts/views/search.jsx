@@ -16,6 +16,7 @@ class Search extends React.Component {
       this.props.onSearch();
       this.refs.form.blur();
       this.refs.searchInput.blur();
+      this.refs.menu.displayMenu(false);
     }
   }
   onTextChange(evt) {
@@ -32,10 +33,12 @@ class Search extends React.Component {
     return (
       <div ref={'search'} className={this.props.display ? 'search display' : 'search'}>
         <form ref={'form'} action="">
-          <input ref={'searchInput'} type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
-          <button type="submit">search</button>
-          <img onClick={this.onSearchClear.bind(this)} className={this.state.search ? 'close-icon show' : 'close-icon'} src="/images/close.svg" />
-          <Menu {...this.props} onClick={this.onClick.bind(this)} />
+          <div className="search-wrapper">
+            <input ref={'searchInput'} type="text" value={this.state.search} placeholder="name/title starts with...." onChange={this.onTextChange.bind(this)} />
+            <button type="submit">search</button>
+            <img onClick={this.onSearchClear.bind(this)} className={this.state.search ? 'close-icon show' : 'close-icon'} src="/images/close.svg" />
+          </div>
+          <Menu ref={'menu'} {...this.props} onClick={this.onClick.bind(this)} />
         </form>
       </div>
     );

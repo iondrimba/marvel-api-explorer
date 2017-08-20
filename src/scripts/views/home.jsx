@@ -3,6 +3,7 @@ import Api from '../model/api';
 import Loader from './loader';
 import ImageList from './imageList';
 import Pagination from './pagination';
+import Error from './error';
 import Header from './header';
 import { withRouter } from 'react-router-dom'
 
@@ -22,6 +23,7 @@ class Home extends React.Component {
     return (
       <div className="home">
         <Header {...this.props}/>
+        <Error {...this.props} />
         <Loader fetching = {this.props.fetching} />
         <Pagination filter={this.props.filter} search={this.props.location.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
         <ImageList {...{ data, filter}} />
@@ -32,6 +34,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
   match: React.PropTypes.object,
+  error: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
   searchAction: React.PropTypes.func,
   paginationAction: React.PropTypes.func,
