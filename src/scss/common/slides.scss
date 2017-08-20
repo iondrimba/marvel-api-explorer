@@ -9,13 +9,11 @@
   width: 100vw;
   z-index: 9;
 
-  .first {
-    background-color: color(primary-lighter);
+  .first, .second {
     display: block;
     height: 200vh;
     position: absolute;
     transform: translateX(10%) translateY(40%) rotate(45deg) translate3d(0, 0, 0);
-    transition: transform 1s easing(easeOutExpo);
     width: 200vh;
 
     &.active {
@@ -28,22 +26,13 @@
     }
   }
 
+  .first {
+    background-color: color(primary-lighter);
+    transition: transform 1s easing(easeOutExpo);
+  }
+
   .second {
     background-color: color(primary);
-    display: block;
-    height: 200vh;
-    position: absolute;
-    transform: translateX(10%) translateY(40%) rotate(45deg) translate3d(0, 0, 0);
     transition: transform 1s .3s easing(easeOutExpo);
-    width: 200vh;
-
-    &.active {
-      transform: translateX(-20%) translateY(-10%) rotate(45deg) translate3d(0, 0, 0);
-    }
-
-    &.out {
-      transform: translateX(-90%) translateY(-100%) rotate(45deg) translate3d(0, 0, 0);
-      transition: transform 1s .4s easing(easeOutExpo);
-    }
   }
 }

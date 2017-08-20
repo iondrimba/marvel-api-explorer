@@ -26,7 +26,7 @@ class About extends React.Component {
         </a>
         <h1>About</h1>
         <p>
-          MARVEL API Explorer is a personal project made by <a target="_blank" rel="noopener noreferrer" href="https://iondrimbafilho.me/">Ion Drimba Filho</a> using ReactJS + Redux and the oficial <a target="_blank" rel="noopener noreferrer" href="http://developer.marvel.com/">Marvel API</a>.<br/>
+          MARVEL API Explorer is a personal project made by <a className="link" target="_blank" rel="noopener noreferrer" href="https://iondrimbafilho.me/">Ion Drimba Filho</a> using ReactJS + Redux and the oficial <a className="link" target="_blank" rel="noopener noreferrer" href="http://developer.marvel.com/">Marvel API</a>.<br/>
           It also works as a PWA.
         </p>
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/iondrimba/marvel-api-explorer" className="github" title="Github">

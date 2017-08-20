@@ -8,7 +8,7 @@
   padding: 0 30px;
   position: fixed;
   top: 0;
-  transform: translate3d(0, 0, 0) translateY(100%);
+  transform: translate3d(0, 0, 0) translateY(100%) translate3d(0, 0, 0);
   transition: transform .25s easing(easeOutCirc);
   width: 100vw;
   z-index: 12;
@@ -23,7 +23,7 @@
     transform: translateY(0) translate3d(0, 0, 0);
   }
 
-  a {
+  .link {
     color: color(darkest);
     font-weight: bold;
   }

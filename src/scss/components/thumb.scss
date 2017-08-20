@@ -1,0 +1,67 @@
+.thumb {
+  background-image: url('images/missing.jpg');
+  background-size: cover;
+  border-radius: 4px;
+  margin-bottom: 2.6vw;
+  margin-right: 2.6vw;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(100px) ;
+  transition: opacity .2s, transform .3s easing(easeOutExpo);
+  width: 31.45%;
+
+  &__file {
+    float: left;
+    opacity: 0;
+    width: 100%;
+
+    &.animate {
+      opacity: 1;
+    }
+  }
+
+
+  &__mask {
+    background-color: color(mask);
+    display: block;
+    height: 100%;
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .3s .1s easing(easeOutExpo);
+    width: 100%;
+
+    &.animate {
+      transform: scaleY(1);
+    }
+
+    &.animate-out {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+
+  &.fetching {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  &.fetched {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &::before {
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, .15) 50%, transparent 50%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &:nth-child(3n + 0) {
+    margin-right: 0;
+  }
+}
