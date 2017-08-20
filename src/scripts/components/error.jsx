@@ -15,5 +15,6 @@ class Error extends React.Component {
 }
 Error.propTypes = {
   error: React.PropTypes.object,
+  retry: React.PropTypes.func,
 }
 export default Error;

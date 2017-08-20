@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import DetailComic from '../views/detailComic';
+import DetailComic from '../pages/detailComic';
 
 function mapStateToProps(store) {
   return {

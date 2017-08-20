@@ -1,6 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { BrowserHistory } from 'react-router';
 
 class Pagination extends React.Component {
   constructor(props) {

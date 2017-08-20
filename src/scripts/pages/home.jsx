@@ -1,10 +1,10 @@
 import React from 'react';
 import Api from '../model/api';
-import Loader from './loader';
-import ImageList from './imageList';
-import Pagination from './pagination';
-import Error from './error';
-import Header from './header';
+import Loader from '../components/loader';
+import ImageList from '../components/imageList';
+import Pagination from '../components/pagination';
+import Error from '../components/error';
+import Header from '../components/header';
 import { withRouter } from 'react-router-dom'
 
 class Home extends React.Component {

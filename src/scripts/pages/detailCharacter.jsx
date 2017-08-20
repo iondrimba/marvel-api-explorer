@@ -1,6 +1,6 @@
 import React from 'react';
-import Infos from './infos'
-import Transition from './transition';
+import Infos from '../components/infos'
+import Transition from '../components/transition';
 
 class DetailCharacter extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Transition from './transition';
+import Transition from '../components/transition';
 
 class DetailComic extends React.Component {
   constructor(props) {

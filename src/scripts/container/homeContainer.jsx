@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import Home from '../views/home';
+import { withRouter } from 'react-router-dom';
+import { push } from 'react-router-redux';
+import { createSelector } from 'reselect';
+
+import Home from '../pages/home';
 import { charactersGet } from '../actions/characters';
 import { comicsGet } from '../actions/comics';
 import fetching from '../actions/fetching';
@@ -8,10 +11,8 @@ import search from '../actions/search';
 import fetchingError from '../actions/fetchingError';
 import filter from '../actions/filter';
 import pagination from '../actions/pagination';
-import { push } from 'react-router-redux';
 import appStore from '../model/store';
 import defaultStore from '../model/initialState';
-import { createSelector } from 'reselect';
 import PaginationHelper from '../model/paginationHelper';
 
 const pg = new PaginationHelper();
