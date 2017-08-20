@@ -57,7 +57,7 @@ class DetailComic extends React.Component {
                   </div>
                 </div>
                 <div ref={'infos'} className="detail__infos">
-                  <section className="info__name">
+                  <section className="info__name info__name--comic">
                     <h2>{data.title}</h2>
                     {this.getDescription(data.description)}
                   </section>

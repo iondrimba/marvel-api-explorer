@@ -4,7 +4,7 @@
   top: 0;
   transform: translateY(0) translate3d(0, 0, 0);
   transition: transform .3s cubic-bezier(.165, .84, .44, 1);
-  width: 100vw;
+  width: 100%;
   z-index: 7;
 
   .search-wrapper {

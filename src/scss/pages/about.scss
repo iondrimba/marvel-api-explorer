@@ -3,7 +3,7 @@
   color: #000;
   height: 100vh;
   padding: 0 30px;
-  position: absolute;
+  position: fixed;
   top: 0;
   transform: translate3d(0, 0, 0) translateY(100%);
   transition: transform .25s cubic-bezier(.075, .82, .165, 1);

@@ -13,6 +13,9 @@ class Home extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+
+    window.scroll(0, 0);
+
     if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
       this.props.fetchAction(this.props);
     }
@@ -23,7 +26,7 @@ class Home extends React.Component {
     return (
       <div className="home">
         <Header {...this.props}/>
-        <Error {...this.props} />
+        <Error {...this.props} retry={this.props.fetchAction} />
         <Loader fetching = {this.props.fetching} />
         <Pagination filter={this.props.filter} search={this.props.location.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
         <ImageList {...{ data, filter}} />

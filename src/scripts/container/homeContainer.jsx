@@ -31,6 +31,7 @@ function mapStateToProps(store) {
 const mapDispatchToProps = (dispatch, store) => {
 
   const fetch = (filter, pagination, search) => {
+    dispatch(fetchingError({ code: '' }));
     dispatch(fetching(true));
     if (filter === 'characters') {
       dispatch(charactersGet(Object.assign({}, { page: pagination.current, total: pagination.total, orderBy: 'name', nameStartsWith: search })));
@@ -41,7 +42,7 @@ const mapDispatchToProps = (dispatch, store) => {
 
   return {
     errorClear: (props) => {
-      dispatch(fetchingError(''));
+      dispatch(fetchingError({code:''}));
     },
     fetchAction() {
       fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);

@@ -1,14 +1,14 @@
 .detail {
   background-color: #4e4e4e;
   color: #fff;
-  height: 100%;
+  height: 100vh;
   left: 0;
   overflow: scroll;
   overflow-x: hidden;
-  position: absolute;
-  top: 50px;
+  position: fixed;
+  top: 0;
   width: 100%;
-  z-index: 6;
+  z-index: 12;
 
   &__content {
     opacity: 0;
@@ -47,7 +47,6 @@
     background-color: #4e4e4e;
     font-size: 16px;
     line-height: 1.3;
-    padding-bottom: 50px;
     position: absolute;
     transform: translateY(110vh) translate3d(0, 0, 0);
     width: 100vw;
@@ -62,6 +61,10 @@
       background-color: #333;
       box-shadow: -2px 18px 20px 20px #060606;
       padding: 15px;
+
+      &--comic {
+        min-height: 20vh;
+      }
     }
 
     &__series {
