@@ -97,6 +97,12 @@ var config = {
         from: 'src/favicon.ico', to: 'favicon.ico'
       },
       {
+        from: 'src/favicon-16x16.png', to: 'favicon-16x16.png'
+      },
+      {
+        from: 'src/favicon-32x32.png', to: 'favicon-32x32.png'
+      },
+      {
         from: 'src/images', to: 'images'
       },
     ]),
