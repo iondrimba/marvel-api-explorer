@@ -131,7 +131,7 @@ if (isProduction) {
     cacheId: `api-${new Date().toUTCString().split(' ').join('-').split(',').join('').split(':').join('')}`,
     filename: 'api-service-worker.js',
     maximumFileSizeToCacheInBytes: 4194304,
-    staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff}',
+    staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff,svg}',
       'public/fonts/*.{woff2,woff}'],
     stripPrefix: 'public',
     runtimeCaching: [{

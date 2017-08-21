@@ -24,8 +24,8 @@
   <meta name="subtitle" content="ReactJS Marvel API Demo">
   <meta name="target" content="all">
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 
   <!-- IE cleartype -->
   <meta http-equiv="cleartype" content="on">
@@ -74,13 +74,15 @@ body {
 }
 
 
+
+
 </style>
 
   <script>
     (function () {
       if ('serviceWorker' in navigator) {
         window.onload = function () {
-          navigator.serviceWorker.register('./api-service-worker.js');
+          navigator.serviceWorker.register('/api-service-worker.js');
         }
       }
     })();
