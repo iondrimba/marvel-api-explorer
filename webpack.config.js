@@ -63,7 +63,7 @@ var config = {
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loaders: [
-          'file?hash=sha512&digest=hex&name=images/[name].[hash].[ext]',
+          'file?hash=sha512&digest=hex&name=images/[name].[hash].[ext]' + (isProduction ? '&publicPath=../' : ''),
           'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
         ]
       }
