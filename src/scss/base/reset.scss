@@ -19,6 +19,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 
   overflow-y: auto;
+  touch-action: manipulation;
 }
 
 body, html {
