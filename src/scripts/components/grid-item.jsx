@@ -1,0 +1,22 @@
+import React from 'react';
+import { Link } from 'react-router-dom'
+
+class GridItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Link className="thumb" to={{ pathname: `/${this.props.filter}/detail/${this.props.id}` }}>
+        <div className="thumb__mask"></div>
+        <img className="thumb__file" data-src={this.props.thumb} src="/images/missing.jpg" alt={`Image ${this.props.id}`} />
+      </Link>
+    );
+  }
+}
+GridItem.propTypes = {
+  id: React.PropTypes.number,
+  thumb: React.PropTypes.string,
+  filter: React.PropTypes.string
+}
+export default GridItem;

@@ -36,17 +36,10 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  match: React.PropTypes.object,
-  fetchAction: React.PropTypes.func,
   searchAction: React.PropTypes.func,
   searchClear: React.PropTypes.func,
-  paginationAction: React.PropTypes.func,
   filterAction: React.PropTypes.func,
-  pagination: React.PropTypes.object,
-  filter: React.PropTypes.string,
-  location: React.PropTypes.object,
-  fetching: React.PropTypes.bool,
-  data: React.PropTypes.array,
+  filter: React.PropTypes.string
 }
 
 export default Header;

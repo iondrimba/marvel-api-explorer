@@ -31,13 +31,13 @@ class Menu extends React.Component {
   }
   render() {
     return (
-      <div ref={'menu'} className="menu">
+      <nav ref={'menu'} className="menu">
         <span onClick={this.onSelect.bind(this)}>{this.props.filter}</span>
         <ul ref={'list'} className="list hide">
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Characters</span></li>
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Comics</span></li>
         </ul>
-      </div>
+      </nav>
     );
   }
 }

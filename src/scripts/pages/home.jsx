@@ -5,7 +5,7 @@ import Grid from '../components/grid';
 import Pagination from '../components/pagination';
 import Error from '../components/error';
 import Header from '../components/header';
-import { withRouter } from 'react-router-dom'
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -34,16 +34,12 @@ class Home extends React.Component {
 
 Home.propTypes = {
   match: React.PropTypes.object,
-  error: React.PropTypes.object,
   fetchAction: React.PropTypes.func,
-  searchAction: React.PropTypes.func,
   paginationAction: React.PropTypes.func,
-  filterAction: React.PropTypes.func,
   pagination: React.PropTypes.object,
   filter: React.PropTypes.string,
   location: React.PropTypes.object,
-  fetching: React.PropTypes.bool,
-  data: React.PropTypes.array,
+  fetching: React.PropTypes.bool
 }
 
 export default Home;

@@ -41,7 +41,7 @@ class DetailComic extends React.Component {
     }, 1200);
   }
   getDescription(description) {
-    return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : ''
+    return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
   }
   render() {
     return (
@@ -51,17 +51,17 @@ class DetailComic extends React.Component {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
-                <div ref={'cover'} className="detail__cover">
+                <section ref={'cover'} className="detail__cover">
                   <div className="detail__cover--reflex">
                     <img src={data.full} />
                   </div>
-                </div>
-                <div ref={'infos'} className="detail__infos">
-                  <section className="info__name info__name--comic">
+                </section>
+                <section ref={'infos'} className="detail__infos">
+                  <div className="info__name info__name--comic">
                     <h2>{data.title}</h2>
                     {this.getDescription(data.description)}
-                  </section>
-                </div>
+                  </div>
+                </section>
               </div>
             }
           })

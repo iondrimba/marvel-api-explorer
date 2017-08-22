@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import GridItem from './grid-item';
 
 class Grid extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
 
-  }
   componentDidUpdate(prevProps, prevState) {
     this.animate([...document.querySelectorAll('.grid .thumb')]);
   }
+
   animate(imgs) {
     imgs.map((el, index) => {
       setTimeout((elm) => {
@@ -19,19 +19,22 @@ class Grid extends React.Component {
           elm.classList.add('fetched');
         });
 
-        var image = new Image();
+        let image = new Image();
+        const file = elm.querySelector('.thumb__file');
+        const mask = elm.querySelector('.thumb__mask');
+
         image.onload = function () {
-          elm.querySelector('.thumb__mask').classList.add('animate');
-          elm.querySelector('.thumb__file').attributes.src.value = '';
-          elm.querySelector('.thumb__file').attributes.src.value = image.src;
-          setTimeout((elm1) => {
+          mask.classList.add('animate');
+          file.attributes.src.value = '';
+          file.attributes.src.value = image.src;
+          setTimeout((el) => {
             requestAnimationFrame(() => {
-              elm1.querySelector('.thumb__file').classList.add('animate');
-              elm1.querySelector('.thumb__mask').classList.add('animate-out');
+              file.classList.add('animate');
+              mask.classList.add('animate-out');
             });
           }, 300, elm);
         };
-        image.src = elm.querySelector('.thumb__file').attributes['data-src'].value;
+        image.src = file.attributes['data-src'].value;
       }, index * 50, el);
     });
   }
@@ -41,12 +44,7 @@ class Grid extends React.Component {
       <div className="grid">
         {
           this.props.data.map((data, index) => {
-            return <Link className="thumb" to={{
-              pathname: `/${this.props.filter}/detail/${data.id}`
-            }} key={index}>
-              <div className="thumb__mask"></div>
-              <img className="thumb__file" data-src={data.thumb} src="/images/missing.jpg" alt={`Image ${data.id}`}/>
-            </Link>
+            return <GridItem id={data.id} filter={this.props.filter} thumb={data.thumb} key={index} />
           })
         }
       </div>
