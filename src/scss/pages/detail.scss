@@ -13,24 +13,46 @@
   z-index: 12;
 
   &__content {
-    opacity: 0;
+    //opacity: 0;
     position: absolute;
     will-change: opacity;
 
     &.active {
-      opacity: 1;
+      //opacity: 1;
     }
+  }
+
+  img {
+    background-color: color(secondary);
+    border-radius: 2%;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .3);
+    display: block;
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -55%);
+    width: 80%;
+    z-index: 1;
   }
 
   &__cover {
     display: block;
+    height: 100vh;
     position: fixed;
     width: 100vw;
 
     &--reflex {
+      background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec.jpg);
+      background-origin: content-box;
+      background-position: top center;
+      background-size: cover;
+      filter: blur(3px) grayscale(100%);
+      height: 93vh;
       margin: 0 auto;
       overflow: hidden;
-      position: relative;
+      position: absolute;
+      top: 0;
       width: inherit;
 
       &::before {
@@ -50,7 +72,9 @@
     font-size: 16px;
     line-height: 1.3;
     position: absolute;
-    transform: translateY(110vh) translate3d(0, 0, 0);
+    transform: translateY(93vh);
+
+//transform: translateY(110vh) translate3d(0, 0, 0);
     width: 100vw;
   }
 
@@ -107,14 +131,6 @@
         }
       }
     }
-  }
-
-  img {
-    background-color: color(secondary);
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
   }
 }
 

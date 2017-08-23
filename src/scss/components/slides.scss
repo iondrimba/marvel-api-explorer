@@ -5,7 +5,8 @@
 .slides {
   display: block;
   height: 100vh;
-  position: absolute;
+  pointer-events: none;
+  position: fixed;
   width: 100vw;
   z-index: 9;
 
@@ -13,16 +14,18 @@
     display: block;
     height: 200vh;
     position: absolute;
-    transform: translateX(10%) translateY(40%) rotate(45deg) translate3d(0, 0, 0);
-    width: 200vh;
+    transform: scaleY(0);
+    transform-origin: top;
 
+//transform: translateX(10%) translateY(40%)  translate3d(0, 0, 0);
+    width: 200vh;
     &.active {
-      transform: translateX(-20%) translateY(-10%) rotate(45deg) translate3d(0, 0, 0);
+      //transform: translateX(-20%) translateY(-10%) translate3d(0, 0, 0);
     }
 
     &.out {
-      transform: translateX(-90%) translateY(-100%) rotate(45deg) translate3d(0, 0, 0);
-      transition: transform 1s .4s easing(easeOutExpo);
+      // transform: translateX(-90%) translateY(-100%) translate3d(0, 0, 0);
+      //transition: transform 1s .4s easing(easeOutExpo);
     }
   }
 

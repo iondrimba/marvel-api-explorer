@@ -8,10 +8,10 @@ class DetailComic extends React.Component {
   componentDidMount() {
     this.refs.cover.querySelector('img').onload = () => {
       const coverHeight = this.refs.cover.getBoundingClientRect().height;
-      this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
+     // this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
       document.querySelector('html').classList.add('disable-scroll');
     };
-    this.animateIn([...document.querySelectorAll('.slides div')]);
+    //this.animateIn([...document.querySelectorAll('.slides div')]);
   }
   componentWillUnmount() {
     document.querySelector('html').classList.remove('disable-scroll');
@@ -52,8 +52,8 @@ class DetailComic extends React.Component {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
                 <section ref={'cover'} className="detail__cover">
-                  <div className="detail__cover--reflex">
-                    <img src={data.full} />
+                  <img src={data.full} />
+                  <div className="detail__cover--reflex" style={{ backgroundImage: `url(${data.thumb})` }}>
                   </div>
                 </section>
                 <section ref={'infos'} className="detail__infos">
