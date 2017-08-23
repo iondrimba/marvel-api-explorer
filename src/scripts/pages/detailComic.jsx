@@ -7,11 +7,28 @@ class DetailComic extends React.Component {
   }
   componentDidMount() {
     this.refs.cover.querySelector('img').onload = () => {
-      const coverHeight = this.refs.cover.getBoundingClientRect().height;
-     // this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
+      const titleH = this.refs.title.getBoundingClientRect().height;
+      const viewH = document.body.clientHeight - 30 - titleH ;
+      setTimeout(() => {
+
+        this.refs.content.classList.add('active');
+        this.refs.infos.style.transform = `translateY(${viewH}px)`;
+
+        slides.reverse().map((el, index) => {
+          setTimeout(() => {
+            console.log('remove');
+            el.classList.remove('active');
+            el.classList.add('out');
+          }, 600);
+        });
+      }, 300);
+
       document.querySelector('html').classList.add('disable-scroll');
     };
-    //this.animateIn([...document.querySelectorAll('.slides div')]);
+
+    let slides = [...document.querySelectorAll('.slides .first')];
+    this.animateIn(slides);
+
   }
   componentWillUnmount() {
     document.querySelector('html').classList.remove('disable-scroll');
@@ -26,19 +43,6 @@ class DetailComic extends React.Component {
         el.classList.add('active');
       });
     });
-
-    setTimeout(() => {
-      slides.reverse().map((el, index) => {
-        setTimeout(() => {
-          el.classList.remove('active');
-          el.classList.add('out');
-        });
-      });
-    }, 600);
-
-    setTimeout(() => {
-      this.refs.content.classList.add('active');
-    }, 1200);
   }
   getDescription(description) {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
@@ -58,7 +62,7 @@ class DetailComic extends React.Component {
                 </section>
                 <section ref={'infos'} className="detail__infos">
                   <div className="info__name info__name--comic">
-                    <h2>{data.title}</h2>
+                    <h2 ref={'title'}>{data.title}</h2>
                     {this.getDescription(data.description)}
                   </div>
                 </section>

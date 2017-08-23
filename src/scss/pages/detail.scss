@@ -48,7 +48,7 @@
       background-position: top center;
       background-size: cover;
       filter: blur(3px) grayscale(100%);
-      height: 93vh;
+      height: 100vh;
       margin: 0 auto;
       overflow: hidden;
       position: absolute;
@@ -72,9 +72,8 @@
     font-size: 16px;
     line-height: 1.3;
     position: absolute;
-    transform: translateY(93vh);
-
-//transform: translateY(110vh) translate3d(0, 0, 0);
+    transform: translateY(100vh) translate3d(0, 0, 0);
+    transition: transform .3s .3s easing(easeOutExpo);
     width: 100vw;
   }
 

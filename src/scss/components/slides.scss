@@ -14,28 +14,28 @@
     display: block;
     height: 200vh;
     position: absolute;
-    transform: scaleY(0);
+    transform: scaleY(0) translate3d(0, 0, 0);
     transform-origin: top;
-
-//transform: translateX(10%) translateY(40%)  translate3d(0, 0, 0);
     width: 200vh;
+
     &.active {
-      //transform: translateX(-20%) translateY(-10%) translate3d(0, 0, 0);
+      transform: scaleY(1) translate3d(0, 0, 0);
     }
 
     &.out {
-      // transform: translateX(-90%) translateY(-100%) translate3d(0, 0, 0);
-      //transition: transform 1s .4s easing(easeOutExpo);
+      transform: scaleY(0) translate3d(0, 0, 0);
+      transform-origin: bottom;
+      transition: transform 2s .5s easing(easeOutExpo);
     }
   }
 
   .first {
     background-color: color(primary-lighter);
-    transition: transform 1s easing(easeOutExpo);
+    transition: transform 2s easing(easeOutExpo);
   }
 
   .second {
     background-color: color(primary);
-    transition: transform 1s .3s easing(easeOutExpo);
+    transition: transform 2s .5s easing(easeOutExpo);
   }
 }
