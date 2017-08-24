@@ -1,7 +1,7 @@
 @import '../base/color';
 
 .detail {
-  background-color: color(info);
+  background-color: #151414;
   color: color(invert);
   height: 100vh;
   left: 0;
@@ -47,11 +47,11 @@
     width: 100vw;
 
     &--reflex {
-      background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec.jpg);
       background-origin: content-box;
       background-position: top center;
       background-size: cover;
-      filter: blur(3px) grayscale(100%);
+      opacity:.2;
+      filter: grayscale(100%);
       height: 100vh;
       margin: 0 auto;
       overflow: hidden;
