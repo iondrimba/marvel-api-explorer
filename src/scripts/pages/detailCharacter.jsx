@@ -8,11 +8,32 @@ class DetailCharacter extends React.Component {
   }
   componentDidMount() {
     this.refs.cover.querySelector('img').onload = () => {
-      const coverHeight = this.refs.cover.getBoundingClientRect().height;
-      //this.refs.infos.style.transform = `translateY(${coverHeight}px)`;
+      const titleH = this.refs.infoName.getBoundingClientRect().height;
+      const viewH = document.body.clientHeight - titleH;
+
+      setTimeout(() => {
+        const loader = document.querySelector('.slides .loader');
+
+        setTimeout(() => {
+          this.refs.content.classList.add('active');
+          this.refs.infos.style.transform = `translateY(${viewH}px)`;
+
+          this.refs.cover.querySelector('img').classList.add('show');
+
+          slides.reverse().map((el, index) => {
+            loader.classList.remove('show');
+            el.classList.remove('active');
+            el.classList.add('out');
+          });
+        }, 800);
+
+      }, 300);
+
       document.querySelector('html').classList.add('disable-scroll');
     };
-    //this.animateIn([...document.querySelectorAll('.slides div')]);
+
+    let slides = [...document.querySelectorAll('.slides .first')];
+    this.animateIn(slides);
   }
   componentWillUnmount() {
     document.querySelector('html').classList.remove('disable-scroll');
@@ -25,18 +46,11 @@ class DetailCharacter extends React.Component {
       });
     });
 
-    setTimeout(() => {
-      slides.reverse().map((el, index) => {
-        setTimeout(() => {
-          el.classList.remove('active');
-          el.classList.add('out');
-        });
-      });
-    }, 600);
+    const loader = document.querySelector('.slides .loader');
 
     setTimeout(() => {
-      this.refs.content.classList.add('active');
-    }, 600);
+      loader.classList.add('show');
+    }, 200);
   }
   render() {
     return (
@@ -52,7 +66,7 @@ class DetailCharacter extends React.Component {
                   </div>
                 </section>
                 <section ref={'infos'} className="detail__infos">
-                  <div className="info__name">
+                  <div ref={'infoName'} className="info__name">
                     <h2>{data.name}</h2>
                   </div>
                   <Infos title="Series" type="series" data={data.series.items || []}></Infos>

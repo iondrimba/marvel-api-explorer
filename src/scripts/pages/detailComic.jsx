@@ -8,19 +8,24 @@ class DetailComic extends React.Component {
   componentDidMount() {
     this.refs.cover.querySelector('img').onload = () => {
       const titleH = this.refs.title.getBoundingClientRect().height;
-      const viewH = document.body.clientHeight - 30 - titleH ;
+      const viewH = document.body.clientHeight - 30 - titleH;
+
       setTimeout(() => {
+        const loader = document.querySelector('.slides .loader');
 
-        this.refs.content.classList.add('active');
-        this.refs.infos.style.transform = `translateY(${viewH}px)`;
+        setTimeout(() => {
+          this.refs.content.classList.add('active');
+          this.refs.infos.style.transform = `translateY(${viewH}px)`;
 
-        slides.reverse().map((el, index) => {
-          setTimeout(() => {
-            console.log('remove');
+          this.refs.cover.querySelector('img').classList.add('show');
+
+          slides.reverse().map((el, index) => {
+            loader.classList.remove('show');
             el.classList.remove('active');
             el.classList.add('out');
-          }, 600);
-        });
+          });
+        }, 800);
+
       }, 300);
 
       document.querySelector('html').classList.add('disable-scroll');
@@ -39,10 +44,16 @@ class DetailComic extends React.Component {
   animateIn(slides) {
     slides.map((el, index) => {
       setTimeout(() => {
-        el.classList.remove('active');
         el.classList.add('active');
       });
     });
+
+    const loader = document.querySelector('.slides .loader');
+
+    setTimeout(()=>{
+      loader.classList.add('show');
+    }, 200);
+
   }
   getDescription(description) {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';

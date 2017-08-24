@@ -13,12 +13,12 @@
   z-index: 12;
 
   &__content {
-    //opacity: 0;
+    opacity: 0;
     position: absolute;
     will-change: opacity;
 
     &.active {
-      //opacity: 1;
+      opacity: 1;
     }
   }
 
@@ -26,14 +26,18 @@
     background-color: color(secondary);
     border-radius: 2%;
     box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .3);
-    display: block;
+    display: none;
     left: 50%;
     margin: 0 auto;
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -55%) translate3d(0, 0, 0);
     width: 80%;
     z-index: 1;
+
+    &.show {
+      display: block;
+    }
   }
 
   &__cover {

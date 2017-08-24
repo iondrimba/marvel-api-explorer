@@ -34,6 +34,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
   match: React.PropTypes.object,
+  data: React.PropTypes.array,
   fetchAction: React.PropTypes.func,
   paginationAction: React.PropTypes.func,
   pagination: React.PropTypes.object,
