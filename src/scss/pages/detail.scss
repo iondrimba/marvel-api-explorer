@@ -23,7 +23,7 @@
   }
 
   img {
-    background-color: color(secondary);
+    background-color: color(darkest);
     border-radius: 2%;
     box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .3);
     display: none;
@@ -50,10 +50,10 @@
       background-origin: content-box;
       background-position: top center;
       background-size: cover;
-      opacity:.2;
       filter: grayscale(100%);
       height: 100vh;
       margin: 0 auto;
+      opacity: .1;
       overflow: hidden;
       position: absolute;
       top: 0;

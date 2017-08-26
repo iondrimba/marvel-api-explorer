@@ -15,7 +15,7 @@ class DetailComic extends React.Component {
 
         setTimeout(() => {
           this.refs.content.classList.add('active');
-          this.refs.infos.style.transform = `translateY(${viewH}px)`;
+          //this.refs.infos.style.transform = `translateY(${viewH}px)`;
 
           this.refs.cover.querySelector('img').classList.add('show');
 

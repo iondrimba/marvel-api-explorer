@@ -11,6 +11,9 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    this.props.fetchAction(this.props);
+  }
   componentDidUpdate(prevProps, prevState) {
     window.scroll(0, 0);
     if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {

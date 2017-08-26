@@ -3,7 +3,6 @@
 
 .menu {
   background-color: color(menu);
-  border-radius: 0 4px 4px 0;
   color: color(invert);
   display: flex;
   padding: 10px;
@@ -13,7 +12,6 @@
   width: 180px;
 
   &.show {
-    border-radius: 0 4px 0 0;
     box-shadow: 6px -1px 20px 4px color(shadow);
   }
 
