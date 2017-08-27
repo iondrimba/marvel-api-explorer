@@ -8,20 +8,32 @@ class DetailComic extends React.Component {
   constructor(props) {
     super(props);
   }
+  positionInfos() {
+    const titleH = this.refs.title.getBoundingClientRect().height;
+    let viewH = 0;
+
+    if (window.innerWidth < 960) {
+      viewH = document.body.clientHeight - 30 - titleH;
+    }
+
+    this.refs.infos.style = `transform:translateY(${viewH}px)`;
+  }
   componentDidMount() {
     this.tilt = new Tilt();
+    this.mobile = true;
+
+    window.onresize = ()=> {
+      this.positionInfos();
+    };
 
     this.refs.img.onload = () => {
-      const titleH = this.refs.title.getBoundingClientRect().height;
-      const viewH = document.body.clientHeight - 30 - titleH;
-
       setTimeout(() => {
         const loader = document.querySelector('.slides .loader');
 
         setTimeout(() => {
-          this.refs.content.classList.add('active');
-          this.refs.infos.style = `transform:translateY(${viewH}px)`;
+          this.positionInfos();
 
+          this.refs.content.classList.add('active');
           this.refs.img.classList.add('show');
 
           slides.reverse().map((el, index) => {
@@ -44,6 +56,7 @@ class DetailComic extends React.Component {
 
   }
   componentWillUnmount() {
+    window.onresize = null;
     document.querySelector('html').classList.remove('disable-scroll');
   }
   createMarkup(markup) {
