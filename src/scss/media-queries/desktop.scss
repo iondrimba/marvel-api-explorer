@@ -1,3 +1,5 @@
+@import '../base/easing';
+
 @media screen and (min-width: 960px ) {
   .grid {
     justify-content: center;
@@ -109,8 +111,29 @@
     margin-right: 20px;
     width: 180px;
 
+    &__title {
+      font-size: 16px;
+    }
+
+    img {
+      transform: scale(1) translate3d(0, 0, 0);
+      transition: filter .3s, transform .6s easing(easeOutQuart);
+    }
+
     &:nth-child(3n + 0) {
       margin-right: 20px;
+    }
+
+    &:hover {
+      img {
+        filter: brightness(15%);
+        transform: scale(1.2) translate3d(0, 0, 0);
+      }
+
+      .thumb__title {
+        opacity: 1;
+        transition: opacity .3s .2s;
+      }
     }
   }
 }
