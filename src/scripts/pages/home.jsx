@@ -13,17 +13,6 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
-    const stage = document.getElementsByClassName('grid')[0];
-    const mc = new Hammer.Manager(stage);
-    const Swipe = new Hammer.Swipe();
-    mc.add(Swipe);
-    mc.on('swiperight', (e) => {
-      this.refs.pagination.previous();
-    });
-    mc.on('swipeleft', (e) => {
-      this.refs.pagination.next();
-    });
-
     setTimeout(()=>{
       this.props.searchAction(this.props.search, this.props);
     }, 1000);
