@@ -45,14 +45,24 @@ class PaginationHelper {
   getTotalPages(totalItens, maxPages) {
     return totalItens / maxPages;
   }
-  getNext(pagination) {
+  hasNext(pagination) {
     return (
       pagination.total > 1 &&
       (pagination.total > 1 && pagination.current < pagination.total)
     );
   }
-  getPrev(pagination) {
+  hasPrev(pagination) {
     return pagination.total > 0 && pagination.current > 1;
+  }
+  getPrev(pagination) {
+    if (this.hasPrev(pagination)) {
+      return pagination.current--;
+    }
+  }
+  getNext(pagination) {
+    if (this.hasNext(pagination)) {
+      return pagination.current++;
+    }
   }
 }
 

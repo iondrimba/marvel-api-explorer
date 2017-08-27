@@ -27,9 +27,17 @@ class Pagination extends React.Component {
   getStyle(props, page) {
     return Number(props.pagination.current) === page ? 'pagination__link pagination__link--active' : 'pagination__link';
   }
+  previous() {
+    this.props.paginationPrevAction(this.props);
+  }
+  next() {
+    this.props.paginationNextAction(this.props);
+  }
   render() {
     let next = null;
     let prev = null;
+
+    console.log('this.props.pagination', this.props.pagination);
 
     if (this.props.pagination.next) {
        next = <PaginationLink className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) + 1)} key={'next'} iconClassName={'pagination__next'}/>;
@@ -58,6 +66,8 @@ Pagination.propTypes = {
   filter: React.PropTypes.string,
   pagination: React.PropTypes.object,
   search: React.PropTypes.string,
-  paginationAction: React.PropTypes.func
+  paginationAction: React.PropTypes.func,
+  paginationNextAction: React.PropTypes.func,
+  paginationPrevAction: React.PropTypes.func
 }
 export default Pagination;

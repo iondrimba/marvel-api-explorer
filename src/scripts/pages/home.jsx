@@ -5,6 +5,7 @@ import Grid from '../components/grid';
 import Pagination from '../components/pagination';
 import Error from '../components/error';
 import Header from '../components/header';
+import Hammer from 'hammerjs';
 
 
 class Home extends React.Component {
@@ -13,6 +14,26 @@ class Home extends React.Component {
   }
   componentDidMount() {
     this.props.fetchAction(this.props);
+
+    // get a reference to an element
+    var stage = document.getElementsByClassName('grid')[0];
+
+    // create a manager for that element
+    var mc = new Hammer.Manager(stage);
+
+    // create a recognizer
+    var Swipe = new Hammer.Swipe();
+
+    // add the recognizer
+    mc.add(Swipe);
+
+    // subscribe to events
+    mc.on('swiperight', (e) => {
+      this.refs.pagination.previous();
+    });
+    mc.on('swipeleft', (e) => {
+      this.refs.pagination.next();
+    });
   }
   componentDidUpdate(prevProps, prevState) {
     window.scroll(0, 0);
@@ -28,7 +49,7 @@ class Home extends React.Component {
         <Header {...this.props}/>
         <Error {...this.props} retry={this.props.fetchAction} />
         <Loader fetching = {this.props.fetching} />
-        <Pagination filter={this.props.filter} search={this.props.location.search} paginationAction={this.props.paginationAction} pagination={this.props.pagination} />
+        <Pagination ref={'pagination'} {...this.props} />
         <Grid {...{ data, filter}} />
       </div>
     );
