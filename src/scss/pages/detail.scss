@@ -49,6 +49,7 @@
     &--reflex {
       background-origin: content-box;
       background-position: top center;
+      background-repeat: no-repeat;
       background-size: cover;
       filter: grayscale(100%);
       height: 100vh;
@@ -92,18 +93,24 @@
       }
     }
 
-    &__series {
-      background-color: color(series);
-      color: color(secondary);
+    &__series, &__stories {
       padding: 15px 0;
 
-      h2 {
+      .sub-title {
         padding: 0 15px 10px;
       }
 
       li {
         padding: 5px 15px;
+      }
+    }
 
+
+    &__series {
+      background-color: color(series);
+      color: color(secondary);
+
+      li {
         &:nth-child(even) {
           background-color: color(series);
         }
@@ -116,15 +123,8 @@
 
     &__stories {
       background-color: color(info);
-      padding: 15px 0;
-
-      h2 {
-        padding: 0 15px 10px;
-      }
 
       li {
-        padding: 5px 15px;
-
         &:nth-child(even) {
           background-color: color(stories);
         }

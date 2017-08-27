@@ -5,7 +5,6 @@
   background-color: color(menu);
   color: color(invert);
   display: flex;
-  padding: 10px;
   position: relative;
   text-align: center;
   text-transform: lowercase;
@@ -19,6 +18,8 @@
     align-self: center;
     cursor: pointer;
     display: block;
+    height: 100%;
+    padding: 10px;
     width: 100%;
   }
 }

@@ -8,7 +8,7 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(()=>{
+    setTimeout(() => {
       requestAnimationFrame(() => {
         this.refs.about.classList.add('animate');
       })

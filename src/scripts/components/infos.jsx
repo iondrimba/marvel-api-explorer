@@ -7,7 +7,7 @@ class Infos extends React.Component {
   render() {
     return (
       <section className={`info__${this.props.type}`}>
-        <h2>{this.props.title}</h2>
+        <h3 className="sub-title">{this.props.title}</h3>
         <ul>
           {
             this.props.data.map((item, index) => {

@@ -14,9 +14,19 @@
   z-index: 12;
 
   .close {
+    cursor: pointer;
     display: inline-block;
     margin: 20px 0;
     position: relative;
+  }
+
+  .content {
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
   }
 
   &.animate {
