@@ -15,19 +15,10 @@ class Home extends React.Component {
   componentDidMount() {
     this.props.fetchAction(this.props);
 
-    // get a reference to an element
-    var stage = document.getElementsByClassName('grid')[0];
-
-    // create a manager for that element
-    var mc = new Hammer.Manager(stage);
-
-    // create a recognizer
-    var Swipe = new Hammer.Swipe();
-
-    // add the recognizer
+    const stage = document.getElementsByClassName('grid')[0];
+    const mc = new Hammer.Manager(stage);
+    const Swipe = new Hammer.Swipe();
     mc.add(Swipe);
-
-    // subscribe to events
     mc.on('swiperight', (e) => {
       this.refs.pagination.previous();
     });
