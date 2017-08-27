@@ -47,12 +47,11 @@
   }
 
   .detail {
-    background-color: #000;
     overflow-y: hidden;
 
     img {
       border-radius: 4px;
-      max-width: 60vh;
+      max-width: 50vh;
       transform: translate(-50%, -50%) translate3d(0, 0, 0);
       width: initial;
     }
