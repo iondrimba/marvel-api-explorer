@@ -13,8 +13,6 @@ class Home extends React.Component {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchAction(this.props);
-
     const stage = document.getElementsByClassName('grid')[0];
     const mc = new Hammer.Manager(stage);
     const Swipe = new Hammer.Swipe();
@@ -25,6 +23,10 @@ class Home extends React.Component {
     mc.on('swipeleft', (e) => {
       this.refs.pagination.next();
     });
+
+    setTimeout(()=>{
+      this.props.fetchAction(this.props);
+    }, 1000);
   }
   componentDidUpdate(prevProps, prevState) {
     window.scroll(0, 0);

@@ -115,7 +115,7 @@
       font-size: 16px;
     }
 
-    img {
+    &__file {
       transform: scale(1) translate3d(0, 0, 0);
       transition: filter .3s, transform .6s easing(easeOutQuart);
     }
@@ -125,7 +125,7 @@
     }
 
     &:hover {
-      img {
+      .thumb__file {
         filter: brightness(15%);
         transform: scale(1.2) translate3d(0, 0, 0);
       }

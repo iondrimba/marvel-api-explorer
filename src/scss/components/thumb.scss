@@ -48,17 +48,18 @@
     display: block;
     height: 100%;
     position: absolute;
-    transform: scaleY(0);
+    transform: scaleY(0) translate3d(0, 0, 0);
     transform-origin: top;
     transition: transform .3s .1s easing(easeOutExpo);
     width: 100%;
+    z-index: 1;
 
     &.animate {
-      transform: scaleY(1);
+      transform: scaleY(1) translate3d(0, 0, 0);
     }
 
     &.animate-out {
-      transform: scaleY(0);
+      transform: scaleY(0) translate3d(0, 0, 0);
       transform-origin: bottom;
     }
   }
@@ -80,7 +81,7 @@
     left: 0;
     position: absolute;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
   }
 
   &:nth-child(3n + 0) {
