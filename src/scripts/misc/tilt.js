@@ -31,8 +31,7 @@ class Tilt {
 
   _onMouseOut(evt) {
     this._applyStyle(evt.currentTarget, {
-      transform: 'rotateX(0deg) rotateY(0deg) translate(-50%, -50%) translate3d(0, 0, 0)',
-      transition: 'transform .3s cubic-bezier(.075, .82, .165, 1)'
+      transform: 'rotateX(0deg) rotateY(0deg) translate(-50%, -50%)'
     });
     this.over = false;
   }
@@ -57,7 +56,7 @@ class Tilt {
       x: -(evt.offsetX - (rect.width * .5)) * o,
       y: (evt.offsetY - (rect.height * .5)) * .03
     };
-    this._applyStyle(el, { transform: 'rotateX(' + v.y + 'deg) rotateY(' + v.x + 'deg) translate(-50%, -50%) translate3d(0, 0, 0)', transition: 'transform .3s cubic-bezier(.075, .82, .165, 1)' });
+    this._applyStyle(el, { transform: 'rotateX(' + v.y + 'deg) rotateY(' + v.x + 'deg) translate(-50%, -50%)' });
   }
 
   _transition(el) {
@@ -65,7 +64,6 @@ class Tilt {
 
     this.timer = setTimeout(() => {
       this.over = true;
-      //this._applyStyle(el, { transition: '' });
     }, this.animation);
   }
 }
