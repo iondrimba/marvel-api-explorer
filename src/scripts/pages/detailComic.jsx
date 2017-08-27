@@ -23,7 +23,6 @@ class DetailComic extends React.Component {
     this.mobile = true;
 
     window.onresize = ()=> {
-      console.log('onresize');
       this.positionInfos();
     };
 

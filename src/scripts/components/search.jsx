@@ -16,9 +16,15 @@ class Search extends React.Component {
       this.props.onSearch();
       this.refs.form.blur();
       this.refs.searchInput.blur();
-      this.refs.menu.displayMenu(false);
     }
   }
+
+  componentDidUpdate() {
+    if(this.props.display) {
+      this.refs.searchInput.focus();
+    }
+  }
+
   onTextChange(evt) {
     const search = evt.currentTarget.value;
     this.setState({ search: search });

@@ -25,10 +25,8 @@ class DetailCharacter extends React.Component {
     this.tilt = new Tilt();
 
     window.onresize = () => {
-      console.log('onresize');
       this.positionInfos();
     };
-
 
     this.refs.cover.querySelector('img').onload = () => {
       setTimeout(() => {
