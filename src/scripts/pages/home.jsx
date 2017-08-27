@@ -25,7 +25,7 @@ class Home extends React.Component {
     });
 
     setTimeout(()=>{
-      this.props.fetchAction(this.props);
+      this.props.searchAction(this.props.search, this.props);
     }, 1000);
   }
   componentDidUpdate(prevProps, prevState) {
@@ -53,10 +53,9 @@ Home.propTypes = {
   match: React.PropTypes.object,
   data: React.PropTypes.array,
   fetchAction: React.PropTypes.func,
-  paginationAction: React.PropTypes.func,
-  pagination: React.PropTypes.object,
+  searchAction: React.PropTypes.func,
   filter: React.PropTypes.string,
-  location: React.PropTypes.object,
+  search: React.PropTypes.string,
   fetching: React.PropTypes.bool
 }
 

@@ -60,7 +60,9 @@ class Tilt {
   }
 
   _transition(el) {
-    if (this.timer !== undefined) clearTimeout(this.timer);
+    if (this.timer !== undefined) {
+      clearTimeout(this.timer)
+    }
 
     this.timer = setTimeout(() => {
       this.over = true;
