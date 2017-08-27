@@ -4,6 +4,7 @@ const defaultStore = {
   filter: 'comics',
   search: '',
   error: {code:''},
+  menuOpen: false,
   router: {
     pathname: '/',
     search: '',

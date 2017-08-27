@@ -6,7 +6,7 @@
   padding-bottom: 30px;
 
   form {
-    button {
+    button[type='submit'] {
       display: none;
     }
   }

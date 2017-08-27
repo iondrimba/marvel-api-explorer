@@ -7,17 +7,12 @@ class Menu extends React.Component {
       filter: this.props.filter
     };
   }
-  componentDidMount() {
-  }
   displayMenu(hiding) {
-    this.refs.list.classList.remove(hiding ? 'hide' : 'show');
-    this.refs.list.classList.add(hiding ? 'show' : 'hide');
-
     this.refs.menu.classList.remove('show');
     hiding ? this.refs.menu.classList.add('show') : null;
   }
   isHidden() {
-    return this.refs.list.classList.value.includes('hide');
+    return this.props.menuOpen;
   }
   onClick(evt) {
     const filter = evt.currentTarget.innerText.toLowerCase();
@@ -25,15 +20,22 @@ class Menu extends React.Component {
     this.props.filterAction(filter, this.props);
     this.displayMenu(this.isHidden());
     this.props.onClick();
+    this.props.toogleMenuAction(false);
   }
   onSelect(evt) {
     this.displayMenu(this.isHidden());
+    this.props.toogleMenuAction(!this.props.menuOpen);
   }
+
+  toogleVisibility() {
+    return this.props.menuOpen ? 'show' : 'hide';
+  }
+
   render() {
     return (
       <nav ref={'menu'} className="menu">
-        <span onClick={this.onSelect.bind(this)}>{this.props.filter}</span>
-        <ul ref={'list'} className="list hide">
+        <button type="button" name="show-menu" onClick={this.onSelect.bind(this)}>{this.props.filter}</button>
+        <ul ref={'list'} className={`list ${this.toogleVisibility()}`}>
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Characters</span></li>
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Comics</span></li>
         </ul>
@@ -43,7 +45,9 @@ class Menu extends React.Component {
 }
 Menu.propTypes = {
   filter: React.PropTypes.string,
+  toogleMenuAction: React.PropTypes.func,
   onClick: React.PropTypes.func,
+  menuOpen: React.PropTypes.bool,
   filterAction: React.PropTypes.func
 }
 export default Menu;

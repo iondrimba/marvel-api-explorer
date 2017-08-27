@@ -14,8 +14,11 @@
     box-shadow: 6px -1px 20px 4px color(shadow);
   }
 
-  span {
+  button {
     align-self: center;
+    background-color: inherit;
+    border: 0;
+    color: inherit;
     cursor: pointer;
     display: block;
     height: 100%;

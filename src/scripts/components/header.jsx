@@ -11,6 +11,7 @@ class Header extends React.Component {
   }
   onSearchClick() {
     this.setState({ displaySearch: !this.state.displaySearch });
+    this.props.toogleMenuAction(false);
   }
   onSearch() {
     this.setState({ displaySearch: false });
@@ -29,7 +30,7 @@ class Header extends React.Component {
             <img className={this.state.displaySearch ? 'close-icon' : 'close-icon hide'} src="/images/close.svg" alt="Close icon" />
           </button>
         </header>
-        <Search onSearch={this.onSearch.bind(this)} display={this.state.displaySearch} filter={this.props.filter} searchClear={this.props.searchClear} searchAction={this.props.searchAction} filterAction={this.props.filterAction} />
+        <Search {...this.props} onSearch={this.onSearch.bind(this)} display={this.state.displaySearch}  />
       </section>
     );
   }
@@ -39,6 +40,8 @@ Header.propTypes = {
   searchAction: React.PropTypes.func,
   searchClear: React.PropTypes.func,
   filterAction: React.PropTypes.func,
+  toogleMenuAction: React.PropTypes.func,
+  menuOpen: React.PropTypes.bool,
   filter: React.PropTypes.string
 }
 

@@ -10,6 +10,7 @@ import fetching from '../actions/fetching';
 import search from '../actions/search';
 import fetchingError from '../actions/fetchingError';
 import filter from '../actions/filter';
+import menuOpen from '../actions/menuOpen';
 import pagination from '../actions/pagination';
 import appStore from '../model/store';
 import defaultStore from '../model/initialState';
@@ -19,7 +20,7 @@ const pg = new PaginationHelper();
 
 function mapStateToProps(store) {
   return {
-    error: store.error, fetching: store.fetching, filter: store.filter, search: store.search, pagination: Object.assign(
+    menuOpen: store.menuOpen, error: store.error, fetching: store.fetching, filter: store.filter, search: store.search, pagination: Object.assign(
       {},
       store.pagination,
       {
@@ -63,8 +64,6 @@ const mapDispatchToProps = (dispatch, store) => {
     }
   };
 
-
-
   return {
     errorClear: (props) => {
       dispatch(fetchingError({ code: '' }));
@@ -76,6 +75,7 @@ const mapDispatchToProps = (dispatch, store) => {
       const queryString = val.length ? `?search=${val}` : '';
       dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${queryString}`));
       dispatch(search(val));
+      dispatch(menuOpen(false));
       dispatch(pagination(defaultStore.pagination));
       fetch(appStore.getState().filter, appStore.getState().pagination, val);
     },
@@ -102,6 +102,9 @@ const mapDispatchToProps = (dispatch, store) => {
         const url = `/${props.filter}/${Number(props.pagination.current) + 1}${hasQueryString(props.search)}`;
         paginate(url, dispatch);
       }
+    },
+    toogleMenuAction: (visible) => {
+      dispatch(menuOpen(visible));
     }
   };
 }

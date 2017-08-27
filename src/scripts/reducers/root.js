@@ -6,6 +6,7 @@ import fetchingError from './fetchingError';
 import filter from './filter';
 import search from './search';
 import pagination from './pagination';
+import menuOpen from './menuOpen';
 
 const RootReducer = combineReducers({
   fetching: fetching,
@@ -14,6 +15,7 @@ const RootReducer = combineReducers({
   search: search,
   pagination: pagination,
   router: routerReducer,
+  menuOpen: menuOpen,
   data: data
 });
 
