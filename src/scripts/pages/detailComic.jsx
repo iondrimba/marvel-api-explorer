@@ -63,6 +63,9 @@ class DetailComic extends React.Component {
     }, 200);
 
   }
+  onBackButtonClick() {
+    this.props.history.goBack();
+  }
   getDescription(description) {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
   }
@@ -74,7 +77,7 @@ class DetailComic extends React.Component {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
-                <BackButton/>
+                <BackButton onClick={this.onBackButtonClick.bind(this)} />
                 <section ref={'cover'} className="detail__cover">
                   <img ref={'img'} src={data.full} />
                   <div className="detail__cover--reflex" style={{ backgroundImage: `url(${data.thumb})` }}>
@@ -99,7 +102,8 @@ class DetailComic extends React.Component {
 
 DetailComic.propTypes = {
   match: React.PropTypes.object,
-  data: React.PropTypes.array
+  data: React.PropTypes.array,
+  history: React.PropTypes.object,
 }
 
 export default DetailComic;
