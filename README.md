@@ -26,3 +26,4 @@ It uses the offical [Marvel API](https://developer.marvel.com/docs)
 #### Todo
 * Write more tests
 * Refactor bits of code
+* Add more mobile friendly gestures
