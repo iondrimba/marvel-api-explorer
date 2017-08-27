@@ -1,6 +1,7 @@
 import React from 'react';
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
+import ScrollIndicator from '../components/scroll-indicator';
 import Tilt from '../misc/tilt';
 
 class DetailComic extends React.Component {
@@ -19,7 +20,7 @@ class DetailComic extends React.Component {
 
         setTimeout(() => {
           this.refs.content.classList.add('active');
-          //this.refs.infos.style = `transform:translateY(${viewH}px)`;
+          this.refs.infos.style = `transform:translateY(${viewH}px)`;
 
           this.refs.img.classList.add('show');
 
@@ -80,6 +81,7 @@ class DetailComic extends React.Component {
                   </div>
                 </section>
                 <section ref={'infos'} className="detail__infos">
+                  <ScrollIndicator />
                   <div className="info__name info__name--comic">
                     <h2 ref={'title'}>{data.title}</h2>
                     {this.getDescription(data.description)}

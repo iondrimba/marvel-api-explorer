@@ -12,7 +12,5 @@ class BackButton extends React.Component {
     );
   }
 }
-BackButton.propTypes = {
-  fetching: React.PropTypes.bool,
-}
+
 export default BackButton;

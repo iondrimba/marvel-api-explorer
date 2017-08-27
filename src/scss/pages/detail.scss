@@ -84,6 +84,7 @@
     transform: translateY(100vh) translate3d(0, 0, 0);
     transition: transform .3s .3s easing(easeOutExpo);
     width: 100vw;
+    z-index: 1;
   }
 
   .info {

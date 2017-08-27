@@ -1,0 +1,50 @@
+@import '../base/color';
+@import '../base/easing';
+$scroll-indicator-size: 24px;
+$scroll-indicator-icon-size: 10px;
+
+.scroll-indicator {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  height: $scroll-indicator-size;
+  justify-content: center;
+  left: 50%;
+  opacity: 1;
+  position: fixed;
+  top: -30px;
+  transform: translateX(-50%);
+  width: $scroll-indicator-size;
+  z-index: 2;
+
+  &__icon {
+    animation: yoyo-scroll .8s infinite;
+    border-bottom: 0;
+    border-left: 2px solid color(invert);
+    border-right: 0;
+    border-top: 2px solid color(invert);
+    display: block;
+    height: $scroll-indicator-icon-size;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    transform: translateY(0) translate3d(0, 0, 0) rotate(45deg);
+    width: $scroll-indicator-icon-size;
+  }
+}
+
+@keyframes yoyo-scroll {
+  from {
+    transform: translateY(0) translate3d(0, 0, 0) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(-50%) translate3d(0, 0, 0) rotate(45deg);
+  }
+
+  to {
+    transform: translateY(0) translate3d(0, 0, 0) rotate(45deg);
+  }
+}
