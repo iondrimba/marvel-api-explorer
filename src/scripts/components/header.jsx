@@ -22,7 +22,7 @@ class Header extends React.Component {
         <header className="header">
           <Link className="header__dots" to={{ pathname: '/about' }} >
             <span >about</span>
-            <img src="/images/dots.svg" alt="About icon" />
+            <img src="/images/dots.svg" alt="About icon" width="24" height="50" />
           </Link>
           <h1><img className="logo" src="/images/marvel.svg" alt="Marvel logo" /><span>API Explorer</span></h1>
           <button className="header__search" onClick={this.onSearchClick.bind(this)}>
