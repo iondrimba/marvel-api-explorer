@@ -1,0 +1,21 @@
+@import '../base/color';
+@import '../base/easing';
+
+.alert-offline {
+  background-color: color(gradient-primary);
+  color: color(invert);
+  display: block;
+  font-weight: bold;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transform: translateY(0) translateZ(0);
+  transition: transform .3s easing(easeOutExpo);
+  width: 100%;
+  z-index: 1;
+
+  &.show-offlline-ready {
+    transform: translateY(50px) translateZ(0);
+  }
+}
