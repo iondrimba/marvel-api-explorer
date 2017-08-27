@@ -21,6 +21,27 @@
     }
   }
 
+  &__title {
+    color: color(invert);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 1;
+
+    &.show {
+      opacity: 1;
+      transition: opacity .2s .6s;
+    }
+  }
 
   &__mask {
     background-color: color(mask);

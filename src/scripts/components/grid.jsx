@@ -22,6 +22,7 @@ class Grid extends React.Component {
         let image = new Image();
         const file = elm.querySelector('.thumb__file');
         const mask = elm.querySelector('.thumb__mask');
+        const title = elm.querySelector('.thumb__title');
 
         image.onload = function () {
           mask.classList.add('animate');
@@ -31,6 +32,11 @@ class Grid extends React.Component {
             requestAnimationFrame(() => {
               file.classList.add('animate');
               mask.classList.add('animate-out');
+
+              if (image.src.indexOf('missing') > -1) {
+                title.classList.add('show');
+              }
+
             });
           }, 300, elm);
         };
@@ -40,11 +46,13 @@ class Grid extends React.Component {
   }
 
   render() {
+
+    console.log(this.props);
     return (
       <div className="grid">
         {
           this.props.data.map((data, index) => {
-            return <GridItem id={data.id} filter={this.props.filter} thumb={data.thumb} key={index} />
+            return <GridItem title={`${data.name ? data.name : data.title}`} id={data.id} filter={this.props.filter} thumb={data.thumb} key={index} />
           })
         }
       </div>
