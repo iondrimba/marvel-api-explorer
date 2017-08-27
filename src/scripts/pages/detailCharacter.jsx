@@ -1,12 +1,15 @@
 import React from 'react';
 import Infos from '../components/infos'
 import Transition from '../components/transition';
+import Tilt from '../misc/tilt';
 
 class DetailCharacter extends React.Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
+    this.tilt = new Tilt();
+
     this.refs.cover.querySelector('img').onload = () => {
       const titleH = this.refs.infoName.getBoundingClientRect().height;
       const viewH = document.body.clientHeight - titleH;
@@ -25,6 +28,10 @@ class DetailCharacter extends React.Component {
             el.classList.remove('active');
             el.classList.add('out');
           });
+
+
+          this.tilt.init(this.refs.img);
+
         }, 800);
 
       }, 300);
@@ -61,7 +68,7 @@ class DetailCharacter extends React.Component {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
                 <section ref={'cover'} className="detail__cover">
-                  <img src={data.full} />
+                  <img ref={'img'} src={data.full} />
                   <div className="detail__cover--reflex" style={{backgroundImage: `url(${data.thumb})`}}>
                   </div>
                 </section>

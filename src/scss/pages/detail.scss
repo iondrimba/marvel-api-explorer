@@ -1,4 +1,5 @@
 @import '../base/color';
+@import '../base/easing';
 
 .detail {
   background-color: #151414;
@@ -32,6 +33,7 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -55%) translate3d(0, 0, 0);
+    transform-origin: left top;
     width: 80%;
     z-index: 1;
 
@@ -43,8 +45,10 @@
   &__cover {
     display: block;
     height: 100vh;
+    perspective: 800px;
     position: fixed;
     width: 100vw;
+    z-index: 1;
 
     &--reflex {
       background-origin: content-box;

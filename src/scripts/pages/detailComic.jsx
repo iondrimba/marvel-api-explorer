@@ -1,12 +1,15 @@
 import React from 'react';
 import Transition from '../components/transition';
+import Tilt from '../misc/tilt';
 
 class DetailComic extends React.Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    this.refs.cover.querySelector('img').onload = () => {
+    this.tilt = new Tilt();
+
+    this.refs.img.onload = () => {
       const titleH = this.refs.title.getBoundingClientRect().height;
       const viewH = document.body.clientHeight - 30 - titleH;
 
@@ -15,15 +18,18 @@ class DetailComic extends React.Component {
 
         setTimeout(() => {
           this.refs.content.classList.add('active');
-          //this.refs.infos.style.transform = `translateY(${viewH}px)`;
+          //this.refs.infos.style = `transform:translateY(${viewH}px)`;
 
-          this.refs.cover.querySelector('img').classList.add('show');
+          this.refs.img.classList.add('show');
 
           slides.reverse().map((el, index) => {
             loader.classList.remove('show');
             el.classList.remove('active');
             el.classList.add('out');
           });
+
+          this.tilt.init(this.refs.img);
+
         }, 800);
 
       }, 300);
@@ -67,7 +73,7 @@ class DetailComic extends React.Component {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
                 <section ref={'cover'} className="detail__cover">
-                  <img src={data.full} />
+                  <img ref={'img'} src={data.full} />
                   <div className="detail__cover--reflex" style={{ backgroundImage: `url(${data.thumb})` }}>
                   </div>
                 </section>
