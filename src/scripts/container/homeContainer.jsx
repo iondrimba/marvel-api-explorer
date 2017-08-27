@@ -34,7 +34,7 @@ function mapStateToProps(store) {
 
 function hasQueryString(search) {
   if (search) {
-    return search;
+    return `?search=${search}`;
   } else {
     return '';
   }

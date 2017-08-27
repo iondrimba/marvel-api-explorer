@@ -8,7 +8,7 @@ class Pagination extends React.Component {
 
   hasQueryString(search) {
     if (search) {
-      return search;
+      return `?search=${search}`;
     } else {
       return '';
     }
