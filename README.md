@@ -1,16 +1,28 @@
-# WIP marvel-api-explorer
+# Marvel API Explorer
 ![Calculator](https://raw.githubusercontent.com/iondrimba/images/master/cover.jpg)
 
 [![Build Status](https://travis-ci.org/iondrimba/marvel-api-explorer.svg?branch=master)](https://travis-ci.org/iondrimba/marvel-api-explorer)
 [![Build status](https://ci.appveyor.com/api/projects/status/8hnh3ocsbitbq4oc?svg=true)](https://ci.appveyor.com/project/iondrimba/marvel-api-explorer)
  [![Coverage Status](https://coveralls.io/repos/github/iondrimba/marvel-api-explorer/badge.svg?branch=master)](https://coveralls.io/github/iondrimba/marvel-api-explorer?branch=master)
 
-### Suply API Key
+#### About
+This is a personal project built in my spare time for learning purposes.
+It uses the offical [Marvel API](https://developer.marvel.com/docs)
 
-* npm set apikey=000000 && yarn test
+#### Features
+* PWA
+* Responsive
+* Offline ready
+* Installable (add to Homescreen )
 
-https://developer.marvel.com/documentation/apiresults
+#### Built with
+* ES6
+* Sass
+* React + Redux
+* Karma + Jasmine
+* VSCode
+* WebPack
 
-https://developer.marvel.com/documentation/images
-
-## [API](https://developer.marvel.com/docs)
+#### Todo
+* Write more tests
+* Refactor bits of code
