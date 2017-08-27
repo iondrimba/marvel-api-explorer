@@ -18,7 +18,8 @@ import PaginationHelper from '../model/paginationHelper';
 const pg = new PaginationHelper();
 
 function mapStateToProps(store) {
-  return { error: store.error, fetching: store.fetching, filter: store.filter, search: store.search, pagination: Object.assign(
+  return {
+    error: store.error, fetching: store.fetching, filter: store.filter, search: store.search, pagination: Object.assign(
       {},
       store.pagination,
       {
@@ -26,7 +27,8 @@ function mapStateToProps(store) {
         next: pg.hasNext(store.pagination),
         prev: pg.hasPrev(store.pagination)
       }
-    ), data: store.data };
+    ), data: store.data
+  };
 }
 
 function hasQueryString(search) {
@@ -65,13 +67,13 @@ const mapDispatchToProps = (dispatch, store) => {
 
   return {
     errorClear: (props) => {
-      dispatch(fetchingError({code:''}));
+      dispatch(fetchingError({ code: '' }));
     },
     fetchAction() {
       fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
     },
     searchAction: (val, props) => {
-      const queryString = val.length? `?search=${val}`:'';
+      const queryString = val.length ? `?search=${val}` : '';
       dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${queryString}`));
       dispatch(search(val));
       dispatch(pagination(defaultStore.pagination));
@@ -90,12 +92,16 @@ const mapDispatchToProps = (dispatch, store) => {
       paginate(url, dispatch);
     },
     paginationPrevAction: (props) => {
-      const url = `/${props.filter}/${Number(props.pagination.current) - 1}${hasQueryString(props.search)}`;
-      paginate(url, dispatch);
+      if (pg.hasPrev(props.pagination)) {
+        const url = `/${props.filter}/${Number(props.pagination.current) - 1}${hasQueryString(props.search)}`;
+        paginate(url, dispatch);
+      }
     },
     paginationNextAction: (props) => {
-      const url = `/${props.filter}/${Number(props.pagination.current) + 1}${hasQueryString(props.search)}`;
-      paginate(url, dispatch);
+      if (pg.hasNext(props.pagination)) {
+        const url = `/${props.filter}/${Number(props.pagination.current) + 1}${hasQueryString(props.search)}`;
+        paginate(url, dispatch);
+      }
     }
   };
 }

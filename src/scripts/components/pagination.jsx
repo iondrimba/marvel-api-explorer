@@ -4,17 +4,14 @@ import PaginationLink from './pagination-link';
 class Pagination extends React.Component {
   constructor(props) {
     super(props);
-    this.url = `/${this.props.filter}/${Number(this.props.pagination.current) + 1}${this.hasQueryString(this.props.search)}`
-    this.queryString = this.hasQueryString(this.props.search);
   }
+
   hasQueryString(search) {
     if (search) {
       return search;
     } else {
       return '';
     }
-  }
-  componentDidUpdate(prevProps, prevState) {
   }
 
   onClick(evt) {
@@ -36,8 +33,6 @@ class Pagination extends React.Component {
   render() {
     let next = null;
     let prev = null;
-
-    console.log('this.props.pagination', this.props.pagination);
 
     if (this.props.pagination.next) {
        next = <PaginationLink className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) + 1)} key={'next'} iconClassName={'pagination__next'}/>;
