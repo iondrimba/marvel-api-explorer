@@ -1,6 +1,7 @@
 import React from 'react';
 import Infos from '../components/infos'
 import Transition from '../components/transition';
+import BackButton from '../components/back-button';
 import Tilt from '../misc/tilt';
 
 class DetailCharacter extends React.Component {
@@ -67,6 +68,7 @@ class DetailCharacter extends React.Component {
           this.props.data.map((data, index) => {
             if (data.id === Number(this.props.match.params.id)) {
               return <div ref={'content'} className="detail__content" key={data.id + index}>
+                <BackButton />
                 <section ref={'cover'} className="detail__cover">
                   <img ref={'img'} src={data.full} />
                   <div className="detail__cover--reflex" style={{backgroundImage: `url(${data.thumb})`}}>
