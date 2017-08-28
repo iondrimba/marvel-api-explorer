@@ -22,7 +22,7 @@ var config = {
   output: {
     path: __dirname + '/public',
     publicPath: isProduction ? '' : 'http://localhost:8080/',
-    filename: '/[name].[hash].js'
+    filename: '[name].[hash].js'
   },
   devServer: isProduction ? {} : {
     inline: true,
