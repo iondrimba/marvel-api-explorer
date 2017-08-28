@@ -22,7 +22,7 @@ var config = {
   output: {
     path: __dirname + '/public',
     publicPath: isProduction ? '' : 'http://localhost:8080/',
-    filename: '[name].[hash].js'
+    filename: '/[name].[hash].js'
   },
   devServer: isProduction ? {} : {
     inline: true,
@@ -123,7 +123,7 @@ var config = {
 
 
 if (isProduction) {
-  config.plugins.push(new ExtractTextPlugin('./css/[name].[hash].css'));
+  config.plugins.push(new ExtractTextPlugin('/css/[name].[hash].css'));
   config.plugins.push(new webpack.optimize.DedupePlugin());
   config.plugins.push(new webpack.optimize.UglifyJsPlugin());
   config.plugins.push(new CompressionPlugin({
