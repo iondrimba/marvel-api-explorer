@@ -68,6 +68,30 @@ const mapDispatchToProps = (dispatch, store) => {
     errorClear: (props) => {
       dispatch(fetchingError({ code: '' }));
     },
+    firstFetch(props) {
+      let searchTerm  = props.search;
+      let page = props.pagination.current;
+      let type = props.filter;
+      const paths = props.location.pathname.split('/');
+
+      if (paths.length) {
+        type = paths[0];
+        page = paths[1];
+
+        if (props.location.search) {
+          searchTerm = props.location.search.replace(/search=/g, '');
+
+        }
+      }
+      const queryString = searchTerm.length ? `?search=${searchTerm}` : '';
+      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${queryString}`));
+      dispatch(search(searchTerm));
+      if (!isNaN(page)) {
+        dispatch(filter(type));
+        dispatch(pagination(Object.assign({}, defaultStore.pagination, { current: page })));
+      }
+      fetch(type, appStore.getState().pagination, searchTerm);
+    },
     fetchAction() {
       fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
     },

@@ -9,11 +9,9 @@ class DetailComic extends React.Component {
     super(props);
   }
   positionInfos() {
-    const titleH = this.refs.title.getBoundingClientRect().height;
     let viewH = 0;
-
     if (window.innerWidth < 960) {
-      viewH = document.body.clientHeight - 30 - titleH;
+      viewH = window.innerHeight - 50;
     }
 
     this.refs.infos.style = `transform:translateY(${viewH}px)`;

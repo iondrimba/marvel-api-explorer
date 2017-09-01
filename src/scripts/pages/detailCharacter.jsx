@@ -11,11 +11,9 @@ class DetailCharacter extends React.Component {
   }
 
   positionInfos() {
-    const titleH = this.refs.infoName.getBoundingClientRect().height;
     let viewH = 0;
-
     if (window.innerWidth < 960) {
-      viewH = document.body.clientHeight - 30 - titleH;
+      viewH = innerHeight - 50;
     }
 
     this.refs.infos.style = `transform:translateY(${viewH}px)`;

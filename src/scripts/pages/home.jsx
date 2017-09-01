@@ -14,7 +14,7 @@ class Home extends React.Component {
   }
   componentDidMount() {
     setTimeout(()=>{
-      this.props.searchAction(this.props.search, this.props);
+      this.props.firstFetch(this.props);
     }, 1000);
   }
   componentDidUpdate(prevProps, prevState) {
@@ -31,8 +31,8 @@ class Home extends React.Component {
         <Header {...this.props}/>
         <Error {...this.props} retry={this.props.fetchAction} />
         <Loader fetching = {this.props.fetching} />
-        <Pagination ref={'pagination'} {...this.props} />
         <Grid {...{ data, filter}} />
+        <Pagination ref={'pagination'} {...this.props} />
       </div>
     );
   }
@@ -42,6 +42,7 @@ Home.propTypes = {
   match: React.PropTypes.object,
   data: React.PropTypes.array,
   fetchAction: React.PropTypes.func,
+  firstFetch: React.PropTypes.func,
   searchAction: React.PropTypes.func,
   filter: React.PropTypes.string,
   search: React.PropTypes.string,

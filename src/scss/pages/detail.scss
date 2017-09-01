@@ -4,7 +4,7 @@
 .detail {
   background-color: #000;
   color: color(invert);
-  height: 100vh;
+  height: 100%;
   left: 0;
   overflow: scroll;
   overflow-x: hidden;
@@ -44,7 +44,7 @@
 
   &__cover {
     display: block;
-    height: 100vh;
+    height: 100%;
     perspective: 800px;
     position: fixed;
     width: 100vw;
@@ -56,7 +56,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       filter: grayscale(100%);
-      height: 100vh;
+      height: 100%;
       margin: 0 auto;
       opacity: .1;
       overflow: hidden;

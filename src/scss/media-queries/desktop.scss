@@ -64,7 +64,7 @@
 
       &--reflex {
         filter: grayscale(0) blur(16px);
-        opacity: .7;
+        opacity: .4;
         transform: scale(1.1);
         width: 100%;
       }
@@ -80,6 +80,7 @@
 
     &__infos {
       background-color: #333;
+      box-shadow: -2px -3px 20px 0 rgba(0, 0, 0, .3);
       min-height: 100vh;
       overflow-y: scroll;
       position: relative;
@@ -118,7 +119,7 @@
     }
 
     &__file {
-      transform: scale(1) translate3d(0, 0, 0);
+      transform: scale(1);
       transition: filter .3s, transform .6s easing(easeOutQuart);
     }
 
@@ -129,7 +130,7 @@
     &:hover {
       .thumb__file {
         filter: brightness(15%);
-        transform: scale(1.2) translate3d(0, 0, 0);
+        transform: scale(1.2);
       }
 
       .thumb__title {
