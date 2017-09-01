@@ -63,7 +63,9 @@
       width: 50%;
 
       &--reflex {
-        filter: grayscale(100%) blur(16px);
+        filter: grayscale(0) blur(16px);
+        opacity: .7;
+        transform: scale(1.1);
         width: 100%;
       }
     }
@@ -137,4 +139,3 @@
     }
   }
 }
-
