@@ -21,7 +21,7 @@ var config = {
   },
   output: {
     path: __dirname + '/public',
-    publicPath: isProduction ? '' : 'http://localhost:8080/',
+    publicPath: '',
     filename: '[name].[hash].js'
   },
   devServer: isProduction ? {} : {
@@ -76,7 +76,7 @@ var config = {
   plugins: [
     new WebpackCleanupPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Calculator',
+      title: 'Marvel API Demo',
       minify: {
         collapseWhitespace: isProduction,
         minifyCSS: isProduction,

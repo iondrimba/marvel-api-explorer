@@ -75,22 +75,24 @@ const mapDispatchToProps = (dispatch, store) => {
       const paths = props.location.pathname.split('/');
 
       if (paths.length && props.location.pathname !=='/') {
-        type = paths[0];
-        page = paths[1];
+        type = paths[1];
 
         if (props.location.search) {
-          searchTerm = props.location.search.replace(/search=/g, '');
+          searchTerm = props.location.search.replace(/\?search=/g, '');
 
         }
       }
       const queryString = searchTerm.length ? `?search=${searchTerm}` : '';
-      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${queryString}`));
+
+      dispatch(push(`/${type}/${page}${queryString}`));
       dispatch(search(searchTerm));
-      if (!isNaN(page)) {
+
+      if (!isNaN(paths[2])) {
+        page = Number(paths[2]);
         dispatch(filter(type));
         dispatch(pagination(Object.assign({}, defaultStore.pagination, { current: page })));
       }
-      fetch(type, appStore.getState().pagination, searchTerm);
+      fetch(type, Object.assign({}, defaultStore.pagination, { current: page }), searchTerm);
     },
     fetchAction() {
       fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);

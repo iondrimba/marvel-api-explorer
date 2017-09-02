@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ion Drimba Filho  Developer/Designer iondrimba@gmail.com
+
+# THANKS
+
+    B2 (UX Tips)
+    Bulldog (Interface Tips)
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, JS, React, Redux, Service Worker
+    ES6, Babel, Webpack

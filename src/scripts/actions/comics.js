@@ -19,8 +19,9 @@ export function comicsGet(options) {
       const { limit, offset, total } = data.data.data;
       const pages = Math.round(total / limit);
 
-      if (getState().pagination.total !== pages) {
-        dispatch(pagination(Object.assign({}, getState().pagination, { current: 1, total: pages })));
+      if (getState().pagination.total !== pages && getState().pagination.current) {
+        const current = getState().pagination.current > pages ? 1 : getState().pagination.current;
+        dispatch(pagination(Object.assign({}, getState().pagination, { current: current, total: pages })));
       }
     }, (reject) => {
       dispatch(fetchingError(reject));
