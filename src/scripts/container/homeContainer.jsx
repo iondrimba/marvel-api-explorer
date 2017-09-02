@@ -74,7 +74,7 @@ const mapDispatchToProps = (dispatch, store) => {
       let type = props.filter;
       const paths = props.location.pathname.split('/');
 
-      if (paths.length) {
+      if (paths.length && props.location.pathname !=='/') {
         type = paths[0];
         page = paths[1];
 
