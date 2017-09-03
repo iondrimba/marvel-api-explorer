@@ -37,10 +37,6 @@ class Api {
 
     return fetchUrl;
   }
-  formatUrlWithId(url, id) {
-    const result = `${url}/${id}`;
-    return result;
-  }
   get(options) {
     return this.instance.get(this.appendParameters(options.url, options))
       .then((resolve) => {

@@ -5,7 +5,7 @@ import HomeContainer from '../container/homeContainer';
 import DetailCharacterContainer from '../container/detailCharacterContainer';
 import DetailComicContainer from '../container/detailComicContainer';
 import About from './about';
-import Styles from '../../scss/app.scss';
+import '../../scss/app.scss';
 
 class App extends React.Component {
 

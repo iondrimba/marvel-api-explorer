@@ -49,21 +49,21 @@ var config = {
       },
       {
         test: /\.(s|c)css$/,
-        loader: isProduction ? ExtractTextPlugin.extract('css?root=.&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass') :
+        loader: isProduction? ExtractTextPlugin.extract('css?root=.&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass') :
           'style!css?sourceMap&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass?sourceMap'
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file?name=fonts/[name].[ext]' + (isProduction ? '&publicPath=../' : '')
+        loader: 'file?name=fonts/[name].[ext]' + (isProduction ? '&publicPath=../' : '&publicPath=http://localhost:8080/')
       },
       {
         test: /\.(mp3)$/,
-        loader: 'file?name=sounds/[name].[ext]' + (isProduction ? '&publicPath=../' : '')
+        loader: 'file?name=sounds/[name].[ext]' + (isProduction ? '&publicPath=../' : '&publicPath=/')
       },
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loaders: [
-          'file?hash=sha512&digest=hex&name=images/[name].[hash].[ext]' + (isProduction ? '&publicPath=../' : ''),
+          'file?hash=sha512&digest=hex&name=images/[name].[hash].[ext]' + (isProduction ? '&publicPath=../' : '&publicPath=/'),
           'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
         ]
       }
@@ -119,9 +119,6 @@ var config = {
   ]
 };
 
-
-
-
 if (isProduction) {
   config.plugins.push(new ExtractTextPlugin('./css/[name].[hash].css'));
   config.plugins.push(new webpack.optimize.DedupePlugin());
@@ -145,14 +142,6 @@ if (isProduction) {
       handler: 'cacheFirst'
     }],
   }));
-
-} else {
-  config.plugins.push(new StyleLintPlugin({
-    configFile: '.stylelintrc',
-    files: ['./src/scss/**/*.s?(a|c)ss'],
-    failOnError: false
-  }));
 }
-
 
 module.exports = config;

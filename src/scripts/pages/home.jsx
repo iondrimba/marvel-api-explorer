@@ -5,8 +5,6 @@ import Grid from '../components/grid';
 import Pagination from '../components/pagination';
 import Error from '../components/error';
 import Header from '../components/header';
-import Hammer from 'hammerjs';
-
 
 class Home extends React.Component {
   constructor(props) {
