@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { push } from 'react-router-redux';
-import { createSelector } from 'reselect';
 
 import Home from '../pages/home';
 import { fetch } from '../actions/fetch';
@@ -136,4 +134,4 @@ const mapDispatchToProps = (dispatch, store) => {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

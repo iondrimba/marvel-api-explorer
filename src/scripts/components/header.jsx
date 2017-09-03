@@ -37,12 +37,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  searchAction: React.PropTypes.func,
-  searchClear: React.PropTypes.func,
-  filterAction: React.PropTypes.func,
-  toogleMenuAction: React.PropTypes.func,
-  menuOpen: React.PropTypes.bool,
-  filter: React.PropTypes.string
+  toogleMenuAction: React.PropTypes.func
 }
 
 export default Header;

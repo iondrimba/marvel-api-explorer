@@ -9,7 +9,6 @@ class DetailCharacter extends React.Component {
   constructor(props) {
     super(props);
   }
-
   positionInfos() {
     let viewH = 0;
     if (window.innerWidth < 960) {
@@ -18,7 +17,6 @@ class DetailCharacter extends React.Component {
 
     this.refs.infos.style = `transform:translateY(${viewH}px)`;
   }
-
   componentDidMount() {
     this.tilt = new Tilt();
 
@@ -80,36 +78,29 @@ class DetailCharacter extends React.Component {
     return (
       <div className="detail">
         <Transition/>
-        {
-          this.props.data.map((data, index) => {
-            if (data.id === Number(this.props.match.params.id)) {
-              return <div ref={'content'} className="detail__content" key={data.id + index}>
-                <BackButton onClick={this.onBackButtonClick.bind(this)} />
-                <section ref={'cover'} className="detail__cover">
-                  <img ref={'img'} src={data.full} />
-                  <div className="detail__cover--reflex" style={{backgroundImage: `url(${data.thumb})`}}>
-                  </div>
-                </section>
-                <section ref={'infos'} className="detail__infos">
-                  <ScrollIndicator/>
-                  <div ref={'infoName'} className="info__name">
-                    <h2>{data.name}</h2>
-                  </div>
-                  <Infos title="Series" type="series" data={data.series.items || []}></Infos>
-                  <Infos title="Stories" type="stories" data={data.stories.items || []}></Infos>
-                </section>
-              </div>
-            }
-          })
-        }
+        <div ref={'content'} className="detail__content">
+          <BackButton onClick={this.onBackButtonClick.bind(this)} />
+          <section ref={'cover'} className="detail__cover">
+            <img ref={'img'} src={this.props.selectedItem.full} />
+            <div className="detail__cover--reflex" style={{ backgroundImage: `url(${this.props.selectedItem.thumb})` }}>
+            </div>
+          </section>
+          <section ref={'infos'} className="detail__infos">
+            <ScrollIndicator />
+            <div ref={'infoName'} className="info__name">
+              <h2>{this.props.selectedItem.name}</h2>
+            </div>
+            <Infos title="Series" type="series" data={this.props.selectedItem.series.items || []}></Infos>
+            <Infos title="Stories" type="stories" data={this.props.selectedItem.stories.items || []}></Infos>
+          </section>
+        </div>
       </div>
     );
   }
 }
 
 DetailCharacter.propTypes = {
-  match: React.PropTypes.object,
-  data: React.PropTypes.array,
+  selectedItem: React.PropTypes.object,
   history: React.PropTypes.object
 }
 

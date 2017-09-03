@@ -17,6 +17,11 @@ class Home extends React.Component {
       this.props.firstFetch(this.props);
     }, 1000);
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.location.pathname.indexOf('detail')===-1 ;
+  }
+
   componentDidUpdate(prevProps, prevState) {
     window.scroll(0, 0);
     if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
@@ -29,10 +34,10 @@ class Home extends React.Component {
     return (
       <div className="home">
         <Header {...this.props}/>
-        <Error {...this.props} retry={this.props.fetchAction} />
+        <Error error={this.props.error} retry={this.props.fetchAction} />
         <Loader fetching = {this.props.fetching} />
         <Grid {...{ data, filter}} />
-        <Pagination ref={'pagination'} {...this.props} />
+        <Pagination ref={'pagination'} filter={this.props.filter} search={this.props.search} pagination={this.props.pagination} paginationAction={this.props.paginationAction} paginationNextAction={this.props.paginationNextAction} paginationPrevAction={this.props.paginationPrevAction} />
       </div>
     );
   }
@@ -40,8 +45,10 @@ class Home extends React.Component {
 
 Home.propTypes = {
   match: React.PropTypes.object,
+  error: React.PropTypes.object,
   data: React.PropTypes.array,
   fetchAction: React.PropTypes.func,
+  toogleMenuAction: React.PropTypes.func,
   firstFetch: React.PropTypes.func,
   searchAction: React.PropTypes.func,
   filter: React.PropTypes.string,

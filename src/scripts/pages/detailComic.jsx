@@ -20,7 +20,7 @@ class DetailComic extends React.Component {
     this.tilt = new Tilt();
     this.mobile = true;
 
-    window.onresize = ()=> {
+    window.onresize = () => {
       this.positionInfos();
     };
 
@@ -69,7 +69,7 @@ class DetailComic extends React.Component {
 
     const loader = document.querySelector('.slides .loader');
 
-    setTimeout(()=>{
+    setTimeout(() => {
       loader.classList.add('show');
     }, 200);
 
@@ -81,30 +81,25 @@ class DetailComic extends React.Component {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
   }
   render() {
+    console.log(this);
     return (
       <div className="detail">
         <Transition />
-        {
-          this.props.data.map((data, index) => {
-            if (data.id === Number(this.props.match.params.id)) {
-              return <div ref={'content'} className="detail__content" key={data.id + index}>
-                <BackButton onClick={this.onBackButtonClick.bind(this)} />
-                <section ref={'cover'} className="detail__cover">
-                  <img ref={'img'} src={data.full} />
-                  <div className="detail__cover--reflex" style={{ backgroundImage: `url(${data.thumb})` }}>
-                  </div>
-                </section>
-                <section ref={'infos'} className="detail__infos">
-                  <ScrollIndicator />
-                  <div className="info__name info__name--comic">
-                    <h2 ref={'title'}>{data.title}</h2>
-                    {this.getDescription(data.description)}
-                  </div>
-                </section>
-              </div>
-            }
-          })
-        }
+        <div ref={'content'} className="detail__content" >
+          <BackButton onClick={this.onBackButtonClick.bind(this)} />
+          <section ref={'cover'} className="detail__cover">
+            <img ref={'img'} src={this.props.selectedItem.full} />
+            <div className="detail__cover--reflex" style={{ backgroundImage: `url(${this.props.selectedItem.thumb})` }}>
+            </div>
+          </section>
+          <section ref={'infos'} className="detail__infos">
+            <ScrollIndicator />
+            <div className="info__name info__name--comic">
+              <h2 ref={'title'}>{this.props.selectedItem.title}</h2>
+              {this.getDescription(this.props.selectedItem.description)}
+            </div>
+          </section>
+        </div>
 
       </div>
     );
@@ -112,8 +107,7 @@ class DetailComic extends React.Component {
 }
 
 DetailComic.propTypes = {
-  match: React.PropTypes.object,
-  data: React.PropTypes.array,
+  selectedItem: React.PropTypes.object,
   history: React.PropTypes.object,
 }
 

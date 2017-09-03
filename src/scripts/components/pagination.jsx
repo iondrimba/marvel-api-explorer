@@ -6,12 +6,8 @@ class Pagination extends React.Component {
     super(props);
   }
 
-  hasQueryString(search) {
-    if (search) {
-      return `?search=${search}`;
-    } else {
-      return '';
-    }
+  getQueryString(search) {
+    return search ? `?search=${search}` : '';
   }
 
   onClick(evt) {
@@ -19,7 +15,7 @@ class Pagination extends React.Component {
     this.props.paginationAction(evt.currentTarget.attributes.href.value, this.props);
   }
   getUrl(page) {
-    return `/${this.props.filter}/${page}${this.hasQueryString(this.props.search)}`;
+    return `/${this.props.filter}/${page}${this.getQueryString(this.props.search)}`;
   }
   getStyle(props, page) {
     return Number(props.pagination.current) === page ? 'pagination__link pagination__link--active' : 'pagination__link';

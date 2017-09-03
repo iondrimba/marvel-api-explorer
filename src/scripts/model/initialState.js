@@ -5,16 +5,6 @@ const defaultStore = {
   search: '',
   error: {code:''},
   menuOpen: false,
-  router: {
-    pathname: '/',
-    search: '',
-    hash: '',
-    location: {
-      pathname: '/',
-      search: '',
-      hash: ''
-    }
-  },
   data: []
 };
 
