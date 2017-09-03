@@ -37,7 +37,7 @@ class Home extends React.Component {
         <Error error={this.props.error} retry={this.props.fetchAction} />
         <Loader fetching = {this.props.fetching} />
         <Grid {...{ data, filter}} />
-        <Pagination ref={'pagination'} filter={this.props.filter} search={this.props.search} pagination={this.props.pagination} paginationAction={this.props.paginationAction} paginationNextAction={this.props.paginationNextAction} paginationPrevAction={this.props.paginationPrevAction} />
+        <Pagination ref={'pagination'} {...this.props} />
       </div>
     );
   }
@@ -48,11 +48,8 @@ Home.propTypes = {
   error: React.PropTypes.object,
   data: React.PropTypes.array,
   fetchAction: React.PropTypes.func,
-  toogleMenuAction: React.PropTypes.func,
   firstFetch: React.PropTypes.func,
-  searchAction: React.PropTypes.func,
   filter: React.PropTypes.string,
-  search: React.PropTypes.string,
   fetching: React.PropTypes.bool
 }
 

@@ -81,7 +81,6 @@ class DetailComic extends React.Component {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
   }
   render() {
-    console.log(this);
     return (
       <div className="detail">
         <Transition />
