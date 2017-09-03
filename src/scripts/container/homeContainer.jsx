@@ -4,8 +4,7 @@ import { push } from 'react-router-redux';
 import { createSelector } from 'reselect';
 
 import Home from '../pages/home';
-import { charactersGet } from '../actions/characters';
-import { comicsGet } from '../actions/comics';
+import { fetch } from '../actions/fetch';
 import fetching from '../actions/fetching';
 import search from '../actions/search';
 import fetchingError from '../actions/fetchingError';
@@ -32,12 +31,8 @@ function mapStateToProps(store) {
   };
 }
 
-function hasQueryString(search) {
-  if (search) {
-    return `?search=${search}`;
-  } else {
-    return '';
-  }
+function getQueryString(search) {
+  return search ? `?search=${search}` : '';
 }
 
 function paginate(url, dispatch) {
@@ -54,14 +49,23 @@ function paginate(url, dispatch) {
 
 const mapDispatchToProps = (dispatch, store) => {
 
-  const fetch = (filter, pagination, search) => {
+  const fetchData = (filter, pagination, search) => {
     dispatch(fetchingError({ code: '' }));
     dispatch(fetching(true));
-    if (filter === 'characters') {
-      dispatch(charactersGet(Object.assign({}, { page: pagination.current, total: pagination.total, orderBy: 'name', nameStartsWith: search })));
-    } else {
-      dispatch(comicsGet(Object.assign({}, { page: pagination.current, total: pagination.total, orderBy: 'title', titleStartsWith: search })));
+
+    let aditionalOptions = {
+      orderBy: 'name',
+      nameStartsWith: search
     }
+
+    if (filter === 'comics') {
+      aditionalOptions = {
+        orderBy: 'title',
+        titleStartsWith: search
+      }
+    }
+
+    dispatch(fetch(Object.assign({}, { url: `/${filter}`, page: pagination.current, total: pagination.total }, aditionalOptions )));
   };
 
   return {
@@ -79,12 +83,10 @@ const mapDispatchToProps = (dispatch, store) => {
 
         if (props.location.search) {
           searchTerm = props.location.search.replace(/\?search=/g, '');
-
         }
       }
-      const queryString = searchTerm.length ? `?search=${searchTerm}` : '';
 
-      dispatch(push(`/${type}/${page}${queryString}`));
+      dispatch(push(`/${type}/${page}${getQueryString(searchTerm)}`));
       dispatch(search(searchTerm));
 
       if (!isNaN(paths[2])) {
@@ -92,18 +94,17 @@ const mapDispatchToProps = (dispatch, store) => {
         dispatch(filter(type));
         dispatch(pagination(Object.assign({}, defaultStore.pagination, { current: page })));
       }
-      fetch(type, Object.assign({}, defaultStore.pagination, { current: page }), searchTerm);
+      fetchData(type, Object.assign({}, defaultStore.pagination, { current: page }), searchTerm);
     },
     fetchAction() {
-      fetch(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
+      fetchData(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search);
     },
     searchAction: (val, props) => {
-      const queryString = val.length ? `?search=${val}` : '';
-      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${queryString}`));
+      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${getQueryString(val)}`));
       dispatch(search(val));
       dispatch(menuOpen(false));
       dispatch(pagination(defaultStore.pagination));
-      fetch(appStore.getState().filter, appStore.getState().pagination, val);
+      fetchData(appStore.getState().filter, appStore.getState().pagination, val);
     },
     searchClear: (val) => {
       dispatch(search(val));
@@ -112,20 +113,20 @@ const mapDispatchToProps = (dispatch, store) => {
       dispatch(push(`/${val}/${defaultStore.pagination.current}?search=${appStore.getState().search}`));
       dispatch(filter(val));
       dispatch(pagination(defaultStore.pagination));
-      fetch(val, appStore.getState().pagination, appStore.getState().search);
+      fetchData(val, appStore.getState().pagination, appStore.getState().search);
     },
     paginationAction: (url, props) => {
       paginate(url, dispatch);
     },
     paginationPrevAction: (props) => {
       if (pg.hasPrev(props.pagination)) {
-        const url = `/${props.filter}/${Number(props.pagination.current) - 1}${hasQueryString(props.search)}`;
+        const url = `/${props.filter}/${Number(props.pagination.current) - 1}${getQueryString(props.search)}`;
         paginate(url, dispatch);
       }
     },
     paginationNextAction: (props) => {
       if (pg.hasNext(props.pagination)) {
-        const url = `/${props.filter}/${Number(props.pagination.current) + 1}${hasQueryString(props.search)}`;
+        const url = `/${props.filter}/${Number(props.pagination.current) + 1}${getQueryString(props.search)}`;
         paginate(url, dispatch);
       }
     },

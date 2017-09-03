@@ -14,9 +14,6 @@ class Api {
       baseURL: `${apiKeys.baseUrl}/${apiKeys.version}/${apiKeys.folder}/`,
       timeout: this.timeout
     });
-
-    this.characterUrl = '/characters';
-    this.comicsUrl = '/comics';
   }
   appendParameters(url, options) {
     let { page, orderBy, titleStartsWith, nameStartsWith } = options;
@@ -44,18 +41,8 @@ class Api {
     const result = `${url}/${id}`;
     return result;
   }
-  getCharacters(options) {
-    return this.instance.get(this.appendParameters(this.characterUrl, options))
-      .then((resolve) => {
-        return resolve;
-      }, (reject) => {
-        return Promise.reject(reject);
-      }).catch((error) => {
-        throw error;
-      });
-  }
-  getComics(options) {
-    return this.instance.get(this.appendParameters(this.comicsUrl, options))
+  get(options) {
+    return this.instance.get(this.appendParameters(options.url, options))
       .then((resolve) => {
         return resolve;
       }, (reject) => {

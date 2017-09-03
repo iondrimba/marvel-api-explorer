@@ -3,18 +3,18 @@ import filter from './filter';
 import fetchingError from './fetchingError';
 import fetching from './fetching';
 
-export function characters(data) {
+export function fetched(data) {
   return {
     type: 'FETCHED',
     data
   };
 }
 
-export function charactersGet(options) {
+export function fetch(options) {
 
   return function (dispatch, getState, api) {
-    return api.getCharacters(options).then((data) => {
-      dispatch(characters(data));
+    return api.get(options).then((data) => {
+      dispatch(fetched(data));
       const { limit, total } = data.data.data;
       const pages = Math.round(total / limit);
 
