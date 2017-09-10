@@ -19,6 +19,7 @@ It uses the offical [Marvel API](https://developer.marvel.com/docs)
 * Offline ready
 * Installable (add to Homescreen )
 * Swipe gestures for pagination
+* Pull to refresh keeps current pagination page
 
 #### Built with
 * ES6
