@@ -18,6 +18,7 @@ It uses the offical [Marvel API](https://developer.marvel.com/docs)
 * Responsive
 * Offline ready
 * Installable (add to Homescreen )
+* Swipe gestures for pagination
 
 #### Built with
 * ES6
