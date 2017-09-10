@@ -50,7 +50,7 @@ var config = {
       {
         test: /\.(s|c)css$/,
         loader: isProduction? ExtractTextPlugin.extract('css?root=.&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass') :
-          'style!css?sourceMap&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass?sourceMap'
+          'style!css?modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass'
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
@@ -74,7 +74,17 @@ var config = {
     postcssCssnext()
   ],
   plugins: [
-    new WebpackCleanupPlugin(),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'api',
+      filename: __dirname +  '/public/api-service-worker.js',
+      maximumFileSizeToCacheInBytes: 4194304,
+      staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff,svg}'],
+      stripPrefix: 'public',
+      runtimeCaching: [{
+        urlPattern: /^https\:\/\/gateway\.marvel\.com\/v1\/public.+/,
+        handler: 'cacheFirst'
+      }],
+    }),
     new HtmlWebpackPlugin({
       title: 'Marvel API Demo',
       minify: {
@@ -130,18 +140,7 @@ if (isProduction) {
     threshold: 10240,
     minRatio: 0.8
   }));
-  config.plugins.push(new SWPrecacheWebpackPlugin({
-    cacheId: `api-${new Date().toUTCString().split(' ').join('-').split(',').join('').split(':').join('')}`,
-    filename: 'api-service-worker.js',
-    maximumFileSizeToCacheInBytes: 4194304,
-    staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff,svg}',
-      'public/fonts/*.{woff2,woff}'],
-    stripPrefix: 'public',
-    runtimeCaching: [{
-      urlPattern: /^https\:\/\/gateway\.marvel\.com\/v1\/public.+/,
-      handler: 'cacheFirst'
-    }],
-  }));
+  config.plugins.push();
 }
 
 module.exports = config;
