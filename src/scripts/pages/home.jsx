@@ -5,19 +5,36 @@ import Grid from '../components/grid';
 import Pagination from '../components/pagination';
 import Error from '../components/error';
 import Header from '../components/header';
+import Hammer from 'hammerjs';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    setTimeout(()=>{
+    const stage = document.getElementsByClassName('grid')[0];
+    const mc = new Hammer.Manager(stage, {
+      touchAction: 'pan-y'
+    });
+
+    const Swipe = new Hammer.Swipe();
+
+    mc.add(Swipe);
+    mc.on('swiperight', (e) => {
+      this.refs.pagination.previous();
+    });
+
+    mc.on('swipeleft', (e) => {
+      this.refs.pagination.next();
+    });
+
+    setTimeout(() => {
       this.props.firstFetch(this.props);
     }, 1000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.location.pathname.indexOf('detail')===-1 ;
+    return nextProps.location.pathname.indexOf('detail') === -1;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -28,13 +45,13 @@ class Home extends React.Component {
   }
 
   render() {
-    var { data, filter} = this.props;
+    var { data, filter } = this.props;
     return (
       <div className="home">
-        <Header {...this.props}/>
+        <Header {...this.props} />
         <Error error={this.props.error} retry={this.props.fetchAction} />
-        <Loader fetching = {this.props.fetching} />
-        <Grid {...{ data, filter}} />
+        <Loader fetching={this.props.fetching} />
+        <Grid {...{ data, filter }} />
         <Pagination ref={'pagination'} {...this.props} />
       </div>
     );

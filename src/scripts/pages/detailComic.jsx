@@ -1,4 +1,5 @@
 import React from 'react';
+import Infos from '../components/infos'
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
 import ScrollIndicator from '../components/scroll-indicator';
@@ -62,8 +63,10 @@ class DetailComic extends React.Component {
   }
   animateIn(slides) {
     slides.map((el, index) => {
-      setTimeout(() => {
-        el.classList.add('active');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.classList.add('active');
+        });
       });
     });
 
@@ -79,6 +82,14 @@ class DetailComic extends React.Component {
   }
   getDescription(description) {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
+  }
+  hasItens(data) {
+    let output = false;
+    if (data.items && data.items.length) {
+      output = true;
+    }
+
+    return output;
   }
   render() {
     return (
@@ -97,6 +108,10 @@ class DetailComic extends React.Component {
               <h2 ref={'title'}>{this.props.selectedItem.title}</h2>
               {this.getDescription(this.props.selectedItem.description)}
             </div>
+            {this.hasItens(this.props.selectedItem.creators) ? <Infos title="Creators" type="creators" data={this.props.selectedItem.creators.items}></Infos> : ''}
+            {this.hasItens(this.props.selectedItem.characters) ? <Infos title="Characters" type="characters" data={ this.props.selectedItem.characters.items}></Infos> : ''}
+            {this.hasItens(this.props.selectedItem.stories) ? <Infos title="Stories" type="stories" data={this.props.selectedItem.stories.items}></Infos> : ''}
+            {this.hasItens(this.props.selectedItem.series) ? <Infos title="Series" type="series" data={this.props.selectedItem.series.items}></Infos> : ''}
           </section>
         </div>
 

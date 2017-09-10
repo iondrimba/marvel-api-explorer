@@ -62,9 +62,10 @@ class DetailCharacter extends React.Component {
   }
   animateIn(slides) {
     slides.map((el, index) => {
-      setTimeout(() => {
-        el.classList.remove('active');
-        el.classList.add('active');
+      requestAnimationFrame(()=>{
+        requestAnimationFrame(()=>{
+          el.classList.add('active');
+        });
       });
     });
 
@@ -73,6 +74,14 @@ class DetailCharacter extends React.Component {
     setTimeout(() => {
       loader.classList.add('show');
     }, 200);
+  }
+  hasItens(data) {
+    let output = false;
+    if (data.items && data.items.length) {
+      output = true;
+    }
+
+    return output;
   }
   render() {
     return (
@@ -90,8 +99,8 @@ class DetailCharacter extends React.Component {
             <div ref={'infoName'} className="info__name">
               <h2>{this.props.selectedItem.name}</h2>
             </div>
-            <Infos title="Series" type="series" data={this.props.selectedItem.series.items || []}></Infos>
-            <Infos title="Stories" type="stories" data={this.props.selectedItem.stories.items || []}></Infos>
+            {this.hasItens(this.props.selectedItem.stories) ? <Infos title="Stories" type="stories" data={this.props.selectedItem.stories.items}></Infos> : ''}
+            {this.hasItens(this.props.selectedItem.series) ? <Infos title="Series" type="series" data={this.props.selectedItem.series.items}></Infos> : ''}
           </section>
         </div>
       </div>

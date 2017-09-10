@@ -84,33 +84,8 @@
     transform: translateY(100vh) translate3d(0, 0, 0);
     width: 100vw;
     z-index: 1;
-  }
 
-  .info {
-    &__name {
-      background-color: color(secondary);
-      box-shadow: -2px 18px 20px 20px color(shadow);
-      padding: 15px;
-
-      &--comic {
-        min-height: 20vh;
-      }
-    }
-
-    &__series, &__stories {
-      padding: 15px 0;
-
-      .sub-title {
-        padding: 0 15px 10px;
-      }
-
-      li {
-        padding: 5px 15px;
-      }
-    }
-
-
-    &__series {
+    section:nth-child(even) {
       background-color: color(series);
       color: color(secondary);
 
@@ -125,7 +100,7 @@
       }
     }
 
-    &__stories {
+    section:nth-child(odd) {
       background-color: color(info);
 
       li {
@@ -136,6 +111,32 @@
         &:nth-child(odd) {
           background-color: color(stories-secondary);
         }
+      }
+    }
+  }
+
+  .info {
+    &__name {
+      background-color: color(secondary);
+      box-shadow: -2px 18px 20px 20px color(shadow);
+      padding: 15px;
+
+      &--comic {
+        min-height: 20vh;
+      }
+    }
+
+    &__series, &__stories, &__creators, &__characters {
+      ul {
+        list-style: inside decimal;
+      }
+
+      .sub-title {
+        padding: 15px 10px;
+      }
+
+      li {
+        padding: 5px 15px;
       }
     }
   }
