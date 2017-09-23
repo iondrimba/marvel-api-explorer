@@ -12,8 +12,8 @@ engines:
       - javascript:
 ratings:
   paths:
-  - src/**/*.js
+  - "src/**/*.js"
 exclude_paths:
-- spec/**/*
-- public/**/*
-- coverage/**/*
+- "tests/"
+- "spec/"
+- "coverage/"
