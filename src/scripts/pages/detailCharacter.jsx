@@ -40,7 +40,6 @@ class DetailCharacter extends React.Component {
             el.classList.add('out');
           });
 
-
           this.tilt.init(this.refs.img);
 
         }, 800);
@@ -62,8 +61,8 @@ class DetailCharacter extends React.Component {
   }
   animateIn(slides) {
     slides.map((el, index) => {
-      requestAnimationFrame(()=>{
-        requestAnimationFrame(()=>{
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
           el.classList.add('active');
         });
       });
@@ -86,7 +85,7 @@ class DetailCharacter extends React.Component {
   render() {
     return (
       <div className="detail">
-        <Transition/>
+        <Transition />
         <div ref={'content'} className="detail__content">
           <BackButton onClick={this.onBackButtonClick.bind(this)} />
           <section ref={'cover'} className="detail__cover">
