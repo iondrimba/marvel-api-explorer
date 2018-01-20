@@ -11,7 +11,7 @@
 
 #### About
 This is a personal project built in my spare time for learning purposes.
-It uses the offical [Marvel API](https://developer.marvel.com/docs)
+It uses the official [Marvel API](https://developer.marvel.com/docs)
 
 #### Features
 * PWA
