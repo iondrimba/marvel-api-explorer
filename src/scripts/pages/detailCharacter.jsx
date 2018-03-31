@@ -5,7 +5,7 @@ import BackButton from '../components/back-button';
 import Cover from '../components/cover';
 import ScrollIndicator from '../components/scroll-indicator';
 import Tilt from '../misc/tilt';
-import { animateIn, enableScroll, disableScroll, coverOnLoad } from './detailsCommon';
+import { animateIn, enableScroll, disableScroll, coverOnLoad, infoData } from './detailsCommon';
 
 class DetailCharacter extends React.Component {
   constructor(props) {
@@ -62,8 +62,8 @@ class DetailCharacter extends React.Component {
             <div ref={'infoName'} className="info__name">
               <h2>{this.props.selectedItem.name}</h2>
             </div>
-            {this.hasItens(this.props.selectedItem.stories) ? <Infos title="Stories" type="stories" data={this.props.selectedItem.stories.items}></Infos> : ''}
-            {this.hasItens(this.props.selectedItem.series) ? <Infos title="Series" type="series" data={this.props.selectedItem.series.items}></Infos> : ''}
+            {infoData(this.props.selectedItem.stories, this.hasItens, 'Stories')}
+            {infoData(this.props.selectedItem.series, this.hasItens, 'Series')}
           </section>
         </div>
       </div>

@@ -76,8 +76,8 @@ class DetailComic extends React.Component {
             </div>
             {this.hasItens(this.props.selectedItem.creators) ? <Infos title="Creators" type="creators" data={this.props.selectedItem.creators.items}></Infos> : ''}
             {this.hasItens(this.props.selectedItem.characters) ? <Infos title="Characters" type="characters" data={this.props.selectedItem.characters.items}></Infos> : ''}
-            {infoData(this.props.selectedItem.stories, this.hasItens)};
-            {infoData(this.props.selectedItem.series, this.hasItens)};
+            {infoData(this.props.selectedItem.stories, this.hasItens, 'Stories')}
+            {infoData(this.props.selectedItem.series, this.hasItens, 'Series')}
           </section>
         </div>
 

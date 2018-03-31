@@ -48,6 +48,6 @@ export const coverOnLoad = (content, img, slides, positionInfos, tilt) => {
   disableScroll();
 }
 
-export const infoData = (data, hasItens)=> {
-  hasItens(data) ? <Infos title="Series" type="series" data={data.items}></Infos> : ''
+export const infoData = (data, hasItens, title)=> {
+  return hasItens(data) ? <Infos title={title} type={title.toLowerCase()} data={data.items}></Infos> : ''
 }
