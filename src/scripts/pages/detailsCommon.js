@@ -1,3 +1,6 @@
+import Infos from '../components/infos'
+import React from 'react';
+
 export const animateIn = (slides) => {
   slides.map((el, index) => {
     requestAnimationFrame(() => {
@@ -43,4 +46,12 @@ export const coverOnLoad = (content, img, slides, positionInfos, tilt) => {
   }, 300);
 
   disableScroll();
+}
+
+export const stories = (props, hasItens)=> {
+  hasItens(props.selectedItem.stories) ? <Infos title="Stories" type="stories" data={props.selectedItem.stories.items}></Infos> : '';
+}
+
+export const series = (props, hasItens)=> {
+  hasItens(props.selectedItem.series) ? <Infos title="Series" type="series" data={props.selectedItem.series.items}></Infos> : ''
 }
