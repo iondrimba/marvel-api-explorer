@@ -31,28 +31,27 @@ class Pagination extends React.Component {
     this.props.paginationNextAction(this.props);
   }
 
+  _paginationLink(delta, label, key) {
+    return <PaginationLink aria-label={label}
+      className='pagination__link'
+      onClick={this.onClick.bind(this)}
+      href={this.getUrl(Number(this.props.pagination.current) + delta)}
+      key={key}
+      label={label}
+      iconClassName={`pagination__${key}`} />;
+  }
+
   render() {
-    let next = null;
-    let prev = null;
-
-    if (this.props.pagination.next) {
-      next = <PaginationLink aria-label="Next" className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) + 1)} key={'next'} label="next" iconClassName={'pagination__next'} />;
-    }
-
-    if (this.props.pagination.prev) {
-      prev = <PaginationLink aria-label="Previous" className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) - 1)} key={'prev'} label="previous" iconClassName={'pagination__prev'} />;
-    }
-
     return (
       <div className='pagination'>
         <div className='pagination__content'>
-          {prev}
+          {this.props.pagination.prev? this._paginationLink(-1, 'previous', 'prev') : null}
           {
             this.props.pagination.pages.map((data, index) => {
               return <PaginationLink className={this.getStyle(this.props, data + 1)} onClick={this.onClick.bind(this)} href={this.getUrl(data + 1)} key={data + 1} iconClassName='' label={(data + 1).toString()} />
             })
           }
-          {next}
+          {this.props.pagination.next? this._paginationLink(+1, 'next', 'next') : null}
         </div>
       </div>
     );

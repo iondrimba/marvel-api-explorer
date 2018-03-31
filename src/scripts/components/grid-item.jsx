@@ -6,7 +6,6 @@ class GridItem extends React.Component {
     super(props);
   }
   render() {
-    console.log(this.props);
     return (
       <Link className="thumb" to={{ pathname: `/${this.props.filter}/detail/${this.props.id}` }}>
         <div className="thumb__mask"></div>
