@@ -22,14 +22,14 @@ var config = {
   output: {
     path: __dirname + '/public',
     publicPath: '',
-    filename: '[name].[hash].js'
+    filename: '/[name].[hash].js'
   },
   devServer: isProduction ? {} : {
     inline: true,
     stats: 'errors-only',
     compress: isProduction,
     outputPath: './public',
-    contentBase: './public'
+    contentBase: '/'
   },
   module: {
     loaders: [
@@ -55,10 +55,6 @@ var config = {
       {
         test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file?name=fonts/[name].[ext]' + (isProduction ? '&publicPath=../' : '&publicPath=http://localhost:8080/')
-      },
-      {
-        test: /\.(mp3)$/,
-        loader: 'file?name=sounds/[name].[ext]' + (isProduction ? '&publicPath=../' : '&publicPath=/')
       },
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
@@ -114,12 +110,11 @@ var config = {
         'API_KEY': JSON.stringify('13065ce22cdecaf8358b1b56dc54e2c7')
       }
     }),
-
   ]
 };
 
 if (isProduction) {
-  config.plugins.push(new ExtractTextPlugin('./css/[name].[hash].css'));
+  config.plugins.push(new ExtractTextPlugin('/css/[name].[hash].css'));
   config.plugins.push(new webpack.optimize.DedupePlugin());
   config.plugins.push(new webpack.optimize.UglifyJsPlugin());
   config.plugins.push(new CompressionPlugin({

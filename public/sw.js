@@ -20,24 +20,12 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox
  */
 self.__precacheManifest = [
   {
-    "url": "api-service-worker.js",
-    "revision": "c19af7b2910f8bbf1cd5543701c7ea75"
-  },
-  {
-    "url": "app.6aceedc153ece7eed9f1.js",
+    "url": "app.2ca7c9ec4e268d795144.js",
     "revision": "0fef369222dc1d712ad39c65f14570f1"
   },
   {
-    "url": "app.c600a0e14c02d4894886.js",
-    "revision": "ccf8a19e8a0711976dae4f7918bf7bc6"
-  },
-  {
-    "url": "css/app.6aceedc153ece7eed9f1.css",
+    "url": "css/app.2ca7c9ec4e268d795144.css",
     "revision": "defff4b92aee3a472c148bd57f4053ee"
-  },
-  {
-    "url": "css/app.c600a0e14c02d4894886.css",
-    "revision": "e26181a6450cc629a96b8b8782f16e3e"
   },
   {
     "url": "favicon-16x16.png",
@@ -104,15 +92,27 @@ self.__precacheManifest = [
     "revision": "a857de2a371a6b92bccc91e724b1a00d"
   },
   {
+    "url": "images/missing-full.jpg",
+    "revision": "a277f6f550d9ba17a857452e9a236ab4"
+  },
+  {
+    "url": "images/missing.9381f1bb6f2919c5b82e94613b238f8e.jpg",
+    "revision": "9381f1bb6f2919c5b82e94613b238f8e"
+  },
+  {
+    "url": "images/missing.jpg",
+    "revision": "5ae3111e7158f65bb6651ebce598ac77"
+  },
+  {
     "url": "images/search.svg",
     "revision": "de5d7f019aae630499fa25b5a9b37d20"
   },
   {
     "url": "index.html",
-    "revision": "1c63dcc64df76152811822e5210c77cf"
+    "revision": "6fa15f63ec3f089dab41f76cda48ddc3"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/^https\:\/\/gateway\.marvel\.com\/v1\/public.+/, workbox.strategies.cacheFirst({ plugins: [new workbox.expiration.Plugin({"maxEntries":20})] }), 'GET');
+workbox.routing.registerRoute(/gateway\.marvel\.com.+/, workbox.strategies.cacheFirst({ plugins: [new workbox.expiration.Plugin({"maxEntries":100})] }), 'GET');
