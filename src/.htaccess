@@ -13,6 +13,15 @@
     </FilesMatch>
 </IfModule>
 
+<filesMatch ".(jpg|jpeg|png|gif|ico|svg|woff|woff2)$">
+    Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+
+# One month for css and js
+<filesMatch "app.\d.+.(css|js)">
+    Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
 ErrorDocument 404 /404.html
 
 Options -MultiViews
