@@ -10,7 +10,7 @@ import App from './pages/app';
 render(
   <Provider store={store} >
     <ConnectedRouter history={history}>
-        <App/>
+      <App />
     </ConnectedRouter>
   </Provider>,
   document.getElementsByClassName('marvel-app')[0]

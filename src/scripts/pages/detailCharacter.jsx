@@ -9,6 +9,7 @@ class DetailCharacter extends React.Component {
   constructor(props) {
     super(props);
   }
+
   positionInfos() {
     let viewH = 0;
     if (window.innerWidth < 960) {
@@ -17,6 +18,7 @@ class DetailCharacter extends React.Component {
 
     this.refs.infos.style = `transform:translateY(${viewH}px)`;
   }
+
   componentDidMount() {
     this.tilt = new Tilt();
 
@@ -52,13 +54,16 @@ class DetailCharacter extends React.Component {
     let slides = [...document.querySelectorAll('.slides .first')];
     this.animateIn(slides);
   }
+
   componentWillUnmount() {
     window.onresize = null;
     document.querySelector('html').classList.remove('disable-scroll');
   }
+
   onBackButtonClick() {
     this.props.history.goBack();
   }
+
   animateIn(slides) {
     slides.map((el, index) => {
       requestAnimationFrame(() => {
@@ -74,6 +79,7 @@ class DetailCharacter extends React.Component {
       loader.classList.add('show');
     }, 200);
   }
+
   hasItens(data) {
     let output = false;
     if (data.items && data.items.length) {
@@ -82,6 +88,7 @@ class DetailCharacter extends React.Component {
 
     return output;
   }
+
   render() {
     return (
       <div className="detail">

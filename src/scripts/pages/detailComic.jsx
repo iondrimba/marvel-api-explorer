@@ -9,6 +9,7 @@ class DetailComic extends React.Component {
   constructor(props) {
     super(props);
   }
+
   positionInfos() {
     let viewH = 0;
     if (window.innerWidth < 960) {
@@ -17,6 +18,7 @@ class DetailComic extends React.Component {
 
     this.refs.infos.style = `transform:translateY(${viewH}px)`;
   }
+
   componentDidMount() {
     this.tilt = new Tilt();
     this.mobile = true;
@@ -54,13 +56,16 @@ class DetailComic extends React.Component {
     this.animateIn(slides);
 
   }
+
   componentWillUnmount() {
     window.onresize = null;
     document.querySelector('html').classList.remove('disable-scroll');
   }
+
   createMarkup(markup) {
     return { __html: markup }
   }
+
   animateIn(slides) {
     slides.map((el, index) => {
       requestAnimationFrame(() => {
@@ -77,12 +82,15 @@ class DetailComic extends React.Component {
     }, 200);
 
   }
+
   onBackButtonClick() {
     this.props.history.goBack();
   }
+
   getDescription(description) {
     return description ? <p dangerouslySetInnerHTML={this.createMarkup(description)}></p> : '';
   }
+
   hasItens(data) {
     let output = false;
     if (data.items && data.items.length) {
@@ -91,6 +99,7 @@ class DetailComic extends React.Component {
 
     return output;
   }
+
   render() {
     return (
       <div className="detail">
@@ -109,7 +118,7 @@ class DetailComic extends React.Component {
               {this.getDescription(this.props.selectedItem.description)}
             </div>
             {this.hasItens(this.props.selectedItem.creators) ? <Infos title="Creators" type="creators" data={this.props.selectedItem.creators.items}></Infos> : ''}
-            {this.hasItens(this.props.selectedItem.characters) ? <Infos title="Characters" type="characters" data={ this.props.selectedItem.characters.items}></Infos> : ''}
+            {this.hasItens(this.props.selectedItem.characters) ? <Infos title="Characters" type="characters" data={this.props.selectedItem.characters.items}></Infos> : ''}
             {this.hasItens(this.props.selectedItem.stories) ? <Infos title="Stories" type="stories" data={this.props.selectedItem.stories.items}></Infos> : ''}
             {this.hasItens(this.props.selectedItem.series) ? <Infos title="Series" type="series" data={this.props.selectedItem.series.items}></Infos> : ''}
           </section>

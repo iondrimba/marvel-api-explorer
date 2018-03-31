@@ -57,8 +57,10 @@ class Grid extends React.Component {
     );
   }
 }
+
 Grid.propTypes = {
   data: React.PropTypes.array,
   filter: React.PropTypes.string
 }
+
 export default Grid;

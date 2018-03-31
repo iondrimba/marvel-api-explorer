@@ -7,16 +7,18 @@ import filter from './filter';
 import search from './search';
 import pagination from './pagination';
 import menuOpen from './menuOpen';
+import started from './started';
 
 const RootReducer = combineReducers({
-  fetching: fetching,
+  fetching,
   error: fetchingError,
-  filter: filter,
-  search: search,
-  pagination: pagination,
+  filter,
+  started,
+  search,
+  pagination,
   router: routerReducer,
-  menuOpen: menuOpen,
-  data: data
+  menuOpen,
+  data
 });
 
 export default RootReducer;

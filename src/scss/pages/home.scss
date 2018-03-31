@@ -10,4 +10,26 @@
       display: none;
     }
   }
+
+  .btn-explore {
+    position: absolute;
+    display: block;
+    width: auto;
+    cursor: pointer;
+    color: color(secondary);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bolder;
+    background-color: color(invert);
+    padding: 10px 20px;
+    border-radius: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: -1px 1px 20px 13px rgba(0, 0, 0, 0.15);
+
+    &:active {
+      box-shadow: -1px 1px 20px 13px rgba(0, 0, 0, 0);
+    }
+  }
 }

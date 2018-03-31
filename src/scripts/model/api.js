@@ -15,6 +15,7 @@ class Api {
       timeout: this.timeout
     });
   }
+
   appendParameters(url, options) {
     let { page, orderBy, titleStartsWith, nameStartsWith } = options;
     let fetchUrl = `${url}?apikey=${this.publicKey}`;

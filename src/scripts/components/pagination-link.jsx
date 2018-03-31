@@ -7,12 +7,13 @@ class PaginationLink extends React.Component {
 
   render() {
     return (
-      <a className={this.props.className} onClick={this.props.onClick} href={ this.props.href } >
+      <a className={this.props.className} onClick={this.props.onClick} href={this.props.href} >
         <span className={this.props.iconClassName}>{this.props.label}</span>
       </a>
     );
   }
 }
+
 PaginationLink.propTypes = {
   className: React.PropTypes.string,
   iconClassName: React.PropTypes.string,
@@ -20,4 +21,5 @@ PaginationLink.propTypes = {
   label: React.PropTypes.string,
   onClick: React.PropTypes.func
 }
+
 export default PaginationLink;

@@ -17,5 +17,4 @@ BackButton.propTypes = {
   onClick: React.PropTypes.func
 }
 
-
 export default BackButton;

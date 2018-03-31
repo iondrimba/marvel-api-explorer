@@ -4,6 +4,7 @@ class ScrollIndicator extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <button type="button" name="scroll-indicator" className="scroll-indicator">

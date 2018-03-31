@@ -14,28 +14,33 @@ class Pagination extends React.Component {
     evt.preventDefault();
     this.props.paginationAction(evt.currentTarget.attributes.href.value, this.props);
   }
+
   getUrl(page) {
     return `/${this.props.filter}/${page}${this.getQueryString(this.props.search)}`;
   }
+
   getStyle(props, page) {
     return Number(props.pagination.current) === page ? 'pagination__link pagination__link--active' : 'pagination__link';
   }
+
   previous() {
     this.props.paginationPrevAction(this.props);
   }
+
   next() {
     this.props.paginationNextAction(this.props);
   }
+
   render() {
     let next = null;
     let prev = null;
 
     if (this.props.pagination.next) {
-       next = <PaginationLink className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) + 1)} key={'next'} iconClassName={'pagination__next'}/>;
+      next = <PaginationLink aria-label="Next" className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) + 1)} key={'next'} label="next" iconClassName={'pagination__next'} />;
     }
 
     if (this.props.pagination.prev) {
-      prev =  <PaginationLink className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) - 1)} key={'prev'} iconClassName={'pagination__prev'}/>;
+      prev = <PaginationLink aria-label="Previous" className='pagination__link' onClick={this.onClick.bind(this)} href={this.getUrl(Number(this.props.pagination.current) - 1)} key={'prev'} label="previous" iconClassName={'pagination__prev'} />;
     }
 
     return (
@@ -44,7 +49,7 @@ class Pagination extends React.Component {
           {prev}
           {
             this.props.pagination.pages.map((data, index) => {
-              return <PaginationLink className={this.getStyle(this.props, data + 1)} onClick={this.onClick.bind(this)} href={this.getUrl(data + 1)} key={data + 1} iconClassName='' label={(data + 1).toString()}/>
+              return <PaginationLink className={this.getStyle(this.props, data + 1)} onClick={this.onClick.bind(this)} href={this.getUrl(data + 1)} key={data + 1} iconClassName='' label={(data + 1).toString()} />
             })
           }
           {next}
@@ -53,6 +58,7 @@ class Pagination extends React.Component {
     );
   }
 }
+
 Pagination.propTypes = {
   filter: React.PropTypes.string,
   pagination: React.PropTypes.object,
@@ -61,4 +67,5 @@ Pagination.propTypes = {
   paginationNextAction: React.PropTypes.func,
   paginationPrevAction: React.PropTypes.func
 }
+
 export default Pagination;

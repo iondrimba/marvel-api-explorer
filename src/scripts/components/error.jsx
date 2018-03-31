@@ -9,7 +9,7 @@ class Error extends React.Component {
   }
   render() {
     return (
-      this.props.error.code ? <div className="error" onClick={this.onRetry.bind(this)}><h1>Click to retry please :)</h1></div> :<div></div>
+      this.props.error.code ? <div className="error" onClick={this.onRetry.bind(this)}><h1>Click to retry please :)</h1></div> : <div></div>
     );
   }
 }

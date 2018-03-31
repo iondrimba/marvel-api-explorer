@@ -25,7 +25,7 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <nav ref={'menu'} className={`menu ${this.props.menuOpen? '':'show' }`}>
+      <nav ref={'menu'} className={`menu ${this.props.menuOpen ? '' : 'show'}`}>
         <button type="button" name="show-menu" onClick={this.onSelect.bind(this)}>{this.props.filter}</button>
         <ul ref={'list'} className={`list ${this.toogleVisibility()}`}>
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Characters</span></li>
@@ -35,6 +35,7 @@ class Menu extends React.Component {
     );
   }
 }
+
 Menu.propTypes = {
   filter: React.PropTypes.string,
   toogleMenuAction: React.PropTypes.func,
@@ -42,4 +43,5 @@ Menu.propTypes = {
   menuOpen: React.PropTypes.bool,
   filterAction: React.PropTypes.func
 }
+
 export default Menu;

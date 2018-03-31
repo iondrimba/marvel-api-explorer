@@ -5,5 +5,5 @@ export const FETCHED = 'FETCHED';
 export const PAGINATION = 'PAGINATION';
 export const FILTER = 'FILTER';
 export const SEARCH = 'SEARCH';
+export const STARTED = 'STARTED';
 export const MENU_TOOGLE = 'MENU_TOOGLE';
-

@@ -4,6 +4,7 @@ class PaginationHelper {
   constructor() {
     this.maxPages = 5;
   }
+
   mountGroups(totalItens) {
     let count = 0;
     let groups = [];
@@ -28,13 +29,16 @@ class PaginationHelper {
     }
     return groups;
   }
+
   getCurrentGroup(groups, currentPage) {
     return groups[currentPage] || [];
   }
+
   groupPages(currentPage = 1) {
     let start = Number(currentPage) / this.maxPages;
     return Math.floor(start);
   }
+
   getPages(pagination) {
     const pages = this.getCurrentGroup(
       this.mountGroups(pagination.total),
@@ -42,23 +46,28 @@ class PaginationHelper {
     );
     return pages <= 1 ? [] : pages;
   }
+
   getTotalPages(totalItens, maxPages) {
     return totalItens / maxPages;
   }
+
   hasNext(pagination) {
     return (
       pagination.total > 1 &&
       (pagination.total > 1 && pagination.current < pagination.total)
     );
   }
+
   hasPrev(pagination) {
     return pagination.total > 0 && pagination.current > 1;
   }
+
   getPrev(pagination) {
     if (this.hasPrev(pagination)) {
       return pagination.current--;
     }
   }
+
   getNext(pagination) {
     if (this.hasNext(pagination)) {
       return pagination.current++;

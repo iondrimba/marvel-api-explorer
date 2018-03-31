@@ -49,10 +49,10 @@ class Tilt {
   }
 
   _position(evt, el) {
-    let rect = this.rect;
-    let o = this.offset;
+    const rect = this.rect;
+    const o = this.offset;
 
-    let v = {
+    const v = {
       x: -(evt.offsetX - (rect.width * .5)) * o,
       y: (evt.offsetY - (rect.height * .5)) * .03
     };

@@ -4,5 +4,3 @@ export default function pagination(pagination) {
     pagination
   };
 }
-
-
