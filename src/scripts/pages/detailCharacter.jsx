@@ -2,8 +2,10 @@ import React from 'react';
 import Infos from '../components/infos'
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
+import Cover from '../components/cover';
 import ScrollIndicator from '../components/scroll-indicator';
 import Tilt from '../misc/tilt';
+import { animateIn, enableScroll, disableScroll, coverOnLoad } from './detailsCommon';
 
 class DetailCharacter extends React.Component {
   constructor(props) {
@@ -21,35 +23,11 @@ class DetailCharacter extends React.Component {
 
   componentDidMount() {
     this.tilt = new Tilt();
+    window.onresize = () => { this.positionInfos(); };
 
-    window.onresize = () => {
-      this.positionInfos();
-    };
-
-    this.refs.cover.querySelector('img').onload = () => {
-      setTimeout(() => {
-        const loader = document.querySelector('.slides .loader');
-
-        setTimeout(() => {
-          this.positionInfos();
-
-          this.refs.content.classList.add('active');
-          this.refs.cover.querySelector('img').classList.add('show');
-
-          slides.reverse().map((el, index) => {
-            loader.classList.remove('show');
-            el.classList.remove('active');
-            el.classList.add('out');
-          });
-
-          this.tilt.init(this.refs.img);
-
-        }, 800);
-
-      }, 300);
-
-      document.querySelector('html').classList.add('disable-scroll');
-    };
+    const content = document.querySelector('.detail__content');
+    const img = content.querySelector('img');
+    img.onload = () => { coverOnLoad(content, img, slides, this.positionInfos.bind(this), this.tilt); };
 
     let slides = [...document.querySelectorAll('.slides .first')];
     this.animateIn(slides);
@@ -57,7 +35,7 @@ class DetailCharacter extends React.Component {
 
   componentWillUnmount() {
     window.onresize = null;
-    document.querySelector('html').classList.remove('disable-scroll');
+    enableScroll();
   }
 
   onBackButtonClick() {
@@ -65,28 +43,11 @@ class DetailCharacter extends React.Component {
   }
 
   animateIn(slides) {
-    slides.map((el, index) => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          el.classList.add('active');
-        });
-      });
-    });
-
-    const loader = document.querySelector('.slides .loader');
-
-    setTimeout(() => {
-      loader.classList.add('show');
-    }, 200);
+    animateIn(slides);
   }
 
   hasItens(data) {
-    let output = false;
-    if (data.items && data.items.length) {
-      output = true;
-    }
-
-    return output;
+    return data.items && data.items.length;
   }
 
   render() {
@@ -95,11 +56,7 @@ class DetailCharacter extends React.Component {
         <Transition />
         <div ref={'content'} className="detail__content">
           <BackButton onClick={this.onBackButtonClick.bind(this)} />
-          <section ref={'cover'} className="detail__cover">
-            <img ref={'img'} src={this.props.selectedItem.full} />
-            <div className="detail__cover--reflex" style={{ backgroundImage: `url(${this.props.selectedItem.thumb})` }}>
-            </div>
-          </section>
+          <Cover {...this.props}/>
           <section ref={'infos'} className="detail__infos">
             <ScrollIndicator />
             <div ref={'infoName'} className="info__name">
