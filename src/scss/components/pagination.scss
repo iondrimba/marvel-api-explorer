@@ -45,6 +45,8 @@
     position: absolute;
     transform: rotate(-45deg);
     width: 10px;
+    text-indent: -9999px;
+    overflow: hidden;
   }
 
   &__prev {
@@ -52,6 +54,7 @@
     border-left: 2px solid color(invert);
     border-right: 0;
     border-top: 2px solid color(invert);
+
   }
 
   &__next {
@@ -61,5 +64,3 @@
     border-top: 0;
   }
 }
-
-

@@ -15,7 +15,6 @@ $back-button-icon-size: 10px;
   width: $back-button-size;
   z-index: 2;
 
-
   &__icon {
     border-bottom: 0;
     border-left: 2px solid color(invert);
@@ -31,4 +30,3 @@ $back-button-icon-size: 10px;
     width: $back-button-icon-size;
   }
 }
-

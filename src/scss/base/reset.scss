@@ -2,9 +2,10 @@
 
 @font-face {
   font-family: 'font';
+  src: url('../fonts/font.woff') format('woff');
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/font.woff') format('woff');
+  font-display: swap;
 }
 
 * {
@@ -17,14 +18,13 @@ input {
 
 html {
   -webkit-tap-highlight-color: transparent;
-
   overflow-y: auto;
   touch-action: manipulation;
 }
 
 body, html {
   background: linear-gradient(to bottom, color(gradient-primary), color(gradient-secondary));
-  font-family: 'font';
+  font-family: 'font', sans-serif;
   font-size: 16px;
   height: 100%;
   margin: 0;
@@ -42,4 +42,3 @@ ul {
   margin: 0;
   padding: 0;
 }
-

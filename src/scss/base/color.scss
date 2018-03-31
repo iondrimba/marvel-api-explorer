@@ -2,11 +2,11 @@ $primary: #bd1023;
 $scondary: #4e4e4e;
 $colors: (
   primary: $primary,
-  primary-lighter: #f00,
+  primary-lighter: #ff0000,
   error: $primary,
-  invert: #fff,
-  secondary: #333,
-  darkest: #000,
+  invert: #ffffff,
+  secondary: #333333,
+  darkest: #000000,
   secondary-lighter: $scondary,
   gradient-primary: #1f1f1f,
   gradient-secondary: #3a3a3a,
@@ -25,7 +25,6 @@ $colors: (
   stories: #676767,
   stories-secondary: #565656,
 );
-
 
 @function color($name) {
   @return map-get($colors, $name);

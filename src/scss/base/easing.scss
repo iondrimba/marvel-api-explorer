@@ -4,7 +4,6 @@ $easings: (
   easeOutCirc: cubic-bezier(.075, .82, .165, 1)
 );
 
-
 @function easing($name) {
   @return map-get($easings, $name);
 }

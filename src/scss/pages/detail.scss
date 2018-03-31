@@ -2,7 +2,7 @@
 @import '../base/easing';
 
 .detail {
-  background-color: #000;
+  background-color: #000000;
   color: color(invert);
   height: 100%;
   left: 0;
@@ -141,7 +141,6 @@
     }
   }
 }
-
 
 .disable-scroll {
   overflow: hidden;

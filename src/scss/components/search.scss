@@ -23,6 +23,14 @@
   form {
     display: flex;
     width: 100%;
+
+    label {
+      background-color: #757575;
+      visibility: collapse;
+      height: 0;
+      width: 0;
+      display: block;
+    }
   }
 
   .close-icon {
