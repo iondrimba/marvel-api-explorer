@@ -115,4 +115,4 @@ self.__precacheManifest = [
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/iondrimbafilho/, workbox.strategies.cacheFirst({ plugins: [new workbox.expiration.Plugin({"maxEntries":20})] }), 'GET');
+workbox.routing.registerRoute(/^https\:\/\/gateway\.marvel\.com\/v1\/public.+/, workbox.strategies.cacheFirst({ plugins: [new workbox.expiration.Plugin({"maxEntries":20})] }), 'GET');

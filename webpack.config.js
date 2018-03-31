@@ -49,7 +49,7 @@ var config = {
       },
       {
         test: /\.(s|c)css$/,
-        loader: isProduction? ExtractTextPlugin.extract('css?root=.&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass') :
+        loader: isProduction ? ExtractTextPlugin.extract('css?root=.&modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass') :
           'style!css?modules&importLoaders=1&localIdentName=[local]!resolve-url!postcss!sass'
       },
       {
@@ -74,17 +74,6 @@ var config = {
     postcssCssnext()
   ],
   plugins: [
-    new SWPrecacheWebpackPlugin({
-      cacheId: 'api',
-      filename: __dirname +  '/public/api-service-worker.js',
-      maximumFileSizeToCacheInBytes: 4194304,
-      staticFileGlobs: ['public/**/*.{js,json,mp3,html,css,png,jpg,gif,woff2,woff,svg}'],
-      stripPrefix: 'public',
-      runtimeCaching: [{
-        urlPattern: /^https\:\/\/gateway\.marvel\.com\/v1\/public.+/,
-        handler: 'cacheFirst'
-      }],
-    }),
     new HtmlWebpackPlugin({
       title: 'Marvel API Demo',
       minify: {
