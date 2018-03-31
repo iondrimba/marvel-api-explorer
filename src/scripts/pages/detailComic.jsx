@@ -5,7 +5,7 @@ import BackButton from '../components/back-button';
 import ScrollIndicator from '../components/scroll-indicator';
 import Tilt from '../misc/tilt';
 import Cover from '../components/cover';
-import { animateIn, enableScroll, coverOnLoad, disableScroll, stories, series } from './detailsCommon';
+import { animateIn, enableScroll, coverOnLoad, disableScroll, infoData } from './detailsCommon';
 
 class DetailComic extends React.Component {
   constructor(props) {
@@ -76,8 +76,8 @@ class DetailComic extends React.Component {
             </div>
             {this.hasItens(this.props.selectedItem.creators) ? <Infos title="Creators" type="creators" data={this.props.selectedItem.creators.items}></Infos> : ''}
             {this.hasItens(this.props.selectedItem.characters) ? <Infos title="Characters" type="characters" data={this.props.selectedItem.characters.items}></Infos> : ''}
-            {stories(this.props, this.hasItens)};
-            {series(this.props, this.hasItens)};
+            {infoData(this.props.selectedItem.stories, this.hasItens)};
+            {infoData(this.props.selectedItem.series, this.hasItens)};
           </section>
         </div>
 
