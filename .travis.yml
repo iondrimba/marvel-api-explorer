@@ -1,15 +1,16 @@
 sudo: required
 language: node_js
-cache: yarn
+cache: npm
 node_js:
-- '5'
+- '8'
 before_install:
 - gem install sass
-- gem install ruby
 - gem install scss_lint
-- npm install -g yarn
+- npm install -g npm
 - npm install promise
 before_script:
-- yarn install
+- npm install
 script:
-- npm set apikey=$API_KEY && yarn test
+- npm set apikey=$API_KEY && npm run prod
+- npm set apikey=$API_KEY && npm run workbox
+- npm set apikey=$API_KEY && npm test
