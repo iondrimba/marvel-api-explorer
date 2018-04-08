@@ -20,11 +20,15 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox
  */
 self.__precacheManifest = [
   {
-    "url": "app.2ca7c9ec4e268d795144.js",
-    "revision": "0fef369222dc1d712ad39c65f14570f1"
+    "url": "app.9662ac5a209dff34088c.js",
+    "revision": "85df7c1929a768785732f656ff26935a"
   },
   {
     "url": "css/app.2ca7c9ec4e268d795144.css",
+    "revision": "defff4b92aee3a472c148bd57f4053ee"
+  },
+  {
+    "url": "css/app.9662ac5a209dff34088c.css",
     "revision": "defff4b92aee3a472c148bd57f4053ee"
   },
   {
@@ -34,6 +38,10 @@ self.__precacheManifest = [
   {
     "url": "favicon-32x32.png",
     "revision": "c66e8b48a64e7947c8ed8bbdd8d7e95a"
+  },
+  {
+    "url": "favicon-48x48.png",
+    "revision": "2c8880ad2c012f2878948f46b284c34c"
   },
   {
     "url": "fonts/font.woff",
@@ -50,6 +58,18 @@ self.__precacheManifest = [
   {
     "url": "images/github.svg",
     "revision": "e7d72920af474a25295eb7acdcd2aaed"
+  },
+  {
+    "url": "images/icons/android-chrome-192x192.png",
+    "revision": "7ffcc997fef6a6810fe03b24d79d1df1"
+  },
+  {
+    "url": "images/icons/android-chrome-512x512.png",
+    "revision": "d093c53c0b7d576869df568db2e32178"
+  },
+  {
+    "url": "images/icons/apple-touch-icon.png",
+    "revision": "d46b6a002563db406604c760bea1b85f"
   },
   {
     "url": "images/icons/icon-128x128.png",
@@ -84,6 +104,14 @@ self.__precacheManifest = [
     "revision": "ac787a6a7d768852bb36e79303d7ea76"
   },
   {
+    "url": "images/icons/mstile-150x150.png",
+    "revision": "402567686379faab361e62c6f1ae8f80"
+  },
+  {
+    "url": "images/icons/safari-pinned-tab.svg",
+    "revision": "9485bad24d046e48791ee8fe251ca808"
+  },
+  {
     "url": "images/lazy.png",
     "revision": "f60e4551e4add244492a1eda0f71c2e6"
   },
@@ -109,10 +137,10 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "6fa15f63ec3f089dab41f76cda48ddc3"
+    "revision": "e7b39489e1da51dcdb67f77e395e4adb"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/gateway\.marvel\.com.+/, workbox.strategies.cacheFirst({ plugins: [new workbox.expiration.Plugin({"maxEntries":100})] }), 'GET');
+workbox.routing.registerRoute(/https\:\/\/gateway.marvel.com\/v1\/public\/.+/, workbox.strategies.cacheFirst({ plugins: [new workbox.expiration.Plugin({"maxEntries":100})] }), 'GET');

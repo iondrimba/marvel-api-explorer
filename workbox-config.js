@@ -2,7 +2,7 @@ module.exports = {
   swDest: 'public/sw.js',
   runtimeCaching: [
     {
-      urlPattern: /gateway\.marvel\.com.+/,
+      urlPattern: /https\:\/\/gateway.marvel.com\/v1\/public\/.+/,
       handler: 'cacheFirst',
       options: {
         expiration: {

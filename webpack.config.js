@@ -98,6 +98,9 @@ var config = {
         from: 'src/favicon-32x32.png', to: 'favicon-32x32.png'
       },
       {
+        from: 'src/favicon-48x48.png', to: 'favicon-48x48.png'
+      },
+      {
         from: 'src/images', to: 'images'
       },
     ]),
