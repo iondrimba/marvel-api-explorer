@@ -92,6 +92,9 @@ var config = {
         from: 'src/favicon.ico', to: 'favicon.ico'
       },
       {
+        from: 'src/browserconfig.xml', to: 'browserconfig.xml'
+      },
+      {
         from: 'src/favicon-16x16.png', to: 'favicon-16x16.png'
       },
       {
