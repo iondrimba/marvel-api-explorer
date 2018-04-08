@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/iondrimba/marvel-api-explorer.svg?branch=master)](https://travis-ci.org/iondrimba/marvel-api-explorer)
 [![Build status](https://ci.appveyor.com/api/projects/status/8hnh3ocsbitbq4oc?svg=true)](https://ci.appveyor.com/project/iondrimba/marvel-api-explorer)
 [![Coverage Status](https://coveralls.io/repos/github/iondrimba/marvel-api-explorer/badge.svg)](https://coveralls.io/github/iondrimba/marvel-api-explorer)
-[![Code Climate](https://codeclimate.com/github/iondrimba/marvel-api-explorer/badges/gpa.svg)](https://codeclimate.com/github/iondrimba/marvel-api-explorer)
+[![Code Climate](https://codeclimate.com/github/iondrimba/marvel-api-explorer/badges/gpa.svg)](https://codeclimate.com/github/iondrimba/marvel-api-explorer) [![CircleCI](https://circleci.com/gh/iondrimba/marvel-api-explorer.svg?style=svg)](https://circleci.com/gh/iondrimba/marvel-api-explorer)
 
 
 ![Demo](https://github.com/iondrimba/images/blob/master/marvel-demo.gif?raw=true)

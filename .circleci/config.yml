@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:9.11-browsers
+    steps:
+      - checkout
+      - run: sudo npm install -g npm
+      - run: npm i promise
+      - run: npm i
+      - run: npm set apikey=$API_KEY && npm run prod
+      - run: npm set apikey=$API_KEY && npm test
+      - run: npm set apikey=$API_KEY && npm run workbox
