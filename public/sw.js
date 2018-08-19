@@ -11,7 +11,7 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 workbox.skipWaiting();
 workbox.clientsClaim();
@@ -27,12 +27,20 @@ self.__precacheManifest = [
     "revision": "85df7c1929a768785732f656ff26935a"
   },
   {
+    "url": "app.b64e36cfe93da4a5cc99.js",
+    "revision": "4df788b80f8044037f689500a6404b5c"
+  },
+  {
     "url": "css/app.2ca7c9ec4e268d795144.css",
     "revision": "defff4b92aee3a472c148bd57f4053ee"
   },
   {
     "url": "css/app.9662ac5a209dff34088c.css",
     "revision": "defff4b92aee3a472c148bd57f4053ee"
+  },
+  {
+    "url": "css/app.b64e36cfe93da4a5cc99.css",
+    "revision": "c0cceb67d98f516150e849b16d07da22"
   },
   {
     "url": "favicon-16x16.png",
@@ -127,6 +135,10 @@ self.__precacheManifest = [
     "revision": "a277f6f550d9ba17a857452e9a236ab4"
   },
   {
+    "url": "images/missing.28e292edf119941c9665e1ddb6a366b9.jpg",
+    "revision": "28e292edf119941c9665e1ddb6a366b9"
+  },
+  {
     "url": "images/missing.9381f1bb6f2919c5b82e94613b238f8e.jpg",
     "revision": "9381f1bb6f2919c5b82e94613b238f8e"
   },
@@ -140,11 +152,11 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "e7b39489e1da51dcdb67f77e395e4adb"
+    "revision": "bcb75a2e475b26858614714aaa542927"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+\//, workbox.strategies.cacheFirst({ cacheName: "api-cache", plugins: [new workbox.expiration.Plugin({"maxEntries":20,"maxAgeSeconds":36000}), new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
-workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+\//, workbox.strategies.staleWhileRevalidate({ plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, workbox.strategies.cacheFirst({ cacheName: "api-cache", plugins: [new workbox.expiration.Plugin({"maxEntries":20,"maxAgeSeconds":36000,"purgeOnQuotaError":false}), new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, workbox.strategies.staleWhileRevalidate({ plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');

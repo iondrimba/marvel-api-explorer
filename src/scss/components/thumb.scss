@@ -22,13 +22,14 @@
   }
 
   &__title {
-    color: color(invert);
-    display: inline-block;
+    align-items: center;
     background-color: #3a3939;
+    color: color(invert);
+    display: inline-flex;
     font-size: 14px;
     font-weight: bold;
-    height: auto;
     left: 0;
+    min-height: 80px;
     opacity: 0;
     padding: 10px;
     position: absolute;
