@@ -80,7 +80,6 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^3.6.0",
-    "reselect": "^3.0.1",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^4.0.2",
     "stringify": "^5.2.0",
