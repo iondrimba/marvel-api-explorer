@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { ConnectedRouter } from 'react-router-redux';
+import {  Router, Route } from 'react-router-dom';
 import store from './model/store';
 import { history } from './model/store';
 
@@ -9,9 +10,9 @@ import App from './pages/app';
 
 render(
   <Provider store={store} >
-    <ConnectedRouter history={history}>
+    <Router history={history}>
       <App />
-    </ConnectedRouter>
+    </Router>
   </Provider>,
   document.getElementsByClassName('marvel-app')[0]
 );

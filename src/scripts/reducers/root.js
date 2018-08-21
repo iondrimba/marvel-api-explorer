@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { routeReducer } from 'react-router-redux';
 import data from './data';
 import fetching from './fetching';
 import fetchingError from './fetchingError';
@@ -16,7 +16,7 @@ const RootReducer = combineReducers({
   started,
   search,
   pagination,
-  router: routerReducer,
+  router: routeReducer,
   menuOpen,
   data
 });
