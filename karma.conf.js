@@ -1,6 +1,5 @@
 var istanbul = require('browserify-istanbul');
 var isparta = require('isparta');
-var threshold = require('karma-threshold-reporter');
 
 module.exports = function (config) {
   config.set({
