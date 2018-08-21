@@ -4,8 +4,6 @@ cache: npm
 node_js:
 - '8'
 before_install:
-- gem install sass
-- gem install scss_lint
 - npm install -g npm
 - npm install promise
 before_script:

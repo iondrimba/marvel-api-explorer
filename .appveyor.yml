@@ -1,14 +1,7 @@
 init:
   - git config --global core.autocrlf true
-environment:
-  matrix:
-  - ruby_verison: 22-x64
-
 install:
-  - set PATH=C:\Ruby22\bin;%PATH%
   - ps: Install-Product node $env:nodejs_version
-  - gem install sass
-  - gem install scss_lint
   - npm install -g npm
   - npm install promise
   - npm i

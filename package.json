@@ -67,7 +67,7 @@
     "karma-spec-reporter": "0.0.24",
     "karma-threshold-reporter": "^0.1.15",
     "karma-webpack": "^1.8.0",
-    "node-sass": "^3.13.0",
+    "node-sass": "^3.13.1",
     "phantomjs-polyfill-object-assign": "^0.0.2",
     "phantomjs-prebuilt": "^2.1.16",
     "postcss-cssnext": "^2.8.0",
