@@ -1,17 +1,11 @@
 var webpack = require('webpack');
-var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var StyleLintPlugin = require('stylelint-webpack-plugin');
 var postcssCssnext = require('postcss-cssnext');
-var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
-var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var isProduction = (process.env.NODE_ENV === 'production');
-var isTesting = (process.env.NODE_ENV === 'testing');
-var apikey = process.env.npm_config_apikey;
 var config = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.mp3', '.ico']

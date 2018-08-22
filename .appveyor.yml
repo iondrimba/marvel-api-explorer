@@ -8,8 +8,7 @@ install:
 test_script:
   - npm set apikey=%API_KEY% && npm run prod
   - npm set apikey=%API_KEY% && npm test
-  - npm set apikey=%API_KEY% && npm run workbox
-build: off
+  build: off
 matrix:
   fast_finish: true
 cache:
