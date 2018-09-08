@@ -489,7 +489,7 @@ AddDefaultCharset utf-8
 
 <IfModule mod_headers.c>
 
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' stats.g.doubleclick.net www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' i.annihil.us; connect-src stats.g.doubleclick.net gateway.marvel.com"
+    Header set Content-Security-Policy  "default-src 'self'; script-src 'self' 'unsafe-inline' stats.g.doubleclick.net www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' i.annihil.us www.google-analytics.com stats.g.doubleclick.net; connect-src stats.g.doubleclick.net gateway.marvel.com"
 
     # `mod_headers` cannot match based on the content-type, however,
     # the `Content-Security-Policy` response header should be send
