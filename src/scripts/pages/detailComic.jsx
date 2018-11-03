@@ -30,6 +30,7 @@ class DetailComic extends React.Component {
 
     const content = document.querySelector('.detail__content');
     const img = content.querySelector('img');
+
     img.onload = () => { coverOnLoad(content, img, slides, this.positionInfos.bind(this), this.tilt); };
 
     animateIn(slides);
@@ -37,6 +38,7 @@ class DetailComic extends React.Component {
 
   componentWillUnmount() {
     window.onresize = null;
+
     enableScroll();
   }
 

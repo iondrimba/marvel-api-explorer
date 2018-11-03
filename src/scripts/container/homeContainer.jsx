@@ -40,15 +40,21 @@ function getQueryString(search) {
 }
 
 function paginate(url, dispatch) {
-  dispatch(push(url));
+  console.log('paginate url',url);
   const page = Number(url.split('/')[2].split('?')[0]);
   const store = appStore.getState();
+
+
+  console.log('paginate',page);
+
   dispatch(pagination({
     current: page,
     pages: pg.getPages(store.pagination),
     next: pg.hasNext(store.pagination),
     prev: pg.hasPrev(store.pagination)
   }));
+
+  dispatch(push(url));
 }
 
 function _errorClear(props, dispatch) {
@@ -59,6 +65,7 @@ function _firstFetch(props, dispatch, fetchData) {
   let searchTerm = props.search;
   let page = props.pagination.current;
   let type = props.filter;
+
   const paths = props.location.pathname.split('/');
 
   if (paths.length && props.location.pathname !== '/') {
@@ -75,14 +82,17 @@ function _firstFetch(props, dispatch, fetchData) {
 
   if (!isNaN(paths[2])) {
     page = Number(paths[2]);
+
     dispatch(filter(type));
     dispatch(pagination(Object.assign({}, defaultStore.pagination, { current: page })));
   }
+
   fetchData(type, Object.assign({}, defaultStore.pagination, { current: page }), searchTerm, dispatch);
 }
 
 function _paginataionAction(delta, props, dispatch) {
   const url = `/${props.filter}/${Number(props.pagination.current) + delta}${getQueryString(props.search)}`;
+console.log('_paginataionAction', url);
   paginate(url, dispatch);
 }
 
@@ -93,13 +103,13 @@ function _fetchData(filter, pagination, search, dispatch) {
   let aditionalOptions = {
     orderBy: 'name',
     nameStartsWith: search
-  }
+  };
 
   if (filter === 'comics') {
     aditionalOptions = {
       orderBy: 'title',
       titleStartsWith: search
-    }
+    };
   }
 
   dispatch(fetch(Object.assign({}, { url: `/${filter}`, page: pagination.current, total: pagination.total }, aditionalOptions)));
@@ -123,6 +133,7 @@ const mapDispatchToProps = (dispatch, store) => {
       dispatch(menuOpen(false));
       dispatch(started(true));
       dispatch(pagination(defaultStore.pagination));
+
       _fetchData(appStore.getState().filter, appStore.getState().pagination, val, dispatch);
     },
 
@@ -134,6 +145,7 @@ const mapDispatchToProps = (dispatch, store) => {
       dispatch(push(`/${val}/${defaultStore.pagination.current}?search=${appStore.getState().search}`));
       dispatch(filter(val));
       dispatch(pagination(defaultStore.pagination));
+
       _fetchData(val, appStore.getState().pagination, appStore.getState().search, dispatch);
     },
 
@@ -146,6 +158,7 @@ const mapDispatchToProps = (dispatch, store) => {
     },
 
     paginationNextAction: (props) => {
+    console.log('paginationNextAction', props);
       pg.hasNext(props.pagination) ? _paginataionAction(+1, props, dispatch) : null;
     },
 

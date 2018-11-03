@@ -41,7 +41,9 @@ class Home extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     window.scroll(0, 0);
+
     if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
+console.log('homeupdate', this.props)
       this.props.fetchAction(this.props);
     }
   }

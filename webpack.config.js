@@ -1,12 +1,12 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var postcssCssnext = require('postcss-cssnext');
-var CompressionPlugin = require('compression-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const postcssCssnext = require('postcss-cssnext');
+const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var isProduction = (process.env.NODE_ENV === 'production');
-var config = {
+const isProduction = (process.env.NODE_ENV === 'production');
+const config = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.mp3', '.ico']
   },
@@ -54,7 +54,7 @@ var config = {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=images/[name].[hash].[ext]' + (isProduction ? '&publicPath=../' : '&publicPath=/'),
-          'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
+          'image-webpack'
         ]
       }
     ]
@@ -77,7 +77,7 @@ var config = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'src/manifest.json', to: 'manifest.json'
+        from: 'src/manifest.webmanifest', to: 'manifest.webmanifest'
       },
       {
         from: 'src/.htaccess'

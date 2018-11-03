@@ -11,7 +11,7 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 workbox.skipWaiting();
 workbox.clientsClaim();
@@ -27,8 +27,16 @@ self.__precacheManifest = [
     "revision": "85df7c1929a768785732f656ff26935a"
   },
   {
+    "url": "app.a19b11be3d7e923a69a7.js",
+    "revision": "917d5f47346b885e2df5b08e2c10573b"
+  },
+  {
     "url": "app.b64e36cfe93da4a5cc99.js",
     "revision": "4df788b80f8044037f689500a6404b5c"
+  },
+  {
+    "url": "app.b9d29e4bb3822e903910.js",
+    "revision": "56e7cab2bbf37c3759b0ccc587aa4f79"
   },
   {
     "url": "css/app.2ca7c9ec4e268d795144.css",
@@ -39,8 +47,16 @@ self.__precacheManifest = [
     "revision": "defff4b92aee3a472c148bd57f4053ee"
   },
   {
+    "url": "css/app.a19b11be3d7e923a69a7.css",
+    "revision": "b565d8842c3bacf4ebe82408ca95c123"
+  },
+  {
     "url": "css/app.b64e36cfe93da4a5cc99.css",
     "revision": "c0cceb67d98f516150e849b16d07da22"
+  },
+  {
+    "url": "css/app.b9d29e4bb3822e903910.css",
+    "revision": "8b46a0ccb1bbd4e72e9b087a3fb176fd"
   },
   {
     "url": "favicon-16x16.png",
@@ -64,11 +80,11 @@ self.__precacheManifest = [
   },
   {
     "url": "images/dots.svg",
-    "revision": "7a65bac3468694a5a94778facf6ea5c6"
+    "revision": "9524eabbca5125c6c23de2cebe1853d0"
   },
   {
     "url": "images/github.svg",
-    "revision": "e7d72920af474a25295eb7acdcd2aaed"
+    "revision": "bd666487a62742a3d09429cbcb14a0cd"
   },
   {
     "url": "images/icons/android-chrome-192x192.png",
@@ -128,7 +144,7 @@ self.__precacheManifest = [
   },
   {
     "url": "images/marvel.svg",
-    "revision": "a857de2a371a6b92bccc91e724b1a00d"
+    "revision": "3cb51f0cad379a7e38170621aa653d75"
   },
   {
     "url": "images/missing-full.jpg",
@@ -143,6 +159,10 @@ self.__precacheManifest = [
     "revision": "9381f1bb6f2919c5b82e94613b238f8e"
   },
   {
+    "url": "images/missing.ea1a586e0db625c695bbdfde9174ed0b.jpg",
+    "revision": "ea1a586e0db625c695bbdfde9174ed0b"
+  },
+  {
     "url": "images/missing.jpg",
     "revision": "5ae3111e7158f65bb6651ebce598ac77"
   },
@@ -152,11 +172,11 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "bcb75a2e475b26858614714aaa542927"
+    "revision": "58c6859611969591150b4dd74232c9b6"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, workbox.strategies.cacheFirst({ cacheName: "api-cache", plugins: [new workbox.expiration.Plugin({"maxEntries":20,"maxAgeSeconds":36000}), new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, workbox.strategies.cacheFirst({ "cacheName":"api-cache", plugins: [new workbox.expiration.Plugin({"maxEntries":20,"maxAgeSeconds":36000,"purgeOnQuotaError":false}), new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, workbox.strategies.staleWhileRevalidate({ plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');

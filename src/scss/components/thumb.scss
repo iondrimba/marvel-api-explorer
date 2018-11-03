@@ -23,11 +23,12 @@
 
   &__title {
     align-items: center;
-    background-color: #3a3939;
+    background-color: #171515;
     color: color(invert);
     display: inline-flex;
     font-size: 14px;
     font-weight: bold;
+    justify-content: center;
     left: 0;
     min-height: 80px;
     opacity: 0;

@@ -38,6 +38,6 @@ class About extends React.Component {
 
 About.propTypes = {
   'history': React.PropTypes.object
-}
+};
 
 export default About;

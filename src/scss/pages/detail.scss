@@ -85,34 +85,21 @@
     width: 100vw;
     z-index: 1;
 
-    section:nth-child(even) {
+    section{
       background-color: color(series);
       color: color(secondary);
 
       li {
         &:nth-child(even) {
-          background-color: color(series);
+          background-color: rgba(12, 12, 12, 0.05);
         }
 
         &:nth-child(odd) {
-          background-color: color(series-secondary);
+          background-color: rgba(0, 0, 0, 0.02);
         }
       }
     }
 
-    section:nth-child(odd) {
-      background-color: color(info);
-
-      li {
-        &:nth-child(even) {
-          background-color: color(stories);
-        }
-
-        &:nth-child(odd) {
-          background-color: color(stories-secondary);
-        }
-      }
-    }
   }
 
   .info {
@@ -120,10 +107,6 @@
       background-color: color(secondary);
       box-shadow: -2px 18px 20px 20px color(shadow);
       padding: 15px;
-
-      &--comic {
-        min-height: 20vh;
-      }
     }
 
     &__series, &__stories, &__creators, &__characters {
@@ -136,7 +119,7 @@
       }
 
       li {
-        padding: 5px 15px;
+        padding: 10px 20px;
       }
     }
   }
