@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class BackButton extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class BackButton extends React.Component {
 }
 
 BackButton.propTypes = {
-  onClick: React.PropTypes.func
+  onClick: PropTypes.func
 }
 
 export default BackButton;

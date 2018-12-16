@@ -1,5 +1,6 @@
 import React from 'react';
 import CloseIcon from '../components/close-icon';
+import PropTypes from 'prop-types';
 
 class About extends React.Component {
   constructor(props) {
@@ -9,14 +10,14 @@ class About extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       requestAnimationFrame(() => {
-        this.refs.about.classList.add('animate');
+        this.about.classList.add('animate');
       })
     }, 50);
   }
 
   render() {
     return (
-      <section ref={'about'} className="about" >
+      <section ref={(c) => this.about = c} className="about" >
         <a role="button" className="close" onClick={this.props.history.goBack} title="close">
           <CloseIcon color="#000" />
         </a>
@@ -36,7 +37,7 @@ class About extends React.Component {
 }
 
 About.propTypes = {
-  'history': React.PropTypes.object
+  'history': PropTypes.object
 };
 
 export default About;

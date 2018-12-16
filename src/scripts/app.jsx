@@ -13,5 +13,5 @@ render(
       <App />
     </Router>
   </Provider>,
-  document.getElementsByClassName('marvel-app')[0]
+  document.querySelector('.marvel-app')
 );

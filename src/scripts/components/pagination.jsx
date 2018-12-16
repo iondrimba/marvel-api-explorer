@@ -1,5 +1,6 @@
 import React from 'react';
 import PaginationLink from './pagination-link';
+import PropTypes from 'prop-types';
 
 class Pagination extends React.Component {
   constructor(props) {
@@ -59,12 +60,12 @@ class Pagination extends React.Component {
 }
 
 Pagination.propTypes = {
-  filter: React.PropTypes.string,
-  pagination: React.PropTypes.object,
-  search: React.PropTypes.string,
-  paginationAction: React.PropTypes.func,
-  paginationNextAction: React.PropTypes.func,
-  paginationPrevAction: React.PropTypes.func
+  filter: PropTypes.string,
+  pagination: PropTypes.object,
+  search: PropTypes.string,
+  paginationAction: PropTypes.func,
+  paginationNextAction: PropTypes.func,
+  paginationPrevAction: PropTypes.func
 }
 
 export default Pagination;

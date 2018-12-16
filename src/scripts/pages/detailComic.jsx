@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
 import ScrollIndicator from '../components/scroll-indicator';
@@ -16,7 +17,7 @@ class DetailComic extends React.Component {
     if (window.innerWidth < 960) {
       viewH = window.innerHeight - 50;
     }
-    this.refs.infos.style = `transform:translateY(${viewH}px)`;
+    this.infos.style = `transform:translateY(${viewH}px)`;
   }
 
   componentDidMount() {
@@ -66,13 +67,13 @@ class DetailComic extends React.Component {
     return (
       <div className="detail">
         <Transition />
-        <div ref={'content'} className="detail__content" >
+        <div ref={(c) => this.content = c} className="detail__content" >
           <BackButton onClick={this.onBackButtonClick.bind(this)} />
           <Cover {...this.props}/>
-          <section ref={'infos'} className="detail__infos">
+          <section ref={(c) => this.infos = c} className="detail__infos">
             <ScrollIndicator />
             <div className="info__name info__name--comic">
-              <h2 ref={'title'}>{this.props.selectedItem.title}</h2>
+              <h2 ref={(c) => this.title = c}>{this.props.selectedItem.title}</h2>
               {this.getDescription(this.props.selectedItem.description)}
             </div>
             {infoData(this.props.selectedItem.creators, this.hasItens, 'Creators')}
@@ -88,8 +89,8 @@ class DetailComic extends React.Component {
 }
 
 DetailComic.propTypes = {
-  selectedItem: React.PropTypes.object,
-  history: React.PropTypes.object,
+  selectedItem: PropTypes.object,
+  history: PropTypes.object,
 }
 
 export default DetailComic;

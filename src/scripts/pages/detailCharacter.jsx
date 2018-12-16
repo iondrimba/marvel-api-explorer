@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
 import Cover from '../components/cover';
@@ -17,7 +18,7 @@ class DetailCharacter extends React.Component {
       viewH = innerHeight - 50;
     }
 
-    this.refs.infos.style = `transform:translateY(${viewH}px)`;
+    this.infos.style = `transform:translateY(${viewH}px)`;
   }
 
   componentDidMount() {
@@ -53,12 +54,12 @@ class DetailCharacter extends React.Component {
     return (
       <div className="detail">
         <Transition />
-        <div ref={'content'} className="detail__content">
+        <div ref={(c) => this.content = c} className="detail__content">
           <BackButton onClick={this.onBackButtonClick.bind(this)} />
           <Cover {...this.props}/>
-          <section ref={'infos'} className="detail__infos">
+          <section ref={(c) => this.infos = c} className="detail__infos">
             <ScrollIndicator />
-            <div ref={'infoName'} className="info__name">
+            <div ref={(c) => this.infoName = c} className="info__name">
               <h2>{this.props.selectedItem.name}</h2>
             </div>
             {infoData(this.props.selectedItem.stories, this.hasItens, 'Stories')}
@@ -71,8 +72,8 @@ class DetailCharacter extends React.Component {
 }
 
 DetailCharacter.propTypes = {
-  selectedItem: React.PropTypes.object,
-  history: React.PropTypes.object
+  selectedItem: PropTypes.object,
+  history: PropTypes.object
 }
 
 export default DetailCharacter;

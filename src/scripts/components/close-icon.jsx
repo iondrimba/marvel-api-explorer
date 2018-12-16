@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class CloseIcon extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class CloseIcon extends React.Component {
 }
 
 CloseIcon.propTypes = {
-  color: React.PropTypes.string
+  color: PropTypes.string
 }
 
 export default CloseIcon;

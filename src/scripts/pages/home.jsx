@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loader from '../components/loader';
 import Grid from '../components/grid';
 import Pagination from '../components/pagination';
@@ -22,11 +23,11 @@ class Home extends React.Component {
 
     mc.add(Swipe);
     mc.on('swiperight', (e) => {
-      this.refs.pagination.previous();
+      this.pagination.previous();
     });
 
     mc.on('swipeleft', (e) => {
-      this.refs.pagination.next();
+      this.pagination.next();
     });
   }
 
@@ -56,22 +57,22 @@ class Home extends React.Component {
         <Error error={this.props.error} retry={this.props.fetchAction} />
         <Loader fetching={this.props.fetching} />
         <Grid {...{ data, filter }} />
-        <Pagination ref={'pagination'} {...this.props} />
+        <Pagination ref={(c) => this.pagination = c} {...this.props} />
       </div>
     );
   }
 }
 
 Home.propTypes = {
-  match: React.PropTypes.object,
-  error: React.PropTypes.object,
-  data: React.PropTypes.array,
-  fetchAction: React.PropTypes.func,
-  searchClear: React.PropTypes.func,
-  searchAction: React.PropTypes.func,
-  firstFetch: React.PropTypes.func,
-  filter: React.PropTypes.string,
-  fetching: React.PropTypes.bool
+  match: PropTypes.object,
+  error: PropTypes.object,
+  data: PropTypes.array,
+  fetchAction: PropTypes.func,
+  searchClear: PropTypes.func,
+  searchAction: PropTypes.func,
+  firstFetch: PropTypes.func,
+  filter: PropTypes.string,
+  fetching: PropTypes.bool
 }
 
 export default Home;

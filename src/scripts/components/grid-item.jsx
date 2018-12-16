@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 class GridItem extends React.Component {
   constructor(props) {
@@ -17,10 +18,10 @@ class GridItem extends React.Component {
 }
 
 GridItem.propTypes = {
-  id: React.PropTypes.number,
-  thumb: React.PropTypes.string,
-  title: React.PropTypes.string,
-  filter: React.PropTypes.string
+  id: PropTypes.number,
+  thumb: PropTypes.string,
+  title: PropTypes.string,
+  filter: PropTypes.string
 }
 
 export default GridItem;

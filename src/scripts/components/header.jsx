@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './search';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Header extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  toogleMenuAction: React.PropTypes.func
+  toogleMenuAction: PropTypes.func
 }
 
 export default Header;
