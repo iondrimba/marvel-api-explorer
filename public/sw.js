@@ -23,52 +23,12 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "app.0e58a4966557cf904a8b.js",
-    "revision": "5283ec7b973486518ce0f713beeefbd8"
-  },
-  {
-    "url": "app.9662ac5a209dff34088c.js",
-    "revision": "85df7c1929a768785732f656ff26935a"
-  },
-  {
     "url": "app.9a44af7e178d226d1afe.js",
     "revision": "dcc8c069a847c2ea31aca58e1c0cc112"
   },
   {
-    "url": "app.a19b11be3d7e923a69a7.js",
-    "revision": "917d5f47346b885e2df5b08e2c10573b"
-  },
-  {
-    "url": "app.b64e36cfe93da4a5cc99.js",
-    "revision": "4df788b80f8044037f689500a6404b5c"
-  },
-  {
-    "url": "app.b9d29e4bb3822e903910.js",
-    "revision": "56e7cab2bbf37c3759b0ccc587aa4f79"
-  },
-  {
-    "url": "css/app.2ca7c9ec4e268d795144.css",
-    "revision": "defff4b92aee3a472c148bd57f4053ee"
-  },
-  {
-    "url": "css/app.9662ac5a209dff34088c.css",
-    "revision": "defff4b92aee3a472c148bd57f4053ee"
-  },
-  {
     "url": "css/app.9a44af7e178d226d1afe.css",
     "revision": "b565d8842c3bacf4ebe82408ca95c123"
-  },
-  {
-    "url": "css/app.a19b11be3d7e923a69a7.css",
-    "revision": "b565d8842c3bacf4ebe82408ca95c123"
-  },
-  {
-    "url": "css/app.b64e36cfe93da4a5cc99.css",
-    "revision": "c0cceb67d98f516150e849b16d07da22"
-  },
-  {
-    "url": "css/app.b9d29e4bb3822e903910.css",
-    "revision": "8b46a0ccb1bbd4e72e9b087a3fb176fd"
   },
   {
     "url": "favicon-16x16.png",

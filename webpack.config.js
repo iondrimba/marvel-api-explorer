@@ -86,6 +86,9 @@ const config = {
         from: 'src/favicon.ico', to: 'favicon.ico'
       },
       {
+        from: './robots.txt', to: 'robots.txt'
+      },
+      {
         from: 'src/browserconfig.xml', to: 'browserconfig.xml'
       },
       {
