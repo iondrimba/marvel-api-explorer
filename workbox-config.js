@@ -29,6 +29,6 @@ module.exports = {
   }],
   clientsClaim: true,
   skipWaiting: true,
-  globPatterns: ['**/*.{js,png,jpg,html,css,woff2,woff,svg}'],
+  globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
   globDirectory: './public'
 }
