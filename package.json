@@ -5,10 +5,10 @@
   "author": "Ion D. FIlho <iondrimba@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --compress --colors --inline --hot",
-    "prod": "cross-env NODE_ENV=production webpack --progress -p",
-    "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 karma start --autoWatch false",
-    "travis": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 karma start --autoWatch false",
+    "start": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --compress --colors --inline --hot",
+    "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress -p",
+    "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 ./node_modules/.bin/karma start --autoWatch false",
+    "travis": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 ./node_modules/.bin/karma start --autoWatch false",
     "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
   "repository": {
@@ -68,7 +68,7 @@
     "karma-spec-reporter": "0.0.32",
     "karma-threshold-reporter": "^0.1.15",
     "karma-webpack": "^3.0.5",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.11.0",
     "phantomjs-polyfill-object-assign": "^0.0.2",
     "phantomjs-prebuilt": "^2.1.5",
     "postcss-cssnext": "^3.1.0",

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { ConnectedRouter } from 'react-router-redux';
-import {  Router, Route } from 'react-router-dom';
+import {  Router } from 'react-router-dom';
 import store from './model/store';
 import { history } from './model/store';
 

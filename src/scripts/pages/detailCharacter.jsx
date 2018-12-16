@@ -1,11 +1,10 @@
 import React from 'react';
-import Infos from '../components/infos'
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
 import Cover from '../components/cover';
 import ScrollIndicator from '../components/scroll-indicator';
 import Tilt from '../misc/tilt';
-import { animateIn, enableScroll, disableScroll, coverOnLoad, infoData } from './detailsCommon';
+import { animateIn, enableScroll, coverOnLoad, infoData } from './detailsCommon';
 
 class DetailCharacter extends React.Component {
   constructor(props) {

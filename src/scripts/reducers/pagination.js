@@ -1,5 +1,6 @@
 import { PAGINATION } from '../actions/constants';
 import { LOCATION_CHANGE } from 'react-router-redux';
+
 function pagination(state = { current: 1, total: 0, pages: [], next: false, prev: false }, action) {
   switch (action.type) {
     case LOCATION_CHANGE:

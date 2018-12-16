@@ -489,7 +489,7 @@ AddDefaultCharset utf-8
 
 <IfModule mod_headers.c>
 
-    Header set Content-Security-Policy  "default-src 'self'; script-src 'self' 'unsafe-inline' stats.g.doubleclick.net www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' http://i.annihil.us www.google-analytics.com stats.g.doubleclick.net; connect-src stats.g.doubleclick.net gateway.marvel.com"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src *; media-src 'self'; frame-src 'self'; font-src 'self'; connect-src 'self' stats.g.doubleclick.net gateway.marvel.com"
 
     # `mod_headers` cannot match based on the content-type, however,
     # the `Content-Security-Policy` response header should be send
@@ -1191,14 +1191,10 @@ FileETag None
 # </IfModule>
 
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ index.html
-</IfModule>
-
-<IfModule mod_rewrite.c>
+    Options -MultiViews
     RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|js|png|svgz?|webp|webmanifest|txt)$ $1.$3 [L]
+    RewriteRule ^(.*)$ index.html [QSA,L]
 </IfModule>

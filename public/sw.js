@@ -23,52 +23,12 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "app.9662ac5a209dff34088c.js",
-    "revision": "85df7c1929a768785732f656ff26935a"
+    "url": "app.9a44af7e178d226d1afe.js",
+    "revision": "dcc8c069a847c2ea31aca58e1c0cc112"
   },
   {
-    "url": "app.a19b11be3d7e923a69a7.js",
-    "revision": "917d5f47346b885e2df5b08e2c10573b"
-  },
-  {
-    "url": "app.b64e36cfe93da4a5cc99.js",
-    "revision": "4df788b80f8044037f689500a6404b5c"
-  },
-  {
-    "url": "app.b9d29e4bb3822e903910.js",
-    "revision": "56e7cab2bbf37c3759b0ccc587aa4f79"
-  },
-  {
-    "url": "css/app.2ca7c9ec4e268d795144.css",
-    "revision": "defff4b92aee3a472c148bd57f4053ee"
-  },
-  {
-    "url": "css/app.9662ac5a209dff34088c.css",
-    "revision": "defff4b92aee3a472c148bd57f4053ee"
-  },
-  {
-    "url": "css/app.a19b11be3d7e923a69a7.css",
+    "url": "css/app.9a44af7e178d226d1afe.css",
     "revision": "b565d8842c3bacf4ebe82408ca95c123"
-  },
-  {
-    "url": "css/app.b64e36cfe93da4a5cc99.css",
-    "revision": "c0cceb67d98f516150e849b16d07da22"
-  },
-  {
-    "url": "css/app.b9d29e4bb3822e903910.css",
-    "revision": "8b46a0ccb1bbd4e72e9b087a3fb176fd"
-  },
-  {
-    "url": "favicon-16x16.png",
-    "revision": "7a324696bac2179e5a87582d7797b68d"
-  },
-  {
-    "url": "favicon-32x32.png",
-    "revision": "c66e8b48a64e7947c8ed8bbdd8d7e95a"
-  },
-  {
-    "url": "favicon-48x48.png",
-    "revision": "2c8880ad2c012f2878948f46b284c34c"
   },
   {
     "url": "fonts/font.woff",
@@ -87,84 +47,12 @@ self.__precacheManifest = [
     "revision": "bd666487a62742a3d09429cbcb14a0cd"
   },
   {
-    "url": "images/icons/android-chrome-192x192.png",
-    "revision": "7ffcc997fef6a6810fe03b24d79d1df1"
-  },
-  {
-    "url": "images/icons/android-chrome-512x512.png",
-    "revision": "d093c53c0b7d576869df568db2e32178"
-  },
-  {
-    "url": "images/icons/apple-touch-icon.png",
-    "revision": "d46b6a002563db406604c760bea1b85f"
-  },
-  {
-    "url": "images/icons/icon-128x128.png",
-    "revision": "e7addd9b0c77a62320dfd4d52c555003"
-  },
-  {
-    "url": "images/icons/icon-144x144.png",
-    "revision": "fd09ca0cbf28da5c1fe9d5fd17f15433"
-  },
-  {
-    "url": "images/icons/icon-152x152.png",
-    "revision": "f2fd8c0d5cf5587698f8c9db7598ab07"
-  },
-  {
-    "url": "images/icons/icon-192x192.png",
-    "revision": "48332fbe37cbe353d3abd319410997a7"
-  },
-  {
-    "url": "images/icons/icon-384x384.png",
-    "revision": "d29b4808698e5ca43cbfc0dbf549da97"
-  },
-  {
-    "url": "images/icons/icon-512x512.png",
-    "revision": "708b50e8d05b9d864310d3f09c445694"
-  },
-  {
-    "url": "images/icons/icon-72x72.png",
-    "revision": "b1ecf54eeae2f93bd951a515ebdf6958"
-  },
-  {
-    "url": "images/icons/icon-96x96.png",
-    "revision": "ac787a6a7d768852bb36e79303d7ea76"
-  },
-  {
-    "url": "images/icons/mstile-150x150.png",
-    "revision": "402567686379faab361e62c6f1ae8f80"
-  },
-  {
     "url": "images/icons/safari-pinned-tab.svg",
     "revision": "9485bad24d046e48791ee8fe251ca808"
   },
   {
-    "url": "images/lazy.png",
-    "revision": "f60e4551e4add244492a1eda0f71c2e6"
-  },
-  {
     "url": "images/marvel.svg",
     "revision": "3cb51f0cad379a7e38170621aa653d75"
-  },
-  {
-    "url": "images/missing-full.jpg",
-    "revision": "a277f6f550d9ba17a857452e9a236ab4"
-  },
-  {
-    "url": "images/missing.28e292edf119941c9665e1ddb6a366b9.jpg",
-    "revision": "28e292edf119941c9665e1ddb6a366b9"
-  },
-  {
-    "url": "images/missing.9381f1bb6f2919c5b82e94613b238f8e.jpg",
-    "revision": "9381f1bb6f2919c5b82e94613b238f8e"
-  },
-  {
-    "url": "images/missing.ea1a586e0db625c695bbdfde9174ed0b.jpg",
-    "revision": "ea1a586e0db625c695bbdfde9174ed0b"
-  },
-  {
-    "url": "images/missing.jpg",
-    "revision": "5ae3111e7158f65bb6651ebce598ac77"
   },
   {
     "url": "images/search.svg",
@@ -172,7 +60,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "58c6859611969591150b4dd74232c9b6"
+    "revision": "2b297579567258ddbefa85fec99ad18d"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
