@@ -7,7 +7,6 @@ function data(state = [], action) {
     case FETCHING:
       return [];
     case FETCHED:
-
       var filtered = [...action.data.data.data.results].map((item) => {
         var thumb = '/images/missing.jpg',
           full = '/images/missing-full.jpg';
@@ -22,6 +21,7 @@ function data(state = [], action) {
 
         return item;
       });
+
       return filtered;
   }
   return state;

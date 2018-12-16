@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-
 import Home from '../pages/home';
 import { fetch } from '../actions/fetch';
 import fetching from '../actions/fetching';
@@ -40,12 +39,8 @@ function getQueryString(search) {
 }
 
 function paginate(url, dispatch) {
-  console.log('paginate url',url);
   const page = Number(url.split('/')[2].split('?')[0]);
   const store = appStore.getState();
-
-
-  console.log('paginate',page);
 
   dispatch(pagination({
     current: page,
@@ -92,7 +87,7 @@ function _firstFetch(props, dispatch, fetchData) {
 
 function _paginataionAction(delta, props, dispatch) {
   const url = `/${props.filter}/${Number(props.pagination.current) + delta}${getQueryString(props.search)}`;
-console.log('_paginataionAction', url);
+
   paginate(url, dispatch);
 }
 
@@ -158,7 +153,6 @@ const mapDispatchToProps = (dispatch, store) => {
     },
 
     paginationNextAction: (props) => {
-    console.log('paginationNextAction', props);
       pg.hasNext(props.pagination) ? _paginataionAction(+1, props, dispatch) : null;
     },
 

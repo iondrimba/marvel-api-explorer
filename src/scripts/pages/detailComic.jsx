@@ -1,11 +1,10 @@
 import React from 'react';
-import Infos from '../components/infos'
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
 import ScrollIndicator from '../components/scroll-indicator';
 import Tilt from '../misc/tilt';
 import Cover from '../components/cover';
-import { animateIn, enableScroll, coverOnLoad, disableScroll, infoData } from './detailsCommon';
+import { animateIn, enableScroll, coverOnLoad, infoData } from './detailsCommon';
 
 class DetailComic extends React.Component {
   constructor(props) {
