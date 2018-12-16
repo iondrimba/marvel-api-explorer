@@ -8,7 +8,6 @@ install:
   - npm i
 test_script:
   - npm set apikey=%API_KEY% && npm run prod
-  - npm set apikey=%API_KEY% && npm test
 build: off
 matrix:
   fast_finish: true

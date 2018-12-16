@@ -10,4 +10,3 @@ before_script:
 - npm install
 script:
 - npm set apikey=$API_KEY && npm run prod
-- npm set apikey=$API_KEY && npm test
