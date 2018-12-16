@@ -2,7 +2,6 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
-const isProduction = (process.env.NODE_ENV === 'production');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -11,13 +10,15 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: './css/[name].[hash].css',
     }),
-    new WebpackCleanupPlugin(),
-    new HtmlWebpackPlugin({
+    new WebpackCleanupPlugin({
+      title: 'Marvel API Demo',
+      template: './src/index.html',
+      inject: 'body',
       minify: {
-        collapseWhitespace: isProduction,
-        minifyCSS: isProduction,
-        minifyJS: isProduction,
-        removeComments: isProduction
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+        removeComments: true
       },
     }),
   ]
