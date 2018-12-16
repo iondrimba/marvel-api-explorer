@@ -9,4 +9,3 @@ jobs:
       - run: npm i promise
       - run: npm i
       - run: npm set apikey=$API_KEY && npm run prod
-      - run: npm set apikey=$API_KEY && npm test

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class PaginationLink extends React.Component {
   constructor(props) {
@@ -15,11 +16,11 @@ class PaginationLink extends React.Component {
 }
 
 PaginationLink.propTypes = {
-  className: React.PropTypes.string,
-  iconClassName: React.PropTypes.string,
-  href: React.PropTypes.string,
-  label: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  className: PropTypes.string,
+  iconClassName: PropTypes.string,
+  href: PropTypes.string,
+  label: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 export default PaginationLink;

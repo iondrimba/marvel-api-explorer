@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Explore extends React.Component {
   render() {
@@ -9,9 +10,9 @@ class Explore extends React.Component {
 }
 
 Explore.propTypes = {
-  fetching: React.PropTypes.bool,
-  started: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  fetching: PropTypes.bool,
+  started: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default Explore;

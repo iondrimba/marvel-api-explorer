@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Infos extends React.Component {
   constructor(props) {
@@ -21,9 +22,9 @@ class Infos extends React.Component {
 }
 
 Infos.propTypes = {
-  type: React.PropTypes.string,
-  title: React.PropTypes.string,
-  data: React.PropTypes.array
+  type: PropTypes.string,
+  title: PropTypes.string,
+  data: PropTypes.array
 }
 
 export default Infos;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Loader extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Loader extends React.Component {
 }
 
 Loader.propTypes = {
-  fetching: React.PropTypes.bool,
+  fetching: PropTypes.bool,
 }
 
 export default Loader;

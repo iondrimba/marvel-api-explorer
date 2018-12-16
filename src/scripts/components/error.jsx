@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Error extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Error extends React.Component {
   }
 }
 Error.propTypes = {
-  error: React.PropTypes.object,
-  retry: React.PropTypes.func,
+  error: PropTypes.object,
+  retry: PropTypes.func,
 }
 export default Error;

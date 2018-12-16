@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Menu extends React.Component {
   constructor(props) {
@@ -25,9 +26,9 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <nav ref={'menu'} className={`menu ${this.props.menuOpen ? '' : 'show'}`}>
+      <nav ref={(c) => this.menu = c} className={`menu ${this.props.menuOpen ? '' : 'show'}`}>
         <button type="button" name="show-menu" onClick={this.onSelect.bind(this)}>{this.props.filter}</button>
-        <ul ref={'list'} className={`list ${this.toogleVisibility()}`}>
+        <ul ref={(c) => this.list = c} className={`list ${this.toogleVisibility()}`}>
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Characters</span></li>
           <li className="list__item"><span onClick={this.onClick.bind(this)}>Comics</span></li>
         </ul>
@@ -37,11 +38,11 @@ class Menu extends React.Component {
 }
 
 Menu.propTypes = {
-  filter: React.PropTypes.string,
-  toogleMenuAction: React.PropTypes.func,
-  onClick: React.PropTypes.func,
-  menuOpen: React.PropTypes.bool,
-  filterAction: React.PropTypes.func
+  filter: PropTypes.string,
+  toogleMenuAction: PropTypes.func,
+  onClick: PropTypes.func,
+  menuOpen: PropTypes.bool,
+  filterAction: PropTypes.func
 }
 
 export default Menu;

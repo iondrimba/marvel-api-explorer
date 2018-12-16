@@ -1,10 +1,12 @@
 {
   "presets": [
-    "env",
-    "react"
+    "@babel/preset-env",
+    "@babel/react"
   ],
   "sourceMap": "inline",
-  "plugins": [
-    "transform-object-rest-spread"
-  ]
+  "env": {
+    "testing": {
+      "sourceMap": "inline"
+    }
+  }
 }

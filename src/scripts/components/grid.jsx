@@ -1,5 +1,6 @@
 import React from 'react';
 import GridItem from './grid-item';
+import PropTypes from 'prop-types';
 
 class Grid extends React.Component {
   constructor(props) {
@@ -58,8 +59,8 @@ class Grid extends React.Component {
 }
 
 Grid.propTypes = {
-  data: React.PropTypes.array,
-  filter: React.PropTypes.string
+  data: PropTypes.array,
+  filter: PropTypes.string
 }
 
 export default Grid;

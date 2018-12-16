@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Cover extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Cover extends React.Component {
 }
 
 Cover.propTypes = {
-  selectedItem: React.PropTypes.object,
+  selectedItem: PropTypes.object,
 }
 
 export default Cover;
