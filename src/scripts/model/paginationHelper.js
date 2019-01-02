@@ -1,5 +1,3 @@
-import { createSelector } from 'reselect';
-
 class PaginationHelper {
   constructor() {
     this.maxPages = 5;

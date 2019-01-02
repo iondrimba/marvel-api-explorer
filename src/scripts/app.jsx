@@ -1,16 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import {  Router } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router'
 import store from './model/store';
 import { history } from './model/store';
 import App from './pages/app';
 
 render(
   <Provider store={store} >
-    <Router history={history}>
+    <ConnectedRouter history={history}>
       <App />
-    </Router>
+    </ConnectedRouter>
   </Provider>,
   document.querySelector('.marvel-app')
 );
