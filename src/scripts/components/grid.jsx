@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import GridItem from './grid-item';
 import PropTypes from 'prop-types';
 
-class Grid extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Grid extends PureComponent {
   componentDidUpdate(prevProps, prevState) {
     this.animate([...document.querySelectorAll('.grid .thumb')]);
   }

@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PaginationLink from './pagination-link';
 import PropTypes from 'prop-types';
 
-class Pagination extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Pagination extends PureComponent {
   getQueryString(search) {
     return search ? `?search=${search}` : '';
   }
@@ -46,13 +42,13 @@ class Pagination extends React.Component {
     return (
       <div className='pagination'>
         <div className='pagination__content'>
-          {this.props.pagination.prev? this._paginationLink(-1, 'previous', 'prev') : null}
+          {this.props.pagination.prev ? this._paginationLink(-1, 'previous', 'prev') : null}
           {
             this.props.pagination.pages.map((data, index) => {
               return <PaginationLink className={this.getStyle(this.props, data + 1)} onClick={this.onClick.bind(this)} href={this.getUrl(data + 1)} key={data + 1} iconClassName='' label={(data + 1).toString()} />
             })
           }
-          {this.props.pagination.next? this._paginationLink(+1, 'next', 'next') : null}
+          {this.props.pagination.next ? this._paginationLink(+1, 'next', 'next') : null}
         </div>
       </div>
     );

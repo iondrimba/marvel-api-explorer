@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 import {  Router } from 'react-router-dom';
 import store from './model/store';
 import { history } from './model/store';
-
 import App from './pages/app';
 
 render(

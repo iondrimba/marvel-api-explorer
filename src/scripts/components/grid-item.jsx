@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-class GridItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class GridItem extends PureComponent {
   render() {
     return (
       <Link className="thumb" to={{ pathname: `/${this.props.filter}/detail/${this.props.id}` }}>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class BackButton extends React.Component {
+class BackButton extends PureComponent {
   constructor(props) {
     super(props);
   }

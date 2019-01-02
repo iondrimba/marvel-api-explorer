@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Loader extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Loader extends PureComponent {
   render() {
     return (
       this.props.fetching ? <div className="loading"><img src="/images/marvel.svg" alt="loading data" width="80" /></div> : <span></span>

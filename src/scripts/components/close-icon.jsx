@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class CloseIcon extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class CloseIcon extends PureComponent {
   render() {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={this.props.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

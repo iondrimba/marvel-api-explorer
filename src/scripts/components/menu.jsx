@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Menu extends React.Component {
+class Menu extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

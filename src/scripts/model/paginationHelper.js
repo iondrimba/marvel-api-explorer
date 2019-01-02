@@ -8,8 +8,9 @@ class PaginationHelper {
   mountGroups(totalItens) {
     let count = 0;
     let groups = [];
-    const total = this.getTotalPages(totalItens, this.maxPages);
     let pages = 0;
+
+    const total = this.getTotalPages(totalItens, this.maxPages);
 
     for (let i = 0; i < total; i++) {
       groups.push([]);
