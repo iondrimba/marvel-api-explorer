@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Error extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class Error extends PureComponent {
   onRetry() {
     this.props.retry();
   }

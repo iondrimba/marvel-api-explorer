@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import CloseIcon from '../components/close-icon';
 import PropTypes from 'prop-types';
 
-class About extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class About extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       requestAnimationFrame(() => {

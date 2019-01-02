@@ -38,6 +38,7 @@ class Api {
 
     return fetchUrl;
   }
+
   get(options) {
     return this.instance.get(this.appendParameters(options.url, options))
       .then((resolve) => {

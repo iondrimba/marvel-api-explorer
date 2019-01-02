@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Infos extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class Infos extends PureComponent {
   render() {
     return (
       <section className={`info__${this.props.type}`}>

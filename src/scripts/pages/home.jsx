@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../components/loader';
 import Grid from '../components/grid';
@@ -8,11 +8,7 @@ import Header from '../components/header';
 import Hammer from 'hammerjs';
 import Explore from '../components/explore';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Home extends Component {
   componentDidMount() {
     const stage = document.getElementsByClassName('grid')[0];
     const mc = new Hammer.Manager(stage, {

@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class PaginationLink extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class PaginationLink extends PureComponent {
   render() {
     return (
       <a className={this.props.className} onClick={this.props.onClick} href={this.props.href} >

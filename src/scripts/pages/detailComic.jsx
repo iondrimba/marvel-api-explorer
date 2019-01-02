@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Transition from '../components/transition';
 import BackButton from '../components/back-button';
@@ -7,7 +7,7 @@ import Tilt from '../misc/tilt';
 import Cover from '../components/cover';
 import { animateIn, enableScroll, coverOnLoad, infoData } from './detailsCommon';
 
-class DetailComic extends React.Component {
+class DetailComic extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -69,7 +69,7 @@ class DetailComic extends React.Component {
         <Transition />
         <div ref={(c) => this.content = c} className="detail__content" >
           <BackButton onClick={this.onBackButtonClick.bind(this)} />
-          <Cover {...this.props}/>
+          <Cover {...this.props} />
           <section ref={(c) => this.infos = c} className="detail__infos">
             <ScrollIndicator />
             <div className="info__name info__name--comic">

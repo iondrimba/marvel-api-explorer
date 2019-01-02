@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Search from './search';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class Header extends React.Component {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

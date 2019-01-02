@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Explore extends React.Component {
+class Explore extends PureComponent {
   render() {
     return (
       this.props.fetching || this.props.started ? <div></div> : <div className="btn-explore" onClick={this.props.onClick}>start exploring</div>

@@ -1,8 +1,6 @@
 import { FETCHED, FETCHING } from '../actions/constants';
-import DefaultStore from '../model/initialState';
 
 function data(state = [], action) {
-
   switch (action.type) {
     case FETCHING:
       return [];

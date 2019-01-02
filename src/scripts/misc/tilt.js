@@ -56,10 +56,11 @@ class Tilt {
       x: -(evt.offsetX - (rect.width * .5)) * o,
       y: (evt.offsetY - (rect.height * .5)) * .03
     };
+
     this._applyStyle(el, { transform: 'rotateX(' + v.y + 'deg) rotateY(' + v.x + 'deg) translate(-50%, -50%)' });
   }
 
-  _transition(el) {
+  _transition() {
     if (this.timer !== undefined) {
       clearTimeout(this.timer)
     }

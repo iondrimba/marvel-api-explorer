@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Menu from './menu';
 import PropTypes from 'prop-types';
 
-class Search extends React.Component {
+class Search extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

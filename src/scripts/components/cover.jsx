@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Cover extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class Cover extends PureComponent {
   render() {
     return (
       <section className="detail__cover">
