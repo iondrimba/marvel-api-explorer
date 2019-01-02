@@ -62,6 +62,7 @@ class Home extends Component {
 Home.propTypes = {
   match: PropTypes.object,
   error: PropTypes.object,
+  location: PropTypes.object,
   data: PropTypes.array,
   fetchAction: PropTypes.func,
   searchClear: PropTypes.func,
