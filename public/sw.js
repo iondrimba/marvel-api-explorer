@@ -23,20 +23,20 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "1.b7ab461d3319cf984843.js",
-    "revision": "0f11ec55c671d2f04c21e860509219b4"
-  },
-  {
-    "url": "2.b7ab461d3319cf984843.js",
-    "revision": "546498c61fd9fad75acbc83a8f31a5cb"
-  },
-  {
     "url": "3.b7ab461d3319cf984843.js",
     "revision": "23ee7b1f529097b4ceeea73081aacf54"
   },
   {
     "url": "app.b7ab461d3319cf984843.js",
     "revision": "a25e051cfd9f7c840d47397f9a4da72c"
+  },
+  {
+    "url": "characters/detail/1.b7ab461d3319cf984843.js",
+    "revision": "0f11ec55c671d2f04c21e860509219b4"
+  },
+  {
+    "url": "comics/detail/2.b7ab461d3319cf984843.js",
+    "revision": "546498c61fd9fad75acbc83a8f31a5cb"
   },
   {
     "url": "fonts/font.woff",
