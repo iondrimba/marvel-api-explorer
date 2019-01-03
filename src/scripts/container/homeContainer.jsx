@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import Home from '../pages/home';
 import { fetch } from '../actions/fetch';
 import fetching from '../actions/fetching';
@@ -38,7 +37,7 @@ function getQueryString(search) {
   return search ? `?search=${search}` : '';
 }
 
-function paginate(url, dispatch) {
+function paginate(url, dispatch, props) {
   const page = Number(url.split('/')[2].split('?')[0]);
   const store = appStore.getState();
 
@@ -49,7 +48,7 @@ function paginate(url, dispatch) {
     prev: pg.hasPrev(store.pagination)
   }));
 
-  dispatch(push(url));
+  props.history.push(url);
 }
 
 function _errorClear(props, dispatch) {
@@ -71,7 +70,8 @@ function _firstFetch(props, dispatch, fetchData) {
     }
   }
 
-  dispatch(push(`/${type}/${page}${getQueryString(searchTerm)}`));
+  props.history.push(`/${type}/${page}${getQueryString(searchTerm)}`);
+
   dispatch(search(searchTerm));
   dispatch(started(true));
 
@@ -88,13 +88,10 @@ function _firstFetch(props, dispatch, fetchData) {
 function _paginataionAction(delta, props, dispatch) {
   const url = `/${props.filter}/${Number(props.pagination.current) + delta}${getQueryString(props.search)}`;
 
-  paginate(url, dispatch);
+  paginate(url, dispatch, props);
 }
 
 function _fetchData(filter, pagination, search, dispatch) {
-  dispatch(fetchingError({ code: '' }));
-  dispatch(fetching(true));
-
   let aditionalOptions = {
     orderBy: 'name',
     nameStartsWith: search
@@ -106,8 +103,9 @@ function _fetchData(filter, pagination, search, dispatch) {
       titleStartsWith: search
     };
   }
-
   dispatch(fetch(Object.assign({}, { url: `/${filter}`, page: pagination.current, total: pagination.total }, aditionalOptions)));
+  dispatch(fetchingError({ code: '' }));
+  dispatch(fetching(true));
 }
 
 const mapDispatchToProps = (dispatch, store) => {
@@ -118,12 +116,17 @@ const mapDispatchToProps = (dispatch, store) => {
       _firstFetch(props, dispatch, _fetchData);
     },
 
-    fetchAction() {
+    fetchAction(page = 0) {
+      if (page) {
+        Object.assign(appStore.getState().pagination, { current: page });
+      }
+
       _fetchData(appStore.getState().filter, appStore.getState().pagination, appStore.getState().search, dispatch);
     },
 
     searchAction: (val, props) => {
-      dispatch(push(`/${props.filter}/${defaultStore.pagination.current}${getQueryString(val)}`));
+      props.history.push(`/${props.filter}/${defaultStore.pagination.current}${getQueryString(val)}`);
+
       dispatch(search(val));
       dispatch(menuOpen(false));
       dispatch(started(true));
@@ -137,7 +140,8 @@ const mapDispatchToProps = (dispatch, store) => {
     },
 
     filterAction: (val, props) => {
-      dispatch(push(`/${val}/${defaultStore.pagination.current}?search=${appStore.getState().search}`));
+      props.history.push(`/${val}/${defaultStore.pagination.current}?search=${appStore.getState().search}`);
+
       dispatch(filter(val));
       dispatch(pagination(defaultStore.pagination));
 
@@ -145,7 +149,7 @@ const mapDispatchToProps = (dispatch, store) => {
     },
 
     paginationAction: (url, props) => {
-      paginate(url, dispatch);
+      paginate(url, dispatch, props);
     },
 
     paginationPrevAction: (props) => {

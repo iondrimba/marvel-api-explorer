@@ -16,10 +16,11 @@ export function fetch(options) {
       const { limit, total } = data.data.data;
       const pages = Math.round(total / limit);
 
-      if (getState().pagination.total !== pages && getState().pagination.current) {
-        const current = getState().pagination.current > pages ? 1 : getState().pagination.current;
+      if (getState().pagination.total !== pages && options.page) {
+        const current = options.page > pages ? 1 : options.page;
+        const pg = Object.assign({}, getState().pagination, { current, total: pages });
 
-        dispatch(pagination(Object.assign({}, getState().pagination, { current: current, total: pages })));
+        dispatch(pagination(pg));
       }
 
     }, (reject) => {
@@ -30,4 +31,3 @@ export function fetch(options) {
     })
   };
 }
-

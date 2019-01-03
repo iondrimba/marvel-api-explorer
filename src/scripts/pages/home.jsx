@@ -38,8 +38,8 @@ class Home extends Component {
   componentDidUpdate(prevProps, prevState) {
     window.scroll(0, 0);
 
-    if (prevProps.match.params.page !== this.props.match.params.page && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
-      this.props.fetchAction(this.props);
+    if ((prevProps.match.params.page !== this.props.match.params.page) && !isNaN(this.props.match.params.page) && !isNaN(prevProps.match.params.page)) {
+       this.props.fetchAction(Number(this.props.match.params.page));
     }
   }
 
@@ -64,6 +64,7 @@ Home.propTypes = {
   error: PropTypes.object,
   location: PropTypes.object,
   data: PropTypes.array,
+  pagination: PropTypes.object,
   fetchAction: PropTypes.func,
   searchClear: PropTypes.func,
   searchAction: PropTypes.func,

@@ -8,15 +8,14 @@ const DetailComicLazy = lazy(() => import('../container/detailComicContainer'));
 const AboutLazy = lazy(() => import('./about'));
 
 class App extends React.Component {
-
   render() {
     return (
       <div>
         <Suspense fallback={<div>loading...</div>}>
           <Route path='/:type?/:page?' component={HomeContainer} />
-          <Route path="/characters/detail/:id" component={DetailCharacterLazy} />
-          <Route path="/comics/detail/:id" component={DetailComicLazy} />
-          <Route path="/about" component={AboutLazy} />
+          <Route path="/characters/detail/:id" render={(props) => <DetailCharacterLazy {...props} />} />
+          <Route path="/comics/detail/:id" render={(props) => <DetailComicLazy {...props} />} />
+          <Route path="/about" render={(props) => <AboutLazy {...props} />} />
         </Suspense>
       </div>
     );
