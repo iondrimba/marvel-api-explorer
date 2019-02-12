@@ -22,7 +22,7 @@
     "connected-react-router": "^6.3.0",
     "history": "^4.6.3",
     "mini-css-extract-plugin": "^0.5.0",
-    "prop-types": "^15.6.2",
+    "prop-types": "^15.7.1",
     "react-router": "^4.1.1",
     "react-router-redux": "^4.0.8",
     "redux-thunk": "^2.1.0",
