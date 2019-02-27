@@ -87,7 +87,7 @@
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
-    "workbox-sw": "^3.6.3",
+    "workbox-sw": "^4.0.0",
     "workbox-webpack-plugin": "^4.0.0"
   }
 }
