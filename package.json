@@ -48,7 +48,7 @@
     "browserify": "^16.2.3",
     "browserify-istanbul": "^3.0.1",
     "compression-webpack-plugin": "^2.0.0",
-    "copy-webpack-plugin": "^5.0.0",
+    "copy-webpack-plugin": "^5.0.1",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
