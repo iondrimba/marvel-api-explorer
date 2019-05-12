@@ -12,7 +12,9 @@
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.prod.js",
     "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 --IMPLEMENT-JEST --autoWatch false",
     "travis": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 ./node_modules/.bin/karma start --autoWatch false",
-    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
+    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -31,7 +33,8 @@
     "redux-thunk": "^2.1.0",
     "reselect": "^4.0.0",
     "webpack-merge": "^4.2.1",
-    "workbox-cli": "^4.3.1"
+    "workbox-cli": "^4.3.1",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -92,5 +95,6 @@
     "webpack-dev-server": "^3.3.1",
     "workbox-sw": "^4.3.1",
     "workbox-webpack-plugin": "^4.3.1"
-  }
+  },
+  "snyk": true
 }
