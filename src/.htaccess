@@ -489,7 +489,7 @@ AddDefaultCharset utf-8
 
 <IfModule mod_headers.c>
 
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://browser.sentry-cdn.com/5.2.0/bundle.min.js 'unsafe-inline' www.google-analytics.com; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src *; media-src 'self'; frame-src 'self'; font-src 'self'; connect-src 'self' https://sentry.io/api/1457735/store/?sentry_key=19aef1bdf581425e8bfabc3e7528dc93&sentry_version=7 stats.g.doubleclick.net gateway.marvel.com"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://browser.sentry-cdn.com/5.2.0/bundle.min.js 'unsafe-inline' www.google-analytics.com; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src *; media-src 'self'; frame-src 'self'; font-src 'self'; connect-src 'self' https://sentry.io/api/1457735/store stats.g.doubleclick.net gateway.marvel.com"
 
     # `mod_headers` cannot match based on the content-type, however,
     # the `Content-Security-Policy` response header should be send
