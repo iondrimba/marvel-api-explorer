@@ -12,9 +12,7 @@
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.prod.js",
     "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 --IMPLEMENT-JEST --autoWatch false",
     "travis": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 ./node_modules/.bin/karma start --autoWatch false",
-    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
   "repository": {
     "type": "git",
@@ -33,8 +31,7 @@
     "redux-thunk": "^2.1.0",
     "reselect": "^4.0.0",
     "webpack-merge": "^4.2.1",
-    "workbox-cli": "^4.3.1",
-    "snyk": "^1.193.0"
+    "workbox-cli": "^4.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -56,7 +53,7 @@
     "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
-    "css-loader": "^2.1.1",
+    "css-loader": "^3.0.0",
     "enzyme": "^3.10.0",
     "eslint": "^6.0.0",
     "eslint-loader": "^2.1.2",
@@ -95,6 +92,5 @@
     "webpack-dev-server": "^3.7.1",
     "workbox-sw": "^4.3.1",
     "workbox-webpack-plugin": "^4.3.1"
-  },
-  "snyk": true
+  }
 }
