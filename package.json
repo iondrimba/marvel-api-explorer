@@ -12,9 +12,7 @@
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.prod.js",
     "test": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 --IMPLEMENT-JEST --autoWatch false",
     "travis": "cross-env NODE_ENV=testing  BABEL_DISABLE_CACHE=1 ./node_modules/.bin/karma start --autoWatch false",
-    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
   "repository": {
     "type": "git",
@@ -33,15 +31,14 @@
     "redux-thunk": "^2.1.0",
     "reselect": "^4.0.0",
     "webpack-merge": "^4.2.1",
-    "workbox-cli": "^4.3.1",
-    "snyk": "^1.174.1"
+    "workbox-cli": "^4.3.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
     "autoprefixer": "9.6.1",
@@ -78,7 +75,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.1",
-    "redux": "^4.0.1",
+    "redux": "^4.0.4",
     "reselect": "^4.0.0",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.1.0",
@@ -89,12 +86,11 @@
     "sw-precache-webpack-plugin": "^0.11.4",
     "system": "^2.0.1",
     "url-loader": "^2.0.0",
-    "webpack": "^4.33.0",
+    "webpack": "^4.35.3",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.3.3",
     "webpack-dev-server": "^3.7.1",
     "workbox-sw": "^4.3.1",
     "workbox-webpack-plugin": "^4.3.1"
-  },
-  "snyk": true
+  }
 }
