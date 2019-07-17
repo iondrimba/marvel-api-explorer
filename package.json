@@ -24,7 +24,7 @@
     "babel-preset-env": "^1.7.0",
     "connected-react-router": "^6.4.0",
     "history": "^4.9.0",
-    "mini-css-extract-plugin": "^0.7.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "prop-types": "^15.7.2",
     "react-router": "^5.0.1",
     "react-router-redux": "^4.0.8",
