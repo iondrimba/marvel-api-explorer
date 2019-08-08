@@ -48,7 +48,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-webpack-loaders": "0.9.0",
     "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
+    "browserify": "^16.4.0",
     "browserify-istanbul": "^3.0.1",
     "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
