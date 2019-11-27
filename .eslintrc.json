@@ -1,12 +1,10 @@
 {
   "globals": {
-    "PRODUCTION": true,
-    "describe": true,
-    "it": true,
-    "expect": true
+    "PRODUCTION": true
   },
   "plugins": [
-    "react"
+    "react",
+    "jest"
   ],
   "extends": [
     "eslint:recommended",
@@ -23,7 +21,8 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "rules": {
     "eqeqeq": 1,

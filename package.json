@@ -8,9 +8,18 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --config webpack.dev.js",
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.prod.js",
+    "start": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --config webpack.dev.js",
+    "test": "jest --coverage --testMatch '**/*.test.js'",
     "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
+  },
+  "jest": {
+    "notify": false,
+    "clearMocks": true,
+    "restoreMocks": true,
+    "collectCoverageFrom": [
+      "test/**.js"
+    ]
   },
   "repository": {
     "type": "git",
