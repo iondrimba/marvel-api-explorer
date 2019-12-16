@@ -40,14 +40,7 @@ class Api {
   }
 
   get(options) {
-    return this.instance.get(this.appendParameters(options.url, options))
-      .then((resolve) => {
-        return resolve;
-      }, (reject) => {
-        return Promise.reject(reject);
-      }).catch((error) => {
-        throw error;
-      });
+    return this.instance.get(this.appendParameters(options.url, options));
   }
 }
 
