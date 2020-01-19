@@ -26,9 +26,15 @@ module.exports = {
         statuses: [0, 200]
       }
     }
-  }],
+	}],
+	modifyURLPrefix: {
+		// Remove a '/dist' prefix from the URLs:
+		'/comics/detail/': ''
+	},
+	cleanupOutdatedCaches: true,
   clientsClaim: true,
   skipWaiting: true,
-  globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
-  globDirectory: './public'
+	globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
+	globFollow: false,
+  globDirectory: './public/'
 }

@@ -24,19 +24,19 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "1.9109a6f529812473f8f5.js",
+    "url": "https://marvelapi.iondrimbafilho.me/1.9109a6f529812473f8f5.js",
     "revision": "4718c6937b46e860204e89192cf92b2c"
   },
   {
-    "url": "2.9109a6f529812473f8f5.js",
+    "url": "https://marvelapi.iondrimbafilho.me//2.9109a6f529812473f8f5.js",
     "revision": "5f682630ba935747c8ea751a9e1c262e"
   },
   {
-    "url": "3.9109a6f529812473f8f5.js",
+    "url": "https://marvelapi.iondrimbafilho.me//3.9109a6f529812473f8f5.js",
     "revision": "c28cc9f2a9bbca2590e3350f2e08767d"
   },
   {
-    "url": "app.9109a6f529812473f8f5.js",
+    "url": "https://marvelapi.iondrimbafilho.me//app.9109a6f529812473f8f5.js",
     "revision": "cb8222625500580fc2c4e61d222ce126"
   },
   {
@@ -73,6 +73,8 @@ self.__precacheManifest = [
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.precaching.cleanupOutdatedCaches();
 
 workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, new workbox.strategies.CacheFirst({ "cacheName":"api-cache", plugins: [new workbox.expiration.Plugin({ maxEntries: 20, maxAgeSeconds: 36000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/gateway.marvel.com\/v1\/public\/.+/, new workbox.strategies.StaleWhileRevalidate({ plugins: [new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
