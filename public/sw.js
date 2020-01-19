@@ -24,19 +24,19 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "https://marvelapi.iondrimbafilho.me/1.9109a6f529812473f8f5.js",
+    "url": "/1.9109a6f529812473f8f5.js",
     "revision": "4718c6937b46e860204e89192cf92b2c"
   },
   {
-    "url": "https://marvelapi.iondrimbafilho.me//2.9109a6f529812473f8f5.js",
+    "url": "/2.9109a6f529812473f8f5.js",
     "revision": "5f682630ba935747c8ea751a9e1c262e"
   },
   {
-    "url": "https://marvelapi.iondrimbafilho.me//3.9109a6f529812473f8f5.js",
+    "url": "/3.9109a6f529812473f8f5.js",
     "revision": "c28cc9f2a9bbca2590e3350f2e08767d"
   },
   {
-    "url": "https://marvelapi.iondrimbafilho.me//app.9109a6f529812473f8f5.js",
+    "url": "/app.9109a6f529812473f8f5.js",
     "revision": "cb8222625500580fc2c4e61d222ce126"
   },
   {
