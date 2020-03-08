@@ -10,6 +10,9 @@
   "env": {
     "testing": {
       "sourceMap": "inline"
+    },
+    "test": {
+      "plugins": ["@babel/plugin-transform-runtime"]
     }
   }
 }
