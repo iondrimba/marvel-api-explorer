@@ -4,7 +4,10 @@ const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  mode: 'production',
+	mode: 'production',
+  output: {
+    publicPath: '/',
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: './css/[name].[hash].css',

@@ -3,7 +3,7 @@ module.exports = {
   runtimeCaching: [{
     // Match any same-origin request that contains 'api'.
     urlPattern: new RegExp('^https\:\/\/gateway.marvel.com\/v1\/public\/.+'),
-    handler: 'cacheFirst',
+    handler: 'CacheFirst',
     options: {
       // Use a custom cache name for this route.
       cacheName: 'api-cache',
@@ -20,15 +20,17 @@ module.exports = {
   },
   {
     urlPattern: new RegExp('^https\:\/\/gateway.marvel.com\/v1\/public\/.+'),
-    handler: 'staleWhileRevalidate',
+    handler: 'StaleWhileRevalidate',
     options: {
       cacheableResponse: {
         statuses: [0, 200]
       }
     }
-  }],
+	}],
+	cleanupOutdatedCaches: true,
   clientsClaim: true,
   skipWaiting: true,
-  globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
-  globDirectory: './public'
+	globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
+	globFollow: false,
+  globDirectory: './public/'
 }
