@@ -14,14 +14,17 @@
     "test:watch": "npm run test -- --watch",
     "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
+
   "jest": {
     "notify": false,
     "clearMocks": true,
     "restoreMocks": true,
+    "collectCoverage": true,
     "collectCoverageFrom": [
-      "test/**.js"
+      "src/**/*.{js,jsx,ts}"
     ]
   },
+
   "repository": {
     "type": "git",
     "url": "git@github.com:iondrimba/marvel-api-explorer.git"
