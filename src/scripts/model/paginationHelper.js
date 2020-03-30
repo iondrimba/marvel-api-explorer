@@ -64,13 +64,13 @@ class PaginationHelper {
 
   getPrev(pagination) {
     if (this.hasPrev(pagination)) {
-      return pagination.current--;
+      return --pagination.current;
     }
   }
 
   getNext(pagination) {
     if (this.hasNext(pagination)) {
-      return pagination.current++;
+      return ++pagination.current;
     }
   }
 }

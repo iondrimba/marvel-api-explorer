@@ -154,9 +154,9 @@ describe('paginationHelper', () => {
     const helper = new PaginationHelper();
 
 
-    it('returns previousPage when totalPagination > 0 and current > 1', () => {
-      expect(helper.getPrev({ total: 10, current: 5 })).toEqual(5);
-      expect(helper.getPrev({ total: 4, current: 3 })).toEqual(3);
+    it('returns previousPage(current - 1) when totalPagination > 0 and current > 1', () => {
+      expect(helper.getPrev({ total: 10, current: 5 })).toEqual(4);
+      expect(helper.getPrev({ total: 4, current: 3 })).toEqual(2);
     });
 
 
@@ -170,13 +170,13 @@ describe('paginationHelper', () => {
     const helper = new PaginationHelper();
 
 
-    it('returns nextPage when totalPagination > 0 and current > 1', () => {
-      expect(helper.getNext({ total: 10, current: 5 })).toEqual(5);
-      expect(helper.getNext({ total: 4, current: 3 })).toEqual(3);
+    it('returns nextPage(current + 1) when totalPagination > 0 and current > 1', () => {
+      expect(helper.getNext({ total: 10, current: 5 })).toEqual(6);
+      expect(helper.getNext({ total: 4, current: 3 })).toEqual(4);
     });
 
 
-    it('returns false when totalPagination < 0 and current <= 11', () => {
+    it('returns undefined when totalPagination < 0 and current <= 11', () => {
       expect(helper.getNext({ total: 0, current: 1 })).toEqual(undefined);
       expect(helper.getNext({ total: 0, current: 0 })).toEqual(undefined);
     });
