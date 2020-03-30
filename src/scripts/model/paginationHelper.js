@@ -43,6 +43,7 @@ class PaginationHelper {
       this.mountGroups(pagination.total),
       this.groupPages(pagination.current - 1)
     );
+
     return pages <= 1 ? [] : pages;
   }
 

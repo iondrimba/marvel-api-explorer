@@ -64,4 +64,121 @@ describe('paginationHelper', () => {
       expect(helper.getCurrentGroup(groups, 2)).toEqual([10]);
     });
   });
+
+  describe('groupPages', () => {
+    const helper = new PaginationHelper();
+
+    it('returns 0 when currentPage < 5', () => {
+      expect(helper.groupPages(1)).toEqual(0);
+      expect(helper.groupPages(3)).toEqual(0);
+      expect(helper.groupPages(4)).toEqual(0);
+    });
+
+    it('returns 1 when currentPage > 5 and < 10', () => {
+      expect(helper.groupPages(6)).toEqual(1);
+      expect(helper.groupPages(8)).toEqual(1);
+      expect(helper.groupPages(9)).toEqual(1);
+    });
+  });
+
+  describe('getPages', () => {
+    const helper = new PaginationHelper();
+
+    it('returns an empty array when totalElement <= 1', () => {
+      expect(helper.getPages({ total: 0, current: 1 })).toEqual([]);
+      expect(helper.getPages({ total: 1, current: 1 })).toEqual([]);
+    });
+
+    it('returns [0, 1, 2, 3, 4] when currentPagination <= 5', () => {
+      expect(helper.getPages({ total: 5, current: 1 })).toEqual([0, 1, 2, 3, 4]);
+      expect(helper.getPages({ total: 5, current: 5 })).toEqual([0, 1, 2, 3, 4]);
+    });
+
+    it('returns [5, 6, 7, 8, 9] when currentPagination < 5 and <= 10', () => {
+      expect(helper.getPages({ total: 10, current: 6 })).toEqual([5, 6, 7, 8, 9]);
+      expect(helper.getPages({ total: 10, current: 10 })).toEqual([5, 6, 7, 8, 9]);
+    });
+  });
+
+  describe('getTotalPages', () => {
+    const helper = new PaginationHelper();
+
+    it('returns 2 when totalItens = 10 and maxPages = 5', () => {
+      expect(helper.getTotalPages(10, 5)).toEqual(2);
+    });
+
+    it('returns 20 when totalItens = 100 and maxPages = 5', () => {
+      expect(helper.getTotalPages(100, 5)).toEqual(20);
+    });
+
+    it('returns 200 when totalItens = 1000 and maxPages = 5', () => {
+      expect(helper.getTotalPages(1000, 5)).toEqual(200);
+    });
+  });
+
+  describe('hasNext', () => {
+    const helper = new PaginationHelper();
+
+    it('returns false when totalPagination <= 1', () => {
+      expect(helper.hasNext({ total: 0, current: 1 })).toEqual(false);
+      expect(helper.hasNext({ total: 1, current: 1 })).toEqual(false);
+    });
+
+    it('returns false when totalPagination <= current', () => {
+      expect(helper.hasNext({ total: 3, current: 5 })).toEqual(false);
+      expect(helper.hasNext({ total: 4, current: 4 })).toEqual(false);
+    });
+
+    it('returns true when totalPagination > current', () => {
+      expect(helper.hasNext({ total: 10, current: 5 })).toEqual(true);
+      expect(helper.hasNext({ total: 4, current: 3 })).toEqual(true);
+    });
+  });
+
+  describe('hasPrev', () => {
+    const helper = new PaginationHelper();
+
+    it('returns true when totalPagination > 0 and current > 1', () => {
+      expect(helper.hasPrev({ total: 1, current: 2 })).toEqual(true);
+      expect(helper.hasPrev({ total: 10, current: 5 })).toEqual(true);
+      expect(helper.hasPrev({ total: 4, current: 3 })).toEqual(true);
+    });
+
+    it('returns false when totalPagination < 0 and current <= 1', () => {
+      expect(helper.hasPrev({ total: 0, current: 1 })).toEqual(false);
+      expect(helper.hasPrev({ total: 0, current: 0 })).toEqual(false);
+    });
+  });
+
+  describe('getPrev', () => {
+    const helper = new PaginationHelper();
+
+
+    it('returns previousPage when totalPagination > 0 and current > 1', () => {
+      expect(helper.getPrev({ total: 10, current: 5 })).toEqual(5);
+      expect(helper.getPrev({ total: 4, current: 3 })).toEqual(3);
+    });
+
+
+    it('returns false when totalPagination < 0 and current <= 11', () => {
+      expect(helper.getPrev({ total: 0, current: 1 })).toEqual(undefined);
+      expect(helper.getPrev({ total: 0, current: 0 })).toEqual(undefined);
+    });
+  });
+
+  describe('getNext', () => {
+    const helper = new PaginationHelper();
+
+
+    it('returns nextPage when totalPagination > 0 and current > 1', () => {
+      expect(helper.getNext({ total: 10, current: 5 })).toEqual(5);
+      expect(helper.getNext({ total: 4, current: 3 })).toEqual(3);
+    });
+
+
+    it('returns false when totalPagination < 0 and current <= 11', () => {
+      expect(helper.getNext({ total: 0, current: 1 })).toEqual(undefined);
+      expect(helper.getNext({ total: 0, current: 0 })).toEqual(undefined);
+    });
+  });
 });
