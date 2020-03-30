@@ -43,6 +43,7 @@ class PaginationHelper {
       this.mountGroups(pagination.total),
       this.groupPages(pagination.current - 1)
     );
+
     return pages <= 1 ? [] : pages;
   }
 
@@ -63,13 +64,13 @@ class PaginationHelper {
 
   getPrev(pagination) {
     if (this.hasPrev(pagination)) {
-      return pagination.current--;
+      return --pagination.current;
     }
   }
 
   getNext(pagination) {
     if (this.hasNext(pagination)) {
-      return pagination.current++;
+      return ++pagination.current;
     }
   }
 }

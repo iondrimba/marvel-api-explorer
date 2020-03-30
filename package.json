@@ -8,10 +8,23 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --config webpack.dev.js",
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.prod.js",
+    "start": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --config webpack.dev.js",
+    "test": "jest --coverage --testMatch '**/*.test.js'",
+    "test:watch": "npm run test -- --watch",
     "workbox": "./node_modules/.bin/workbox generateSW workbox-config.js"
   },
+
+  "jest": {
+    "notify": false,
+    "clearMocks": true,
+    "restoreMocks": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts}"
+    ]
+  },
+
   "repository": {
     "type": "git",
     "url": "git@github.com:iondrimba/marvel-api-explorer.git"
@@ -55,6 +68,7 @@
     "enzyme": "^3.11.0",
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.3",
+    "eslint-plugin-jest": "^23.6.0",
     "eslint-plugin-react": "^7.19.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.0.0",
@@ -62,6 +76,7 @@
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^4.0.2",
     "image-webpack-loader": "^6.0.0",
+    "jest": "^24.9.0",
     "json-loader": "^0.5.4",
     "node-sass": "^4.13.1",
     "postcss-cssnext": "^3.1.0",
