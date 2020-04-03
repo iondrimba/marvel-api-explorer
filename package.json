@@ -76,7 +76,7 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",
     "image-webpack-loader": "^6.0.0",
-    "jest": "^25.2.6",
+    "jest": "^25.2.7",
     "json-loader": "^0.5.4",
     "node-sass": "^4.13.1",
     "postcss-cssnext": "^3.1.0",
