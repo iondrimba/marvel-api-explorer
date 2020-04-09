@@ -98,7 +98,7 @@
     "stylelint-webpack-plugin": "^1.2.3",
     "sw-precache-webpack-plugin": "^1.0.0",
     "system": "^2.0.1",
-    "url-loader": "^4.0.0",
+    "url-loader": "^4.1.0",
     "webpack": "^4.42.1",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.3.11",
