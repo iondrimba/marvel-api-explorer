@@ -103,35 +103,37 @@ const config = {
       template: './src/index.html',
       inject: 'body'
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/manifest.webmanifest', to: 'manifest.webmanifest'
-      },
-      {
-        from: 'src/.htaccess'
-      },
-      {
-        from: 'src/favicon.ico', to: 'favicon.ico'
-      },
-      {
-        from: './robots.txt', to: 'robots.txt'
-      },
-      {
-        from: 'src/browserconfig.xml', to: 'browserconfig.xml'
-      },
-      {
-        from: 'src/favicon-16x16.png', to: 'favicon-16x16.png'
-      },
-      {
-        from: 'src/favicon-32x32.png', to: 'favicon-32x32.png'
-      },
-      {
-        from: 'src/favicon-48x48.png', to: 'favicon-48x48.png'
-      },
-      {
-        from: 'src/images', to: 'images'
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/manifest.webmanifest', to: 'manifest.webmanifest'
+        },
+        {
+          from: 'src/.htaccess'
+        },
+        {
+          from: 'src/favicon.ico', to: 'favicon.ico'
+        },
+        {
+          from: './robots.txt', to: 'robots.txt'
+        },
+        {
+          from: 'src/browserconfig.xml', to: 'browserconfig.xml'
+        },
+        {
+          from: 'src/favicon-16x16.png', to: 'favicon-16x16.png'
+        },
+        {
+          from: 'src/favicon-32x32.png', to: 'favicon-32x32.png'
+        },
+        {
+          from: 'src/favicon-48x48.png', to: 'favicon-48x48.png'
+        },
+        {
+          from: 'src/images', to: 'images'
+        },
+      ],
+    }),
     new webpack.EnvironmentPlugin([
       'NODE_ENV'
     ]),
