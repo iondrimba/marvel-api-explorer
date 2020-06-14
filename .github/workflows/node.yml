@@ -24,6 +24,29 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      env:
+        CI: true
+        API_KEY: ${{ secrets.API_KEY }}
     - run: npm ci
-    - run: npm run prod
-    - run: npm test
+    - run: npm set apikey=$API_KEY && npm run prod && npm run workbox
+
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - uses: paambaati/codeclimate-action@v2.6.0
+      env:
+        CI: true
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      with:
+        coverageCommand: npm run coverage

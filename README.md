@@ -1,10 +1,9 @@
 # :mortar_board: Marvel API Explorer
 
-[![Build Status](https://travis-ci.org/iondrimba/marvel-api-explorer.svg?branch=master)](https://travis-ci.org/iondrimba/marvel-api-explorer)
-[![Build status](https://ci.appveyor.com/api/projects/status/8hnh3ocsbitbq4oc?svg=true)](https://ci.appveyor.com/project/iondrimba/marvel-api-explorer)
-[![Build status](https://david-dm.org/iondrimba/marvel-api-explorer.svg)](https://david-dm.org/iondrimba/marvel-api-explorer?view=list)
+![CI](https://github.com/iondrimba/marvel-api-explorer/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/iondrimba/marvel-api-explorer/badge.svg)](https://coveralls.io/github/iondrimba/marvel-api-explorer)
-[![Code Climate](https://codeclimate.com/github/iondrimba/marvel-api-explorer/badges/gpa.svg)](https://codeclimate.com/github/iondrimba/marvel-api-explorer) [![CircleCI](https://circleci.com/gh/iondrimba/marvel-api-explorer.svg?style=svg)](https://circleci.com/gh/iondrimba/marvel-api-explorer) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=iondrimba/marvel-api-explorer)](https://dependabot.com)
+[![Code Climate](https://codeclimate.com/github/iondrimba/marvel-api-explorer/badges/gpa.svg)](https://codeclimate.com/github/iondrimba/marvel-api-explorer)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=iondrimba/marvel-api-explorer)](https://dependabot.com)
 
 ![Demo](https://github.com/iondrimba/images/blob/master/marvel-demo.gif?raw=true)
 
