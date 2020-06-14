@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.prod.js",
     "start": "cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --config webpack.dev.js",
     "test": "jest --coverage --testMatch '**/*.test.js'",
@@ -23,6 +24,11 @@
       "src/**/*.{js,jsx,ts}"
     ]
   },
+  "resolutions": {
+    "yargs-parser": ">=18.1.2",
+    "braces": ">=3.0.2",
+    "minimist": "^1.2.5"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:iondrimba/marvel-api-explorer.git"
@@ -34,6 +40,7 @@
     "connected-react-router": "^6.6.1",
     "history": "^4.10.1",
     "mini-css-extract-plugin": "^0.9.0",
+    "npm-force-resolutions": "0.0.3",
     "prop-types": "^15.7.2",
     "react-router": "^5.2.0",
     "react-router-redux": "^4.0.8",
