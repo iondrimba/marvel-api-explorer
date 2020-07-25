@@ -1,4 +1,3 @@
 *.json
 /public/
 /coverage/
-*.js
