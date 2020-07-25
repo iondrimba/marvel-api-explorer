@@ -1,1 +1,4 @@
 *.json
+/public/
+/coverage/
+*.js
