@@ -16,10 +16,9 @@ jobs:
 
     steps:
       - name: SSH Deploy
-        if: github.ref == 'refs/heads/master'
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: cd /var/www/marvelapi.iondrimbafilho.me/public_html && git pull
-          host: ${{ secrets.DIGITAL_OCEAN_IP }}
-          username: root
-          privateKey: ${{ secrets.SSH_DIGITAL_OCEAN}}
+          command: cd ${{ secrets.FOLDER }} && git pull
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
