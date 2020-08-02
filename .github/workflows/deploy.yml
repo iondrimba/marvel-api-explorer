@@ -15,8 +15,8 @@ jobs:
         node-version: [14.x]
 
     steps:
-      if: github.ref == 'refs/heads/master'
       - name: SSH Deploy
+        if: github.event.pull_request.merged
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: cd /var/www/marvelapi.iondrimbafilho.me/public_html && git pull
