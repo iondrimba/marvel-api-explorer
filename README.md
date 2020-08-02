@@ -1,9 +1,9 @@
 # :mortar_board: Marvel API Explorer
 
 ![build](https://github.com/iondrimba/marvel-api-explorer/workflows/build/badge.svg)
+![deploy](https://github.com/iondrimba/marvel-api-explorer/workflows/deploy/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/iondrimba/marvel-api-explorer/badge.svg)](https://coveralls.io/github/iondrimba/marvel-api-explorer)
 [![Code Climate](https://codeclimate.com/github/iondrimba/marvel-api-explorer/badges/gpa.svg)](https://codeclimate.com/github/iondrimba/marvel-api-explorer)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=iondrimba/marvel-api-explorer)](https://dependabot.com)
 
 ![Demo](https://github.com/iondrimba/images/blob/master/marvel-demo.gif?raw=true)
 

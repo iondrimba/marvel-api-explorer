@@ -30,8 +30,8 @@ jobs:
     - run: npm ci
     - run: npm set apikey=$API_KEY && npm run prod && npm run workbox
 
-  coverage:
-    name: coverage
+  test:
+    name: test
     runs-on: ubuntu-latest
     strategy:
       matrix:
