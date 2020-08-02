@@ -13,8 +13,9 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-    if: github.ref == 'refs/heads/master'
+
     steps:
+      if: github.ref == 'refs/heads/master'
       - name: SSH Deploy
         uses: garygrossgarten/github-action-ssh@release
         with:
