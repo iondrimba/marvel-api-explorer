@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: SSH Deploy
-        if: github.event.pull_request.merged
+        if: github.ref == 'refs/heads/master'
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: cd /var/www/marvelapi.iondrimbafilho.me/public_html && git pull
