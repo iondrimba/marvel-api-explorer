@@ -26,11 +26,11 @@ module.exports = {
         statuses: [0, 200]
       }
     }
-	}],
-	cleanupOutdatedCaches: true,
+  }],
+  cleanupOutdatedCaches: true,
   clientsClaim: true,
   skipWaiting: true,
-	globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
-	globFollow: false,
+  globPatterns: ['**/*.{js,html,css,woff2,woff,svg}'],
+  globFollow: false,
   globDirectory: './public/'
 }
