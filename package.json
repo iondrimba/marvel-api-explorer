@@ -97,7 +97,7 @@
     "redux": "^4.0.5",
     "reselect": "^4.0.0",
     "resolve-url-loader": "^3.1.1",
-    "sass-loader": "^10.0.1",
+    "sass-loader": "^10.1.0",
     "style-loader": "^1.2.1",
     "stylefmt": "^6.0.3",
     "stylelint-config-standard": "^20.0.0",
