@@ -79,7 +79,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.2.0",
     "hammerjs": "^2.0.8",
-    "html-loader": "^1.3.0",
+    "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.4.1",
     "image-webpack-loader": "^6.0.0",
     "jest": "^26.4.2",
