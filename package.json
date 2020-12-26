@@ -69,7 +69,7 @@
     "browserify-istanbul": "^3.0.1",
     "compression-webpack-plugin": "^6.1.1",
     "copy-webpack-plugin": "^6.3.2",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
     "eslint": "^7.15.0",
