@@ -105,7 +105,7 @@
     "sw-precache-webpack-plugin": "^1.0.0",
     "system": "^2.0.1",
     "url-loader": "^4.1.1",
-    "webpack": "^4.44.2",
+    "webpack": "^4.46.0",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.1",
