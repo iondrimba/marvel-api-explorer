@@ -51,7 +51,7 @@
     "workbox-cli": "^3.6.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.16",
+    "@babel/cli": "^7.12.17",
     "@babel/core": "^7.12.16",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.13",
     "@babel/plugin-transform-runtime": "^7.12.15",
