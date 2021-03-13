@@ -4,7 +4,8 @@
   "main": "",
   "author": "Ion D. FIlho <iondrimba@gmail.com>",
   "engines": {
-    "node": ">=10"
+    "node": "15.11.0",
+    "npm": "7.6.0"
   },
   "license": "MIT",
   "scripts": {
