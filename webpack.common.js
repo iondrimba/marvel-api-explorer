@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
@@ -63,17 +63,28 @@ const config = {
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]',
+        }
       },
       {
         test: /\.(mp3)$/,
-        loader: 'file-loader?name=sounds/[name].[ext]'
+        loader: 'file-loader',
+        options: {
+          name: 'sounds/[name].[ext]',
+        }
       },
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
-            loader: 'file-loader?hash=sha512&digest=hex&name=images/[name].[hash].[ext]',
+            loader: 'file-loader',
+            options: {
+              hash: 'sha512',
+              digest: 'hex',
+              name: 'images/[name].[hash].[ext]',
+            }
           },
           {
             loader: 'image-webpack-loader',
@@ -97,7 +108,7 @@ const config = {
   },
 
   plugins: [
-    new WebpackCleanupPlugin(),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Marvel API Demo',
       template: './src/index.html',
