@@ -105,7 +105,7 @@
     "system": "^2.0.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.36.1",
-    "webpack-cli": "^4.5.0",
+    "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
     "workbox-sw": "^6.1.2",
     "workbox-webpack-plugin": "^6.1.2"
