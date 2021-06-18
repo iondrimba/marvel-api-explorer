@@ -5,7 +5,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/iondrimba/marvel-api-explorer/badge.svg)](https://coveralls.io/github/iondrimba/marvel-api-explorer)
 [![Code Climate](https://codeclimate.com/github/iondrimba/marvel-api-explorer/badges/gpa.svg)](https://codeclimate.com/github/iondrimba/marvel-api-explorer)
 
-![Demo](https://github.com/iondrimba/images/blob/main/marvel-demo.gif?raw=true)
+![Demo](https://github.com/iondrimba/images/blob/master/marvel-demo.gif?raw=true)
 
 ## About
 
