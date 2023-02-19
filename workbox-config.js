@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   {
-    urlPattern: new RegExp(/https\:\/\/gateway.marvel.com\/v1\/public\/.+/g),
+    urlPattern: new RegExp(/https\:\/\/gateway\.marvel\.com\/v1\/public\/.+/g),
     handler: 'staleWhileRevalidate',
     options: {
       cacheableResponse: {
