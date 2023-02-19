@@ -2,7 +2,7 @@ module.exports = {
   swDest: 'public/sw.js',
   runtimeCaching: [{
     // Match any same-origin request that contains 'api'.
-    urlPattern: new RegExp(/https\:\/\/gateway.marvel.com\/v1\/public\/.+/g),
+    urlPattern: new RegExp(/https\:\/\/gateway\.marvel\.com\/v1\/public\/.+/g),
     handler: 'cacheFirst',
     options: {
       // Use a custom cache name for this route.
