@@ -8,7 +8,7 @@ import Api from './api';
 
 export const history = createBrowserHistory();
 
-const api = new Api(process.env.PUBLIC_API_KEY, 'bff1bb03adcde1c4dcb3417d64511e0b');
+const api = new Api('13065ce22cdecaf8358b1b56dc54e2c7', 'bff1bb03adcde1c4dcb3417d64511e0b');
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default createStore(RootReducer(history), defaultStore,
