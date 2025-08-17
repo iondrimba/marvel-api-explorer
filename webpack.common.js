@@ -150,8 +150,8 @@ const config = {
     ]),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
-        'API_KEY': JSON.stringify('13065ce22cdecaf8358b1b56dc54e2c7')
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        'PUBLIC_API_KEY': JSON.stringify(process.env.PUBLIC_API_KEY),
       }
     }),
   ]

@@ -8,6 +8,7 @@
     "npm": "7.6.0"
   },
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "prod": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config webpack.prod.js",
@@ -28,7 +29,6 @@
   "resolutions": {
     "yargs-parser": ">=18.1.2",
     "braces": ">=3.0.2",
-    "minimist": "^1.2.5",
     "dot-prop": ">=5.1.1"
   },
   "repository": {

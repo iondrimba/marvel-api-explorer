@@ -26,9 +26,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
       env:
         CI: true
-        API_KEY: ${{ secrets.API_KEY }}
+        API_KEY: ${{ secrets.PUBLIC_API_KEY }}
     - run: npm ci
-    - run: npm set apikey=$API_KEY && npm run prod && npm run workbox
+    - run: npm set apikey=$PUBLIC_API_KEY && npm run prod && npm run workbox
 
   test:
     name: test

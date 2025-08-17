@@ -2,8 +2,9 @@ import apiKeys from '../../../api.keys';
 import axios from 'axios';
 
 class Api {
-  constructor(API_KEY) {
+  constructor(API_KEY, HASH) {
     this.publicKey = API_KEY;
+    this.hash = HASH;
     this.timeout = 10000;
     this.options = {
       limit: 15,
@@ -18,7 +19,8 @@ class Api {
 
   appendParameters(url, options) {
     let { page, orderBy, titleStartsWith, nameStartsWith } = options;
-    let fetchUrl = `${url}?apikey=${this.publicKey}`;
+    let fetchUrl = `${url}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`;
+    console.log(`Appending parameters to URL: ${fetchUrl}`);
 
     this.options.offset = 0;
 
