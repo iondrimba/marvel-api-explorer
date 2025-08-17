@@ -4,11 +4,14 @@
 name: deploy
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["build"]
+    types:
+      - completed
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,23 +25,3 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}
           privateKey: ${{ secrets.PRIVATE_KEY}}
-  test:
-    name: test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [15.11.0]
-
-    steps:
-    - uses: actions/checkout@main
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@main
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - uses: paambaati/codeclimate-action@v2.6.0
-      env:
-        CI: true
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-      with:
-        coverageCommand: npm test
