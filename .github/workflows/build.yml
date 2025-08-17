@@ -19,16 +19,16 @@ jobs:
         node-version: [15.11.0]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
       env:
         CI: true
-        API_KEY: ${{ secrets.PUBLIC_API_KEY }}
+        PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
     - run: npm ci
-    - run: npm set apikey=$PUBLIC_API_KEY && npm run prod && npm run workbox
+    - run: npm set apikey=$PUBLIC_API_KEY && npm run prod
 
   test:
     name: test
