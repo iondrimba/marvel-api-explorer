@@ -28,6 +28,7 @@
     "eqeqeq": 1,
     "no-unused-vars": 0,
     "no-console": 0,
+    "react/no-deprecated": 0,
     "curly": 1,
     "quotes": [
       1,

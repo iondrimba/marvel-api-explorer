@@ -28,7 +28,7 @@ jobs:
         CI: true
         PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
     - run: npm ci
-    - run: npm set apikey=$PUBLIC_API_KEY && npm run prod
+    - run: npm set apikey=$PUBLIC_API_KEY && npm run prod && npm run workbox
 
   test:
     name: test
